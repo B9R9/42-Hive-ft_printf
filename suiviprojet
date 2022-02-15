@@ -1,0 +1,38 @@
+Projet visant a recoder la recoder la fucntion printf
+
+Prototype:
+	int	printf (const char *restrict format, ...)
+
+printf:
+	 format and print data
+Description:
+	Print argument(s) according to Format, or execute according to option
+	
+	--help display man and exit
+	--version output version information and exit
+	ecrit sur le STDOUT
+
+Valeur renvoye:
+	Si elle reussit, cette fucntion renvoie le nombre de caracteres imprimes,
+sans l octel \0 final dans les chaines
+
+FONCTION VARIADIQUE:
+
+#include <stdarg.h>
+
+void print(consr char *str, ...)
+{
+	char *containeur;
+	va_list ap; //recuere les arguments
+	va_start(ap, str);inialise le debut des arguments variables avec le dernier
+argument connus
+	containeur = va_arg(ap, char *)//permet dacceder a  l argument en precisant
+le type de la variable
+	printf("%s\n",str);
+	printf("%s\n",containeur);
+	containeur = va_arg(ap, char *)//acces au 2 deuxieme arguement
+
+	va_end(ap); libere la macro
+}
+
+
