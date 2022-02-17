@@ -35,4 +35,7 @@ le type de la variable
 	va_end(ap); libere la macro
 }
 
+Problematique:
+	-> Allocation memoire:
+		str sera toujours plus pe
 

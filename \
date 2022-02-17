@@ -6,13 +6,19 @@
 #include "libft.h"
 
 
-
-void	print( char *str, ...)
+int	checkdelimiter(char *str)
 {
+	int i = 0;
+
+	while
+}
+
+void	print(const char *str, ...)
+{
+	int i = 0;
 	char	*contain;
 
-	contain = "hello";
-	contain = contain + str;
+	contain = "hello" + "world";
 /*
 	va_list args;
 	va_start(args, str);
@@ -33,7 +39,6 @@ void	print( char *str, ...)
 	
 	va_end(args);*/
 	printf("%s", contain);
-	printf("%s", str);
 
 }
 
