@@ -5,50 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/18 11:19:02 by briffard          #+#    #+#              #
-#    Updated: 2022/02/18 13:20:56 by briffard         ###   ########.fr        #
+#    Created: 2022/02/18 11:02:57 by briffard          #+#    #+#              #
+#    Updated: 2022/02/18 14:50:14 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#EXECUTABLE
-NAME		=		test
+NAME	=	libftprintf.a
 
-#HEADER FILE
-SRCS		=		main.c
-SRCS_DIR	=		./srcs/
+FILES	=	ft_strdup.c	ft_strlen.c	ft_strnew.c	ft_strjoin.c	ft_strsub.c	ft_printf.c
 
-OBJ_DIR		=		./objects/
-OBJ			=		$(addprefix $(OBJ-DIR), $(SRCS;.c=.o))
+INCL	=	./includes/
 
-#LIBFT Library
-INCL_LIBFT	=	./libft/includes/
-LIBFT		=	./libft/ -lft
+OBJ		=	$(FILE:.c=.o)
 
-#FT_PRINTF Library
-INCL_FT_PRINTF	=	./ft_printf/includes/
-LFT_PRINTF		=	./ft_printf/ -lftprintf
+RM		=	rm -f
 
-#COMPILATION
-CC			=	gcc
-CCFLAGS		=	-Werror -Wextra -Wall
+CC		=	gcc
+CCFLAGS	=	-Wall -Wextra -Werror
 
-#DELETE
-RM			=	rm -f
-RM_D		=	rm -rf
 
 all: $(NAME)
 
 $(NAME):
-	make -C ft_printf/ fclean && make -C ft_printf/
-	$(CC) $(CCFLAGS) -I$(INCL_FT_PRINTF) -o $@  ./srcs/main.c  -L $(LFT_PRINTF)
+	$(CC) $(CCFLAGS) -I $(INCL) -c $(FILES) 
+	ar rc $(NAME) *.o
+	ranlib $(NAME)
 
 clean:
-	$(RM_d) $(OBJ_DIR)
-	make -C ft_printf/ clean
+	$(RM) *.o
 
-fclean:
+fclean: clean
 	$(RM) $(NAME)
-	make -C ft_printf/ fclean
 
 re: fclean all
 

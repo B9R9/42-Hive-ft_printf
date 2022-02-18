@@ -39,3 +39,10 @@ Problematique:
 	-> Allocation memoire:
 		str sera toujours plus pe
 
+
+18/02
+->	makefile done
+->	problematique pour affcher la derniere partie de la str si \n a tester avec
+du test
+-> essayer de tranfomer strplit peut etre utile
+-> 
