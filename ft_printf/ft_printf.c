@@ -41,36 +41,24 @@ static	int	index_of(const char *str, int index)
 
 int	ft_printf(const char *str, ...)
 {
-	size_t		index;
-	size_t		lastone;
-	char	*containeur[5];
-	int x = 0;
-	index = 0;
-	va_list ap;
-	va_start(ap,str);
+	int		i;
+	int		lenght;
+	va_list	ap;
 
-	if (!str)
-		printf("STR == NULL imprimer l usage de la fucntion");
-	lastone = 0;
-	while (str[index] != '\0')
+	va_start(ap, str);
+	i = 0;
+	length = 0;
+	while( str[i] != '\0')
 	{
-		index = index_of(str, lastone);
-		containeur[x] = ft_strsub(str, lastone, index - lastone);
-		lastone = index + 2;
-		x++;
-		if (str[index + 1] == 's')
-			{
-				containeur[x] = ft_strdup(va_arg(ap,char *));
-				lastone = index + 2;
-				x++;
-			}
+		if (str[i] == '%')
+		{
+			length += check_option(ap, str[i + 1]),
+			i++,
+		}
+		else
+			length += ft_printchar(str[i]);
+		i++,
 	}
 	va_end(ap);
-	x = 0;
-	while(x < 4)
-		printf("%s", containeur[x++]);
-
-
-
-	return (1);
+	return (length);
 }
