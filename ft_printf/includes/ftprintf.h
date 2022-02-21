@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:46:23 by briffard          #+#    #+#             */
-/*   Updated: 2022/02/18 14:50:21 by briffard         ###   ########.fr       */
+/*   Updated: 2022/02/21 13:18:22 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
 char	*ft_strnew(size_t size);
 char 	*ft_strdup(const char *s1);
+char	*ft_itoa(int n);
 
 #endif
