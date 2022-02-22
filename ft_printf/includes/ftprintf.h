@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:46:23 by briffard          #+#    #+#             */
-/*   Updated: 2022/02/21 13:18:22 by briffard         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:32:55 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+/*DEFINE*/
+#define hexa "0123456789abcdef"
 
 /*ENUM*/
 typedef enum
@@ -36,5 +39,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_strnew(size_t size);
 char 	*ft_strdup(const char *s1);
 char	*ft_itoa(int n);
+void	ft_memdel(void **ap);
+int		ft_toupper(int c);
 
 #endif

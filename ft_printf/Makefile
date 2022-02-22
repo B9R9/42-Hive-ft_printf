@@ -6,13 +6,13 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 11:02:57 by briffard          #+#    #+#              #
-#    Updated: 2022/02/21 13:16:56 by briffard         ###   ########.fr        #
+#    Updated: 2022/02/22 16:21:01 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
-FILES	=	ft_itoa.c ft_strdup.c	ft_strlen.c	ft_strnew.c	ft_strjoin.c	ft_strsub.c	ft_printf.c
+FILES	=	ft_toupper.c ft_memdel.c ft_itoa.c ft_strdup.c	ft_strlen.c	ft_strnew.c	ft_strjoin.c	ft_strsub.c	ft_printf.c
 
 INCL	=	./includes/
 

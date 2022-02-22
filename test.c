@@ -1,9 +1,16 @@
 
 #include <stdio.h>
-#include "libft.h"
 
 int main (void)
 {
-	printf("%d\n", ft_isalnum('d'));
+	float test = 0.1501;
+	int precision = 5;
+	char	str[100];
+
+	while(i < precision)
+	{
+		str[i] = 
+		i++;
+	}
 	return (1);
 }
