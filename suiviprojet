@@ -47,11 +47,15 @@ du test
 -> essayer de tranfomer strplit peut etre utile
 ->
 
+25/02
+-> flag u done
+
 22/02
--> reste flag u et p
+-> reste flag p
 -> faire les precisions
 -> verifier les  les dirrents scenarios
 -> creer un fichier test
 -? verifier les types assigne
 -> mettre a la NORM
+-> tester les extremes de valeurs genre max int
  

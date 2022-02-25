@@ -70,7 +70,7 @@ char	*doubletostr(double n)
 	return(str);
 }
 
-int		decimaltohexoroct(int c, char a)
+int		decimaltohexoroct(unsigned int c, char a)
 {
 	char	*str;
 	int		index;
@@ -92,6 +92,11 @@ int		decimaltohexoroct(int c, char a)
 			str[index] = hexa[c % 16];
 		else if (a == 'o')
 			str = ft_strjoin(str, ft_itoa(c % 8));
+		if (!str)
+		{
+			ft_memdel((void **)&str);
+			exit(EXIT_FAILURE);
+		}
 		if (ft_isupper(a))
 			str[index] = ft_toupper(str[index]);
 		c = c / coef;
@@ -126,6 +131,55 @@ int	print_str(const char *str)
 	return (index);
 }
 
+//Can't print a int //'
+int	printbit(const unsigned char *ptr)
+{
+	int				count;
+	int				i;
+	unsigned char 	bit;
+	unsigned char 	*b;
+
+	printf("%s\n", ptr);
+
+	i = 0;
+	count = 0;
+	bit = 1 << 7;
+	b = (unsigned char *)ptr;
+	while (b[i] != '\0')
+	{
+		while (bit != 0)
+		{
+			if (b[i] & bit)
+				count += ft_printchar('1');
+			else
+				count += ft_printchar('0');
+			bit >>= 1;
+		}
+		i++;
+		count +=ft_printchar(' ');
+		bit = 0;
+		bit = 1 << 7;
+	}
+	return (count);
+}
+
+int	printunsignedint(unsigned int c)
+{
+	char *str;
+	int count;
+
+	count = 0;
+	 if (c < 0)
+	{
+		str = ft_itoa(maxuint - c);
+		count = print_str(str);
+	}
+	 else
+		 str = ft_itoa(c);
+	 count = print_str(str);
+	return (count);
+}
+
 int		check_option(va_list ap, const char c)
 {
 	int	strlength;
@@ -140,9 +194,13 @@ int		check_option(va_list ap, const char c)
 	else if (c == 'f')
 		return(strlength += print_str(doubletostr(va_arg(ap, double))));
 	else if (c == 'x' || c == 'X')
-		return (strlength += decimaltohexoroct(va_arg(ap,int), c));
+		return (strlength += decimaltohexoroct(va_arg(ap,unsigned int), c));
 	else if (c == 'o')
 		return (strlength += decimaltohexoroct(va_arg(ap, unsigned int), c));
+	else if(c == 'b')
+		return (strlength += printbit(va_arg(ap, unsigned char*)));
+	else if (c == 'u')
+		return (strlength += printunsignedint(va_arg(ap, unsigned int)));
 	else if (c == '%')
 		return (strlength += ft_printchar('%'));
 	return (0);

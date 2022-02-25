@@ -6,15 +6,15 @@
 /*   By: briffard <briffard@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:54:07 by briffard          #+#    #+#             */
-/*   Updated: 2022/02/21 13:17:16 by briffard         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:24:00 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-static int	ft_numlenght(long n)
+static long long	ft_numlenght(long long n)
 {
-	int	count;
+	long long	count;
 
 	count = 0;
 	if (n < 0)
@@ -30,10 +30,10 @@ static int	ft_numlenght(long n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n)
 {
-	long	k;
-	int		i;
+	long long	k;
+	long long	i;
 	char	*str;
 
 	k = n;
