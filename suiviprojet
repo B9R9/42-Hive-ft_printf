@@ -42,16 +42,30 @@ Problematique:
 
 18/02
 ->	makefile done
-->	problematique pour affcher la derniere partie de la str si \n a tester avec
-du test
--> essayer de tranfomer strplit peut etre utile
-->
 
 25/02
 -> flag u done
 
-22/02
--> reste flag p
+28/02
+-> all flag dispo -> done
+
+
+Precision 0:
+%050
+	indique la longueur de la str a imprime, si %n < lenght str  rien ne se
+	passe. Si %n > complette le reste avex des zero.
+%12 
+	indique la longeur de la str imprime. si %12 < lentgh(str) rien ne se
+	passe. Si %12>  complete la diff par des espaces
+
+Precision space
+% d
+	insert un espace avant la valeur
+
+
+
+-> creer une struture pour les parametre des option et une function qui va
+stocker les infos dans la struture
 -> faire les precisions
 -> verifier les  les dirrents scenarios
 -> creer un fichier test

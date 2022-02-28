@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:46:23 by briffard          #+#    #+#             */
-/*   Updated: 2022/02/25 15:25:18 by briffard         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:51:39 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int		ft_atoi(const char *str);
 void	ft_putendl_fd(const char *s, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+char	*ft_strcpy(char *dst, const char *src);
 
 #endif

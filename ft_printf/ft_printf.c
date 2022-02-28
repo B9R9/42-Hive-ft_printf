@@ -1,7 +1,7 @@
 #include "ftprintf.h"
 
 int	print_str(const char *str);
-int	print_revstr(const char *str);
+int	print_revstr(const char *str, char c);
 
 t_bool ft_isupper(int c)
 {
@@ -99,19 +99,53 @@ int		decimaltohexoroct(unsigned int c, char a)
 		}
 		if (ft_isupper(a))
 			str[index] = ft_toupper(str[index]);
-		c = c / coef;
+		c  = c / coef;
 		index++;
 	}
 	index = 0;
-	index = print_revstr(str);
+	index = print_revstr(str, a);
 	ft_memdel((void**)&str);
 	return(index);
 }
 
-int	print_revstr(const char *str)
+int		printpointeraddress(unsigned long long int c)
+{
+	char	*str;
+	int		index;
+
+	index = 0 ;
+	str = ft_strnew(sizeof(char) * 100);
+	if (!str)
+	{
+		ft_memdel((void **)&str);
+		exit(EXIT_FAILURE);
+	}
+	if (c == 0)
+		str[0] = '0';
+	while (c != 0)
+	{
+			str[index] = hexa[c % 16];
+		if (!str)
+		{
+			ft_memdel((void **)&str);
+			exit(EXIT_FAILURE);
+		}
+		c  = c / 16;
+		index++;
+	}
+	index = 0;
+	index = print_revstr(str, 'p');
+	ft_memdel((void**)&str);
+	return(index);
+}
+
+
+int	print_revstr(const char *str, char c)
 {
 	int	index;
-
+	
+	if (c == 'p')
+		str = ft_strjoin(str,"x0");
 	index = ft_strlen(str);
 	while (index >= 0)
 	{
@@ -201,6 +235,8 @@ int		check_option(va_list ap, const char c)
 		return (strlength += printbit(va_arg(ap, unsigned char*)));
 	else if (c == 'u')
 		return (strlength += printunsignedint(va_arg(ap, unsigned int)));
+	else if (c == 'p')
+		return (strlength += printpointeraddress(va_arg(ap,unsigned long long int)));
 	else if (c == '%')
 		return (strlength += ft_printchar('%'));
 	return (0);
