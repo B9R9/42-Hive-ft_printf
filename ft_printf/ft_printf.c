@@ -242,6 +242,39 @@ int		check_option(va_list ap, const char c)
 	return (0);
 }
 
+t_bool	checkparams(char c)
+{
+	size_t	i;
+
+	i = 0;
+	printf("Valeur de c = %c\n", c);
+	while(params[i] != '\0')
+	{
+		if (c == params[i])
+			return(false);
+		i++;
+	}
+	return (true);
+}
+
+void	parameter(const char *str, int index)
+{
+	int	start;
+	
+	printf("Valeur de index = %d\n", index);
+	start = index;
+	index = index + 1;
+	while(checkparams(str[index]))
+	{
+		index++;
+	}
+	printf("%d(index) - %d(start) = %d\n", index, start, index - start);
+	printf("PARAMSS = %s\n", ft_strsub(str, start, (index + 1) - start));
+
+//	return (ft_strsub(str,start, index - start));
+}
+
+
 int	ft_printf(const char *format, ...)
 {
 	int		i;
@@ -255,6 +288,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			parameter(format, i);
 			length += check_option(ap, format[i + 1]);
 			i++;
 		}

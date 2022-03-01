@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:42:38 by briffard          #+#    #+#             */
-/*   Updated: 2022/02/28 15:44:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/01 09:53:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-//	char	*name;
+	char	*name;
 //	char	*lastname;
 //	int		ret;
 //	float	pi = 3.14159235358979323846;
@@ -24,7 +24,17 @@ int	main(void)
 //	char *str;
 	
 //	str = NULL;
-//	name = "Joe";
+	name = "Joe";
+	ft_printf("My Name is %.5s\n", name);
+	ft_printf("My Name is %010s\n", name);
+	ft_printf("My Name is %15s\n", name);
+	ft_printf("My Name is %*5s\n", name);
+	ft_printf("My Name is %*5$s\n", name);
+	ft_printf("My Name is % s\n", name);
+	ft_printf("My Name is %+s\n", name);
+	ft_printf("My Name is %-5s\n", name);
+	printf("TEST = % 5d\n", 23);
+	printf("TEST = % 6d\n", 23);
 //	lastname = "Dassin";
 //	ret = ft_printf("My name is %s et mon nom de famille est %s.\nMy age is %d\n", name, lastname, 36);
 //	ft_printf("@Le retour est = %d\n", -95);
@@ -63,6 +73,8 @@ int	main(void)
 //
 //
 //
+//
+/*
 	printf("=========================================  precision\n");
 	char	*str;
 	float	numDouble  =  72.20;
@@ -116,7 +128,7 @@ int	main(void)
 	
 	printf("%*d\n", 5, 123);//00123
 	printf("%*d\n", 6, 123);//00123
-
+*/
 //
 /*
 	printf("=========================================  TEST PRECISION %%0 ot %%10\n");
@@ -181,7 +193,7 @@ int	main(void)
 	printf("Test precision aq %%aq:%d\n",d);
 	printf("Test precision aq %%aq:% f\n",c);
 	printf("Test precision aq %%aq:%f\n",c);
-//	printf("Test precision aq %%aq:% x\n",246);
+	printf("Test precision aq %%aq:% x\n",246);
 //	printf("Test precision aq %%aq:% o\n",246);
 //	printf("Test precision aq %%aq:% X\n",246);
 //	printf("Test precision aq %%aq:% s\n", "Hello");

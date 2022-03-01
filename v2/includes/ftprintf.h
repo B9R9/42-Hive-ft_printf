@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 11:46:23 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/01 16:25:58 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/01 14:02:19 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/01 16:24:59 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,40 @@
 # define FTPRINTF_H
 
 /*INCLUDES*/
-
-# include <stdio.h> //A retirer
-# include <stdarg.h>
+# include <stdio.h>		// A RETIRER
+# include <stdarg.h>	// PERMET LES FUNCTION VARIADIQUES
 # include <unistd.h>
 # include <stdlib.h>
 
 /*DEFINE*/
-#define params "sdicfxXobup%"
-#define hexa "0123456789abcdef"
-#define maxint 2147483647
-#define minint -2147489647
-#define maxuint 4294967295
-
+# define flags		"sdicfxXoup%"
+# define hexa		"0123456789abcdef"
+# define MAX_INT	2147483647
+# define MIN_INT	-2147489647
+# define MAX_U_INT	4294967295
 
 /*ENUM*/
 typedef enum
 {
 	false,
 	true
-}t_bool;
+}		t_bool;
+
+/*STRUCT*/
+typedef struct	s_parameter
+{
+	int size;
+	int contentsize;
+
+}				t_parameter;
 
 /*PROTOTYPE*/
+int	ft_printf(const char *format, ...);
 
-int	ft_printf(const char *str, ...);
+/*INITIALISATION DE LA STRUCTURE*/
+t_parameter	init(const char *format, int index, t_parameter li);
+
+/*UTILS FUNCTION*/
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *s);
-char	*ft_strnew(size_t size);
-char 	*ft_strdup(const char *s1);
-char	*ft_itoa(long long n);
-void	ft_memdel(void **ap);
-int		ft_toupper(int c);
-int		ft_atoi(const char *str);
-void	ft_putendl_fd(const char *s, int fd);
-void	ft_putstr_fd(char const *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-char	*ft_strcpy(char *dst, const char *src);
-
+void	ft_memdel(void ** ap);
 #endif
