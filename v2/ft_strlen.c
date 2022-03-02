@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: briffard <briffard@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 13:57:27 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/02 13:40:09 by briffard         ###   ########.fr       */
+/*   Created: 2021/12/01 14:04:00 by briffard          #+#    #+#             */
+/*   Updated: 2022/02/18 14:13:28 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-int	main(void)
+size_t	ft_strlen(const char	*s)
 {
-	char	*name;
-	int		essai;
+	size_t	i;
 
-	name = "Joe";
-	essai = 123;
-	
-	ft_printf("My name is % 12s\n", name);
-	printf("TEST: % 5.4d\n", essai);
-	printf("TEST: % 6d\n", essai);
-	printf("TEST: 00000000");
-	return (EXIT_SUCCESS);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
