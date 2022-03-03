@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:02:19 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/02 13:40:17 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/03 14:56:25 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 /*DEFINE*/
 # define flags		"sdicfxXoup%"
-# define option		" .*0#<"
+# define option		" .*0#<+-"
 # define hexa		"0123456789abcdef"
 # define MAX_INT	2147483647
 # define MIN_INT	-2147489647
@@ -38,9 +38,15 @@ typedef enum
 typedef struct	s_parameter
 {
 	t_bool 	space;
+	int		spacelenght;
+	t_bool	dot;
+	int		dotlenght;
+	t_bool	star;
+	t_bool	zero;
+	int		zerolenght;
+	t_bool	hastag;
+	t_bool	signe;
 	char	flag;
-	int		lenght;
-	int		optionlenght;
 	int 	size;
 	int 	contentsize;
 }				t_parameter;
@@ -49,16 +55,26 @@ typedef struct	s_parameter
 /*ARRAY TO POINTER SUR FUNCTION*/
 /*FUNCTION IN DISPACHTOPTION ARRAY*/
 t_parameter				setupspace(t_parameter li, char *str);
-
+t_parameter				setupdot(t_parameter li, char *str);
+t_parameter				setupstar(t_parameter li, char *str);
+t_parameter				setupzero(t_parameter li, char *str);
+t_parameter				setuphastag(t_parameter li, char *str);
+t_parameter				setupnum(t_parameter li, char *str);
+t_parameter				setupsigned(t_parameter li, char *str);
+// Missing pour  le caratetre -
+// missing l,ll,h et hhdi
+//
 typedef t_parameter		(*dispachtoption)(t_parameter li, char *str);
 
-static const dispachtoption	funcOption[1] = {
+static const dispachtoption	funcOption[7] = {
 	setupspace,
-	//setupdot,
-	//setupstart,
-//	setupzero,
-//	setuphastag,
-//	setupnum,
+	setupdot,
+	setupstar,
+	setupzero,
+	setuphastag,
+	setupnum,
+	setupsigned,
+
 };
 
 

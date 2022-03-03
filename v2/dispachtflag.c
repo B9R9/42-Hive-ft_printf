@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dispachtflag.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 13:20:07 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/03 10:01:59 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/03 14:31:19 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/03 14:56:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<float.h>
+#include "ftprintf.h"
 
-
-int	main(void)
+int		dispachtflag(t_parameter li, va_list  ap)
 {
-	char	*test;
-	int		num;
+	int		i;
 
-	num = 73;
-	test = "essai";
-
-	printf("->%12 12s<-\n", test);
-	printf("->%12d<-\n", num);
-	return (0);
+	i = 0;
+	while(flags[i] != '\0')
+	{
+		if (li.flag == flags[i])
+		{
+			return (funcFlagsArray[i])
+		}
+	}
+	return
 }

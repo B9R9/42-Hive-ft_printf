@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:12:38 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/02 09:50:00 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/03 14:33:10 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int		i;
-	t_parameter parameter;
-	va_list	ap;
+	int				i;
+	int				lenght;
+	t_parameter 	parameter;
+	va_list			ap;
 
 	i = 0;
 	va_start(ap, format);
@@ -25,6 +26,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			parameter = init(format, i, parameter);
+			lenght += dispachtflag(parameter, ap);
 			i++;
 		}
 		else
