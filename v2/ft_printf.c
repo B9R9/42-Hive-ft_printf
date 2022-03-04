@@ -6,12 +6,12 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:12:38 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 16:49:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/05 01:03:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
-
+/*
 int	ft_printf(const char *format, ...)
 {
 	int				i;
@@ -38,4 +38,15 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (lenght); // retourne la taiile de la str imprimer
+}
+*/
+int		ft_printf(const char *format, ...)
+{
+	t_parameter		parameter;
+	va_list			ap;
+	char			**containeur;
+
+	va_start(ap, format);
+	containeur = newstrplit(format, ap);
+	
 }
