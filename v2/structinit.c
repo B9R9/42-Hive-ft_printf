@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/03 14:56:40 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:06:18 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_parameter	resetoption(t_parameter li, char *str)
 	li.zerolenght = 0;
 	li.hastag = 0;
 	li.signe = 0;
-	li.size = 0;
+	li.size = ft_strlen(str);
 	li.contentsize = 0;
 	return (li);
 }
@@ -112,8 +112,8 @@ t_parameter		init(const char *format, int index, t_parameter li)
 		printf("Error: Allocation memory\nLocated in strucinit.c Line 40\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("VALEUR DE STR IN INIT = %s\n", str);
 	li = setup(str, li);
 	ft_memdel((void**)&str);
+	li = checkoptionerror(li);
 	return (li);
 }

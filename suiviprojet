@@ -49,6 +49,11 @@ Problematique:
 28/02
 -> all flag dispo -> done
 
+04/03
+quelques chose de fonctionnel avec le flag s
+probleme avec reptition des flags avec option
+enc as derror, seulement l error devrait s afficher et pas la str
+
 
 Precision 0:
 %050

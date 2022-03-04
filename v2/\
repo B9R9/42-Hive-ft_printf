@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:12:38 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 16:49:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/04 16:15:58 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_printf(const char *format, ...)
 	va_list			ap;
 
 	i = 0;
-	lenght = 0;
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
@@ -28,12 +27,14 @@ int	ft_printf(const char *format, ...)
 		{
 			parameter = init(format, i, parameter);
 			lenght += dispachtflags(parameter, ap);
-
-			i += parameter.size;
-			//i++;
+			//i += parametersize;
+			i++;
 		}
 		else
+		{
+			//printf("%c\n", format[i]);
 			lenght += printchar(format[i]);
+		}
 		i++;
 	}
 	va_end(ap);

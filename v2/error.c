@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispachtflag.c                                     :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 14:31:19 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 16:39:11 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/04 17:25:09 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-
-int		argtostr(t_parameter li, va_list ap)
+t_parameter		optionflag_s(t_parameter li)
 {
-	return(print(li,va_arg(ap, char *)));
+	if (li.space)
+		error("error: ' 'flag used with '%s'\n");
+	else if(li.zero)
+		error("error: '0'flag used with '%s'\n");
+	else if(li.hastag)
+		error("error: '#'flag used with '%s'\n");
+	else if(li.signe)
+		error("error: '+'flag used with '%s'\n");
+	exit(EXIT_FAILURE);
+
 }
 
-int		dispachtflags(t_parameter li,va_list  ap)
+
+t_parameter		checkoptionerror(t_parameter li)
 {
-	int		i;
-	int test;
+	int	i;
+
 	i = 0;
 	while(flags[i] != '\0')
 	{
 		if (li.flag == flags[i])
-		{
-			test = funcFlagsArray[i](li, ap);
-			return (test);
-		}
+			li = funcErrorArray[i](li);
+		i++;
 	}
-	return(0);
+	return (li);
 }
