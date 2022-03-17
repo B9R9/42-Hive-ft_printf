@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/16 15:11:20 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 09:28:50 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,18 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)// deux direction
 		i++;
 	}
 	
-	printf("li.space		= ->%d<-\n", li.space);
-	printf("li.spacelenght		= ->%zu<-\n", li.spacelenght);
-	printf("li.dot			= ->%d<-\n", li.dot);
-	printf("li.dotlenght		= ->%zu<-\n", li.dotlenght);
-	printf("li.star			= ->%d<-\n", li.star);
-	printf("li.zero			= ->%d<-\n", li.zero);
-	printf("li.zeroleng		= ->%zu<-\n", li.zerolenght);
-	printf("li.#			= ->%d<-\n", li.hastag);
-	printf("li.signe		= ->%d<-\n", li.signe);
-	printf("li.flag			= ->%c<-\n", li.flag);
-	printf("li.size			= ->%zu<-\n", li.size);
-	printf("li.contentsize		= ->%d<-\n", li.contentsize);
+	// printf("li.space		= ->%d<-\n", li.space);
+	// printf("li.spacelenght		= ->%zu<-\n", li.spacelenght);
+	// printf("li.dot			= ->%d<-\n", li.dot);
+	// printf("li.dotlenght		= ->%zu<-\n", li.dotlenght);
+	// printf("li.star			= ->%d<-\n", li.star);
+	// printf("li.zero			= ->%d<-\n", li.zero);
+	// printf("li.zeroleng		= ->%zu<-\n", li.zerolenght);
+	// printf("li.#			= ->%d<-\n", li.hastag);
+	// printf("li.signe		= ->%d<-\n", li.signe);
+	// printf("li.flag			= ->%c<-\n", li.flag);
+	// printf("li.size			= ->%zu<-\n", li.size);
+	// printf("li.contentsize		= ->%d<-\n", li.contentsize);
 	return (li);
 }
 

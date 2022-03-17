@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:31:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/16 15:01:26 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 10:01:03 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,20 @@ static t_containeur	*split(const char *str, va_list ap, t_containeur *li)
 			new = init(str, index, new, ap);
 			start = index;
 			li = push_back(li, dispacht(ap, new));
-			index += new.size; // Function move index do the same
+			index += (new.size + 1); // Function move index do the same
+			//printf("%c\n", str[index]);
+			//ft_debug("red", "SPLIT", 01,li->box, index );
 		}
 		else
 		{
+			//printf("%zu\n", index);
 			start = index;
 			while (str[index] != '%' && str[index])
 				index++;
+			//printf("%zu\n", index);
+			//ft_debug("red", "SPLIT", 02,ft_strsub(str, start, (index - start) - 1), index );
 			li = push_back(li, ft_strsub(str, start, index - start));	
+			//ft_debug("red", "SPLIT", 03,li->box, index );
 		}
 	}
 	return(li);
@@ -91,11 +97,13 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	containeur = split(format, ap, containeur);
 	va_end(ap);
-	while (containeur->next != NULL)
+	while (containeur != NULL)
 		{
 			ft_putstr(containeur->box);
 			length += ft_strlen(containeur->box);
 			containeur = containeur->next;
 		}
+		// ft_putstr(containeur->box);
+		// length += ft_strlen(containeur->box);
 	return (length);
 }

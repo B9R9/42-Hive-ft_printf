@@ -6,13 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:13:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/16 14:02:55 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 09:28:39 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-static char		*converttostr(t_parameter li, char *str)
+static char		*strtoarr(t_parameter li, char *str)
 {
 	size_t	index;
 	size_t	strlenght;
@@ -36,11 +36,11 @@ static char		*converttostr(t_parameter li, char *str)
 		index++;
 	}
 	//ft_memdel((void**)str);
-    ft_debug("green", "converttostr", 02, dest, -1);
+    //ft_debug("green", "converttostr", 02, dest, -1);
 	return(dest);
 }
 
 char		*argtostr(t_parameter li, va_list ap)
 {
-	return(converttostr(li,va_arg(ap, char *)));
+	return(strtoarr(li,va_arg(ap, char *)));
 }

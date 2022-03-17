@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/16 15:08:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 08:15:30 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ typedef struct s_containeur {
 
 /*FUNCTION IN DISPACHTERROR ARRAY*/
 t_parameter		optionflag_s(t_parameter li);
+t_parameter		optionflag_c(t_parameter li);
 
 
 typedef t_parameter		(*dispachterror)(t_parameter li);
 
-static const dispachterror	funcErrorArray[1] = {
+static const dispachterror	funcErrorArray[2] = {
 	optionflag_s,
+	optionflag_c,
 };
 
 
@@ -90,12 +92,12 @@ static const dispachtoption	funcOption[7] = {
 
 /*FUNCTION IN DISPACHT FLAG ARRAY*/
 char *argtostr(t_parameter li, va_list ap);
-//char *argtochar(t_parameter li, va_list ap);
+char *argtochar(t_parameter li, va_list ap);
 
 typedef char *(*dispachtFlags)(t_parameter li, va_list ap);
-static const dispachtFlags	funcFlagsArray[1] = {
+static const dispachtFlags	funcFlagsArray[2] = {
 	argtostr,
-//	argtochar,
+	argtochar,
 };
 
 /*PROTOTYPE*/

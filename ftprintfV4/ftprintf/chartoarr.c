@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   chartoarr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 09:50:51 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/17 07:54:07 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/17 08:17:37 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-int		main(void)
+static char *chartoarr(t_parameter li, char c)
 {
+    int     index;
+    char    *dest;
+    (void)  li;
 
-	char	*str;
-	
-	str = "Hello\nWorld\n\n";
+    index = 0;
+    dest = ft_strnew(1);
+    if (!dest)
+	{
+		ft_errormem("chartoarr.c", 19);
+		exit(EXIT_FAILURE);
+	}
+    dest[0] = c;
+    return(dest);    
+}
 
-	ft_printf("%sEt la suite alors", str);
-	return 0;
+char *argtochar(t_parameter li, va_list ap)
+{
+    return(chartoarr(li, va_arg(ap, int)));
 }
