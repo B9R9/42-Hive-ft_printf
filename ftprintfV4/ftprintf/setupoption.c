@@ -6,11 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 09:28:01 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/03 14:17:43 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:37:04 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
+/*si le carractere * est presenet apres le option utilise va_arg int*/
+
 
 t_parameter		setupspace(t_parameter li, char *str)
 {

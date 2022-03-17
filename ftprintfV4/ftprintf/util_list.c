@@ -6,11 +6,32 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:59:19 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/16 13:46:56 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:35:54 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
+
+char	*fillit(char c, size_t size)
+{
+	char *dest;
+	size_t index;
+
+	index = 0;
+	dest = ft_strnew(size);
+
+	if(!dest)
+	{
+		ft_errormem("util_list", 19);
+		exit(EXIT_FAILURE);
+	}
+	while(index < size)
+	{
+		dest[index] = c;
+		index++;
+	}
+	return dest;
+}
 
 t_containeur 	*newlist(void)
 {

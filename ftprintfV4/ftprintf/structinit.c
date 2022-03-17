@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 09:28:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/17 13:40:28 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)// deux direction
 	while (str[i] != '\0')
 	{
 		//printf("VALEUR DE STR[%d] = %c\n", i, str[i]);
-	//	printf("VALEUR DE STR debut while loop = ->%s<-\n", str);
+		//printf("VALEUR DE STR debut while loop = ->%s<-\n", str);
 		x = 0;
 		while(option[x] != '\0')
 		{
@@ -119,6 +119,8 @@ t_parameter		init(const char *format, size_t index, t_parameter li, va_list ap)
 	}
 	li = setup(str, li, ap);
 	ft_memdel((void**)&str);
-	li = checkoptionerror(li);
+	ft_debug("cyan", "init", 01,"NULL", -1 );
+	//li = checkoptionerror(li);
+	ft_debug("cyan", "init", 01,"NULL", -1 );
 	return (li);
 }

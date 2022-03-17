@@ -2,10 +2,10 @@
 
 int main(void)
 {
-    char *a;
+   int number;
 
-    a = "ABCDREFHGV";
+   number = 73;
 
-    printf("%.*s",5, a );
+    printf("%09.8d",number );
     return (0);
 }
