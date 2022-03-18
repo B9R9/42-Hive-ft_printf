@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: briffard <briffard@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/18 17:13:01 by briffard         ###   ########.fr       */
+/*   Created: 2021/12/01 14:06:06 by briffard          #+#    #+#             */
+/*   Updated: 2022/02/18 14:13:45 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
-#include<limits.h>
 
-int		main(void)
+char	*ft_strnew(size_t size)
 {
+	char			*str;
+	unsigned int	i;
 
-	// char *str;
-	int number;
-
-	number = 73;
-	// str = "Mais putain !!!!!";
-	//ft_printf("MAX_INT = %d || MIN_INT = %d\n",INT_MAX, INT_MIN);
-
-	ft_printf("%+010.8d\n", number);
-
-	return 0;
+	i = 0;
+	str = (char *)malloc((sizeof(char) * size) + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i < size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

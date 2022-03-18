@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 21:45:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/05 01:03:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:20:55 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	moveindex(const char *str, int index)
 		}
 		index++;
 	}
-	printf("error: spurious trailling '%%' in formart\n");
+	error("error: spurious trailling '%%' in formart\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -55,15 +55,16 @@ static int	countwords(const char *str, char delimiter)
 	return (count);
 }
 
-
-
-char	**newstrsplit(char *str, va_list ap)
+char	**newstrsplit(const char *str)
 {
 	char	**dest;
 	if(!str)
 		return (NULL);
 	dest = (char **)malloc(sizeof(char *) * countwords(str, '%')) + 1;
 	if(!dest)
-		return (NULL);
+		{
+			error("In newstrsplit.c: Line 65\nerror: allocation memory\n");
+			exit(EXIT_FAILURE);
+		}
 	return(dest);
 }

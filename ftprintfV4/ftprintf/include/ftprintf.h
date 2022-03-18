@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 15:28:52 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:35:03 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	s_parameter {
 	t_bool	signe;
 	char	flag;
 	size_t	size;
+	t_bool	negatif;
 	int		contentsize;
 }			t_parameter;
 
@@ -55,12 +56,12 @@ typedef struct s_containeur {
 
 
 /*FUNCTION IN DISPACHTERROR ARRAY*/
-t_parameter		optionflag_s(t_parameter li);
-t_parameter		optionflag_c(t_parameter li);
-t_parameter		optionflag_d(t_parameter li);
+t_bool		optionflag_s(t_parameter li);
+t_bool		optionflag_c(t_parameter li);
+t_bool		optionflag_d(t_parameter li);
 
 
-typedef t_parameter		(*dispachterror)(t_parameter li);
+typedef t_bool		(*dispachterror)(t_parameter li);
 
 static const dispachterror	funcErrorArray[3] = {
 	optionflag_s,
@@ -118,13 +119,13 @@ t_bool			is_empty(t_containeur *li);
 int				list_lenght(t_containeur *li);
 void			printlist(t_containeur *li);
 
-char			*fillit(char c, size_t size);
+
 
 /*INIT OPTION STRUCTURE*/
 t_parameter		init(const char *format, size_t index, t_parameter li, va_list ap);
 
 /*CHECK OPTIONSYNTAXE ERROR*/
-t_parameter 	checkoptionerror(t_parameter li);
+t_bool 	checkoptionerror(t_parameter li);
 
 
 

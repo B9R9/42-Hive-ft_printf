@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:57:27 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 17:21:42 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/15 09:47:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	name = "Joe";
 //	essai = 123;
 	
-	essai = ft_printf("My name is % .2s\n", name);
+	essai = ft_printf("My name is %s\n", name);
 //	ret = printf("My name is %.2s\nAnd his last anme is % 5.5s\n", name, "Dassin");
 //	ret = printf("My name is %s\nLA suite\n", name);
 	printf("\nValeur d essai = %d\n", essai);

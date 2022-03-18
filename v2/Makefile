@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 11:02:57 by briffard          #+#    #+#              #
-#    Updated: 2022/03/04 17:06:06 by briffard         ###   ########.fr        #
+#    Updated: 2022/03/15 09:24:19 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME	=	libftprintf.a
 
 FILES	=	ft_printf.c		structinit.c		ft_memdel.c		ft_strsub.c	\
 			setupoption.c	setuprecision.c		ft_strlen.c		ft_atoi.c	\
-			dispachtflag.c	print.c				error.c
+			dispachtflag.c	print.c				error.c			ft_strnew.c	\
+			newstrplit.c
 
 INCL	=	./includes/
 

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:02:19 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 17:17:13 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:55:37 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ typedef enum
 typedef struct	s_parameter
 {
 	t_bool 	space;
-	int		spacelenght;
+	size_t		spacelenght;
 	t_bool	dot;
 	size_t	dotlenght;
 	t_bool	star;
 	t_bool	zero;
-	int		zerolenght;
+	size_t		zerolenght;
 	t_bool	hastag;
 	t_bool	signe;
 	char	flag;
-	int 	size;// doir contenir la taille de la str qui continent les parametres pour faire avancer correctement l index
+	size_t 	size;// doir contenir la taille de la str qui continent les parametres pour faire avancer correctement l index
 	int 	contentsize;
 }				t_parameter;
 
@@ -65,9 +65,9 @@ static const dispachterror	funcErrorArray[1] = {
 };
 
 /*FUNCTION IN FUNCFLAGSARRAY*/
-int	argtostr(t_parameter li, va_list ap);
+char	*argtostr(t_parameter li, va_list ap);
 
-typedef int				(*funcArray)(t_parameter li, va_list ap);
+typedef char		*(*funcArray)(t_parameter li, va_list ap);
 
 static const funcArray	funcFlagsArray[1] = {
 	argtostr,
@@ -102,17 +102,18 @@ static const dispachtoption	funcOption[7] = {
 int	ft_printf(const char *format, ...);
 
 /*INITIALISATION DE LA STRUCTURE*/
-t_parameter	init(const char *format, int index, t_parameter li);
+t_parameter	init(const char *format, size_t index, t_parameter li);
 
 /*REPARTION FLAG*/
-int		dispachtflags(t_parameter li, va_list ap);
+char	*dispachtflags(t_parameter li, va_list ap);
 
 /*REPARTION DES ERRORS*/
 t_parameter	checkoptionerror(t_parameter li);
 
 /*PRINT RESULT*/
-int		print(t_parameter li, const char *str);
+char	*turnto(t_parameter li, char *str);
 int		printchar(char c);
+int		printbox(char **str);
 void	error(const char *str);
 
 /*UTILS FUNCTION*/
@@ -120,4 +121,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 void	ft_memdel(void ** ap);
+char	*ft_strnew(size_t size);
+char	**newstrsplit(const char *str);
+char	*ft_charjoinstr(char **str, char c);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 13:40:28 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:53:49 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static t_parameter	resetoption(t_parameter li, char *str)
 	li.hastag = 0;
 	li.signe = 0;
 	li.size = ft_strlen(str);
+	li.negatif = 0;
 	li.contentsize = 0;
 	return (li);
 }
@@ -41,12 +42,14 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)// deux direction
 	li = resetoption(li, str);
 	while (str[i] != '\0')
 	{
-		//printf("VALEUR DE STR[%d] = %c\n", i, str[i]);
-		//printf("VALEUR DE STR debut while loop = ->%s<-\n", str);
+		printf("VALEUR DE STR[%d] = %c\n", i, str[i]);
+		printf("VALEUR DE STR debut while loop = ->%s<-\n", str);
 		x = 0;
 		while(option[x] != '\0')
 		{
-	//		printf("VALEUR DE STR[%d] =->%c<-\n", i, str[i]);
+			i = 0;
+			printf("VALEUR DE STR[%d] =->%c<-\n", i, str[i]);
+			
 			if (str[0] == option[x])
 			{
 				li = funcOption[x](li, str);
@@ -55,17 +58,21 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)// deux direction
 						li.dotlenght = va_arg(ap, int);
 						li.star = 1;
 					}
+				if (str[0] == '+')
+					i++;
 				else
 				{
 					while((str[i + 1] >= '0' && str[i + 1] <= '9') && str[i] != '\0')
 						i++;
+					i++;
 				}
 				if (i == 0)
 					i++;
-	//			printf("Valeur de I = %d\n", i);
-				str = &str[i + 1];// bouger le debut de str apres le nombres
-	//			printf("VALEUR DE STR  apres mouv pointer = ->%s<-\n", str);
-				i = 0;
+				printf("Valeur de I = %d\n", i);
+				printf(" BEFORE TO MOVE POINTEURVALEUR DE STR[%d] =->%c<-\n", i, str[i]);
+				str = &str[i];// bouger le debut de str apres le nombres
+				printf("VALEUR DE STR  apres mouv pointer = ->%s<-\n", str);
+				// i = 0;
 				break;
 			}
 			x++;
@@ -73,18 +80,18 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)// deux direction
 		i++;
 	}
 	
-	// printf("li.space		= ->%d<-\n", li.space);
-	// printf("li.spacelenght		= ->%zu<-\n", li.spacelenght);
-	// printf("li.dot			= ->%d<-\n", li.dot);
-	// printf("li.dotlenght		= ->%zu<-\n", li.dotlenght);
-	// printf("li.star			= ->%d<-\n", li.star);
-	// printf("li.zero			= ->%d<-\n", li.zero);
-	// printf("li.zeroleng		= ->%zu<-\n", li.zerolenght);
-	// printf("li.#			= ->%d<-\n", li.hastag);
-	// printf("li.signe		= ->%d<-\n", li.signe);
-	// printf("li.flag			= ->%c<-\n", li.flag);
-	// printf("li.size			= ->%zu<-\n", li.size);
-	// printf("li.contentsize		= ->%d<-\n", li.contentsize);
+	printf("li.space		= ->%d<-\n", li.space);
+	printf("li.spacelenght		= ->%zu<-\n", li.spacelenght);
+	printf("li.dot			= ->%d<-\n", li.dot);
+	printf("li.dotlenght		= ->%zu<-\n", li.dotlenght);
+	printf("li.star			= ->%d<-\n", li.star);
+	printf("li.zero			= ->%d<-\n", li.zero);
+	printf("li.zeroleng		= ->%zu<-\n", li.zerolenght);
+	printf("li.#			= ->%d<-\n", li.hastag);
+	printf("li.signe		= ->%d<-\n", li.signe);
+	printf("li.flag			= ->%c<-\n", li.flag);
+	printf("li.size			= ->%zu<-\n", li.size);
+	printf("li.contentsize		= ->%d<-\n", li.contentsize);
 	return (li);
 }
 
@@ -120,7 +127,8 @@ t_parameter		init(const char *format, size_t index, t_parameter li, va_list ap)
 	li = setup(str, li, ap);
 	ft_memdel((void**)&str);
 	ft_debug("cyan", "init", 01,"NULL", -1 );
-	//li = checkoptionerror(li);
+	if(checkoptionerror(li))
+		exit(EXIT_FAILURE);
 	ft_debug("cyan", "init", 01,"NULL", -1 );
 	return (li);
 }

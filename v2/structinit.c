@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 17:06:18 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:55:41 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ static t_bool	checkparams(char c)
 	return (true);
 }
 
-t_parameter		init(const char *format, int index, t_parameter li)
+t_parameter		init(const char *format, size_t index, t_parameter li)
 {
-	int		start;
-	char	*str;
+	size_t		start;
+	char		*str;
 
 	start = index;
 	index += 1;
@@ -109,7 +109,7 @@ t_parameter		init(const char *format, int index, t_parameter li)
 	str = ft_strsub(format, start + 1, (index - start));
 	if (!str)
 	{
-		printf("Error: Allocation memory\nLocated in strucinit.c Line 40\n");
+		error("In structinit.c, line 109\nerror: allocation memory\n");
 		exit(EXIT_FAILURE);
 	}
 	li = setup(str, li);

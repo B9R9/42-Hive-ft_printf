@@ -6,79 +6,54 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 13:46:28 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:35:50 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-t_parameter		optionflag_c(t_parameter li)
+t_bool	optionflag_c(t_parameter li)
 {
 	if(li.dot)
-	{
-		ft_errormes("Error: precision used with 'c' conversion specifier\n");
-		exit(EXIT_FAILURE);
-	}
+		return ft_errormes("Error: precision used with 'c' conversion specifier\n");
 	else if(li.signe)
-	{
-		ft_errormes("error: '+'flag used with 'c'\n");
-		exit(EXIT_FAILURE);	
-	}
+		return ft_errormes("error: '+'flag used with 'c'\n");
 	else if(li.zero)
-	{
-		ft_errormes("error: '0'flag used with 'c'\n");
-		exit(EXIT_FAILURE);
-	}
+		return ft_errormes("error: '0'flag used with 'c'\n");
 	else if (li.space)
-	{
-		ft_errormes("error: ' 'flag used with 'c'\n");
-		exit(EXIT_FAILURE);
-	}
+		return ft_errormes("error: ' 'flag used with 'c'\n");
 	else if(li.hastag)
-	{
-		ft_errormes("error: '#'flag used with 'c'\n");
-		exit(EXIT_FAILURE);
-	}
-	return (li);
+		return ft_errormes("error: '#'flag used with 'c'\n");
+	return (0);
 }
 
-t_parameter		optionflag_s(t_parameter li)
+t_bool	optionflag_s(t_parameter li)
 {
 	if (li.space)
-		{
-			ft_errormes("error: ' 'flag used with 's'\n");
-			exit(EXIT_FAILURE);
-		}
+			return ft_errormes("error: ' 'flag used with 's'\n");
 	else if(li.zero)
-		{
-			ft_errormes("error: '0'flag used with 's'\n");
-			exit(EXIT_FAILURE);
-		}
+			return ft_errormes("error: '0'flag used with 's'\n");
 	else if(li.hastag)
-		{
-			ft_errormes("error: '#'flag used with 's'\n");
-			exit(EXIT_FAILURE);
-		}
+			return ft_errormes("error: '#'flag used with 's'\n");
 	else if(li.signe)
-		{
-			ft_errormes("error: '+'flag used with 's'\n");
-			exit(EXIT_FAILURE);
-		}
+			return ft_errormes("error: '+'flag used with 's'\n");
 	else if (li.star && (li.space == false && li.zero == false && \
 	 li.dot == false && li.signe == false && li.hastag == false))
-		{
-			ft_errormes("error: '*'flag used without width or precision\n");
-			exit(EXIT_FAILURE);
-		}
-	return (li);
+			return ft_errormes("error: '*'flag used without width or precision\n");
+	return (0);
 }
 
-t_parameter		optionflag_d(t_parameter li)
+t_bool		optionflag_d(t_parameter li)
 {
-	
-	return li;
+	if(li.negatif && li.zero)// li.signe is for add + or - in front of the number TO NOT CONFONDRE WITH OPTION '-'
+		return ft_errormes("error: flag '0' is ignored when flag '-' is present\n");
+	else if(li.space && li.signe)
+		return ft_errormes("error: flag ' ' is ignored when flag '+' is present\n");
+	else if (li.hastag)
+		return ft_errormes("error: flag '#' results in undefined behavior with 'd' converion specifier\n");
+	return (0);
 }
-t_parameter		checkoptionerror(t_parameter li)
+t_bool		checkoptionerror(t_parameter li)
 {
 	int	i;
 
@@ -86,8 +61,8 @@ t_parameter		checkoptionerror(t_parameter li)
 	while(flags[i] != '\0')
 	{
 		if (li.flag == flags[i])
-			li = funcErrorArray[i](li);
+			return (funcErrorArray[i](li));
 		i++;
 	}
-	return (li);
+	return (0);
 }

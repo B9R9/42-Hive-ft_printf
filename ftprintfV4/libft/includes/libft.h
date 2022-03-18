@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/16 12:30:00 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/18 16:30:14 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,14 @@ char		*ft_strmapi(char const	*s, char (*f)(unsigned int, char));
 char		*ft_strnew(size_t size);
 char		*ft_strjoin(char const	*s1, char const	*s2);
 char		**ft_strsplit(char const *s, char c);
+
 /*FT_ TO FUNCION*/
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 int			ft_atoi(const char *str);
 char		*ft_itoa(int n);
+char		*ft_itona(int n, int size);
+
 /*FT_IS FUNCTION*/
 int			ft_isalnum(int c);
 int			ft_isdigit(int c);
@@ -139,13 +142,17 @@ void		ft_putcharcolor(char c, char *color);
 int			ft_randomnbr(void);
 void		ft_display_file(int fd);
 int			get_next_line(const int fd, char **line);
+char		*fillit(char *dest, char c, int size);
 
 /*ERROR MESSAGE*/
-void		ft_errormem(char *file, int line);
-void		ft_errormes(char *message);
+int		ft_errormem(char *file, int line);
+int		ft_errormes(char *message);
 
 /*DEBUG*/
 void 		ft_debug(char *color, char *where, int position, char *str, int num);
+
+/*COUNTER*/
+int			ft_numlenght(long n);
 
 /*DOUBLE LINK LIST*/
 dlist		new_dlist(void);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_numlenght.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 13:54:07 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/18 11:42:50 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/18 09:47:44 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/18 09:48:23 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	numlenght(long n)
+ int	ft_numlenght(long n)
 {
 	int	count;
 
@@ -28,31 +28,4 @@ static int	numlenght(long n)
 		count++;
 	}
 	return (count);
-}
-
-char	*ft_itoa(int n)
-{
-	long	k;
-	int		i;
-	char	*str;
-
-	k = n;
-	i = numlenght(k);
-	if (k == 0)
-		return (ft_strdup("0"));
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (!str)
-		return (NULL);
-	str[i--] = '\0';
-	if (k < 0)
-	{
-		str[0] = '-';
-		k = k * -1;
-	}
-	while (k > 0)
-	{
-		str[i--] = 48 + (k % 10);
-		k = k / 10;
-	}
-	return (str);
 }

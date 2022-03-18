@@ -27,11 +27,13 @@ FILES=	ft_putchar.c		ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		ft_memdel.c			ft_memmove.c		ft_strmapi.c		ft_strmap.c	\
 		ft_strsplit.c		ft_cleanstr.c		ft_lstnew.c			ft_lstadd.c	\
 		ft_lstdelone.c		ft_lstdel.c			ft_color.c			ft_debug.c	\
-		ft_putstrcolor.c	ft_putcharcolor.c	ft_error_print.c				\
-		ft_randomnbr.c 		ft_display_file.c	get_next_line.c		newdlist.c	\
-		is_empty_dlist.c	dlist_length.c		dlist_first_end.c				\
-		push_back_dlist.c	push_front_dlist.c	pop_back_dlist.c				\
-		pop_front_dlist.c 	print_dlist.c		ft_newlst.c\
+		ft_putstrcolor.c	ft_putcharcolor.c	ft_error_print.c	ft_itona.c	\
+		ft_numlenght.c		ft_randomnbr.c 		ft_display_file.c	ft_fillit.c	\
+		get_next_line.c															\
+		newdlist.c			is_empty_dlist.c	dlist_length.c					\
+		dlist_first_end.c	push_back_dlist.c	push_front_dlist.c				\
+		pop_back_dlist.c	pop_front_dlist.c 	print_dlist.c					\
+		ft_newlst.c\
 
 INCL=./includes/
 

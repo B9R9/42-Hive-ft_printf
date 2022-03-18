@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/04 17:25:09 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/15 08:10:37 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_parameter		optionflag_s(t_parameter li)
 	exit(EXIT_FAILURE);
 
 }
+
 
 
 t_parameter		checkoptionerror(t_parameter li)

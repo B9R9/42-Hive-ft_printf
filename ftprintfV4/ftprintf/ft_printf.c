@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:31:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 13:39:54 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:09:49 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char			*dispacht(va_list ap, t_parameter li)
 		//printf("VALEUR DU FLAG = %c\n", li.flag);
 		if(li.flag == flags[index])
 		{
-			ft_debug("yellow", "DISPACHT", 01, "NULL", -1);
+			//ft_debug("yellow", "DISPACHT", 01, "NULL", -1);
 			return(funcFlagsArray[index](li, ap));
 			//ft_debug("yellow", "DISPACHT", 02,funcFlagsArray[index](li, ap), -1);
 			//return ("OK");
@@ -64,16 +64,16 @@ static t_containeur	*split(const char *str, va_list ap, t_containeur *li)
 	{
 		if (str[index] == '%')
 		{
-			ft_debug("red", "SPLIT", 00,"NULL", index );
+			//ft_debug("red", "SPLIT", 00,"NULL", index );
 			new = init(str, index, new, ap);
 			//printf("%c\n", new.flag);
 			start = index;
-			ft_debug("red", "SPLIT", 03,"NULL", index );
+			//ft_debug("red", "SPLIT", 03,"NULL", index );
 			
 			li = push_back(li, dispacht(ap, new));
 			index += (new.size + 1); // Function move index do the same
 			//printf("%c\n", str[index]);
-			ft_debug("red", "SPLIT", 02,li->box, index );
+			//ft_debug("red", "SPLIT", 02,li->box, index );
 		}
 		else
 		{
@@ -82,7 +82,7 @@ static t_containeur	*split(const char *str, va_list ap, t_containeur *li)
 			while (str[index] != '%' && str[index])
 				index++;
 			//printf("%zu\n", index);
-			ft_debug("red", "SPLIT", 03,ft_strsub(str, start, (index - start)), index );
+			//ft_debug("red", "SPLIT", 03,ft_strsub(str, start, (index - start)), index );
 			li = push_back(li, ft_strsub(str, start, index - start));	
 			//ft_debug("red", "SPLIT", 03,li->box, index );
 		}
