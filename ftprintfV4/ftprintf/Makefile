@@ -13,7 +13,8 @@
 NAME	=	libftprintf.a
 
 FILES	=	ft_printf.c structinit.c util_list.c setupoption.c setuprecision.c \
-			convtostr.c error.c      chartoarr.c inttoarr.c\
+			convtostr.c error.c      chartoarr.c inttoarr.c    inttohexoroct.c \
+			pointertoa.c \
 
 OBJ		=	$(SRC:.c=.o)
 INCL	=	./include/
@@ -31,10 +32,11 @@ $(NAME): $(OBJ)
 	@ar rc $(NAME) *.o
 	@echo "lftprintf created."
 	@ranlib $(NAME)
+	@clear 
 
 clean:
 	$(RM) -f *.o
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all clean
+re: fclean all

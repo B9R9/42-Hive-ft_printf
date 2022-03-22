@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 07:54:07 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 08:17:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:40:35 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static char *chartoarr(t_parameter li, char c)
 		exit(EXIT_FAILURE);
 	}
     dest[0] = c;
+    if (li.flag == '%')
+        return ("%");
     return(dest);    
 }
 

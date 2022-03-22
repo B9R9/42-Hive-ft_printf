@@ -38,10 +38,10 @@ char	*ft_itona(int n, int size)
 	int		i;
 	char	*str;
 
-	ft_debug("cyan", "itona", 00, "NULL", size);
+	// ft_debug("cyan", "itona", 00, "NULL", size);
 	k = n;
 	i = ft_numlenght_variant(k, size);
-	ft_debug("cyan", "itona", 01, "NULL", i);
+	// ft_debug("cyan", "itona", 01, "NULL", i);
 	if (k == 0)
 		return (ft_strdup("0"));
 	str = ft_strnew(i);
@@ -54,12 +54,12 @@ char	*ft_itona(int n, int size)
 		str[0] = '-';
 		k = k * -1;
 	}
-	ft_debug("cyan", "itona", 03, str, (int) k);
+	// ft_debug("cyan", "itona", 03, str, (int) k);
 	while (k > 0)
 	{
 		str[i--] = 48 + (k % 10);
 		k = k / 10;
 	}
-	ft_debug("cyan", "itona", 04, str, i);
+	// ft_debug("cyan", "itona", 04, str, i);
 	return (str);
 }

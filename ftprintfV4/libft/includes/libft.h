@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/18 16:30:14 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/22 11:02:39 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ int			ft_randomnbr(void);
 void		ft_display_file(int fd);
 int			get_next_line(const int fd, char **line);
 char		*fillit(char *dest, char c, int size);
+void		ft_swap(char *a, char *b);
 
 /*ERROR MESSAGE*/
 int		ft_errormem(char *file, int line);

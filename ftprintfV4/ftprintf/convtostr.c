@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:13:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/17 09:28:39 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/22 08:58:23 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ static char		*strtoarr(t_parameter li, char *str)
 	size_t	index;
 	size_t	strlenght;
 	char	*dest;
+	
 
-    //ft_debug("green", "converttostr", 01, str, -1);
+    // ft_debug("green", "converttostr", 01, str, -1);
 	strlenght =  ft_strlen(str);
+	if(!str)// what happend if str == NULL
+		return(ft_strdup("NULL"));
 	dest = ft_strnew(strlenght);
 	if (!dest)
 	{
@@ -27,16 +30,17 @@ static char		*strtoarr(t_parameter li, char *str)
 		exit(EXIT_FAILURE);
 	}
 	index = 0;
+	
 	/*imprime str suivant les parameter*/
-	if (li.dotlenght == 0 || li.dotlenght > strlenght)
-		li.dotlenght = strlenght;
-	while (index < li.dotlenght)
+	if (li.precision == 0 || li.precision > strlenght)
+		li.precision = strlenght;
+	while (index < li.precision)
 	{
 		dest[index] = str[index];
 		index++;
 	}
 	//ft_memdel((void**)str);
-    //ft_debug("green", "converttostr", 02, dest, -1);
+    // ft_debug("green", "converttostr", 02, dest, -1);
 	return(dest);
 }
 

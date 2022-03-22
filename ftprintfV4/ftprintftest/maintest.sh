@@ -22,7 +22,7 @@ fi
 if [ $1 = 's' ]; then
 
     printf "${bleu}--------------------------------------------------------------------------------${neutre}\n"
-	printf "${bleu}-----------------------------------------------------------------------   FALG S${neutre}\n"
+	printf "${bleu}-----------------------------------------------------------------------   FALG S\n${neutre}\n"
 
     gcc -Wall -Werror -Wextra -I../ftprintf/include -I../libft/includes -o 00_ftprintf_flag_s.o -c 00_ftprintf_flag_s.c
     gcc -Wall -Werror -Wextra -o testftprintf_flag_s 00_ftprintf_flag_s.o -L../libft/ -lft -L../ftprintf/ -lftprintf
@@ -31,13 +31,15 @@ if [ $1 = 's' ]; then
     ./testprintf_flag_s >> sample_c
     ./testftprintf_flag_s >> sample_ft
 
+    printf "================================================ OUTPUT ===========================================\n"
+    printf "                         PRINTF                                              FTPRINTF\n"
     diff -y sample_c sample_ft
     rm -f sample_c sample_ft
     exit 1
 fi
 if [ $1 = 'c' ]; then
     printf "${bleu}--------------------------------------------------------------------------------${neutre}\n"
-	printf "${bleu}-----------------------------------------------------------------------   FALG C${neutre}\n"
+	printf "${bleu}-----------------------------------------------------------------------   FALG C\n${neutre}\n"
 
     gcc -Wall -Werror -Wextra -I../ftprintf/include -I../libft/includes -o 01_ftprintf_flag_c.o -c 01_ftprintf_flag_c.c
     gcc -Wall -Werror -Wextra -o testftprintf_flag_c 01_ftprintf_flag_c.o -L../libft/ -lft -L../ftprintf/ -lftprintf
@@ -46,6 +48,8 @@ if [ $1 = 'c' ]; then
     ./testprintf_flag_c >> sample_c
     ./testftprintf_flag_c >> sample_ft
 
+    printf "================================================ OUTPUT ===========================================\n"
+    printf "                         PRINTF                                              FTPRINTF\n"
     diff -y sample_c sample_ft
     rm -f sample_c sample_ft
     exit 1
