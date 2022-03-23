@@ -14,7 +14,7 @@ NAME	=	libftprintf.a
 
 FILES	=	ft_printf.c structinit.c util_list.c setupoption.c setuprecision.c \
 			convtostr.c error.c      chartoarr.c inttoarr.c    inttohexoroct.c \
-			pointertoa.c \
+			pointertoa.c 		     ftoa.c\
 
 OBJ		=	$(SRC:.c=.o)
 INCL	=	./include/

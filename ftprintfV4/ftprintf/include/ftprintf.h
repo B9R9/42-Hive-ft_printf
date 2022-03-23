@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/22 15:47:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/23 09:18:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "libft.h"
 
 /*DEFINE*/
-# define flags "scdxXop%i"
+# define flags "scdxXop%if"
 # define option " .0#+"
 # define hexa "0123456789abcdef"
 
@@ -104,9 +104,10 @@ char *argtochar(t_parameter li, va_list ap);
 char *argtoint(t_parameter li, va_list ap);
 char *argtohexoroct(t_parameter li, va_list ap);
 char *argtoptraddress(t_parameter li, va_list ap);
+char *argtofloat(t_parameter li, va_list ap);
 
 typedef char *(*dispachtFlags)(t_parameter li, va_list ap);
-static const dispachtFlags	funcFlagsArray[9] = {
+static const dispachtFlags	funcFlagsArray[10] = {
 	argtostr,
 	argtochar,
 	argtoint,
@@ -116,6 +117,7 @@ static const dispachtFlags	funcFlagsArray[9] = {
 	argtoptraddress,
 	argtochar,
 	argtoint,
+	argtofloat,
 };
 
 /*PROTOTYPE*/

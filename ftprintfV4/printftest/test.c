@@ -1,10 +1,93 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <limits.h>
+#include <math.h>
 
-int main(void)
+
+int main()
 {
-   printf("%i\n", 23);
+   double test = 23.123456789;
+   int      frontpart = 0;
+   int      ipart = (int) test;
+   float    fpart = test - (double)ipart;
+   
+   frontpart = fpart * 2;
+   if(frontpart == 1)
+      printf("1");
+   else
+      printf("0");
+      
+   printf("->%d<-\n", frontpart);
+
+   // printf("%f\n", 23.123456789);
+
+
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+   /*
+   printf("%.0f\n", 23.123456789);
+   printf("%.1f\n", 23.123456789);
+   printf("%.2f\n", 23.123456789);
+   printf("%.3f\n", 23.123456789);
+   printf("%.4f\n", 23.123456789);
+   printf("%.5f\n", 23.123456789);
+   printf("%.6f\n", 23.123456789);
+   printf("%.7f\n", 23.123456789);
+   printf("%.8f\n", 23.123456789);
+   printf("%.9f\n", 23.123456789);
+
+   printf("===========================\n");
+
+   printf("%4.0f\n", 23.123456789);
+   printf("%4.1f\n", 23.123456789);
+   printf("%4.2f\n", 23.123456789);
+   printf("%4.3f\n", 23.123456789);
+   printf("%4.4f\n", 23.123456789);
+   printf("%4.5f\n", 23.123456789);
+   printf("%4.6f\n", 23.123456789);
+   printf("%4.7f\n", 23.123456789);
+   printf("%4.8f\n", 23.123456789);
+   printf("%4.9f\n", 23.123456789);
+
+   printf("===========================\n");
+
+   printf("%.f\n",0.5);
+   printf("%.f\n",0.7);
+   printf("%.f\n",1.0);
+   printf("%.f\n",1.5);
+   printf("%.f\n",1.7);
+   printf("%.f\n",2.0);
+   printf("%.f\n",2.5);
+   printf("%.f\n",2.7);
+   printf("%.f\n",3.0);
+   printf("%.f\n",3.5);
+   printf("%.f\n",3.7);
+
+   printf("===========================\n");
+
+   printf("%.f\n",4.5);
+   printf("%.f\n",5.5);
+   printf("%.f\n",6.5);
+   printf("%.f\n",7.5);
+   printf("%.f\n",8.5);
+   printf("%.f\n",9.5);*/
+
+
+
+
+
    // int number;
    //   char *str;
    //   char *new;
@@ -54,8 +137,7 @@ int main(void)
    // printf("->%.17f<-\n", 10.5000000000000008883);
    // printf("->%.17f<-\n", 10.5000000000000008884);
    // printf("->%.20f<-\n", 10.5000000000000008886);
-   return (0);
-}
+
 /*
 10.5000000000000008884
 10.5000000000000008884

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/22 14:43:59 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:56:44 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)
 	}
 	if(str[i] == '.')
 	{
+		li.dot = true;
 		i++;
 		if (str[i] == '*')
 		{
@@ -233,12 +234,12 @@ t_parameter		init(const char *format, size_t index, t_parameter li, va_list ap)
 		ft_errormem("structinit.c", 109);
 		exit(EXIT_FAILURE);
 	}
-	ft_debug("cyan", "init", 01, str, -1 );
+	//ft_debug("cyan", "init", 01, str, -1 );
 	li = setup(str, li, ap);
 	ft_memdel((void**)&str);
-	ft_debug("cyan", "init", 02,"NULL", -1 );
+	//ft_debug("cyan", "init", 02,"NULL", -1 );
 	/*if(checkoptionerror(li))
 		exit(EXIT_FAILURE);*/
-	 ft_debug("cyan", "init", 03,"NULL", -1 );
+	 //ft_debug("cyan", "init", 03,"NULL", -1 );
 	return (li);
 }
