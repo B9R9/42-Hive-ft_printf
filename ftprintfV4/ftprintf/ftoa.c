@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/23 17:08:24 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/24 16:52:53 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,63 +62,153 @@ static char *ftoa(t_parameter li, double number)
 { 
     int     ipart;
     size_t     i = 1;
-    double   fpart = 0;
+    long double   fpart = 0;
     char    *dest = NULL;
-    size_t addspace = 0;
+    t_bool neg = false;
+    //size_t addspace = 0;
     // size_t lenght = 0;
 
+    if (number < 0)
+        {
+            number =  number * -1;
+            neg = true;
+        }
     
     // printf("TEST00\n");
     ipart = (int)number;
-    fpart = number - (float)ipart;
-    printf("ipart = ->%d<-\n",ipart);
-    printf("fpart = ->%.15f<-\n",fpart);
+    fpart = number - (long double)ipart;
+    
+    // printf("ipart = ->%d<-\n",ipart);
+//     printf("fpart = ->%.15f<-\n",fpart);
+    
     if(!li.dot)
         li.precision = 6;
-    printf("precision = ->%zu<-\n",li.precision);
-    printf("Numlenght = ->%d<-\n",ft_numlenght(ipart));
-    size_t minSizeBox = (ft_numlenght(ipart)) + 1 + li.precision;
-    printf("minSizeBox = ->%zu<-\n", minSizeBox);
-    if(li.width > minSizeBox)
-       { dest = ft_itona(ipart, li.width - minSizeBox + ft_numlenght(ipart));
-        addspace = li.width - minSizeBox;
-        printf("ADDSPACE VALUE: ->%zu<-\n", addspace);
-       }
-    else
-    {
-        dest = ft_itona(ipart, ft_numlenght(ipart));
-    }
+        
+    // printf("precision = ->%zu<-\n",li.precision);
+    // printf("Numlenght = ->%d<-\n",ft_numlenght(ipart));
+    
+    // size_t minSizeBox = (ft_numlenght(ipart)) + 1 + li.precision;
+    
+    // printf("minSizeBox = ->%zu<-\n", minSizeBox);
+    
+    dest = ft_itoa(ipart); // ->99
+    
     printf("DEST after ITOA= ->%s<-\n",dest);
+    if (dest[0] == '-')
+        fpart = fpart * -1;
     if(li.precision != 0)
     {
-        dest = ft_strjoin(dest, ".");
-        
-        printf("@IN IF fpart = ->%.15f<-\n",fpart);
+        dest = ft_strjoin(dest, "."); // -> 99.
         while (i < li.precision + 1)
         {
+            
             fpart = fpart * 10;
-            printf("IN IF fpart = ->%.15f<-\n",fpart);
-            dest = ft_strjoin(dest, ft_itoa((int)fpart));
+            //printf("VALEUR DE Fpart -->%d<--\n", (int)fpart);
+            if ((int)fpart == 0)
+                dest = ft_strjoin(dest, "0");
+            else
+                dest = ft_strjoin(dest, ft_itoa((int)fpart)); // ->99.9 || 99.99 || 99.999
             fpart = fpart - (int)fpart;
             i++;
         }
     }
-    i = 0;
-    if(addspace > 0)
+
+    printf("---> DEST = ->%s<-\n",dest);
+	/*ROUDING PART*/
+    fpart = fpart * 10; // -> 9 || chiffre permettant de commencer l arrondi
+     printf("VALEUR DE Fpart -->%d<--\n", (int)fpart);
+    i = ft_strlen(dest) - 1;
+    if ((int)fpart == 5 && li.precision != 0)
     {
-        while (addspace > li.positif)
-        {
-             dest[i] = ' ';
-            addspace--;
-            i++;
-        }
-            
+        printf("f part == 5 || DEST = ->%s<-\n",dest);
+        if((dest[i] % '2') == 1)
+            dest[i] = dest[i] + 1;
+        if(dest[i] == '0')
+            dest[i] = '1';
+        i--; 
+              
     }
-    if(li.positif && li.width > li.precision)
-        dest[i] = '+';
-    else if (li.positif) 
-        dest = ft_strjoin("+", dest);
-    printf("DEST = ->%s<-\n",dest);
+    if((int)fpart >= 5 && li.precision != 0 && dest[i] != '.') // fait larrondi probleme quand nous sommes a 99.99 -> arrondi a 100
+    {
+        dest[i] = dest[i] + 1;
+        // printf("VALEUR DE I = ->%zu<-\n", i);
+        while ((int)i >= 0)
+        {
+            printf("f part > 5 || DEST = ->%s<-\n",dest);
+            if(dest[i] == ':')
+            {   dest[i] = '0';
+                if(dest[i - 1] == '.')
+                    i--;
+                // if(dest[0] == '-')
+                //     dest[i - 1] -= 0;
+                // else 
+                    dest[i - 1] += 1;
+            }
+            if (dest[0] == ':' || dest[0] == '.')
+                    {
+						dest[0] = '0';
+						dest = ft_strjoin("1", dest);
+					}
+            i--;
+        }
+                // dest = ft_itona(ft_atoi(dest),li.width - minSizeBox + ft_numlenght(ipart));
+    }
+    else if(/*(int)fpart == 5 &&*/ li.precision == 0) // partie qui gere dans le cas ou la 22.5 -> 22 23.5-> 24
+    {
+        if((ipart + 1) % 2 == 0)
+            return dest = ft_itoa(ipart + 1);
+        else
+            return dest;
+        
+    }
+	
+    // printf("---> DEST = ->%s<-\n",dest);
+	
+	/*ADJUST STR*/
+
+// printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
+	i = 0;
+	if(li.zero && li.width > ft_strlen(dest))
+	{
+		while( i < (li.width - ft_strlen(dest)) - li.positif - neg)
+			dest = ft_strjoin("0", dest);
+	}
+		
+	// printf("---> AFTER 0 DEST = ->%s<-\n",dest);
+	
+	if (!li.zero && li.width > 0 && !li.negatif && !li.hastag)
+		{
+			i = 0;
+			// printf("%zu - %zu + %u = %lu\n",li.width, ft_strlen(dest), li.positif, (li.width - ft_strlen(dest)) + li.positif );
+			int total = (li.width - li.positif)  - ft_strlen(dest);
+            // printf("Value Total = ->%d<-\n", total);
+			while((int)i < total)
+			{
+				//  printf("@VALEUR DE I = ->%zu<-\n", i);
+				// printf("---> SPACE DEST = ->%s<-\n",dest);
+				dest = ft_strjoin(" ", dest);
+				i++;
+				// printf("VALEUR DE I = ->%zu<-\n", i);
+			}
+		}
+	if(li.positif && li.width == ft_strlen(dest) && i > 0)
+		dest[i - 1] = '+'; 
+	else if(li.positif)
+		dest = ft_strjoin("+", dest);
+    if(neg && li.width >= ft_strlen(dest) && i > 0)
+		dest[i - 1] = '-'; 
+	else if(neg)
+		dest = ft_strjoin("-", dest);
+
+	
+    //printf("DEST = ->%s<-\n",dest);
+    // printf("AT THE END fpart = ->%.15f<-\n",fpart);
+    
+    // printf("VALEUR INT DE FPART ->%d<-\n", (int)fpart);
+
+    // else if ((int)fpart <= 4 && li.precision != 0)
+    //      dest[ft_strlen(dest) - 1] = dest[ft_strlen(dest) - 1] + 1;
+    
     /*Calculer la taille du premiere containeur*/
     /* 1er partie :
     2eme partie : precision || par default 6
@@ -134,6 +224,8 @@ static char *ftoa(t_parameter li, double number)
     // }
     //dest = ft_strnew((li.precision) + ft_numlenght(ipart) + 1);
     //i = intToStr(ipart, dest, 0);
+    // if (neg)
+    //     return (dest = ft_strjoin("-", dest));
 	return(dest);
 }
 
@@ -141,3 +233,40 @@ char *argtofloat(t_parameter li, va_list ap)
 {
     return (ftoa(li, va_arg(ap, double)));
 }
+
+
+/*
+
+if(li.width > minSizeBox)
+       { dest = ft_itona(ipart, li.width - minSizeBox + ft_numlenght(ipart));
+        addspace = li.width - minSizeBox;
+        printf("ADDSPACE VALUE: ->%zu<-\n", addspace);
+       }
+
+
+      if (dest[0] == '0' && li.width > minSizeBox)
+                 {dest[0] = '1';
+                  printf("ADDSPACE = ->%zu<-\n", addspace);
+                  if(addspace > 0)
+                    addspace = addspace - 1;}
+         else
+            { 
+                 printf("ADDSPACE = ->%zu<-\n", addspace);
+                dest = ft_strjoin("1", dest);
+                if(addspace > 0)
+                    addspace =  addspace - 1;
+            }
+
+
+			    i = 0;
+    // if(addspace > 0)
+    // {
+    //     while (addspace > li.positif)
+    //     {
+    //          dest[i] = ' ';
+    //         addspace--;
+    //         i++;
+    //     }
+            
+    // }
+*/       

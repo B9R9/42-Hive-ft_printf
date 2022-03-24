@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/23 17:09:02 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/24 16:54:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,50 @@ int		main(void)
 	// ft_printf("%+.9d\n", number);
 	// ft_printf("%12.9d\n", number);
 	// ft_printf("%+ 5d\n", number);
-//    ft_printf("%#x\n", 2147483647);
-//    ft_printf("%#X\n", 2147483647);
+   // ft_printf("%#x\n", 2147483647);
+   // ft_printf("%#X\n", 2147483647);
 //    ft_printf("%o\n", number);
-   ft_printf("%+14.8f\n", 23.12345678);
-   printf ("%+14.8f\n", 23.12345678);
-   
-   // ft_printf("%.1f\n", 23.123456789);
+   // ft_printf("FT      ->%+14.8f<-\n", 23.123456789);
+
+   //-0.02 // probleme itoa
+  // fixe le rouding negatif
+//    ft_printf("null '%.30f' and text\n",  0.65000000000000002220446049);
+   printf("===========================\n");
+   ft_printf("COMPARE ->%.5f<-\n", 10.35654);
+   printf("PRINTF ->%.5f<-\n", 10.35654);
+    printf("===========================\n");
+  printf("%.30f' and text\n",  6.05);
+   ft_printf("COMPARE ->%.30f<-\n", 6.05);
+   printf("===========================\n");
+   ft_printf("COMPARE ->%.1f<-\n", 0.35);
+   printf("PRINTF ->%.1f<-\n", 0.35);
+    printf("===========================\n");
+    printf("PRINTF '%.1f'\n", 0.05);
+ ft_printf("COMPARE '%.1f'\n", 0.05);
+ printf("===========================\n");
+//                 printf("\n\n"); // 0.1
+    printf("PRINTF'%.1f'\n", 0.15);
+ ft_printf("COMPARE '%.1f'\n", 0.15);
+ printf("===========================\n");
+//                 printf("\n\n"); // 0.2
+    printf("PRINTF '%.1f'\n", 0.25);
+ ft_printf("COMPARE '%.1f'\n", 0.25);
+ printf("===========================\n");
+//                 printf("\n\n"); // 0.3
+    printf("PRINTF '%.1f'\n", 0.35);
+ ft_printf("COMPARE '%.1f'\n", 0.35);
+
+//              printf("\n\n"); // 0.5
+//     printf("null '%.1f' and text\n", 0.45);
+//  ft_printf("null '%.1f' and text\n", 0.45);
+
+//              printf("\n\n"); // 0.6
+//     printf("null '%.1f' and text\n", 0.55);
+//  ft_printf("null '%.1f' and text\n", 0.55);
+
+//              printf("\n\n"); // 0.7
+//     printf("null '%.1f' and text\n", 0.65);
+//  ft_printf("null '%.1f' and text\n", 0.65);
    // ft_printf("%.2f\n", 23.123456789);
    // ft_printf("%.3f\n", 23.123456789);
    // ft_printf("%.4f\n", 23.123456789);

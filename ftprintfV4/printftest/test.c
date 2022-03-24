@@ -7,20 +7,29 @@
 
 int main()
 {
-   double test = 23.123456789;
-   int      frontpart = 0;
-   int      ipart = (int) test;
-   float    fpart = test - (double)ipart;
-   
-   frontpart = fpart * 2;
-   if(frontpart == 1)
-      printf("1");
-   else
-      printf("0");
-      
-   printf("->%d<-\n", frontpart);
 
-   // printf("%f\n", 23.123456789);
+   printf("PRTINTF 23.5234....->%.f<-\n", 23.523456789);
+   printf("PRTINTF 23.5       ->%.f<-\n", 23.5);
+   printf("PRTINTF 25.5234... ->%.f<-\n", 25.523456789);
+   printf("PRTINTF 25.5       ->%.f<-\n", 25.5);
+   printf("PRTINTF 24.52345...->%.f<-\n", 24.523456789);
+   printf("PRTINTF 24.5       ->%.f<-\n", 24.5);
+   printf("PRTINTF 22.5       ->%.f<-\n", 22.5100000000);
+   printf("PRTINTF 22.5       ->%.f<-\n", 22.5234654664);
+   // double test = 23.123456789;
+   // int      frontpart = 0;
+   // int      ipart = (int) test;
+   // float    fpart = test - (double)ipart;
+   
+   // frontpart = fpart * 2;
+   // if(frontpart == 1)
+   //    printf("1");
+   // else
+   //    printf("0");
+      
+   // printf("->%d<-\n", frontpart);
+
+   // // printf("%f\n", 23.123456789);
 
 
 

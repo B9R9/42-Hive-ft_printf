@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/23 14:56:44 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/24 16:25:29 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ static t_parameter	resetoption(t_parameter li, char *str);
 
 static t_parameter	resetoption(t_parameter li, char *str)
 {
-	li.flag = str[ft_strlen(str) - 1];
+	li.upper = false;
+	if(ft_isupper(str[ft_strlen(str) - 1]))
+		li.upper = true;
+	// li.flag = ft_tolower(str[ft_strlen(str) - 1]);
 	li.hastag = 0; 
 	li.positif = 0; 
 	li.space = 0; 
 	li.width = 0; 
 	li.zero = 0;
-  	// check si le flag est Upper case OK
 	li.precision = 0;
 	li.char_to_skip = 0;
 	li.size = ft_strlen(str);
@@ -83,22 +85,22 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)
 			li.precision =  ft_atoi(&str[i]);
 			i += skip(&str[i]);
 		}
-		li.flag = str[i];
+		li.flag = ft_tolower(str[i]); // IF FLAG == % renvoie vers la argtochar
 	}
 	else 
 	{
-		li.flag = str[i];
+		li.flag = ft_tolower(str[i]);
 	}
-	printf("li.space		= ->%d<-\n", li.space); 
-	printf("li.zero			= ->%d<-\n", li.zero); 
-	printf("li.#			= ->%d<-\n", li.hastag); 
-	printf("li.positif		= ->%d<-\n", li.positif); 
-	printf("li.negatif		= ->%d<-\n", li.negatif);
-	printf("li.flag			= ->%c<-\n", li.flag); 
-	printf("li.width		= ->%zu<-\n", li.width); 
-	printf("li.upper		= ->%d<-\n", li.upper); 
-	printf("li.precision		= ->%zu<-\n", li.precision); 
-	printf("li.size			= ->%zu<-\n", li.size); 
+	// printf("li.space		= ->%d<-\n", li.space); 
+	// printf("li.zero			= ->%d<-\n", li.zero); 
+	// printf("li.#			= ->%d<-\n", li.hastag); 
+	// printf("li.positif		= ->%d<-\n", li.positif); 
+	// printf("li.negatif		= ->%d<-\n", li.negatif);
+	// printf("li.flag			= ->%c<-\n", li.flag); 
+	// printf("li.width		= ->%zu<-\n", li.width); 
+	// printf("li.upper		= ->%d<-\n", li.upper); 
+	// printf("li.precision		= ->%zu<-\n", li.precision); 
+	// printf("li.size			= ->%zu<-\n", li.size); 
 	return(li);	 
 }
 	// printf("li.size			= ->%zu<-\n", li.size); 

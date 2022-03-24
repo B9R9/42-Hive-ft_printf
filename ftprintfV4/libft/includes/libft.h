@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/22 11:02:39 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:23:08 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ char		*ft_itoa(int n);
 char		*ft_itona(int n, int size);
 
 /*FT_IS FUNCTION*/
+int			ft_isupper(int c);
 int			ft_isalnum(int c);
 int			ft_isdigit(int c);
 int			ft_isascii(int c);

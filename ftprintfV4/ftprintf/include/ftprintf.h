@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/23 09:18:31 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:43:44 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,36 @@ static const dispachtFlags	funcFlagsArray[10] = {
 	argtoint,
 	argtofloat,
 };
-
+/*
+static const dispachtFlags	funcFlagsArray[26] = {
+	NULL, //A
+	NULL,//B
+	argtochar,//C
+	argtoint,//D
+	NULL,//E
+	argtofloat,//F
+	NULL,//G
+	NULL,//H
+	argtoint,//I
+	NULL,//J
+	NULL,//K
+	NULL,//L
+	NULL,//M
+	NULL,//N
+	NULL,//O
+	argtoptraddress,//P
+	NULL,//Q
+	NULL,//R
+	argtostr,//S
+	NULL,//T
+	NULL,//U
+	NULL,//V
+	NULL,//W
+	argtohexoroct,//X
+	NULL,//Y
+	NULL,//Z
+};
+*/
 /*PROTOTYPE*/
 int		ft_printf(const char *format, ...);
 
