@@ -7,15 +7,19 @@
 
 int main()
 {
+   int i = 0;
 
-   printf("PRTINTF 23.5234....->%.f<-\n", 23.523456789);
-   printf("PRTINTF 23.5       ->%.f<-\n", 23.5);
-   printf("PRTINTF 25.5234... ->%.f<-\n", 25.523456789);
-   printf("PRTINTF 25.5       ->%.f<-\n", 25.5);
-   printf("PRTINTF 24.52345...->%.f<-\n", 24.523456789);
-   printf("PRTINTF 24.5       ->%.f<-\n", 24.5);
-   printf("PRTINTF 22.5       ->%.f<-\n", 22.5100000000);
-   printf("PRTINTF 22.5       ->%.f<-\n", 22.5234654664);
+   double arr [] ={ 0.005, 0.015, 0.025, 0.035, 0.050, 0.052, 0.056, 0.075, 0.085, 0.095};
+   double arr1 [] ={ 0.005, 0.015, 0.025, 0.035, 0.050, 0.052, 0.056, 0.075, 0.085, 0.095};
+   // double arr1 [] ={ 1.05, 2.15, 3.25, 4.35, 5.45, 6.55, 7.65, 8.75, 9.85, 10.95};
+
+   while (i < 10)
+   {
+      printf(" VALEUR = %f   OUTPUT   ->%.1f<-\n", arr[i], arr[i]);
+      printf(" VALEUR = %f   OUTPUT   ->%.2f<-\n", arr1[i], arr1[i]);
+
+      i++;
+   }
    // double test = 23.123456789;
    // int      frontpart = 0;
    // int      ipart = (int) test;

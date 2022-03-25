@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/24 16:52:53 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/25 17:23:15 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,23 @@ static char *intToStr(int num, char *dest, int size)
     return i;
 }
 */
+
+static t_bool ft_isneg(long double x)
+{
+    if (1 / x > 0) // +0 here else // -0 here
+        return false;
+    return true;
+}
+
+// static int    ft_isinf(long double x)
+// {
+//     if (x == -1.0 / 0.0)
+//         return (-1);
+//     if (x == 1.0 / 0.0)
+//         return (1);
+//     return (0);
+// }
+
 static char *ftoa(t_parameter li, double number)
 { 
     int     ipart;
@@ -68,7 +85,7 @@ static char *ftoa(t_parameter li, double number)
     //size_t addspace = 0;
     // size_t lenght = 0;
 
-    if (number < 0)
+    if (ft_isneg(number))
         {
             number =  number * -1;
             neg = true;
@@ -93,7 +110,7 @@ static char *ftoa(t_parameter li, double number)
     
     dest = ft_itoa(ipart); // ->99
     
-    printf("DEST after ITOA= ->%s<-\n",dest);
+    // printf("DEST after ITOA= ->%s<-\n",dest);
     if (dest[0] == '-')
         fpart = fpart * -1;
     if(li.precision != 0)
@@ -113,64 +130,46 @@ static char *ftoa(t_parameter li, double number)
         }
     }
 
-    printf("---> DEST = ->%s<-\n",dest);
+    
 	/*ROUDING PART*/
     fpart = fpart * 10; // -> 9 || chiffre permettant de commencer l arrondi
-     printf("VALEUR DE Fpart -->%d<--\n", (int)fpart);
     i = ft_strlen(dest) - 1;
-    if ((int)fpart == 5 && li.precision != 0)
+    if(fpart >= 5)
     {
-        printf("f part == 5 || DEST = ->%s<-\n",dest);
-        if((dest[i] % '2') == 1)
-            dest[i] = dest[i] + 1;
-        if(dest[i] == '0')
-            dest[i] = '1';
-        i--; 
-              
-    }
-    if((int)fpart >= 5 && li.precision != 0 && dest[i] != '.') // fait larrondi probleme quand nous sommes a 99.99 -> arrondi a 100
-    {
-        dest[i] = dest[i] + 1;
-        // printf("VALEUR DE I = ->%zu<-\n", i);
-        while ((int)i >= 0)
-        {
-            printf("f part > 5 || DEST = ->%s<-\n",dest);
-            if(dest[i] == ':')
-            {   dest[i] = '0';
-                if(dest[i - 1] == '.')
-                    i--;
-                // if(dest[0] == '-')
-                //     dest[i - 1] -= 0;
-                // else 
-                    dest[i - 1] += 1;
-            }
-            if (dest[0] == ':' || dest[0] == '.')
+        if(fpart > 5)
+            {
+                dest[i] = dest[i] + 1;
+                while((int)i >= 0)
+                {
+                    if(dest[i] == ':')
                     {
-						dest[0] = '0';
-						dest = ft_strjoin("1", dest);
-					}
-            i--;
-        }
-                // dest = ft_itona(ft_atoi(dest),li.width - minSizeBox + ft_numlenght(ipart));
+                        dest[i] = '0';
+                        if(dest[i - 1] == '.')
+                            i--;
+                        if (i == 0)
+                            dest = ft_strjoin("1", dest);
+                        else
+                            dest[i - 1] = dest[i - 1] + 1;
+                    }
+                    if((dest[0] == ':' || dest [0] == '.') && (int)i == 0)
+                    {
+                        dest[0] = '0';
+                        dest = ft_strjoin("1", dest);
+                    }
+                    i--;
+                }
+            }
+        else if (fpart == 5)
+            if ((dest[i] + '0') % 2 == 1)
+                dest[i] = dest[i] + 1;
     }
-    else if(/*(int)fpart == 5 &&*/ li.precision == 0) // partie qui gere dans le cas ou la 22.5 -> 22 23.5-> 24
-    {
-        if((ipart + 1) % 2 == 0)
-            return dest = ft_itoa(ipart + 1);
-        else
-            return dest;
-        
-    }
-	
-    // printf("---> DEST = ->%s<-\n",dest);
-	
 	/*ADJUST STR*/
 
-// printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
+    // printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
 	i = 0;
 	if(li.zero && li.width > ft_strlen(dest))
 	{
-		while( i < (li.width - ft_strlen(dest)) - li.positif - neg)
+		while( i < (li.width - ft_strlen(dest)))
 			dest = ft_strjoin("0", dest);
 	}
 		
@@ -180,20 +179,22 @@ static char *ftoa(t_parameter li, double number)
 		{
 			i = 0;
 			// printf("%zu - %zu + %u = %lu\n",li.width, ft_strlen(dest), li.positif, (li.width - ft_strlen(dest)) + li.positif );
-			int total = (li.width - li.positif)  - ft_strlen(dest);
+			int total = (li.width - ft_strlen(dest));
             // printf("Value Total = ->%d<-\n", total);
 			while((int)i < total)
 			{
 				//  printf("@VALEUR DE I = ->%zu<-\n", i);
-				// printf("---> SPACE DEST = ->%s<-\n",dest);
 				dest = ft_strjoin(" ", dest);
 				i++;
-				// printf("VALEUR DE I = ->%zu<-\n", i);
 			}
 		}
-	if(li.positif && li.width == ft_strlen(dest) && i > 0)
-		dest[i - 1] = '+'; 
-	else if(li.positif)
+	// printf("---> SPACE DEST = ->%s<-\n",dest);
+    // printf("---> SPACE DEST = ->%c<-\n",dest[i - 1]);
+	// printf("VALEUR DE I = ->%zu<-\n", i);
+    // printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
+	if(li.positif && li.width >= ft_strlen(dest) && i > 0)
+		dest[(int)i - 1] = '+'; 
+	else if(li.positif && li.width < ft_strlen(dest))
 		dest = ft_strjoin("+", dest);
     if(neg && li.width >= ft_strlen(dest) && i > 0)
 		dest[i - 1] = '-'; 

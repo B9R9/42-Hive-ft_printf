@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/24 15:23:08 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/25 12:05:51 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,9 @@ int		ft_errormes(char *message);
 /*DEBUG*/
 void 		ft_debug(char *color, char *where, int position, char *str, int num);
 
-/*COUNTER*/
+/*MATH*/
 int			ft_numlenght(long n);
+double		ft_abs_float(double value);
 
 /*DOUBLE LINK LIST*/
 dlist		new_dlist(void);
