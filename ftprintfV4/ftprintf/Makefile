@@ -12,9 +12,10 @@
 
 NAME	=	libftprintf.a
 
-FILES	=	ft_printf.c structinit.c util_list.c setupoption.c setuprecision.c \
-			convtostr.c error.c      chartoarr.c inttoarr.c    inttohexoroct.c \
-			pointertoa.c 		     ftoa.c\
+FILES	=	ft_printf.c structinit.c util_list.c  setupoption.c setuprecision.c\
+			conv_str.c  error.c      conv_char.c  conv_int.c   inttohexoroct.c \
+			pointertoa.c ftoa.c		ft_u_inttoa.c handle_flag_char.c          \
+			parse_str.c   \
 
 OBJ		=	$(SRC:.c=.o)
 INCL	=	./include/

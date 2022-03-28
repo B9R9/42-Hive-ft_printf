@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/25 12:05:51 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/28 09:14:12 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int			ft_toupper(int c);
 int			ft_atoi(const char *str);
 char		*ft_itoa(int n);
 char		*ft_itona(int n, int size);
+char		*ft_u_itoa(unsigned int n);
 
 /*FT_IS FUNCTION*/
 int			ft_isupper(int c);

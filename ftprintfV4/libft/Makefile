@@ -30,6 +30,7 @@ FILES=	ft_putchar.c		ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		ft_putstrcolor.c	ft_putcharcolor.c	ft_error_print.c	ft_itona.c	\
 		ft_numlenght.c		ft_randomnbr.c 		ft_display_file.c	ft_fillit.c	\
 		get_next_line.c		ft_swap.c			ft_abs_float.c		ft_isupper.c\
+		ft_u_itoa.c \
 		newdlist.c			is_empty_dlist.c	dlist_length.c					\
 		dlist_first_end.c	push_back_dlist.c	push_front_dlist.c				\
 		pop_back_dlist.c	pop_front_dlist.c 	print_dlist.c					\

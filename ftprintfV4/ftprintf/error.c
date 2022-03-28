@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/23 08:38:49 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/28 16:39:24 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ t_bool	optionflag_c(t_parameter li)
 t_bool	optionflag_s(t_parameter li)
 {
 	if (li.space)
-			return ft_errormes("error: ' 'flag used with 's'\n");
+			return ft_errormes("error: ' 'results in undefined behavior with 's'\n");
 	else if(li.zero)
-			return ft_errormes("error: '0'flag used with 's'\n");
+			return ft_errormes("error: '0'results in undefined behavior with 's'\n");
 	else if(li.hastag)
-			return ft_errormes("error: '#'flag used with 's'\n");
+			return ft_errormes("error: '#'results in undefined behavior with 's'\n");
 	else if(li.positif)
-			return ft_errormes("error: '+'flag used with 's'\n");
+			return ft_errormes("flag '+' results in undefined behavior with 'c' conversion specifier \n");
 	else if (li.star && (li.space == false && li.zero == false && \
 	 li.dot == false && li.positif == false && li.hastag == false))
 			return ft_errormes("error: '*'flag used without width or precision\n");
@@ -53,6 +53,7 @@ t_bool		optionflag_d(t_parameter li)
 		return ft_errormes("error: flag '#' results in undefined behavior with 'd' converion specifier\n");
 	return (0);
 }
+
 t_bool		checkoptionerror(t_parameter li)
 {
 	int	i;

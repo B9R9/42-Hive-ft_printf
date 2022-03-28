@@ -6,95 +6,50 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:31:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/21 13:36:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/28 17:20:12 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-static char			*dispacht(va_list ap, t_parameter li)
+static char	*dispacht(va_list ap, t_parameter li)
 {
-	int index;
-
-	index = 0;
-	while(flags[index] != '\0')
-	{
-		//printf("VALEUR DU FLAG = %c\n", li.flag);
-		if(li.flag == flags[index])
-		{
-			//ft_debug("yellow", "DISPACHT", 01, "NULL", -1);
-			return(funcFlagsArray[index](li, ap));
-			//ft_debug("yellow", "DISPACHT", 02,funcFlagsArray[index](li, ap), -1);
-			//return ("OK");
-		}
-		index++;
-	}
-	exit(EXIT_FAILURE);
-	/*error message no flag fiunction found*/
+	return (funcFlagsArray[li.flag - 'a'](li, ap));
 }
-/*
-static int		moveindex(const char *str, int index)
-{
-	int	x;
-
-	while (str[index] != '\0')
-	{
-		x = 0;
-		while (flags[x] != '\0')
-		{
-			if (str[index] == flags[x])
-				return(index + 1);
-			x++;
-		}
-		index++;
-	}
-	return an error in case there is no flags at the end 
-	}
-*/
 
 /* Decoupe formart en une liste*/
 static t_containeur	*split(const char *str, va_list ap, t_containeur *li)
 {
 	t_parameter		new;
-	size_t	index;
-	int		start;
-	
+	size_t			index;
+	int				start;
+
 	index = 0;
 	while (str[index] != '\0')
 	{
 		if (str[index] == '%')
 		{
-			// ft_debug("red", "SPLIT", 00,"NULL", index );
 			new = init(str, index, new, ap);
-			//printf("%c\n", new.flag);
 			start = index;
-			// ft_debug("red", "SPLIT", 03,"NULL", index );
-			
 			li = push_back(li, dispacht(ap, new));
-			index += (new.size + 1); // Function move index do the same
-			//printf("%c\n", str[index]);
-			// ft_debug("red", "SPLIT", 02,li->box, index );
+			index += (new.size + 1);
 		}
 		else
 		{
-			//printf("%zu\n", index);
 			start = index;
 			while (str[index] != '%' && str[index])
 				index++;
-			//printf("%zu\n", index);
-			// ft_debug("red", "SPLIT", 03,ft_strsub(str, start, (index - start)), index );
-			li = push_back(li, ft_strsub(str, start, index - start));	
-			// ft_debug("red", "SPLIT", 03,li->box, index );
+			li = push_back(li, ft_strsub(str, start, index - start));
 		}
 	}
-	return(li);
+	return (li);
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	t_containeur	*containeur;
 	va_list			ap;
-	int length;
+	int				length;
 
 	length = 0;
 	containeur = newlist();
@@ -102,12 +57,10 @@ int		ft_printf(const char *format, ...)
 	containeur = split(format, ap, containeur);
 	va_end(ap);
 	while (containeur != NULL)
-		{
-			ft_putstr(containeur->box);
-			length += ft_strlen(containeur->box);
-			containeur = containeur->next;
-		}
-		// ft_putstr(containeur->box);
-		// length += ft_strlen(containeur->box);
+	{
+		ft_putstr(containeur->box);
+		length += ft_strlen(containeur->box);
+		containeur = containeur->next;
+	}
 	return (length);
 }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/25 16:37:43 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/28 17:51:43 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,69 @@
 
 int		main(void)
 {
-   int i = 0;
-   int precision = 6;
+
+   
+   // int i = 0;
+   int precision = 2;
    int width = 10;
    // double arr1[] = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
    // double arr2[] = { 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09};
    // double arr3[] = { 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 4.5, 5.5, 6.5};
    // double arr4[] = { 9.99, 99.999, 999.9999, 99999.99999, 999999.9999999, 0.999999, 19.99, 29.99, 39.99};
    // double arr5[] = { 1.55555, 2.55555, 3.55555, 4.555555, 5.55555, 6.55555, 7.55555, 8.55555, 9.55555};
-   double arr6[] = { 564.2,798.564, 13.654684, 5684.321849, 897987456.654987, 321398.3216469, 3215698.3515984, 3218.516984, 654.654654};
-   double arr7[] = {0.00, -0.00, -0.25, -0.50, -0.5, -99.99, -10.0000, -684.56, -687.563};
+   // double arr6[] = { 564.2,798.564, 13.654684, 5684.321849, 897987456.654987, 321398.3216469, 3215698.3515984, 3218.516984, 654.654654};
+   // double arr7[] = {0.00, -0.00, -0.25, -0.50, -0.5, -99.99, -10.0000, -684.56, -687.563};
+   // unsigned int u_int_arr[] = { 4294967295, 254, 684, 987546, 664, 684123, 784655135, 321654};
+   // unsigned int neg_u_int_arr[] = {-654, -321, -0, -56448, -56431, -8, -9, -010001000};
 
+//    char  *arrSTR[] = {"", "     ", " Hello World", "\tTEst \r \n et le reste", "@!Test string"};
+
+   int i = 498;
+   while (i < 500)
+   {
+      ft_printf("FT->%+*.*d<-\n",width,precision, i);
+      printf("PR->%+*.*d<-\n",width,precision, i);
+      i++;
+   }
+   // int i = 0;
+   // while (i < 127)
+   //    {
+   //       ft_printf("FT->%-12c<-\n",i);
+   //       printf("PR->%-12c<-\n", i);
+   //       i++;
+   //    }
+// printf ("==================================== ARR STRn");
+// i = 0;
+//    while(i < 5)
+//    {
+//       printf("\n============%s===============\n",arrSTR[i]);
+//       ft_printf("FT_PRINTF -->%*.*s<--\n",width, precision, arrSTR[i]);
+//       printf("PRINTF    -->%*.*s<--\n", width, precision, arrSTR[i]);
+//       i++;
+//    }
+
+/*U_INT PRINTF*/
+// printf ("==================================== U_int_arr\n");
+//    while(i < 9)
+//    {
+//       printf("\n============%u===============\n",u_int_arr[i]);
+//       ft_printf("FT_PRINTF -->%u<--\n",/*width, precision, */u_int_arr[i]);
+//       printf("PRINTF    -->%u<--\n", /*width, precision,*/ u_int_arr[i]);
+//       i++;
+//    }
+
+// printf ("==================================== neg_U int\n");
+// i = 0;
+//    while(i < 9)
+//    {
+//       printf("\n============%u===============\n",neg_u_int_arr[i]);
+//       ft_printf("FT_PRINTF -->%u<--\n",/*width, precision, */neg_u_int_arr[i]);
+//       printf("PRINTF    -->%u<--\n", /*width, precision,*/ neg_u_int_arr[i]);
+//       i++;
+//    }
+   
+
+   /*DOUBLE PRINT*/
 // printf ("==================================== ARR1 Value de 0.1 a 0.9\n");
 //    while(i < 9)
 //    {
@@ -79,26 +131,26 @@ int		main(void)
 //       i++;
 //    }
 
-         printf ("========================================= ARR6 Value random \n");
-   i = 0;
-      while(i < 9)
-   {
-      printf("\n=============%f==============\n",arr6[i]);
-      ft_printf("FT_PRINTF -->%*.*f<--\n",width, precision, arr6[i]);
-      printf("PRINTF    -->%*.*f<--\n", width, precision, arr6[i]);
-      printf("\n===========================\n");
-      i++;
-   }
-            printf ("ARR6 Value negatif\n");
-   i = 0;
-      while(i < 9)
-   {
-      printf("\n=============%f==============\n",arr7[i]);
-      ft_printf("FT_PRINTF -->%*.*f<--\n",width, precision, arr7[i]);
-      printf("PRINTF    -->%*.*f<--\n", width, precision, arr7[i]);
-      printf("\n===========================\n");
-      i++;
-   }
+   //       printf ("========================================= ARR6 Value random \n");
+   // i = 0;
+   //    while(i < 9)
+   // {
+   //    printf("\n=============%f==============\n",arr6[i]);
+   //    ft_printf("FT_PRINTF -->%*.*f<--\n",width, precision, arr6[i]);
+   //    printf("PRINTF    -->%*.*f<--\n", width, precision, arr6[i]);
+   //    printf("\n===========================\n");
+   //    i++;
+   // }
+   //          printf ("ARR6 Value negatif\n");
+   // i = 0;
+   //    while(i < 9)
+   // {
+   //    printf("\n=============%f==============\n",arr7[i]);
+   //    ft_printf("FT_PRINTF -->%*.*f<--\n",width, precision, arr7[i]);
+   //    printf("PRINTF    -->%*.*f<--\n", width, precision, arr7[i]);
+   //    printf("\n===========================\n");
+   //    i++;
+   // }
 	//  char *str;
 	// int number;
 	// char *str;

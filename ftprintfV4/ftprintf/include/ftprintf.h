@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/24 15:43:44 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/28 17:58:44 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@
 #include "libft.h"
 
 /*DEFINE*/
-# define flags "scdxXop%if"
-# define option " .0#+"
+# define flags "scdxXop%ifu"
+# define option " .0#+-"
+#define maxint 2147483647
+#define minint -2147489647
+#define maxuint 4294967295
 # define hexa "0123456789abcdef"
 
 /*TYPEDEF*/
@@ -45,7 +48,9 @@ typedef struct	s_parameter {
 	size_t	precision;
 	int 	char_to_skip;
 	size_t	size;
+	size_t addspace;
 	t_bool	negatif;
+	char *sizePrefix;
 	// int		contentsize;
 }			t_parameter;
 
@@ -62,8 +67,8 @@ typedef struct s_containeur {
 t_bool		optionflag_s(t_parameter li);
 t_bool		optionflag_c(t_parameter li);
 t_bool		optionflag_d(t_parameter li);
-t_bool		optionflag_x(t_parameter li);
-t_bool		optionflag_p(t_parameter li);
+// t_bool		optionflag_x(t_parameter li);
+// t_bool		optionflag_p(t_parameter li);
 
 
 typedef t_bool		(*dispachterror)(t_parameter li);
@@ -72,30 +77,8 @@ static const dispachterror	funcErrorArray[5] = {
 	optionflag_s,
 	optionflag_c,
 	optionflag_d,
-	optionflag_x,
-	optionflag_p,
-};
-
-
-/*FUNCTION IN DISPACHTOPTION ARRAY*/
-t_parameter				setupspace(t_parameter li, char *str, va_list ap);
-t_parameter				setupprecision(t_parameter li, char *str, va_list ap);
-t_parameter				setupstar(t_parameter li, char *str, va_list ap);
-t_parameter				setupzero(t_parameter li, char *str, va_list ap);
-t_parameter				setuphastag(t_parameter li, char *str, va_list ap);
-t_parameter				setupnum(t_parameter li, char *str, va_list ap);
-t_parameter				setuppositif(t_parameter li, char *str, va_list ap);
-// Missing pour  le caratetre -
-// missing l,ll,h et hhdi
-//
-typedef t_parameter		(*dispachtoption)(t_parameter li, char *str, va_list ap);
-
-static const dispachtoption	funcOption[5] = {
-	setupspace,
-	setupprecision,
-	setupzero,
-	setuphastag,
-	setuppositif,
+	// optionflag_x,
+	// optionflag_p,
 };
 
 /*FUNCTION IN DISPACHT FLAG ARRAY*/
@@ -105,21 +88,23 @@ char *argtoint(t_parameter li, va_list ap);
 char *argtohexoroct(t_parameter li, va_list ap);
 char *argtoptraddress(t_parameter li, va_list ap);
 char *argtofloat(t_parameter li, va_list ap);
+char *argto_u_int(t_parameter li, va_list ap);
 
 typedef char *(*dispachtFlags)(t_parameter li, va_list ap);
-static const dispachtFlags	funcFlagsArray[10] = {
-	argtostr,
-	argtochar,
-	argtoint,
-	argtohexoroct,
-	argtohexoroct,
-	argtohexoroct,
-	argtoptraddress,
-	argtochar,
-	argtoint,
-	argtofloat,
-};
-/*
+// static const dispachtFlags	funcFlagsArray[11] = {
+// 	argtostr,
+// 	argtochar,
+// 	argtoint,
+// 	argtohexoroct,
+// 	argtohexoroct,
+// 	argtohexoroct,
+// 	argtoptraddress,
+// 	argtochar,
+// 	argtoint,
+// 	argtofloat,
+// 	argto_u_int,
+// };
+
 static const dispachtFlags	funcFlagsArray[26] = {
 	NULL, //A
 	NULL,//B
@@ -141,16 +126,21 @@ static const dispachtFlags	funcFlagsArray[26] = {
 	NULL,//R
 	argtostr,//S
 	NULL,//T
-	NULL,//U
+	argto_u_int,//U
 	NULL,//V
 	NULL,//W
 	argtohexoroct,//X
 	NULL,//Y
 	NULL,//Z
 };
-*/
 /*PROTOTYPE*/
 int		ft_printf(const char *format, ...);
+
+/*HANDLE FLAG CHARACTER*/
+t_parameter handle_flag(char *str, t_parameter li);
+t_parameter handle_width(char *str, t_parameter li, va_list ap);
+t_parameter handle_precision(char *str, t_parameter li, va_list ap);
+t_parameter handle_size_prefix(char *str, t_parameter li);
 
 /*UTIL LIST*/
 t_containeur	*newlist(void);
@@ -165,6 +155,11 @@ void			printlist(t_containeur *li);
 int				skip(char *str);
 char			*revstr(char *str);
 
+/*SIZE PREFIX HANDLER*/
+char *ll_int_to_arr(t_parameter li, va_list ap);
+char *l_int_to_arr(t_parameter li, va_list ap);
+char *u_short_int_to_arr(t_parameter li, va_list ap);
+char *u_char_to_arr(t_parameter li, va_list ap);
 
 
 /*INIT OPTION STRUCTURE*/
@@ -173,7 +168,8 @@ t_parameter		init(const char *format, size_t index, t_parameter li, va_list ap);
 /*CHECK OPTIONSYNTAXE ERROR*/
 t_bool 	checkoptionerror(t_parameter li);
 
-
-
+/*PARSE STRING*/
+char *parse_str(char *str, t_parameter li, char *source);
+char *addspaces(char *str,t_parameter li, size_t space);
 
 # endif
