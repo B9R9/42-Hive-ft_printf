@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_int.c                                         :+:      :+:    :+:   */
+/*   conv_u_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 16:18:37 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/28 08:41:18 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/29 17:29:39 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-// static char	*addsigne(char *dest)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (dest[i] == ' ')
-// 		i++;
-// 	dest[i] = '+';
-// 	return (dest);
-// }
-
-static char	*inttoarr(t_parameter li, int number)
+char *ft_uitoa(t_parameter li, unsigned int c)
 {
-	char    *containeur;
     char    *temp;
-    
-    temp = ft_itoa(number);
+    char    *containeur;
+
+    if ( c > 4294967295)// ne compilera probablement pas
+    {
+        ft_errormes(" error: implicit conversion from 'long' to 'unsigned int' changes value\n");
+        exit(EXIT_FAILURE);
+    }
+    else
+        temp = ft_u_itoa(c);
     while(ft_strlen(temp) < li.precision && li.width > li.precision)
             temp = ft_strjoin("0", temp);
     if((li.space || li.width > li.precision) && !li.positif)
@@ -43,20 +38,20 @@ static char	*inttoarr(t_parameter li, int number)
     if(li.negatif)
         ft_reverse_str(temp);
     containeur = temp;
-    ft_memdel((void **) &temp);
-	return (containeur);
+    ft_memdel((void **) &temp);    
+    return (containeur);
 }
 
-char	*argtoint(t_parameter li, va_list ap)
+char *argto_u_int(t_parameter li, va_list ap)
 {
-    if(!ft_strcmp(li.sizePrefix,"ll"))
+        if(!ft_strcmp(li.sizePrefix,"ll"))
         return(ll_int_to_arr(li, va_arg(ap, long long)));
     else if(!ft_strcmp(li.sizePrefix, "l"))
         return(l_int_to_arr(li, va_arg(ap, long)));
     else if(!ft_strcmp(li.sizePrefix, "h"))
         return(short_int_to_arr(li, (short)va_arg(ap, int)));
     else if(!ft_strcmp(li.sizePrefix, "hh"))
-        return(char_to_arr(li, (char)va_arg(ap, int)));
+        return(u_chartoa(li, (unsigned char)va_arg(ap, int)));
     else
-		return (inttoarr(li, va_arg(ap, int)));
+        return(ft_uitoa(li, va_arg(ap, unsigned int)));
 }

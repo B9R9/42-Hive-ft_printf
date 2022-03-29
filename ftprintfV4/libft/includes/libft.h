@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 09:14:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 10:52:36 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,9 @@ int			ft_atoi(const char *str);
 char		*ft_itoa(int n);
 char		*ft_itona(int n, int size);
 char		*ft_u_itoa(unsigned int n);
+char		*ft_ll_itoa(long long int number);
+char   		*ft_l_itoa(long number);
+char		*ft_u_short_itoa(short int n);
 
 /*FT_IS FUNCTION*/
 int			ft_isupper(int c);
@@ -110,6 +113,8 @@ int			ft_isdigit(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_isalpha(int c);
+int			ft_isspace(char c);
+
 /*FT_PUT FUNCTION*/
 void		ft_putchar(char c);
 void		ft_putchar_fd(char c, int fd);
@@ -137,7 +142,7 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 
 /*EXTRA FUNCTION*/
 void		*ft_cleanstr(char **s, size_t i);
-int			ft_isspace(char c);
+
 void		ft_color(char *s);
 void		ft_putstrcolor(char *str, char *color);
 void		ft_putcharcolor(char c, char *color);
@@ -155,8 +160,8 @@ int		ft_errormes(char *message);
 void 		ft_debug(char *color, char *where, int position, char *str, int num);
 
 /*MATH*/
-int			ft_numlenght(long n);
-double		ft_abs_float(double value);
+long long int	ft_numlenght(long long int n);
+double			ft_abs_float(double value);
 
 /*DOUBLE LINK LIST*/
 dlist		new_dlist(void);

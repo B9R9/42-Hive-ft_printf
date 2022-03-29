@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 16:14:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 08:31:53 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ t_parameter     handle_width(char *str, t_parameter li, va_list ap)
 
 t_parameter     handle_precision(char *str, t_parameter li, va_list ap)
 {
-    printf("->str %s<-\n",str);
     if (str[0] == '.')
     {
         li.dot = true;
@@ -81,7 +80,7 @@ t_parameter handle_size_prefix(char *str, t_parameter li)
         while (str[i] == str[i + 1])
             i++;
         i++;
-        li.sizePrefix = ft_strsub(str, 0, (i - 0) + 1);
+        li.sizePrefix = ft_strsub(str, 0, (i - 0));
         li.char_to_skip += i;
     }
     return (li);

@@ -6,15 +6,15 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:47:44 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/18 09:48:23 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 08:41:57 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
- int	ft_numlenght(long n)
+ long long int	ft_numlenght(long long int n)
 {
-	int	count;
+	long long	count;
 
 	count = 0;
 	if (n < 0)

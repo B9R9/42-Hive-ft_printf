@@ -4,9 +4,44 @@
 #include <limits.h>
 #include <math.h>
 
-
+/*
+max 127
+min -128
+*/
 int main()
 {
+      unsigned char max = 255;
+   unsigned char min = 0;
+   unsigned char out = 1792;
+   unsigned char neg = -129;
+   // unsigned char negOut= -528;//KO
+   //  unsigned char negOut= -528;//KO
+   
+   // unsigned int c = 4294967296;
+   // ft_printf("MAX 255 FT->%hhu<-\n",max);
+   printf("MAX PR->%hhu<-\n",max);
+   // ft_printf("0   FT->%hhu<-\n",min);
+   printf("0   PR->%hhu<-\n",min);
+   // ft_printf("neg -129 FT->%hhu<-\n",neg);
+   printf("neg -129 PR->%hhu<-\n",neg);
+   // ft_printf("4294967296->%u<-\n",c);
+   // ft_printf("-528   FT->%hhu<-\n",negOut);
+   // printf("--528  PR->%hhu<-\n",negOut);
+   // ft_printf("528 FT->%hhu<-\n",out);
+   printf("528 PR->%hhu<-\n",out);
+   //     char test = -130;
+   //     char x = -1;
+   //  char a = 0;
+   // char b = 127;
+   // char c = -127;
+   // // unsigned int c = 4294967296;
+
+   // printf("-1 ->%hhd<-\n",x);
+   // printf("0 ->%hhd<-\n",a);
+   // printf("129 ->%hhd<-\n",b);
+   // // ft_printf("4294967296->%u<-\n",c);
+   // printf("-129 ->%hhd<-\n",test);
+   // printf("127 ->%hhd<-\n",c);
    /* int range*/
    //  - 2147483648 to 2147483647 
    /*Long int range*/
@@ -17,7 +52,6 @@ int main()
    /*long u_int*/
    //0 to 18446744073709551615 
 
-   printf("->%010c<-\n",73);
    // int i = 0;
 
    // double arr [] ={ 0.005, 0.015, 0.025, 0.035, 0.050, 0.052, 0.056, 0.075, 0.085, 0.095};

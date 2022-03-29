@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 12:46:55 by briffard          #+#    #+#              #
-#    Updated: 2022/03/25 11:19:16 by briffard         ###   ########.fr        #
+#    Updated: 2022/03/29 17:28:27 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIBFT_INCL	= ./libft/includes
 
 RM		=	rm -f
 CC		=	gcc
-CFLAGS	=	-Werror -Wextra -Wall
+CFLAGS	=	#-Werror -Wextra -Wall
 
 all:  $(LIBFT) $(FTPRINTF) $(EXE) 
 	

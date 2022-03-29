@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_u_itoa.c                                        :+:      :+:    :+:   */
+/*   ft_ll_itoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 09:08:04 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 11:19:14 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/29 08:18:36 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/29 08:22:45 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	numlenght(unsigned int n)
+static long long	numlenght(long long int n)
 {
-	int	count;
+	long long int	count;
 
 	count = 0;
 	if (n < 0)
@@ -30,27 +30,27 @@ static int	numlenght(unsigned int n)
 	return (count);
 }
 
-char	*ft_u_itoa(unsigned int n)
+char    *ft_ll_itoa(long long int number)
 {
-	int		i;
-	char	*str;
+	long long int		i;
+	char	        *str;
 
-	i = numlenght(n);
-	if (n == 0)
+	i = numlenght(number);
+	if (number == 0)
 		return (ft_strdup("0"));
 	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	str[i--] = '\0';
-	if (n < 0)
+	if (number < 0)
 	{
 		str[0] = '-';
-		n = n * -1;
+		number = number * -1;
 	}
-	while (n > 0)
+	while (number > 0)
 	{
-		str[i--] = 48 + (n % 10);
-		n = n / 10;
+		str[i--] = 48 + (number % 10);
+		number = number / 10;
 	}
 	return (str);
 }

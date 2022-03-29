@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 17:58:44 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:30:41 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
 /*DEFINE*/
 # define flags "scdxXop%ifu"
 # define option " .0#+-"
-#define maxint 2147483647
-#define minint -2147489647
-#define maxuint 4294967295
+# define maxint 2147483647
+# define minint -2147489647
+# define maxuint 4294967295
+# define maxuchar 128
 # define hexa "0123456789abcdef"
 
 /*TYPEDEF*/
@@ -156,10 +157,11 @@ int				skip(char *str);
 char			*revstr(char *str);
 
 /*SIZE PREFIX HANDLER*/
-char *ll_int_to_arr(t_parameter li, va_list ap);
-char *l_int_to_arr(t_parameter li, va_list ap);
-char *u_short_int_to_arr(t_parameter li, va_list ap);
-char *u_char_to_arr(t_parameter li, va_list ap);
+char *ll_int_to_arr(t_parameter li, long long number);
+char *l_int_to_arr(t_parameter li, long number);
+char *short_int_to_arr(t_parameter li, short int number);
+char *char_to_arr(t_parameter li, char number);
+char *u_chartoa(t_parameter li, unsigned char number);
 
 
 /*INIT OPTION STRUCTURE*/
@@ -171,5 +173,6 @@ t_bool 	checkoptionerror(t_parameter li);
 /*PARSE STRING*/
 char *parse_str(char *str, t_parameter li, char *source);
 char *addspaces(char *str,t_parameter li, size_t space);
+char *ft_reverse_str(char *dest);
 
 # endif

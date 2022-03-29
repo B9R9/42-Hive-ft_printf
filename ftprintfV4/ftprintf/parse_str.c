@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:13:09 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 17:15:05 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 10:01:03 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,21 @@ char *addspaces(char *str, t_parameter li, size_t space)
         i++;
     }
     return (str);
+}
+
+char	*ft_reverse_str(char *dest)
+{
+	int	x;
+
+	x = 0;
+	while (dest[0] == ' ')
+	{
+		x = 0;
+		while (dest[x + 1] != '\0')
+		{
+			ft_swap(&dest[x], &dest[x + 1]);
+			x++;
+		}
+	}
+	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 17:59:13 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 14:52:15 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,18 @@ static t_parameter	setup(char *str, t_parameter li, va_list ap)
 
 	li.flag = ft_tolower(str[li.char_to_skip]);
 	
-	printf("li.dot		= ->%d<-\n", li.dot); 
-	printf("li.space		= ->%d<-\n", li.space); 
-	printf("li.zero			= ->%d<-\n", li.zero); 
-	printf("li.#			= ->%d<-\n", li.hastag); 
-	printf("li.positif		= ->%d<-\n", li.positif); 
-	printf("li.negatif		= ->%d<-\n", li.negatif);
-	printf("li.flag			= ->%c<-\n", li.flag); 
-	printf("li.width		= ->%zu<-\n", li.width); 
-	printf("li.upper		= ->%d<-\n", li.upper); 
-	printf("li.precision		= ->%zu<-\n", li.precision); 
-	printf("li.size			= ->%zu<-\n", li.size); 
-	printf("li.size.Prefix 		= ->%s<-\n", li.sizePrefix);
+	// printf("li.dot		= ->%d<-\n", li.dot); 
+	// printf("li.space		= ->%d<-\n", li.space); 
+	// printf("li.zero			= ->%d<-\n", li.zero); 
+	// printf("li.#			= ->%d<-\n", li.hastag); 
+	// printf("li.positif		= ->%d<-\n", li.positif); 
+	// printf("li.negatif		= ->%d<-\n", li.negatif);
+	// printf("li.flag			= ->%c<-\n", li.flag); 
+	// printf("li.width		= ->%zu<-\n", li.width); 
+	// printf("li.upper		= ->%d<-\n", li.upper); 
+	// printf("li.precision		= ->%zu<-\n", li.precision); 
+	// printf("li.size			= ->%zu<-\n", li.size); 
+	// printf("li.size.Prefix 		= ->%s<-\n", li.sizePrefix);
 	return (li);
 }
 
@@ -94,7 +94,7 @@ t_parameter	init(const char *format, size_t index, t_parameter li, va_list ap)
 	}
 	li = setup(str, li, ap);
 	ft_memdel((void **) &str);
-	if(checkoptionerror(li))
-		exit(EXIT_FAILURE);
+	// if(checkoptionerror(li))
+	// 	exit(EXIT_FAILURE);
 	return (li);
 }

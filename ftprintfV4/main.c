@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 17:51:43 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:41:21 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		main(void)
 
    
    // int i = 0;
-   int precision = 2;
-   int width = 10;
+   // int precision = 2;
+   // int width = 10;
    // double arr1[] = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
    // double arr2[] = { 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09};
    // double arr3[] = { 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 4.5, 5.5, 6.5};
@@ -32,13 +32,40 @@ int		main(void)
 
 //    char  *arrSTR[] = {"", "     ", " Hello World", "\tTEst \r \n et le reste", "@!Test string"};
 
-   int i = 498;
-   while (i < 500)
-   {
-      ft_printf("FT->%+*.*d<-\n",width,precision, i);
-      printf("PR->%+*.*d<-\n",width,precision, i);
-      i++;
-   }
+   // unsigned int x = -1;
+   // unsigned int a = 0;
+   // unsigned int b = 4294967295;
+   // unsigned int c = 4294967296;
+   // ft_printf("FT: ld ->%u<-\n", x);
+   // printf("PR: ld ->%u<-\n", x);
+
+   unsigned char max = 255;
+   unsigned char min = 0;
+   unsigned char out = -1528;
+   unsigned char neg = -129;
+   unsigned char negOut= -528;//KO
+   
+   
+   // unsigned int c = 4294967296;
+   ft_printf("MAX 255 FT->%hhu<-\n",max);
+   printf("MAX PR->%hhu<-\n",max);
+   ft_printf("0   FT->%hhu<-\n",min);
+   printf("0   PR->%hhu<-\n",min);
+   ft_printf("neg -129 FT->%hhu<-\n",neg);
+   printf("neg -129 PR->%hhu<-\n",neg);
+   // ft_printf("4294967296->%u<-\n",c);
+   ft_printf("-528   FT->%hhu<-\n",negOut);
+   printf("--528  PR->%hhu<-\n",negOut);
+   ft_printf("528 FT->%hhu<-\n",out);
+   printf("528 PR->%hhu<-\n",out);
+
+   // int i = 498;
+   // while (i < 500)
+   // {
+   //    ft_printf("FT->%+*.*d<-\n",width,precision, i);
+   //    printf("PR->%+*.*d<-\n",width,precision, i);
+   //    i++;
+   // }
    // int i = 0;
    // while (i < 127)
    //    {

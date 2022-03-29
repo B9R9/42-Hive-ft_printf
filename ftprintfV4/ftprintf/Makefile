@@ -14,15 +14,18 @@ NAME	=	libftprintf.a
 
 FILES	=	ft_printf.c structinit.c util_list.c  setupoption.c setuprecision.c\
 			conv_str.c  error.c      conv_char.c  conv_int.c   inttohexoroct.c \
-			pointertoa.c ftoa.c		ft_u_inttoa.c handle_flag_char.c          \
-			parse_str.c   \
+			pointertoa.c ftoa.c		 conv_u_int.c handle_flag_char.c          \
+			parse_str.c  \
+			handle_sizePrefix_for_flag_d.c \
+			handle_sizePrefix_for_flag_u.c \
+
 
 OBJ		=	$(SRC:.c=.o)
 INCL	=	./include/
 LIBFT_INCL = ../libft/includes/
 RM		=	rm
 CC		=	gcc
-CCFLAGS	=	-Werror -Wall -Wextra
+CCFLAGS	=	#-Werror -Wall -Wextra
 
 all: $(NAME)
 

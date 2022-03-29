@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_u_itoa.c                                        :+:      :+:    :+:   */
+/*   ft_u_short_itoa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 09:08:04 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 11:19:14 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/29 10:46:18 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/29 11:13:05 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	numlenght(unsigned int n)
+static short int	numlenght(short int n)
 {
 	int	count;
 
@@ -30,11 +30,11 @@ static int	numlenght(unsigned int n)
 	return (count);
 }
 
-char	*ft_u_itoa(unsigned int n)
+char	*ft_u_short_itoa(short int n)
 {
 	int		i;
 	char	*str;
-
+    
 	i = numlenght(n);
 	if (n == 0)
 		return (ft_strdup("0"));
