@@ -5,30 +5,71 @@
 #include <math.h>
 
 /*
+9223372036854775806UL;
 max 127
 min -128
 */
 int main()
 {
-      unsigned char max = 255;
-   unsigned char min = 0;
-   unsigned char out = 1792;
-   unsigned char neg = -129;
+
+printf("->%#-08o<-\n", 73);
+
+
+// unsigned char torspo = 0;
+// printf("oMä : %.hho|", torspo);
+// printf("\n\n");
+// printf("oSe : %.hho|", torspo);
+// printf("\n\n");
+// printf("uMä : %.hhu|", torspo);
+// printf("\n\n");
+// printf("uSe : %.hhu|", torspo);
+// printf("\n\n");
+// printf("xMä : %.hhx|", torspo);
+// printf("\n\n");
+// printf("xSe : %.hhx|", torspo);
+// printf("\n\n");
+// printf("XMä : %.hhX|", torspo);
+// printf("\n\n");
+// printf("XSe : %.hhX|", torspo);
+// printf("\n\n");
+
+   // long double test = __DBL_MAX__ ;
+   // printf("->%.30Lf<-\n", test);
+  
+   // test = test / 10;
+   // printf("->%.50Lf<-\n", test);
+   // printf("->%Lf<-\n", __LDBL_MAX__);
+
+
+
+
+
+
+
+/*
+   unsigned long max =  18446744073709551615;
+   unsigned long max2 =    9223309999999999999;
+   unsigned long  u_intmax = 9223372036854775900UL;
+   unsigned long long  u_l_intmax =  18446744073709551615ULL;
+   unsigned long min = 0;
+   unsigned long out = 1792;
+   unsigned long neg = -1;
    // unsigned char negOut= -528;//KO
    //  unsigned char negOut= -528;//KO
    
    // unsigned int c = 4294967296;
    // ft_printf("MAX 255 FT->%hhu<-\n",max);
-   printf("MAX PR->%hhu<-\n",max);
+   //printf("MAX PR->%lu<-\n",max);
    // ft_printf("0   FT->%hhu<-\n",min);
-   printf("0   PR->%hhu<-\n",min);
+   printf("max2   PR->%lu<-\n",u_intmax);
+   printf("max2   PR->%lu<-\n",u_l_intmax);
    // ft_printf("neg -129 FT->%hhu<-\n",neg);
-   printf("neg -129 PR->%hhu<-\n",neg);
+   printf("neg -129 PR->%lu<-\n",neg);
    // ft_printf("4294967296->%u<-\n",c);
    // ft_printf("-528   FT->%hhu<-\n",negOut);
    // printf("--528  PR->%hhu<-\n",negOut);
    // ft_printf("528 FT->%hhu<-\n",out);
-   printf("528 PR->%hhu<-\n",out);
+   printf("1792 PR->%lu<-\n",out);
    //     char test = -130;
    //     char x = -1;
    //  char a = 0;
@@ -41,7 +82,7 @@ int main()
    // printf("129 ->%hhd<-\n",b);
    // // ft_printf("4294967296->%u<-\n",c);
    // printf("-129 ->%hhd<-\n",test);
-   // printf("127 ->%hhd<-\n",c);
+   // printf("127 ->%hhd<-\n",c);*/
    /* int range*/
    //  - 2147483648 to 2147483647 
    /*Long int range*/

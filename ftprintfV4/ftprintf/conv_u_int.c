@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 08:41:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 17:29:39 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:55:37 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ char *ft_uitoa(t_parameter li, unsigned int c)
 {
     char    *temp;
     char    *containeur;
-
-    if ( c > 4294967295)// ne compilera probablement pas
+    unsigned long     n = c + 1;
+    int count = 0;
+    
+    if ( c > 4294967295)
     {
-        ft_errormes(" error: implicit conversion from 'long' to 'unsigned int' changes value\n");
-        exit(EXIT_FAILURE);
+        while ((n * count) <= c)
+            count++;
+        temp = ft_u_itoa(c - (n * count));
     }
     else
         temp = ft_u_itoa(c);
@@ -44,12 +47,12 @@ char *ft_uitoa(t_parameter li, unsigned int c)
 
 char *argto_u_int(t_parameter li, va_list ap)
 {
-        if(!ft_strcmp(li.sizePrefix,"ll"))
-        return(ll_int_to_arr(li, va_arg(ap, long long)));
+    if(!ft_strcmp(li.sizePrefix,"ll"))
+        return(u_ll_intoa(li, va_arg(ap, unsigned long long)));
     else if(!ft_strcmp(li.sizePrefix, "l"))
-        return(l_int_to_arr(li, va_arg(ap, long)));
+        return(u_ll_intoa(li, va_arg(ap, unsigned long)));
     else if(!ft_strcmp(li.sizePrefix, "h"))
-        return(short_int_to_arr(li, (short)va_arg(ap, int)));
+        return(u_short_intoa(li, (unsigned short)va_arg(ap, int)));
     else if(!ft_strcmp(li.sizePrefix, "hh"))
         return(u_chartoa(li, (unsigned char)va_arg(ap, int)));
     else

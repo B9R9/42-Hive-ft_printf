@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 10:52:36 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:47:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ int			ft_toupper(int c);
 int			ft_atoi(const char *str);
 char		*ft_itoa(int n);
 char		*ft_itona(int n, int size);
-char		*ft_u_itoa(unsigned int n);
-char		*ft_ll_itoa(long long int number);
+char		*ft_u_itoa(unsigned long long int n);
+char		*ft_ll_itoa(long long int number); // Is that the same of ft_l_itoa ???
 char   		*ft_l_itoa(long number);
-char		*ft_u_short_itoa(short int n);
+
 
 /*FT_IS FUNCTION*/
 int			ft_isupper(int c);

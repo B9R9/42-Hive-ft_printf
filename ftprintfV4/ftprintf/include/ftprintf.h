@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 17:30:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:12:42 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct	s_parameter {
 	size_t addspace;
 	t_bool	negatif;
 	char *sizePrefix;
+	t_bool signeneg;
 	// int		contentsize;
 }			t_parameter;
 
@@ -157,11 +158,18 @@ int				skip(char *str);
 char			*revstr(char *str);
 
 /*SIZE PREFIX HANDLER*/
-char *ll_int_to_arr(t_parameter li, long long number);
+/*FLAg D&i*/
+char *ll_int_to_arr(t_parameter li, long long number);// peut etre regroupe avec long
 char *l_int_to_arr(t_parameter li, long number);
 char *short_int_to_arr(t_parameter li, short int number);
 char *char_to_arr(t_parameter li, char number);
+/*FLAG U*/
 char *u_chartoa(t_parameter li, unsigned char number);
+char *u_short_intoa(t_parameter li, unsigned short number);
+char *u_ll_intoa(t_parameter li, unsigned long long number);
+/*FLAG D*/
+char *l_doubleToa(t_parameter li, long double number);
+
 
 
 /*INIT OPTION STRUCTURE*/

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_sizePrefix.c                                :+:      :+:    :+:   */
+/*   handle_sizePrefix_for_flag_d.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:15:55 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 16:34:17 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:49:17 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char    *short_int_to_arr(t_parameter li, short int number)
     char    *containeur;
     char    *temp;
     
-    temp = ft_u_short_itoa(number);
+    temp = ft_u_itoa(number);
     while(ft_strlen(temp) < li.precision && li.width > li.precision)
             temp = ft_strjoin("0", temp);
     if((li.space || li.width > li.precision) && !li.positif)

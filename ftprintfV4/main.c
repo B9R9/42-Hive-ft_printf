@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 17:41:21 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/30 11:02:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ int		main(void)
    unsigned char out = -1528;
    unsigned char neg = -129;
    unsigned char negOut= -528;//KO
+
+   unsigned short max = 65536;
+   unsigned short min = 0;
+   unsigned short out = -1528;
+   unsigned short neg = -129;
+   unsigned short negOut= -70528;//KO
    
    
    // unsigned int c = 4294967296;

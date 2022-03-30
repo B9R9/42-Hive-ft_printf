@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:23:58 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 14:52:15 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:12:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static t_parameter	resetoption(t_parameter li, char *str)
 	li.precision = 0;
 	li.size = ft_strlen(str);
 	li.char_to_skip = 0;
-	li.negatif = 0;
+	li.negatif = 0; // a changer pour left align
+	li.signeneg = 0;
 	return (li);
 }
 
