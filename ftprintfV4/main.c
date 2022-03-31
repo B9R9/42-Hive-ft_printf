@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/30 11:02:20 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:48:51 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,35 @@ int		main(void)
    // ft_printf("FT: ld ->%u<-\n", x);
    // printf("PR: ld ->%u<-\n", x);
 
-   unsigned char max = 255;
-   unsigned char min = 0;
-   unsigned char out = -1528;
-   unsigned char neg = -129;
-   unsigned char negOut= -528;//KO
+   // unsigned char max = 255;
+   // unsigned char min = 0;
+   // unsigned char out = -1528;
+   // unsigned char neg = -129;
+   // unsigned char negOut= -528;//KO
 
-   unsigned short max = 65536;
-   unsigned short min = 0;
-   unsigned short out = -1528;
-   unsigned short neg = -129;
-   unsigned short negOut= -70528;//KO
+   // unsigned short max = 65536;
+   // unsigned short min = 0;
+   // unsigned short out = -1528;
+   // unsigned short neg = -129;
+   // unsigned short negOut= -70528;//KO
+/*18446744073709551615.00000;*/
+//111111116854775808 5000000000000000             100000000000000000   3999999999999999
+   long double max = 9223372031.02000;
+   // long double min = 6546546454565429646316464967295.3164643168464165546131988464134843164;
    
    
    // unsigned int c = 4294967296;
-   ft_printf("MAX 255 FT->%hhu<-\n",max);
-   printf("MAX PR->%hhu<-\n",max);
-   ft_printf("0   FT->%hhu<-\n",min);
-   printf("0   PR->%hhu<-\n",min);
-   ft_printf("neg -129 FT->%hhu<-\n",neg);
-   printf("neg -129 PR->%hhu<-\n",neg);
-   // ft_printf("4294967296->%u<-\n",c);
-   ft_printf("-528   FT->%hhu<-\n",negOut);
-   printf("--528  PR->%hhu<-\n",negOut);
-   ft_printf("528 FT->%hhu<-\n",out);
-   printf("528 PR->%hhu<-\n",out);
+   ft_printf("FT->%o<-\n",73);
+   printf("PR->%o<-\n",73);
+   // ft_printf("0   FT->%Lf<-\n",min);
+   // printf("0   PR->%Lf<-\n",min);
+   // ft_printf("neg -129 FT->%hhu<-\n",neg);
+   // printf("neg -129 PR->%hhu<-\n",neg);
+   // // ft_printf("4294967296->%u<-\n",c);
+   // ft_printf("-528   FT->%hhu<-\n",negOut);
+   // printf("--528  PR->%hhu<-\n",negOut);
+   // ft_printf("528 FT->%hhu<-\n",out);
+   // printf("528 PR->%hhu<-\n",out);
 
    // int i = 498;
    // while (i < 500)

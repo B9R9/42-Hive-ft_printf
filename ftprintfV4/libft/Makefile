@@ -31,6 +31,7 @@ FILES=	ft_putchar.c		ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		ft_numlenght.c		ft_randomnbr.c 		ft_display_file.c	ft_fillit.c	\
 		get_next_line.c		ft_swap.c			ft_abs_float.c		ft_isupper.c\
 		ft_u_itoa.c 		ft_ll_itoa.c		ft_l_itoa.c      ft_u_short_itoa.c\
+		ft_abs_int.c 		ft_itoa_base.c\
 		newdlist.c			is_empty_dlist.c	dlist_length.c					\
 		dlist_first_end.c	push_back_dlist.c	push_front_dlist.c				\
 		pop_back_dlist.c	pop_front_dlist.c 	print_dlist.c					\

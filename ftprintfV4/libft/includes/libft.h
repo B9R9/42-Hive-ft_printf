@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/30 10:47:20 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:25:28 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 /*DEFINE GNL*/
 # define BUFF_SIZE 8
 # define FD_SIZE 4096
+
+/*DEFINE ITOA_BASE*/
+# define BASE "0123456789abcdef"
 
 typedef struct s_list
 {
@@ -104,6 +107,7 @@ char		*ft_itona(int n, int size);
 char		*ft_u_itoa(unsigned long long int n);
 char		*ft_ll_itoa(long long int number); // Is that the same of ft_l_itoa ???
 char   		*ft_l_itoa(long number);
+char    *ft_uitoa_base(unsigned long long number, int base);
 
 
 /*FT_IS FUNCTION*/
@@ -160,8 +164,9 @@ int		ft_errormes(char *message);
 void 		ft_debug(char *color, char *where, int position, char *str, int num);
 
 /*MATH*/
-long long int	ft_numlenght(long long int n);
+unsigned long long int	ft_numlenght(unsigned long long int n);
 double			ft_abs_float(double value);
+long long		ft_abs_int(long long value);
 
 /*DOUBLE LINK LIST*/
 dlist		new_dlist(void);

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlenght.c                                     :+:      :+:    :+:   */
+/*   ft_abs_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:47:44 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 16:05:48 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/31 15:26:36 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/31 15:28:10 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
- unsigned long long int	ft_numlenght(unsigned long long int n)
+long long int   ft_abs_int(long long value)
 {
-	unsigned long long	count;
-
-	count = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		count++;
-	}
-	while (n > 0)
-	{
-		n = n / 10;
-		count++;
-	}
-	return (count);
+    if (value < 0)
+        return (value * -1);
+    return (value);
 }

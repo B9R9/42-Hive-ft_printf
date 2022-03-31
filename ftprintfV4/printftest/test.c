@@ -9,10 +9,37 @@
 max 127
 min -128
 */
+/*
+static long  ft_pow(int number, int pow)
+{
+    int i;
+    long ret;
+    //printf("NUMBER IN FTPOW = ->%d<-\n", number);
+    //printf("POW IN FTPOW = ->%d<-\n", pow);
+    i = 0;
+    ret = number;
+    while(i < (pow - 1))
+    {
+        ret =  ret * number; 
+        i++;
+    }
+    //printf("RETOUR FT_pow = ->%ld<-\n", ret);
+    return ret;
+}*/
+// static int    ft_isinf(long double x)
+// {
+//     if (x == -1.0 / 0.0)
+//         return (-1);
+//     if (x == 1.0 / 0.0)
+//         return (1);
+//     return (0);
+// }
 int main()
 {
 
-printf("->%#-08o<-\n", 73);
+
+char test = 73;
+printf("->%hho<-\n", test);
 
 
 // unsigned char torspo = 0;

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/30 17:02:46 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:43:24 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,37 +33,42 @@ static t_bool ft_isneg(long double x)
 
 char *l_doubleToa(t_parameter li, long double number)
 {
+    printf("l_doubleToa.c\n");
     char    *temp;
     char    *containeur;
     unsigned long long ipart;
-    long double fpart;
+    long double fpart = 0;
     size_t      i = 0;
     
+    printf("NUMBER = ->%Lf<-\n", number);
     if (ft_isneg(number))
     {
         number =  number * -1;
         li.signeneg = true;
     }
-    ipart = (unsigned long long)number;
-    fpart = number - (long double)ipart;
+    printf("NUMBER = ->%Lf<-\n", number);
+    ipart = (long long)number;
+    if ( ipart < 0)
+        ipart *= -1;
+    printf("ipart = ->%lld<-\n", ipart);
+    fpart = number - ipart;
+    printf("fpart ->%Lf<-\n",fpart);
     if(!li.dot)
         li.precision = 6;
     temp = ft_u_itoa(ipart);
-    if (li.signeneg)
-        fpart = fpart * -1;
-    if (li.signeneg) // a ton besoinde cela si ft_is neg turn in positif number
-        fpart = fpart * -1;
+    // if (li.signeneg) // a ton besoinde cela si ft_is neg turn in positif number
+    //     fpart = fpart * -1;
     if(li.precision != 0)
     {
         temp = ft_strjoin(temp, "."); // -> 99.
-        while (i < li.precision + 1)
+        while (i < li.precision)
         {
             fpart = fpart * 10;
-            if ((int)fpart == 0)
+            if ((long long)fpart == 0)
                 temp = ft_strjoin(temp, "0");
             else
                 temp = ft_strjoin(temp, ft_itoa((int)fpart)); // ->99.9 || 99.99 || 99.999
-            fpart = fpart - (int)fpart;
+            fpart = fpart - (long long)fpart;
             i++;
         }
     }
@@ -100,66 +105,18 @@ char *l_doubleToa(t_parameter li, long double number)
                 temp[i] = temp[i] + 1;
     }
     
-    
-    
+    containeur =  temp;
     ft_memdel((void **) &temp);
     return (containeur);
 }
-/*
-static long  ft_pow(int number, int pow)
-{
-    int i;
-    long ret;
-    //printf("NUMBER IN FTPOW = ->%d<-\n", number);
-    //printf("POW IN FTPOW = ->%d<-\n", pow);
-    i = 0;
-    ret = number;
-    while(i < (pow - 1))
-    {
-        ret =  ret * number; 
-        i++;
-    }
-    //printf("RETOUR FT_pow = ->%ld<-\n", ret);
-    return ret;
-}*/
-/*
-static char *intToStr(int num, char *dest, int size)
-{
-    int i;
-
-    i = 0;
-    while(num)
-    {
-        dest[i++] = (num % 10) + '0';
-        num = num / 10;
-    }
-    while (i < size)
-        dest[i] = '0';
-    reverse(dest,i);
-    dest[i] = '\0';
-    return i;
-}
-*/
-
-
-
-// static int    ft_isinf(long double x)
-// {
-//     if (x == -1.0 / 0.0)
-//         return (-1);
-//     if (x == 1.0 / 0.0)
-//         return (1);
-//     return (0);
-// }
 
 static char *ftoa(t_parameter li, double number)
 { 
+    printf("ftoa.c\n");
     unsigned long long  ipart;
     size_t     i = 1;
     long double   fpart = 0;
     char    *dest = NULL;
-    //size_t addspace = 0;
-    // size_t lenght = 0;
 
     if (ft_isneg(number)) // verifier si la sortie est negstif 
         {
@@ -241,40 +198,40 @@ static char *ftoa(t_parameter li, double number)
 	/*ADJUST STR*/
 
     // printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
-	i = 0;
-	if(li.zero && li.width > ft_strlen(dest))
-	{
-		while( i < (li.width - ft_strlen(dest)))
-			dest = ft_strjoin("0", dest);
-	}
+	// i = 0;
+	// if(li.zero && li.width > ft_strlen(dest))
+	// {
+	// 	while( i < (li.width - ft_strlen(dest)))
+	// 		dest = ft_strjoin("0", dest);
+	// }
 		
 	// printf("---> AFTER 0 DEST = ->%s<-\n",dest);
 	
-	if (!li.zero && li.width > 0 && !li.negatif && !li.hastag)
-		{
-			i = 0;
-			// printf("%zu - %zu + %u = %lu\n",li.width, ft_strlen(dest), li.positif, (li.width - ft_strlen(dest)) + li.positif );
-			int total = (li.width - ft_strlen(dest));
-            // printf("Value Total = ->%d<-\n", total);
-			while((int)i < total)
-			{
-				//  printf("@VALEUR DE I = ->%zu<-\n", i);
-				dest = ft_strjoin(" ", dest);
-				i++;
-			}
-		}
+	// if (!li.zero && li.width > 0 && !li.negatif && !li.hastag)
+	// 	{
+	// 		i = 0;
+	// 		// printf("%zu - %zu + %u = %lu\n",li.width, ft_strlen(dest), li.positif, (li.width - ft_strlen(dest)) + li.positif );
+	// 		int total = (li.width - ft_strlen(dest));
+    //         // printf("Value Total = ->%d<-\n", total);
+	// 		while((int)i < total)
+	// 		{
+	// 			//  printf("@VALEUR DE I = ->%zu<-\n", i);
+	// 			dest = ft_strjoin(" ", dest);
+	// 			i++;
+	// 		}
+	// 	}
 	// printf("---> SPACE DEST = ->%s<-\n",dest);
     // printf("---> SPACE DEST = ->%c<-\n",dest[i - 1]);
 	// printf("VALEUR DE I = ->%zu<-\n", i);
     // printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
-	if(li.positif && li.width >= ft_strlen(dest) && i > 0)
-		dest[(int)i - 1] = '+'; 
-	else if(li.positif && li.width < ft_strlen(dest))
-		dest = ft_strjoin("+", dest);
-    if(neg && li.width >= ft_strlen(dest) && i > 0)
-		dest[i - 1] = '-'; 
-	else if(neg)
-		dest = ft_strjoin("-", dest);
+	// if(li.positif && li.width >= ft_strlen(dest) && i > 0)
+	// 	dest[(int)i - 1] = '+'; 
+	// else if(li.positif && li.width < ft_strlen(dest))
+	// 	dest = ft_strjoin("+", dest);
+    // if(li.signeneg && li.width >= ft_strlen(dest) && i > 0)
+	// 	dest[i - 1] = '-'; 
+	// else if(li.signeneg)
+	// 	dest = ft_strjoin("-", dest);
 
 	
     //printf("DEST = ->%s<-\n",dest);
@@ -307,7 +264,7 @@ static char *ftoa(t_parameter li, double number)
 
 char *argtofloat(t_parameter li, va_list ap)
 {
-    if(!ft_strcmp(li.sizePrefix, "l") || !ft_strcmp(li.sizePrefix, "L"))
-        return (l_doubleToa(li, va_arg(ap, long double)));
+    if((!ft_strcmp(li.sizePrefix, "L")))
+         return (l_doubleToa(li, va_arg(ap, long double)));
     return (ftoa(li, va_arg(ap, double)));
 }

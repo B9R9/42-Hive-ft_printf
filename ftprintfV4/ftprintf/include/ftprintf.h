@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:33:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/30 15:12:42 by briffard         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:51:24 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ static const dispachtFlags	funcFlagsArray[26] = {
 	NULL,//L
 	NULL,//M
 	NULL,//N
-	NULL,//O
+	argtohexoroct,//O
 	argtoptraddress,//P
 	NULL,//Q
 	NULL,//R

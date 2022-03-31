@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlenght.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:47:44 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 16:05:48 by briffard         ###   ########.fr       */
+/*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
+/*   Updated: 2022/03/31 16:25:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
- unsigned long long int	ft_numlenght(unsigned long long int n)
+char    *ft_uitoa_base(unsigned long long number, int base)
 {
-	unsigned long long	count;
+    int                     index;
+	char					*str;
 
-	count = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		count++;
-	}
-	while (n > 0)
-	{
-		n = n / 10;
-		count++;
-	}
-	return (count);
+    index = 0;
+    str = ft_strnew(ft_numlenght(number));
+    /*verifier si MAlloc a focntionner*/
+    while (number != 0)
+    {
+        str[index] = BASE[number % base];
+        number = number / base;
+        index++;
+    }
+	return (str);
 }
