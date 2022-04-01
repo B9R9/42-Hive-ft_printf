@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:13:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 15:55:38 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:00:11 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char		*strtoarr(t_parameter li, char *str)
 
 	if(!str)// what happend if str == NULL
 		return(ft_strdup("NULL"));
-	if(!li.dot)
+	if(!li.precision)
         li.precision = ft_strlen(str);
 	
 	dest = ft_strnew(li.precision);

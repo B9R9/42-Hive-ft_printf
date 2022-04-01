@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
+/*   ft_charjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/01 09:45:29 by briffard         ###   ########.fr       */
+/*   Created: 2022/04/01 14:11:06 by briffard          #+#    #+#             */
+/*   Updated: 2022/04/01 14:46:43 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_uitoa_base(unsigned long long number, int base)
+char    *ft_charjoin(char c, char *dest)
 {
-    int                     index;
-	char					*str;
-
-    index = 0;
-    str = ft_strnew(ft_numlenght(number));
-    /*verifier si Malloc a focntionner*/
-    while (number != 0)
-    {
-        str[index] = BASE[number % base];
-        number = number / base;
-        index++;
-    }
-	return (str);
+    char    *temp;
+    size_t  i;
+    
+    i = 0;
+    temp =  ft_strjoin(" ", dest);
+    if(!temp)
+        return (NULL);
+    temp[0] = c;
+    ft_memdel((void **)&dest);
+    dest = temp;
+    return (dest);
 }

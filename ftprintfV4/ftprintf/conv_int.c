@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 16:18:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:13:39 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,22 @@ static char	*inttoarr(t_parameter li, int number)
 	char    *containeur;
     char    *temp;
     
+    
     temp = ft_itoa(number);
-    while(ft_strlen(temp) < li.precision && li.width > li.precision)
-            temp = ft_strjoin("0", temp);
-    if((li.space || li.width > li.precision) && !li.positif)
-        while(ft_strlen(temp) < li.width)
-            temp = ft_strjoin(" ", temp);
-    if(li.positif)
-    {
-        temp = ft_strjoin("+", temp);
-        while(ft_strlen(temp) < li.width)
-            temp = ft_strjoin(" ", temp);
-    }
-    if(li.negatif)
-        ft_reverse_str(temp);
+    temp = parse_int(li, temp);
+    // while(ft_strlen(temp) < li.precision && li.width > li.precision)
+    //         temp = ft_strjoin("0", temp);
+    // if((li.space || li.width > li.precision) && !li.positif)
+    //     while(ft_strlen(temp) < li.width)
+    //         temp = ft_strjoin(" ", temp);
+    // if(li.positif)
+    // {
+    //     temp = ft_strjoin("+", temp);
+    //     while(ft_strlen(temp) < li.width)
+    //         temp = ft_strjoin(" ", temp);
+    // }
+    // if(li.signeneg)
+    //     ft_reverse_str(temp);
     containeur = temp;
     ft_memdel((void **) &temp);
 	return (containeur);

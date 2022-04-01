@@ -12,12 +12,15 @@
 
 NAME	=	libftprintf.a
 
-FILES	=	ft_printf.c structinit.c util_list.c  setupoption.c setuprecision.c\
-			conv_str.c  error.c      conv_char.c  conv_int.c   conv_hex_or_oct.c \
-			pointertoa.c conv_f.c		 conv_u_int.c handle_flag_char.c          \
-			parse_str.c  \
+FILES	=	ft_printf.c structinit.c util_list.c \
+			conv_str.c conv_char.c conv_u_int.c conv_int.c conv_hex_or_oct.c \
+			pointertoa.c conv_f.c \
+			error.c \
+			parse_str.c  parse_int.c \
+			handle_flag_char.c \
 			handle_sizePrefix_for_flag_d.c \
 			handle_sizePrefix_for_flag_u.c \
+			handle_sizePrefix_for_flag_x_o.c \
 
 
 OBJ		=	$(SRC:.c=.o)

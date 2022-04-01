@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:13:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 15:48:51 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:32:14 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int		main(void)
    // unsigned short negOut= -70528;//KO
 /*18446744073709551615.00000;*/
 //111111116854775808 5000000000000000             100000000000000000   3999999999999999
-   long double max = 9223372031.02000;
+   // long double max = 9223372031.02000;
    // long double min = 6546546454565429646316464967295.3164643168464165546131988464134843164;
    
-   
+   int test = 73;
    // unsigned int c = 4294967296;
-   ft_printf("FT->%o<-\n",73);
-   printf("PR->%o<-\n",73);
+   ft_printf("FT->%010d<-\n", test);
+   printf("PR->%010d<-\n",test);
    // ft_printf("0   FT->%Lf<-\n",min);
    // printf("0   PR->%Lf<-\n",min);
    // ft_printf("neg -129 FT->%hhu<-\n",neg);

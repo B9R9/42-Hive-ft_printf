@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:31:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 15:51:44 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:45:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*dispacht(va_list ap, t_parameter li)
 {
-	return (funcFlagsArray[li.flag - 'a'](li, ap));
+	return (funcFlagsArray[li.conv - 'a'](li, ap));
 }
 
 /* Decoupe formart en une liste*/

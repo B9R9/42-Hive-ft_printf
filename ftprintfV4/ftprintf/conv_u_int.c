@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 08:41:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/30 10:55:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:22:30 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,20 @@ char *ft_uitoa(t_parameter li, unsigned int c)
     }
     else
         temp = ft_u_itoa(c);
-    while(ft_strlen(temp) < li.precision && li.width > li.precision)
-            temp = ft_strjoin("0", temp);
-    if((li.space || li.width > li.precision) && !li.positif)
-        while(ft_strlen(temp) < li.width)
-            temp = ft_strjoin(" ", temp);
-    if(li.positif)
-    {
-        temp = ft_strjoin("+", temp);
-        while(ft_strlen(temp) < li.width)
-            temp = ft_strjoin(" ", temp);
-    }
-    if(li.negatif)
-        ft_reverse_str(temp);
+    temp = parse_int(li, temp);
+    // while(ft_strlen(temp) < li.precision && li.width > li.precision)
+    //         temp = ft_strjoin("0", temp);
+    // if((li.flags & F_SPACE || li.width > li.precision) && !li)
+    //     while(ft_strlen(temp) < li.width)
+    //         temp = ft_strjoin(" ", temp);
+    // if(li.positif)
+    // {
+    //     temp = ft_strjoin("+", temp);
+    //     while(ft_strlen(temp) < li.width)
+    //         temp = ft_strjoin(" ", temp);
+    // }
+    // if(li.signeneg)
+    //     ft_reverse_str(temp);
     containeur = temp;
     ft_memdel((void **) &temp);    
     return (containeur);

@@ -38,7 +38,7 @@ int main()
 {
 
 
-char test = 73;
+char test = -73;
 printf("->%hho<-\n", test);
 
 

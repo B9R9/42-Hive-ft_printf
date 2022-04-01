@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 07:54:07 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/28 16:47:48 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:00:42 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char *chartoarr(t_parameter li, char c)
     char    *temp;
     char    *dest;
 
-    if (li.flag == '%')
+    if (li.conv == '%')
         return ("%");    
     dest = ft_strnew(1);
     if (!dest)

@@ -6,29 +6,39 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 08:31:53 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:31:10 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
+
+t_uchar get_flag(char c)
+{
+    if (c == '#')
+		return (F_HASHTAG);
+	else if (c == '+')
+		return(F_PLUS);
+	else if (c == '-')
+		return (F_MINUS);
+	else if (c == '0')
+		return (F_ZERO);
+    else if (c == '`')
+        return (F_GRAVE);
+    else
+        return (F_SPACE);
+}
+
 t_parameter handle_flag(char *str, t_parameter li)
 {
     int i;
-
+    
+    li.flags = 0x00;
     i = 0;
-    while (str[i] == '#' || str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == ' ')
+    while (str[i] == '#' || str[i] == '0' || str[i] == '+' || str[i] == '-' \
+    || str[i] == ' ' || str[i] == '`')
 	{
-		if (str[i] == '#')
-			li.hastag = true;
-		else if (str[i] == '+')
-			li.positif = true;
-		else if (str[i] == '-')
-			li.negatif = true;
-		else if (str[i] == ' ')
-			li.space = true;
-		else if (str[i] == '0')
-			li.zero = true;
+        li.flags = li.flags | get_flag(str[i]);
 		i++;
 	}
     li.char_to_skip = i;
@@ -55,9 +65,8 @@ t_parameter     handle_precision(char *str, t_parameter li, va_list ap)
 {
     if (str[0] == '.')
     {
-        li.dot = true;
         if (str[1] == '*')
-            {
+        {
             li.precision = va_arg(ap ,int);
             li.char_to_skip += 2;
         }

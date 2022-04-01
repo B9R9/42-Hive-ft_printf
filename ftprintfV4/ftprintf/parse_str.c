@@ -6,46 +6,11 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:13:09 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 10:01:03 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:57:00 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
-
-
-char *parse_str(char *dest, t_parameter li, char *source)
-{ 
-    size_t i;
-    
-    i = 0;
-    while (i < li.precision)
-    {
-        dest[i] = source[i];
-        i++;
-    }
-    while (ft_strlen(dest) < li.width)
-    {
-        if(li.negatif)
-            dest = ft_strjoin(dest, " ");
-        else
-            dest = ft_strjoin(" ", dest);
-    }
-    return (dest);
-}
-
-char *addspaces(char *str, t_parameter li, size_t space)
-{
-    int i;
-
-    i = 0;
-    while (space > li.positif)
-    {
-        str[i] = ' ';
-        space--;
-        i++;
-    }
-    return (str);
-}
 
 char	*ft_reverse_str(char *dest)
 {
@@ -63,3 +28,45 @@ char	*ft_reverse_str(char *dest)
 	}
 	return (dest);
 }
+
+char *parse_str(char *dest, t_parameter li, char *source)
+{
+    char *temp;
+    size_t i;
+
+    temp = dest;
+    i = 0;
+    while (i < li.precision || i < ft_strlen(temp))
+    {
+        temp[i] = source[i];
+        i++;
+    }
+    while (ft_strlen(temp) < li.width )
+    {
+        if(li.flags & F_ZERO)
+            temp = ft_strjoin("0",temp);
+        else if(li.flags & F_GRAVE)
+            temp = ft_charjoin(li.char_to_print, temp);
+        else
+            temp = ft_strjoin(" ", temp);
+        i++;
+    }
+    if(li.flags & F_MINUS)
+        ft_reverse_str(temp);
+    dest = temp;
+    return (dest);
+}
+
+// char *addspaces(char *str, t_parameter li, size_t space)
+// {
+//     int i;
+
+//     i = 0;
+//     while (space > l)
+//     {
+//         str[i] = ' ';
+//         space--;
+//         i++;
+//     }
+//     return (str);
+// }

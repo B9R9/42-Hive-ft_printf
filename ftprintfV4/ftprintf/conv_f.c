@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 15:43:24 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:18:07 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char *l_doubleToa(t_parameter li, long double number)
     if (ft_isneg(number))
     {
         number =  number * -1;
-        li.signeneg = true;
+        li.flags = li.flags | F_NEGATIF;
     }
     printf("NUMBER = ->%Lf<-\n", number);
     ipart = (long long)number;
@@ -53,7 +53,7 @@ char *l_doubleToa(t_parameter li, long double number)
     printf("ipart = ->%lld<-\n", ipart);
     fpart = number - ipart;
     printf("fpart ->%Lf<-\n",fpart);
-    if(!li.dot)
+    if(!li.precision)
         li.precision = 6;
     temp = ft_u_itoa(ipart);
     // if (li.signeneg) // a ton besoinde cela si ft_is neg turn in positif number
@@ -121,7 +121,7 @@ static char *ftoa(t_parameter li, double number)
     if (ft_isneg(number)) // verifier si la sortie est negstif 
         {
             number =  number * -1;
-            li.signeneg = true;
+            li.flags = li.flags | F_NEGATIF;
         }
     // mettre un sauvegarde en cas de chiffre plus grand que max ULL
     // printf("TEST00\n");
@@ -131,7 +131,7 @@ static char *ftoa(t_parameter li, double number)
     // printf("ipart = ->%d<-\n",ipart);
 //     printf("fpart = ->%.15f<-\n",fpart);
     
-    if(!li.dot)
+    if(!li.precision)
         li.precision = 6;
 
     dest = ft_u_itoa(ipart);
@@ -145,7 +145,7 @@ static char *ftoa(t_parameter li, double number)
 
     
     // printf("DEST after ITOA= ->%s<-\n",dest);
-    if (li.signeneg) // a ton besoinde cela si ft_is neg turn in positif number
+    if (li.flags & F_NEGATIF) // a ton besoinde cela si ft_is neg turn in positif number
         fpart = fpart * -1;
     if(li.precision != 0)
     {
