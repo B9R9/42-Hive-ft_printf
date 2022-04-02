@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 09:50:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/01 16:27:36 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:18:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char    *l_int_to_hex_or_oct(t_parameter li, long int number)
     char    *temp;
     int     base;
     
-    printf("->%d<-\n", number);
     if(li.conv == 'X' || li.conv == 'x')
 		base = 16;
 	else if (li.conv == 'o')

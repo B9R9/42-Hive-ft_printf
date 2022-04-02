@@ -39,7 +39,6 @@ $(NAME): $(OBJ)
 	@ar rc $(NAME) *.o
 	@echo "lftprintf created."
 	@ranlib $(NAME)
-	@clear 
 
 clean:
 	$(RM) -f *.o

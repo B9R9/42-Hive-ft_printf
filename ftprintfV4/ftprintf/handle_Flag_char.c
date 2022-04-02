@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/01 16:31:10 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:56:42 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ t_parameter     handle_width(char *str, t_parameter li, va_list ap)
     {
         li.width = va_arg(ap, int);
         li.char_to_skip += 1;
-        /*What happend if width is negatif ???*/
+        /*What happend if width is negatif ???
+        D apres la doc width  doit un entier non negatif 
+        a verifier avec printf*/
     }
     else
     {

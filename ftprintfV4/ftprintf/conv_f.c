@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/01 16:18:07 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/02 15:39:01 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ static char *ftoa(t_parameter li, double number)
                 dest[i] = dest[i] + 1;
     }
 	/*ADJUST STR*/
-
+    dest = parse_int(li, dest);
     // printf("li.width = ->%zu<- || ft_strlen(dest) ->%zu<-\n",li.width, ft_strlen(dest));
 	// i = 0;
 	// if(li.zero && li.width > ft_strlen(dest))
