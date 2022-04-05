@@ -1,0 +1,7 @@
+
+en bitwise 
+declare de 16;
+define les flags sur une base 16
+ex option # = 0X80
+si (bit & flag)
+    cela vut dire que tu as un flag 
