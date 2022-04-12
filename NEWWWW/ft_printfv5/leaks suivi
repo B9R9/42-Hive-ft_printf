@@ -1,0 +1,3 @@
+ ft_printf("Hello World\n");
+    ->  1 (16 bytes) ROOT LEAK: 0x7f8358c02ad0 [16]  length: 12  "Hello World"
+
