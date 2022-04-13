@@ -38,7 +38,7 @@ FILES=	ft_putchar.c		ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		dlist_first_end.c	push_back_dlist.c	push_front_dlist.c				\
 		pop_back_dlist.c	pop_front_dlist.c 	print_dlist.c					\
 		ft_newlst.c\
-		#ft_strjoin_replace.c\
+		ft_strjoin_replace.c\
 
 INCL=./includes/
 

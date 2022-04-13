@@ -6,17 +6,16 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:11:05 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/13 12:37:49 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:22:59 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static char    *strtoa(char *str, t_parameter li);
-static char *setstr(char *dest, t_parameter li, char *source);
 
 /*SET STR WITH PARAMETER*/
-static char *setstr(char *dest, t_parameter li, char *source)
+char *setstr(char *dest, t_parameter li, char *source)
 {
     char    *temp;
     size_t  i;

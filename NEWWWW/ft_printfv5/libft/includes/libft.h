@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/13 11:12:06 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 16:46:17 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char		*ft_strmap(char const	*s, char (*f)(char));
 char		*ft_strmapi(char const	*s, char (*f)(unsigned int, char));
 char		*ft_strnew(size_t size);
 char		*ft_strjoin(char const	*s1, char const	*s2);
-char		*ft_strjoin_replace(char *s1, char *s2, int first_str);
+char		*ft_strjoin_replace(char *s1, char *s2, int choice);
 char    	*ft_charjoin(char c, char *dest);
 char		**ft_strsplit(char const *s, char c);
 char		*ft_reverse_str(char *str);

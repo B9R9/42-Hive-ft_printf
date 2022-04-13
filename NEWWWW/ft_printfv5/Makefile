@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 12:13:08 by briffard          #+#    #+#              #
-#    Updated: 2022/04/12 15:14:27 by briffard         ###   ########.fr        #
+#    Updated: 2022/04/13 15:43:55 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,13 @@ RM		=	rm	-f
 
 #SOURCE FILE
 SRC_DIR =	./srcs/
-SRC		=	ft_printf.c					\
-			struct_init.c				\
-			handle_Flag.c error.c		\
-			conv_str.c					\
-			utils_funct.c util_list.c 	\
+SRC		=	ft_printf.c							\
+			struct_init.c						\
+			handle_Flag.c error.c				\
+			conv_str.c conv_char.c conv_int.c	\
+			parse_int.c							\
+			handle_sizePrefix_for_flag_d.c		\
+			utils_funct.c util_list.c 			\
 
 #OBJECT FILE
 OBJ_DIR	=	./objectFiles/
@@ -35,8 +37,8 @@ OBJS		=	$(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 all:$(NAME)  
 
 $(NAME):$(OBJS)
-	cp libft/libft.a $(NAME)
-	ar rcs $(NAME) $(OBJS)
+	@cp libft/libft.a $(NAME)
+	@ar rcs $(NAME) $(OBJS)
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	@make -sC ./libft

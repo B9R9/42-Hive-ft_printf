@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/12 17:30:29 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:41:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ typedef struct  s_parameter {
 /*DISPACHT TABLE*/
 /*FUNCTION IN DISPACHT FLAG ARRAY*/
 char *argtostr(t_parameter li, va_list ap);
-// char *argtochar(t_parameter *li, va_list ap);
-// char *argtoint(t_parameter *li, va_list ap);
+char *argtochar(t_parameter li, va_list ap);
+char *argtoint(t_parameter li, va_list ap);
 // char *argtohexoroct(t_parameter *li, va_list ap);
 // char *argtoptraddress(t_parameter *li, va_list ap);
 // char *argtofloat(t_parameter *li, va_list ap);
@@ -69,15 +69,15 @@ char *argtostr(t_parameter li, va_list ap);
 typedef char *(*dispachtFlags)(t_parameter li, va_list ap);
 
 static const dispachtFlags	funcFlagsArray[26] = {
-	NULL, //A
+	NULL,//A
 	NULL,//B
-	NULL,//C
-	NULL,//D
+	argtochar,//C
+	argtoint,//D
 	NULL,//E
 	NULL,//F
 	NULL,//G
 	NULL,//H
-	NULL,//I
+	argtoint,//I
 	NULL,//J
 	NULL,//K
 	NULL,//L
@@ -111,6 +111,16 @@ t_parameter handle_size_prefix(char *str, t_parameter li);
 /*ERROR.C*/
 t_parameter checkoptionerror(t_parameter li);
 /*CONV_STR.C*/
+char	*setstr(char *dest, t_parameter li, char *source);
+/*PARSE_INT.C*/
+char    *parse_int(t_parameter li, char *source);
+
+/*handle_sizePrefix_for_flag_d.c*/
+char    *ll_int_to_arr(t_parameter li, long long number);
+char    *l_int_to_arr(t_parameter li, long number);
+char    *short_int_to_arr(t_parameter li, short int number);
+char    *char_to_arr(t_parameter li, char number);
+ 
 /*UTILS_FUNCT.C*/
 char	*align_right(char *dest);
 int		skip(char *str);
