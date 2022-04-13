@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/12 13:48:52 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:12:06 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		ft_strdel(char	**as);
 void		ft_striter(char *s, void (*f)(char *s));
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 /*RETURN *CHAR*/
-char		*ft_strcat(char	*s1, char	*s2);
+char		*ft_strcat(char	*s1, char const	*s2);
 char		*ft_strchr(const char	*s, int c);
 char		*ft_strcpy(char	*dst, const char	*src);
 char		*ft_strdup(const char	*s1);

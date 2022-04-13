@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/12 16:46:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 10:18:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static t_bool	checkparams(char c)
 t_parameter	init(const char *format,t_parameter li, va_list ap)
 {
 	char		*parameters;
+	char		*temp;
     int         index;
 
 	index = 1;
@@ -74,8 +75,11 @@ t_parameter	init(const char *format,t_parameter li, va_list ap)
 	parameters = ft_strsub(format, 1, index);
 	if (!parameters)
 		exit(EXIT_FAILURE);
+	temp = parameters;
+	ft_memdel((void *)&parameters);
+	parameters = temp;
 	li = setup(parameters, li, ap);
-	ft_memdel((void *) &parameters);
+	// ft_memdel((void *) &parameters);
 	return (li);
 }
 

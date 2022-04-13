@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: briffard <briffard@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:05:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/01/07 09:46:35 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 09:37:43 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 char	*ft_strncpy(char	*dst, const char	*src, size_t	len)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (src[i] != '\0' && i < len)
+	if (ft_strlen(src) < len)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_strcpy(dst, src);
+		ft_bzero(dst + ft_strlen(src), len - ft_strlen(src));
 	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
+	else
+		ft_memcpy(dst, src, len);
 	return (dst);
 }

@@ -1,13 +1,13 @@
-Process:         test [15981]
+Process:         test [27030]
 Path:            /Volumes/VOLUME/*/test
-Load Address:    0x10c54a000
+Load Address:    0x1095e0000
 Identifier:      test
 Version:         ???
 Code Type:       X86-64
-Parent Process:  zsh [45504]
+Parent Process:  zsh [14398]
 
-Date/Time:       2022-04-12 17:43:49.868 +0300
-Launch Time:     2022-04-12 17:43:49.568 +0300
+Date/Time:       2022-04-13 12:41:03.411 +0300
+Launch Time:     2022-04-13 12:41:03.136 +0300
 OS Version:      Mac OS X 10.14.6 (18G9323)
 Report Version:  7
 Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
@@ -15,15 +15,15 @@ Analysis Tool Version:  Xcode 11.3.1 (11C505)
 ----
 
 leaks Report Version: 4.0
-Process 15981: 168 nodes malloced for 18 KB
-Process 15981: 5 leaks for 80 total leaked bytes.
+Process 27030: 168 nodes malloced for 18 KB
+Process 27030: 5 leaks for 96 total leaked bytes.
 
-    5 (80 bytes) << TOTAL >>
+    5 (96 bytes) << TOTAL >>
 
-      2 (32 bytes) ROOT LEAK: 0x7fec4a402ac0 [16]
-         1 (16 bytes) 0x7fec4a402ae0 [16]
+      2 (32 bytes) ROOT LEAK: 0x7fe55d402ac0 [16]
+         1 (16 bytes) 0x7fe55d402ae0 [16]
 
-      1 (16 bytes) ROOT LEAK: 0x7fec4a400640 [16]  length: 13  "joe l' indien"
-      1 (16 bytes) ROOT LEAK: 0x7fec4a402ab0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fec4a402b00 [16]  length: 1  ""
+      1 (32 bytes) ROOT LEAK: 0x7fe55d402b10 [32]  length: 25  "joe l' ind               "
+      1 (16 bytes) ROOT LEAK: 0x7fe55d400640 [16]  length: 2  "<"
+      1 (16 bytes) ROOT LEAK: 0x7fe55d402ab0 [16]  length: 7  "  -FT->"
 

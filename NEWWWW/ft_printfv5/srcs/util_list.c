@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:59:19 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/12 17:43:40 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:09:22 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_containeur	*push_back(t_containeur *li, char *str)
 {
 	t_containeur	*element;
 	t_containeur	*tmp;
-
+	
 	element = (t_containeur *)malloc(sizeof(*element));
 	if(!element)
 		exit(EXIT_FAILURE);
@@ -55,6 +55,7 @@ t_containeur	*pop_front(t_containeur *li)
 	if(!element)
 		exit(EXIT_FAILURE);
 	element = li->next;
+	ft_memdel((void *)&li->box);
 	free(li);
 	li = NULL;
 	return element;

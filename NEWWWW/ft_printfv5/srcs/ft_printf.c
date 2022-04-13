@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:10:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/12 17:34:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:09:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,15 @@ static char    *dispacht(va_list ap, t_parameter new)
 {
 	return (funcFlagsArray[new.conv - 'a'](new, ap));
 }
-/*0x7fb173402ab0 */
+
 /*PRINT LIST*/
 static void    printlist(t_containeur *li)
 {
     while (li != NULL)
         {
             ft_putstr(li->box);
-            ft_strdel(&li->box);
             li = li->next;
         }
-        ft_strdel(&li->box);
 }
 
 /*SLIPT FORMAT TO A CHAINED LIST*/
@@ -73,7 +71,7 @@ static t_containeur    *split(t_containeur *list, va_list ap, const char *str)
 			temp = ft_strsub(str, start, index - start);
 			list = push_back(list,temp);
         }
-        ft_bzero(temp, ft_strlen(temp));
+        // ft_bzero(temp, ft_strlen(temp)); Created a problem I dont why ?
     }
     ft_memdel((void *)&temp);
     return (list);
