@@ -6,13 +6,14 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 11:19:28 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:09:10 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static int intoa(t_parameter *li, int number);
+static int  format_char(t_parameter *option, char c);
 
 static int intoa(t_parameter *li, int number)
 {
@@ -38,4 +39,26 @@ int argtoint(t_parameter *li, va_list ap)
     //     return(char_to_arr(li, (char)va_arg(ap, int)));
     // else
 		return (intoa(li, va_arg(ap, int)));
+}
+
+/*
+**Receive va_arg as int and print a char
+*/
+static int  format_char(t_parameter *option, char c)
+{
+    int size;
+
+    size = 0;
+    
+    size += print_width(option, 1);
+    size += print_char(c);
+	if (option->flags & F_MINUS)
+		size += align_right(size, option->width); 
+    return (size); 
+}
+
+/*Turn va_arg into an int*/
+int argtochar(t_parameter *li, va_list ap)
+{
+    return(format_char(li, va_arg(ap, int)));
 }

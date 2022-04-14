@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 11:26:30 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:16:41 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,40 +61,40 @@ typedef struct  s_parameter {
 int	argtostr(t_parameter *li, va_list ap);
 int	argtochar(t_parameter *li, va_list ap);
 int	argtoint(t_parameter *li, va_list ap);
-// char *argtohexoroct(t_parameter *li, va_list ap);
-// char *argtoptraddress(t_parameter *li, va_list ap);
+int	argtohexoroct(t_parameter *li, va_list ap);
+int	argto_u_int(t_parameter *li, va_list ap);
+int	argtoptr(t_parameter *li, va_list ap);
 // char *argtofloat(t_parameter *li, va_list ap);
-// char *argto_u_int(t_parameter *li, va_list ap);
 
 typedef int (*dispachtFlags)(t_parameter *li, va_list ap);
 
 static const dispachtFlags	funcFlagsArray[26] = {
-	NULL,		//A
-	NULL,		//B
-	argtochar,	//C
-	argtoint,	//D
-	NULL,		//E
-	NULL,		//F
-	NULL,		//G
-	NULL,		//H
-	argtoint,	//I
-	NULL,		//J
-	NULL,		//K
-	NULL,		//L
-	NULL,//M
-	NULL,//N
-	NULL,//O
-	NULL,//P
-	NULL,//Q
-	NULL,//R
-	argtostr,	//S
-	NULL,//T
-	NULL,//U
-	NULL,//V
-	NULL,//W
-	NULL,//X
-	NULL,//Y
-	NULL,//Z
+	NULL,			//A
+	NULL,			//B
+	argtochar,		//C
+	argtoint,		//D
+	NULL,			//E
+	NULL,			//F
+	NULL,			//G
+	NULL,			//H
+	argtoint,		//I
+	NULL,			//J
+	NULL,			//K
+	NULL,			//L
+	NULL,			//M
+	NULL,			//N
+	argtohexoroct,	//O
+	argtoptr,		//P
+	NULL,			//Q
+	NULL,			//R
+	argtostr,		//S
+	NULL,			//T
+	argto_u_int,	//U
+	NULL,			//V
+	NULL,			//W
+	argtohexoroct,	//X
+	NULL,			//Y
+	NULL,			//Z
 };
 
 /*PROTOTYPE*/
@@ -116,6 +116,11 @@ t_parameter *checkoptionerror(t_parameter *li);
 int format_intoa(t_parameter *option, char *dest);
 int print_intwidth(t_parameter *option, int lenght);
 int print_intprecsion(int start, t_parameter *option, int lenght);
+int ajust_lenght(t_parameter *option, int lenght);
+int print_0x(t_parameter *option);
+/*CONV_HEX*/
+int format_uint(t_parameter *option, unsigned int number);
+int	define_base(t_parameter *option);
 
 /*handle_sizePrefix_for_flag_d.c*/
 char    *ll_int_to_arr(t_parameter li, long long number);

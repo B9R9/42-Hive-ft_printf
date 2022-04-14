@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:01:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 12:25:40 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:49:26 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 int print_intwidth(t_parameter *option, int lenght);
 int print_intprecision(int start, t_parameter *option, int lenght);
 int format_intoa(t_parameter *option, char *dest);
+int print_0x(t_parameter *option);
+int adjust_lenght(t_parameter *option, int lenght);
+
+int print_0x(t_parameter *option)
+{
+    int size;
+
+    size = 0;
+    if (option->flags & F_HASHTAG && option->upper)
+        size += print_str("0X", ft_strlen("0X"));
+
+    else if (option->flags & F_HASHTAG && !option->upper)
+        size += print_str("0x", ft_strlen("0x"));
+    return (size);
+}
 
 int print_intprecision(int start, t_parameter *option, int lenght)
 {
@@ -29,6 +44,17 @@ int print_intprecision(int start, t_parameter *option, int lenght)
     return (size);
 }
 
+int adjust_lenght(t_parameter *option, int lenght)
+{
+    if (option->flags & F_PLUS && !(option->flags & F_ZERO))
+        lenght += 1;
+    if (option->flags & F_PLUS && !(option->flags & F_SPACE))
+        lenght -= 1;
+    if (option->flags & F_HASHTAG && !(option->flags & F_ZERO))
+        lenght += 2;
+    return (lenght);
+}
+
 int print_intwidth(t_parameter *option, int lenght)
 {
     int size;
@@ -36,8 +62,9 @@ int print_intwidth(t_parameter *option, int lenght)
     size = 0;
     if (option->flags & F_PLUS && option->flags & F_ZERO)
         size += print_char('+');
-    if (option->flags & F_PLUS && !(option->flags & F_ZERO))
-            lenght += 1;
+    lenght = adjust_lenght(option, lenght);
+    if (option->flags & F_HASHTAG && option->flags & F_ZERO)
+        size += print_0x(option);
     while (size < (option->width - lenght))
     {
         if (option->flags & F_ZERO)
@@ -45,8 +72,11 @@ int print_intwidth(t_parameter *option, int lenght)
         else
             size += print_char(' ');
     }
-    if (option->flags & F_PLUS && !(option->flags & F_ZERO))
+    if (option->flags & F_PLUS && !(option->flags & F_ZERO) && \
+        (option->flags & F_HASHTAG))
         size += print_char('+');
+    if (option->flags & F_HASHTAG && !(option->flags & F_ZERO))
+        size += print_0x(option);
     return (size);
 }
 
@@ -62,7 +92,8 @@ int align(char *str, t_parameter *option)
         while ( size < option->width)
             size += print_char(' ');
         return (size);
-    } 
+    }
+    size += print_0x(option);
     size += print_str(str, (int)ft_strlen(str));
     while ( size < option->width)
         size += print_char(' ');
@@ -73,14 +104,11 @@ int format_intoa(t_parameter *option, char *dest)
 {
     int size;
     
-    if(!option->precision || option->precision < (int)ft_strlen(dest))
-        option->precision = ft_strlen(dest);
     size = 0;
+    if (!option->precision || option->precision < (int)ft_strlen(dest))
+        option->precision = ft_strlen(dest);
     if (option->flags & F_MINUS)
-    {
-        size+= align(dest, option);
-        return (size);
-    }
+        return (align(dest, option));
     size += print_intwidth(option, option->precision);
     size += print_intprecision(0, option, (int)ft_strlen(dest));
     size += print_str(dest, (int)ft_strlen(dest));

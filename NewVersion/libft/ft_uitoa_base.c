@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/01 09:45:29 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:15:43 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char    *ft_uitoa_base(unsigned long long number, int base)
 
     index = 0;
     str = ft_strnew(ft_numlenght(number));
-    /*verifier si Malloc a focntionner*/
+    if (!str)
+        return (NULL);
     while (number != 0)
     {
         str[index] = BASE[number % base];

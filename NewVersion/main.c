@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 12:26:15 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:54:29 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,47 +87,114 @@ int main(void)
     // ft_printf("FT ->%- 5c<-\n", c);
     // printf("PF ->%- 5c<-\n", c);
 
-    printf("================INT================\n");
-    int max = __INT_MAX__;
-    int min = -2147483648;
-    int randonm = 73;
-    int precision    = 10;
-    int width       = 0;
-    printf("------\n");
-    ft_printf("FT->%d<\n", max);
-    printf("PF->%d<\n", max);
-    printf("------\n");
-    ft_printf("FT->%d<\n", min);
-    printf("PF->%d<\n", min);
-    printf("------\n");
-    ft_printf("FT->%d<\n", randonm);
-    printf("PF->%d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%+015d<\n", randonm);
-    printf("PF->%+015d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%+ 15d<\n", randonm);
-    printf("PF->%+ 15d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%- 15d<\n", randonm);
-    printf("PF->%- 15d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%-15d<\n", randonm);
-    printf("PF->%-15d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%-015d<\n", randonm);
-    printf("PF->%-015d<\n", randonm);
+    // printf("================INT================\n");
+    // int max = __INT_MAX__;
+    // int min = -2147483648;
+    // int randonm = 73;
+    // int precision    = 10;
+    // int width       = 0;
+    // printf("------\n");
+    // ft_printf("FT->%d<\n", max);
+    // printf("PF->%d<\n", max);
+    // printf("------\n");
+    // ft_printf("FT->%d<\n", min);
+    // printf("PF->%d<\n", min);
+    // printf("------\n");
+    // ft_printf("FT->%d<\n", randonm);
+    // printf("PF->%d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%+015d<\n", randonm);
+    // printf("PF->%+015d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%+ 15d<\n", randonm);
+    // printf("PF->%+ 15d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%- 15d<\n", randonm);
+    // printf("PF->%- 15d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%-15d<\n", randonm);
+    // printf("PF->%-15d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%-015d<\n", randonm);
+    // printf("PF->%-015d<\n", randonm);
 
     /*PRECSION ++*/
-    while (width <= 20)
-    {
-        printf("------\n");
-        printf("Width = %d || Precision = %d\n", width, precision);
-        ft_printf("FT->%*.*d<\n",width, precision, randonm);
-        printf("PF->%*.*d<\n",width, precision, randonm); 
-        width++;
-        precision--;
-    }
+    // while (width <= 20)
+    // {
+    //     printf("------\n");
+    //     printf("Width = %d || Precision = %d\n", width, precision);
+    //     ft_printf("FT->%*.*d<\n",width, precision, randonm);
+    //     printf("PF->%*.*d<\n",width, precision, randonm); 
+    //     width++;
+    //     precision--;
+    // }
+    // printf("================HEX&OCT&UINT================\n");
+    // int randonm = 73;
+    // long int long_int = 9999999999;
+    // long long int   ll_int = 999999999999999999LL;
+    // unsigned int u_int = 21;
+    // unsigned long int ul_int = 123456789123456UL;
+    // unsigned long long ull_int = 12345678912345456653ULL;
+
+    // printf("------\n");
+    // ft_printf("FT->%u<\n", u_int);
+    // printf("PF->%u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%#u<\n", u_int);
+    // printf("PF->%#u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%#d<\n", u_int);
+    // printf("PF->%#d<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%#015u<\n", u_int);
+    // printf("PF->%#015u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%# 15u<\n", u_int);
+    // printf("PF->%# 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%+ 15u<\n", u_int);
+    // printf("PF->%+ 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%- 15u<\n", u_int);
+    // printf("PF->%- 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%-# 15u<\n", u_int);
+    // printf("PF->%-# 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%.1u<\n", u_int);
+    // printf("PF->%.1u<\n", u_int);
+    printf("================POINTEUR================\n");
+
+    char *str;
+    printf("------\n");
+    ft_printf("FT->%p<\n", &str);
+    printf("PF->%p<\n", &str);
+    printf("------\n");
+    ft_printf("FT->%p<\n", str);
+    printf("PF->%p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%#p<\n", str);
+    printf("PF->%#p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%020p<\n", str);
+    printf("PF->%020p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%+20p<\n", str);
+    printf("PF->%+20p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%-20p<\n", str);
+    printf("PF->%-20p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%-#20p<\n", str);
+    printf("PF->%-#20p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%-#.5p<\n", str);
+    printf("PF->%-#.5p<\n", str);
+    printf("------\n");
+    ft_printf("FT->%# 25.5p<\n", str);
+    printf("PF->%# 25.5p<\n", str);
+    
+    
     // int max = __INT_MAX__;
     // int min = -2147483648;
     // int randonm = 73;
