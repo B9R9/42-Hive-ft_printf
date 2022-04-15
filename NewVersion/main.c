@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 12:10:55 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 15:25:24 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,6 @@ int main(void)
     // ft_printf("FT->%.1u<\n", u_int);
     // printf("PF->%.1u<\n", u_int);
     // printf("================POINTEUR================\n");
-
     // char *str;
     // printf("------\n");
     // ft_printf("FT->%p<\n", &str);
@@ -196,11 +195,65 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT->%# 25.5p<\n", str);
     // printf("PF->%# 25.5p<\n", str);
-    // printf("================FLOAT================\n");  
-    // printf("------\n");
-    // ft_printf("FT->%#.5f<\n", 0.152);
-    // printf("PF->%#.5f<\n", 0.152);
-    // printf("------\n");
+    printf("================FLOAT================\n");  
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.05); 
+    printf("PF->%.1f<-\n", 0.05);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.10); 
+    printf("PF->%.1f<-\n", 0.10);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.15); 
+    printf("PF->%.1f<-\n", 0.15);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.20); 
+    printf("PF->%.1f<-\n", 0.20);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.25); 
+    printf("PF->%.1f<-\n", 0.25);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.30); 
+    printf("PF->%.1f<-\n", 0.30);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.35); 
+    printf("PF->%.1f<-\n", 0.35);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.40); 
+    printf("PF->%.1f<-\n", 0.40);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.45); 
+    printf("PF->%.1f<-\n", 0.45);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.50); 
+    printf("PF->%.1f<-\n", 0.50);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.55); 
+    printf("PF->%.1f<-\n", 0.55);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.60); 
+    printf("PF->%.1f<-\n", 0.60);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.65); 
+    printf("PF->%.1f<-\n", 0.65);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.70); 
+    printf("PF->%.1f<-\n", 0.70);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.75); 
+    printf("PF->%.1f<-\n", 0.75);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.80); 
+    printf("PF->%.1f<-\n", 0.80);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.85); 
+    printf("PF->%.1f<-\n", 0.85);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.90); 
+    printf("PF->%.1f<-\n", 0.90);
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.95); 
+    printf("PF->%.1f<-\n", 0.95);
+    printf("------\n");
     // ft_printf("FT->%.20f<\n", 0.152321654);
     // printf("PF->%.20f<\n", 0.152321654);
     // printf("------\n");
@@ -225,17 +278,42 @@ int main(void)
     // ft_printf("FT->%.60f<\n", 0.123456);
     // printf("PF->%.60f<\n", 0.123456);
     // printf("================COLOR================\n");
-    char *str;
-    str = "Hello World";
-    printf("------\n");
-    // ft_printf("FT->%s%s%s<\n", "\x1B[31m", str, "\x1B[0m");
-    printf("PF->%s%s%s<\n", "\033[4m", str, NORMAL);
+    // char *str;
+    // str = "Hello World";
+    // printf("------\n");
+    // // ft_printf("FT->%s%s%s<\n", "\x1B[31m", str, "\x1B[0m");
+    // printf("PF->%s%s%s<\n", "\033[4m", str);
     // printf("================BOOL================\n");
     // t_bool test = true;
     // t_bool test2 = false;
     // printf("------\n");
     // ft_printf("FT->%t<\n", test);
     // ft_printf("FT->%t<\n", test2);
+    // printf("================L&LL INT================\n");
+    // long long int test_ll = 123456789132456789LL;
+    // long int test_l = 123456789132456789L;
+    // printf("------\n");
+    // ft_printf("FT->%lld<\n", test_ll);
+    // printf("PT->%lld<\n", test_ll);
+    // printf("------\n");
+    // ft_printf("FT->%ld<\n", test_l);
+    // printf("PT->%ld<\n", test_l);
+    // printf("================SHORT INT================\n");
+    // short int test_sh = 128;
+    // printf("------\n");
+    // ft_printf("FT->%hd<\n", test_sh);
+    // printf("PT->%hd<\n", test_sh);
+    // printf("------\n");
+    // ft_printf("FT->%015hd<\n", test_sh);
+    // printf("PT->%015hd<\n", test_sh);
+    // printf("================CHAR INT================\n");
+    // char  test_sh = -275;
+    // printf("------\n");
+    // ft_printf("FT->%hhd<\n", test_sh);
+    // printf("PT->%hhd<\n", test_sh);
+    // printf("------\n");
+    // ft_printf("FT->%015hhd<\n", test_sh);
+    // printf("PT->%015hhd<\n", test_sh);
     
      
     

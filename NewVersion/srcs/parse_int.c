@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:01:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 10:55:38 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:56:02 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int print_intwidth(t_parameter *option, int lenght)
     int size;
 
     size = 0;
+    if (option->flags & F_NEGATIF && option->flags & F_ZERO)
+        size += print_char('-');
     if (option->flags & F_PLUS && option->flags & F_ZERO)
         size += print_char('+');
     lenght = adjust_lenght(option, lenght);
@@ -75,6 +77,8 @@ int print_intwidth(t_parameter *option, int lenght)
     if (option->flags & F_PLUS && !(option->flags & F_ZERO) && \
         (option->flags & F_HASHTAG))
         size += print_char('+');
+    if (option->flags & F_NEGATIF && !(option->flags & F_ZERO))
+        size += print_char('-');
     if (option->flags & F_HASHTAG && !(option->flags & F_ZERO))
         size += print_0x(option);
     return (size);

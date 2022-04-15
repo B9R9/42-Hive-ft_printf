@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 12:06:35 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:19:12 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct  s_parameter {
 	t_bool		upper;  // check si le flag est Upper case OK
 	int			precision; // taille dela precision
 	int 		char_to_skip; //  nombre de cahr to skip
-	char 		*sizePrefix; // Sizeprefix conv
+	char 		sizePrefix[5]; // Sizeprefix conv
 	int			size; // taille total de str
 }               t_parameter;
 
@@ -88,7 +88,7 @@ static const dispachtFlags	funcFlagsArray[26] = {
 	NULL,			//Q
 	NULL,			//R
 	argtostr,		//S
-	argtoint,		//T
+	argtoint,		//T BONUS BOOLEAN PRINT TRUE OR FALSE
 	argto_u_int,	//U
 	NULL,			//V
 	NULL,			//W
@@ -106,8 +106,8 @@ t_parameter	*init(const char *format,t_parameter *li, va_list ap);
 /*HANDLE_FLAG*/
 t_parameter *handle_flag(char *str, t_parameter *li);
 t_parameter *handle_width(char *str, t_parameter *li, va_list ap);
-t_parameter *handle_precision(char *str, t_parameter *i, va_list ap);
-t_parameter *handle_size_prefix(char *str, t_parameter *li);
+t_parameter *handle_precision(char *str, t_parameter *li, va_list ap);
+t_parameter	*handle_size_prefix(char *str, t_parameter *li);
 /*ERROR.C*/
 t_parameter *checkoptionerror(t_parameter *li);
 /*CONV_STR.C*/
@@ -123,10 +123,10 @@ int format_uint(t_parameter *option, unsigned int number);
 int	define_base(t_parameter *option);
 
 /*handle_sizePrefix_for_flag_d.c*/
-char    *ll_int_to_arr(t_parameter li, long long number);
-char    *l_int_to_arr(t_parameter li, long number);
-char    *short_int_to_arr(t_parameter li, short int number);
-char    *char_to_arr(t_parameter li, char number);
+int	ll_int_to_arr(t_parameter *option, long long number);
+// char    *l_int_to_arr(t_parameter li, long number);
+int	short_int_to_arr(t_parameter *option, short int number);
+int	char_to_arr(t_parameter *option, char number);
  
 /*UTILS_FUNCT.C*/
 int		align_right(int start, int lenght);

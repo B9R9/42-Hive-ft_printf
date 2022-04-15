@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 09:26:25 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:10:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,20 @@ t_parameter     *handle_precision(char *str, t_parameter *li, va_list ap)
 
 t_parameter *handle_size_prefix(char *str, t_parameter *li)
 {
-    int i;
-    
+    int     i;
+
     i = 0;
     if (str[0] == 'l' || str[0] == 'h' || str[0] == 'L')
     {
-        while (str[i] == str[i + 1])
+        li->sizePrefix[i] = str[i];
+        i += 1;
+        while (str[i - 1] == str[i])
+        {
+            li->sizePrefix[i] = str[i];
             i++;
-        i++;
-        li->sizePrefix = ft_strsub(str, 0, (i - 0));
-        if (!li->sizePrefix)
-            exit(EXIT_FAILURE);
-        li->char_to_skip += i;
+        }
+        li->sizePrefix[i] = '\0';
+        li->char_to_skip += ft_strlen(li->sizePrefix);
     }
     return (li);
 }

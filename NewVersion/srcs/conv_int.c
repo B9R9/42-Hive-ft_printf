@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 12:03:20 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:18:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ static int intoa(t_parameter *option, int number)
 	return (size);
 }
 
-int argtoint(t_parameter *li, va_list ap)
+int argtoint(t_parameter *option, va_list ap)
 {
-    // if(!ft_strcmp(li->sizePrefix,"ll"))
-    //     return(ll_int_to_arr(li, va_arg(ap, long long)));
-    // else if(!ft_strcmp(li->sizePrefix, "l"))
-    //     return(l_int_to_arr(li, va_arg(ap, long)));
-    // else if(!ft_strcmp(li->sizePrefix, "h"))
-    //     return(short_int_to_arr(li, (short)va_arg(ap, int)));
-    // else if(!ft_strcmp(li->sizePrefix, "hh"))
-    //     return(char_to_arr(li, (char)va_arg(ap, int)));
-    // else
-		return (intoa(li, va_arg(ap, int)));
+    if(!ft_strcmp(option->sizePrefix,"ll"))
+        return(ll_int_to_arr(option, va_arg(ap, long long)));
+    else if(!ft_strcmp(option->sizePrefix, "l"))
+        return(ll_int_to_arr(option, va_arg(ap, long)));
+    else if(!ft_strcmp(option->sizePrefix, "h"))
+        return(short_int_to_arr(option, (short)va_arg(ap, int)));
+    else if(!ft_strcmp(option->sizePrefix, "hh"))
+        return(char_to_arr(option, (char)va_arg(ap, int)));
+    else
+		return (intoa(option, va_arg(ap, int)));
 }
 
 /*

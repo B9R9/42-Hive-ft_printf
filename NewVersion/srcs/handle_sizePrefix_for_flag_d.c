@@ -6,62 +6,44 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:15:55 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/13 15:37:44 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:48:03 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    *char_to_arr(t_parameter li, char number)
+int char_to_arr(t_parameter *option, char number)
 {
     char    *temp;
-    char    *containeur;
+    int     size;
     
-
-    if ( number < -128 )
-        temp = ft_itoa(number + 255 + 1); 
-    else if (number > 127)
-        temp = ft_strjoin("-",ft_itoa( number - 255 - 1)); 
-    else
-        temp = ft_itoa(number);
-    temp =  parse_int(li, temp);
-    containeur = temp;
+    size = 0;
+    temp = ft_itoa(number);
+    size = format_intoa(option, temp);
     ft_memdel((void *) &temp);    
-    return (containeur); 
+    return (size); 
 }
 
-char    *short_int_to_arr(t_parameter li, short int number)
+int short_int_to_arr(t_parameter *option, short int number)
 {
-    char    *containeur;
     char    *temp;
-    
+    int     size;
+
+    size = 0;
     temp = ft_u_itoa(number);
-    temp =  parse_int(li, temp);
-    containeur = temp;
+    size =  format_intoa(option, temp);
     ft_memdel((void *) &temp);
-    return (containeur); 
+    return (size); 
 }
 
-char    *l_int_to_arr(t_parameter li, long number)
+int ll_int_to_arr(t_parameter *option, long long number)
 {
-    char    *containeur;
     char    *temp;
+    int     size;
     
+    size = 0;
     temp = ft_ll_itoa(number);
-    temp =  parse_int(li, temp);
-    containeur = temp;
+    size =  format_intoa(option, temp);
     ft_memdel((void *) &temp);
-    return (containeur);
-}
-
-char    *ll_int_to_arr(t_parameter li, long long number)
-{
-    char    *containeur;
-    char    *temp;
-    
-    temp = ft_ll_itoa(number);
-    temp =  parse_int(li, temp);
-    containeur = temp;
-    ft_memdel((void *) &temp);
-    return (containeur);
+    return (size);
 }

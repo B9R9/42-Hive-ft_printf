@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 08:24:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 17:02:11 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:10:47 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ft_printf(const char *format, ...)
         if (format[i] == '%')
         {
             option = init(&format[i], option, ap);
-            //check_parameter(option);
+            // check_parameter(option);
             size += dispacht(ap, option);
             i += option->size + 1;
         }

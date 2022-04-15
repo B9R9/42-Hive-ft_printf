@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 12:13:08 by briffard          #+#    #+#              #
-#    Updated: 2022/04/15 08:51:50 by briffard         ###   ########.fr        #
+#    Updated: 2022/04/15 13:22:42 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC		=	ft_printf.c							\
 			handle_Flag.c error.c				\
 			conv_str.c  conv_int.c conv_uint.c conv_p.c conv_f.c \
 			parse_int.c							\
+			handle_sizePrefix_for_flag_d.c		\
 			utils_funct.c 						\
 
 #OBJECT FILE
