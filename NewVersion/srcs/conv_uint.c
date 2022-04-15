@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:05:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 16:17:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 08:39:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int format_uint(t_parameter *option, unsigned int number)
 	if (option->upper)
 		ft_strtoupper(str);
 	size += format_intoa(option, str);
+    ft_memdel((void **)&str);
 	return(size);
 }
 

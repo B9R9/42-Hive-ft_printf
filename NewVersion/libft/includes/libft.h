@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/13 16:46:17 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 09:51:04 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ void 		ft_debug(char *color, char *where, int position, char *str, int num);
 unsigned long long int	ft_numlenght(unsigned long long int n);
 double			ft_abs_float(double value);
 long long		ft_abs_int(long long value);
-char			*ft_str_rounding(char *number, int fpart, size_t last_index);
+char			*ft_str_rounding(char *number, int fpart, int last_index);
 
 /*DOUBLE LINK LIST*/
 dlist		new_dlist(void);

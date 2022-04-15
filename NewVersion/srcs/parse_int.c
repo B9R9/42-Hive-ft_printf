@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:01:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 16:49:26 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 09:33:08 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int print_intprecision(int start, t_parameter *option, int lenght)
     int size;
     
     size = 0;
-    while (start < (option->precision - lenght))
+    while (start < (option->precision - lenght) && option->conv != 'f')
     {
         size += print_char('0');
         start++;
@@ -105,7 +105,7 @@ int format_intoa(t_parameter *option, char *dest)
     int size;
     
     size = 0;
-    if (!option->precision || option->precision < (int)ft_strlen(dest))
+    if ((!option->precision || option->precision < (int)ft_strlen(dest)) && option->conv != 'f')
         option->precision = ft_strlen(dest);
     if (option->flags & F_MINUS)
         return (align(dest, option));

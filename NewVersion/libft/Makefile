@@ -10,9 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+NAME	=	libft.a
 
-FILES=	ft_putchar.c		ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
+#COMPILATION
+CC		=	gcc
+CCFLAGS	=	-Werror -Wextra -Wall -Iincludes  -g
+
+#CLEAN & FCLEAN
+RM_DIR	=	rm -rf
+RM		=	rm	-f
+
+#SOURCE FILE
+SRC_DIR	=	./srcs/
+FILES	=	ft_putchar.c	ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		ft_putendl_fd.c		ft_putnbr.c			ft_putnbr_fd.c		ft_toupper.c\
 		ft_putstr.c			ft_putstr_fd.c		ft_strlen.c			ft_atoi.c	\
 		ft_isalpha.c		ft_itoa.c			ft_strjoin.c		ft_bzero.c	\
@@ -40,27 +50,28 @@ FILES=	ft_putchar.c		ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		ft_newlst.c\
 		ft_strjoin_replace.c\
 
-INCL=./includes/
-
-OBJ=$(SRC:.c=.o)
-RM=rm -f
-CC=gcc
-CCFLAGS=-Werror -Wall -Wextra
+#OBJECT FILE
+OBJ_DIR	=	./objectFiles/
+OBJS		=	$(addprefix $(OBJ_DIR), $(FILES:%.c=%.o))
 
 all: $(NAME)
 
-$(NAME):
-	@echo "Compiling..."
-	@$(CC)  -I $(INCL) -c $(FILES) -g
+$(NAME): $(OBJS)
 	@echo "Creation of libft"
-	@ar rc $(NAME) *.o
+	@ar rcs $(NAME) $(OBJS)
 	@echo "Libft created."
 	@ranlib $(NAME)   
 
+$(OBJ_DIR)%.o:$(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CCFLAGS) -o $@ -c $< 
+
 clean:
-	@$(RM) *.o
+	@$(RM_DIR) $(OBJ_DIR)
+	@echo "LIBFT: Object Files directory has been deleted"
 
 fclean: clean
 	@$(RM) $(NAME)
+	@echo "LIBFT: libft.a file has been deleted"
 
 re: fclean all clean

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 16:54:29 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 09:57:30 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,9 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT ->%- 5c<-\n", c);
     // printf("PF ->%- 5c<-\n", c);
+    // printf("------\n");
+    // ft_printf("FT->%c<\n", 64);
+    // printf("PF->%c<\n", 64);
 
     // printf("================INT================\n");
     // int max = __INT_MAX__;
@@ -163,36 +166,47 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT->%.1u<\n", u_int);
     // printf("PF->%.1u<\n", u_int);
-    printf("================POINTEUR================\n");
+    // printf("================POINTEUR================\n");
 
-    char *str;
+    // char *str;
+    // printf("------\n");
+    // ft_printf("FT->%p<\n", &str);
+    // printf("PF->%p<\n", &str);
+    // printf("------\n");
+    // ft_printf("FT->%p<\n", str);
+    // printf("PF->%p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%#p<\n", str);
+    // printf("PF->%#p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%020p<\n", str);
+    // printf("PF->%020p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%+20p<\n", str);
+    // printf("PF->%+20p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%-20p<\n", str);
+    // printf("PF->%-20p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%-#20p<\n", str);
+    // printf("PF->%-#20p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%-#.5p<\n", str);
+    // printf("PF->%-#.5p<\n", str);
+    // printf("------\n");
+    // ft_printf("FT->%# 25.5p<\n", str);
+    // printf("PF->%# 25.5p<\n", str);
+    printf("================FLOAT================\n");  
     printf("------\n");
-    ft_printf("FT->%p<\n", &str);
-    printf("PF->%p<\n", &str);
+    ft_printf("FT->%#.5f<\n", 0.152);
+    printf("PF->%#.5f<\n", 0.152);
     printf("------\n");
-    ft_printf("FT->%p<\n", str);
-    printf("PF->%p<\n", str);
+    ft_printf("FT->%.20f<\n", 0.152321654);
+    printf("PF->%.20f<\n", 0.152321654);
     printf("------\n");
-    ft_printf("FT->%#p<\n", str);
-    printf("PF->%#p<\n", str);
-    printf("------\n");
-    ft_printf("FT->%020p<\n", str);
-    printf("PF->%020p<\n", str);
-    printf("------\n");
-    ft_printf("FT->%+20p<\n", str);
-    printf("PF->%+20p<\n", str);
-    printf("------\n");
-    ft_printf("FT->%-20p<\n", str);
-    printf("PF->%-20p<\n", str);
-    printf("------\n");
-    ft_printf("FT->%-#20p<\n", str);
-    printf("PF->%-#20p<\n", str);
-    printf("------\n");
-    ft_printf("FT->%-#.5p<\n", str);
-    printf("PF->%-#.5p<\n", str);
-    printf("------\n");
-    ft_printf("FT->%# 25.5p<\n", str);
-    printf("PF->%# 25.5p<\n", str);
+    ft_printf("FT->%.20f<\n", 12356789123456.152321654);
+    printf("PF->%.20f<\n", 12356789123456.152321654);
+
     
     
     // int max = __INT_MAX__;

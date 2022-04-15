@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 16:16:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 08:41:13 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	argtoint(t_parameter *li, va_list ap);
 int	argtohexoroct(t_parameter *li, va_list ap);
 int	argto_u_int(t_parameter *li, va_list ap);
 int	argtoptr(t_parameter *li, va_list ap);
-// char *argtofloat(t_parameter *li, va_list ap);
+int	argtofloat(t_parameter *li, va_list ap);
 
 typedef int (*dispachtFlags)(t_parameter *li, va_list ap);
 
@@ -74,7 +74,7 @@ static const dispachtFlags	funcFlagsArray[26] = {
 	argtochar,		//C
 	argtoint,		//D
 	NULL,			//E
-	NULL,			//F
+	argtofloat,			//F
 	NULL,			//G
 	NULL,			//H
 	argtoint,		//I
