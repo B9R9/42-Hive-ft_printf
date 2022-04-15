@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 09:51:04 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 12:17:23 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 /*DEFINE*/
 /*COLOR*/
-# define NORMAL	"\x1B[0m"
+# define DEFAULT	"\x1B[0m"
 # define RED		"\x1B[31m"
 # define GREEN	"\x1B[32m"
 # define YELLOW	"\x1B[33m"
@@ -29,6 +29,7 @@
 # define MAGENTA	"\x1B[35m"
 # define CYAN	"\x1B[36m"
 # define WHITE	"\x1B[37m"
+
 
 /*DEFINE GNL*/
 # define BUFF_SIZE 8
@@ -151,7 +152,7 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 
 /*EXTRA FUNCTION*/
 void		*ft_cleanstr(char **s, size_t i);
-void		ft_color(char *s);
+void		ft_color(const char *s);
 void		ft_putstrcolor(char *str, char *color);
 void		ft_putcharcolor(char c, char *color);
 int			ft_randomnbr(void);
@@ -184,5 +185,41 @@ dlist		push_front_dlist(dlist li, int x);
 dlist		pop_back_dlist(dlist li);
 dlist		pop_front_dlist(dlist li);
 void		print_dlist(dlist li);
+
+# define ResetAll = "\033[0m"
+
+# define	Bold       = "\033[1m"
+# define	Dim        = "\033[2m"
+# define	Underlined = "\033[4m"
+# define	Blink      = "\033[5m"
+# define	Reverse    = "\033[7m"
+# define	Hidden     = "\033[8m"
+
+# define	ResetBold       = "\033[21m"
+# define	ResetDim        = "\033[22m"
+# define	ResetUnderlined = "\033[24m"
+# define	ResetBlink      = "\033[25m"
+# define	ResetReverse    = "\033[27m"
+# define	ResetHidden     = "\033[28m"
+
+# define	BackgroundDefault      = "\033[49m"
+# define	BackgroundBlack        = "\033[40m"
+# define	BackgroundRed          = "\033[41m"
+# define	BackgroundGreen        = "\033[42m"
+# define	BackgroundYellow       = "\033[43m"
+# define	BackgroundBlue         = "\033[44m"
+# define	BackgroundMagenta      = "\033[45m"
+# define	BackgroundCyan         = "\033[46m"
+# define	BackgroundLightGray    = "\033[47m"
+# define	BackgroundDarkGray     = "\033[100m"
+# define	BackgroundLightRed     = "\033[101m"
+# define	BackgroundLightGreen   = "\033[102m"
+# define	BackgroundLightYellow  = "\033[103m"
+# define	BackgroundLightBlue    = "\033[104m"
+# define	BackgroundLightMagenta = "\033[105m"
+# define	BackgroundLightCyan    = "\033[106m"
+# define	BackgroundWhite        = "\033[107m"
+
+
 
 #endif

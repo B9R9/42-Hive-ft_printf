@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:01:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 09:33:08 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:55:38 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ int format_intoa(t_parameter *option, char *dest)
         option->precision = ft_strlen(dest);
     if (option->flags & F_MINUS)
         return (align(dest, option));
+    if (option->conv == 'f')
+        option->precision = ft_strlen(dest);
     size += print_intwidth(option, option->precision);
     size += print_intprecision(0, option, (int)ft_strlen(dest));
     size += print_str(dest, (int)ft_strlen(dest));

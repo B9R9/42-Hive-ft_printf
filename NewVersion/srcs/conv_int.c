@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 16:09:10 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 12:03:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 static int intoa(t_parameter *li, int number);
 static int  format_char(t_parameter *option, char c);
 
-static int intoa(t_parameter *li, int number)
+static int intoa(t_parameter *option, int number)
 {
 	char    *dest;
     int     size;
     
     size = 0;
+    if (option->conv == 't')
+    {
+        if (number > 0)
+            return (print_str("True", ft_strlen("True")));
+        return (print_str("False", ft_strlen("False")));
+    }
     dest = ft_itoa(number);
-    size += format_intoa(li, dest);
+    size += format_intoa(option, dest);
     ft_memdel((void *)&dest);
 	return (size);
 }

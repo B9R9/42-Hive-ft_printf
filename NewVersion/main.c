@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 09:57:30 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 12:10:55 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,17 +196,48 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT->%# 25.5p<\n", str);
     // printf("PF->%# 25.5p<\n", str);
-    printf("================FLOAT================\n");  
+    // printf("================FLOAT================\n");  
+    // printf("------\n");
+    // ft_printf("FT->%#.5f<\n", 0.152);
+    // printf("PF->%#.5f<\n", 0.152);
+    // printf("------\n");
+    // ft_printf("FT->%.20f<\n", 0.152321654);
+    // printf("PF->%.20f<\n", 0.152321654);
+    // printf("------\n");
+    // ft_printf("FT->%.20f<\n", 12356789123456.152321654);
+    // printf("PF->%.20f<\n", 12356789123456.152321654);
+    // printf("------\n");
+    // ft_printf("FT->%.2f<\n", 99.999);
+    // printf("PF->%.2f<\n", 99.9999);
+    // printf("------\n");
+    // ft_printf("FT->%-015.2f<\n", 99.999);
+    // printf("PF->%-015.2f<\n", 99.9999);
+    // printf("------\n");
+    // ft_printf("FT->%- 15.2f<\n", 99.999);
+    // printf("PF->%- 15.2f<\n", 99.9999);
+    // printf("------\n");
+    // ft_printf("FT->%.30f<\n", 123456.123456);
+    // printf("PF->%.30f<\n", 123456.123456);
+    // printf("------\n");
+    // ft_printf("FT->%.60f<\n", 17999999999999999780.123456);
+    // printf("PF->%.60f<\n", 17999999999999999780.123456);
+    // printf("------\n");
+    // ft_printf("FT->%.60f<\n", 0.123456);
+    // printf("PF->%.60f<\n", 0.123456);
+    // printf("================COLOR================\n");
+    char *str;
+    str = "Hello World";
     printf("------\n");
-    ft_printf("FT->%#.5f<\n", 0.152);
-    printf("PF->%#.5f<\n", 0.152);
-    printf("------\n");
-    ft_printf("FT->%.20f<\n", 0.152321654);
-    printf("PF->%.20f<\n", 0.152321654);
-    printf("------\n");
-    ft_printf("FT->%.20f<\n", 12356789123456.152321654);
-    printf("PF->%.20f<\n", 12356789123456.152321654);
-
+    // ft_printf("FT->%s%s%s<\n", "\x1B[31m", str, "\x1B[0m");
+    printf("PF->%s%s%s<\n", "\033[4m", str, NORMAL);
+    // printf("================BOOL================\n");
+    // t_bool test = true;
+    // t_bool test2 = false;
+    // printf("------\n");
+    // ft_printf("FT->%t<\n", test);
+    // ft_printf("FT->%t<\n", test2);
+    
+     
     
     
     // int max = __INT_MAX__;

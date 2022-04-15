@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 08:41:13 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 12:06:35 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define F_MINUS 0x10
 # define F_SPACE 0x08
 
-# define ARRFLAGS "scdxXop%ifu"
+# define ARRFLAGS "scdxXop%ifut"
 
 // /*ENUM*/
 // typedef enum 
@@ -74,7 +74,7 @@ static const dispachtFlags	funcFlagsArray[26] = {
 	argtochar,		//C
 	argtoint,		//D
 	NULL,			//E
-	argtofloat,			//F
+	argtofloat,		//F
 	NULL,			//G
 	NULL,			//H
 	argtoint,		//I
@@ -88,7 +88,7 @@ static const dispachtFlags	funcFlagsArray[26] = {
 	NULL,			//Q
 	NULL,			//R
 	argtostr,		//S
-	NULL,			//T
+	argtoint,		//T
 	argto_u_int,	//U
 	NULL,			//V
 	NULL,			//W
