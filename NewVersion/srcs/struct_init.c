@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 14:03:43 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 16:24:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static t_parameter	*setup(char *str, t_parameter *li, va_list ap)
 	handle_flag(str, li);
 	handle_width(&str[li->char_to_skip], li, ap);
 	handle_precision(&str[li->char_to_skip], li, ap);
-	li->sizePrefix[0] = 'l';
 	handle_size_prefix(&str[li->char_to_skip], li);
 	li->conv = ft_tolower(str[li->char_to_skip]);
 	checkoptionerror(li);

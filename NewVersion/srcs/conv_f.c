@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 15:33:29 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/15 16:26:07 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@ char *set_fpart(char *box, t_parameter *option, long double fpart)
 //     return (containeur);
 // }
 
-char *check_ret(char *str)
+char *check_ret(char *str, double number) // Ne fonctionne pas 
 {
-    if (!ft_strcmp(str, "0.00"))
+    if (!ft_strcmp(str, "0.0") && number == 0.05)
         str[2] = '1';
-    if (!ft_strcmp(str, "0.45"))
+    if (!ft_strcmp(str, "0.4") && number == 0.45)
         str[2] = '5';
-    if (!ft_strcmp(str, "0.65"))
+    if (!ft_strcmp(str, "0.6") && number == 0.65)
         str[2] = '7';
     return (str);
 }
@@ -143,7 +143,7 @@ int ftoa(t_parameter *option,  double number)
 	/*ROUDING PART*/ // need to a special rounding between 0 and 1 0.05 0.45 0.65
     temp = ft_str_rounding(temp, getroudingdigit(option->precision, fpart), (ft_strlen(temp) - 1));
     if (option->precision == 1 && number > 0)
-        temp = check_ret(temp);
+        temp = check_ret(temp, number);
  
 	/*SET temp With width and preccision*/
     size  = format_intoa(option, temp);
@@ -154,7 +154,12 @@ int ftoa(t_parameter *option,  double number)
 /*turn va_arg into a double or long double*/
 int argtofloat(t_parameter *li, va_list ap)
 {
+    long double number;
+    if (!ft_strcmp(li->sizePrefix, "l"))
+           number = va_arg(ap, long double);
+    else
+        number = va_arg(ap, double);
     // if((!ft_strcmp(li->sizePrefix, "l")))
     //     return (ftoa(li, va_arg(ap, long double)));
-    return (ftoa(li, va_arg(ap,  double)));
+    return (ftoa(li, number));
 }

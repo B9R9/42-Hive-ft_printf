@@ -1,13 +1,13 @@
-Process:         test [78986]
+Process:         test [94000]
 Path:            /Volumes/VOLUME/*/test
-Load Address:    0x10f04b000
+Load Address:    0x105953000
 Identifier:      test
 Version:         ???
 Code Type:       X86-64
 Parent Process:  zsh [959]
 
-Date/Time:       2022-04-15 15:32:35.484 +0300
-Launch Time:     2022-04-15 15:32:35.237 +0300
+Date/Time:       2022-04-15 16:26:19.804 +0300
+Launch Time:     2022-04-15 16:26:19.551 +0300
 OS Version:      Mac OS X 10.14.6 (18G9323)
 Report Version:  7
 Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
@@ -15,65 +15,65 @@ Analysis Tool Version:  Xcode 11.3.1 (11C505)
 ----
 
 leaks Report Version: 4.0
-Process 78986: 228 nodes malloced for 20 KB
-Process 78986: 57 leaks for 1520 total leaked bytes.
+Process 94000: 228 nodes malloced for 20 KB
+Process 94000: 57 leaks for 1520 total leaked bytes.
 
     57 (1.48K) << TOTAL >>
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02ac0 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02c40 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02c80 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02d00 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02d50 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02dd0 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02e20 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02e70 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02ec0 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02f10 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02f60 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c02fb0 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c03000 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c03050 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c030a0 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c030f0 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c03140 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c03190 [48]
-      1 (48 bytes) ROOT LEAK: 0x7fc9b8c031e0 [48]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c00640 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c00650 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02ab0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02b90 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02ba0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02c70 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02cb0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02cc0 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02d30 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02d40 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02d80 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02d90 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02e00 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02e10 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02e50 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02e60 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02ea0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02eb0 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02ef0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02f00 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02f40 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02f50 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02f90 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02fa0 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02fe0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c02ff0 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03030 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03040 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03080 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03090 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c030d0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c030e0 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03120 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03130 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03170 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c03180 [16]  length: 1  "0"
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c031c0 [16]
-      1 (16 bytes) ROOT LEAK: 0x7fc9b8c031d0 [16]  length: 1  "0"
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402ac0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402c40 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402c80 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402d00 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402d50 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402dd0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402e20 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402e70 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402ec0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402f10 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402f60 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f402fb0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f403000 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f403050 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f4030a0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f4030f0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f403140 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f403190 [48]
+      1 (48 bytes) ROOT LEAK: 0x7fbf2f4031e0 [48]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f400640 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f400650 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402ab0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402b90 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402ba0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402c70 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402cb0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402cc0 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402d30 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402d40 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402d80 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402d90 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402e00 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402e10 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402e50 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402e60 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402ea0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402eb0 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402ef0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402f00 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402f40 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402f50 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402f90 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402fa0 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402fe0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f402ff0 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403030 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403040 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403080 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403090 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f4030d0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f4030e0 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403120 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403130 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403170 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f403180 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f4031c0 [16]
+      1 (16 bytes) ROOT LEAK: 0x7fbf2f4031d0 [16]  length: 1  "0"
 
