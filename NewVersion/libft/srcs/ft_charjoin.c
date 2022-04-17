@@ -15,9 +15,7 @@
 char    *ft_charjoin(char c, char *dest)
 {
     char    *temp;
-    size_t  i;
-    
-    i = 0;
+
     temp =  ft_strjoin(" ", dest);
     if(!temp)
         return (NULL);

@@ -17,11 +17,11 @@
 	unsigned long long	count;
 
 	count = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		count++;
-	}
+	// if (n < 0)
+	// {
+	// 	n = n * -1;
+	// 	count++;
+	// }
 	while (n > 0)
 	{
 		n = n / 10;

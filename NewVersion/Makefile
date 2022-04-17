@@ -26,15 +26,17 @@ SRC		=	ft_printf.c							\
 			struct_init.c						\
 			handle_Flag.c error.c				\
 			conv_str.c  conv_int.c conv_uint.c conv_p.c conv_f.c \
+			conv_void.c \
 			parse_int.c							\
 			handle_sizePrefix_for_flag_d.c		\
+			handle_sizePrefix_flag_u.c			\
 			utils_funct.c 						\
 
 #OBJECT FILE
 OBJ_DIR	=	./objectFiles/
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 
-all:$(NAME)  
+all:$(NAME)
 
 $(NAME):$(OBJS)
 	@cp libft/libft.a $(NAME)
@@ -43,7 +45,7 @@ $(NAME):$(OBJS)
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	@make -sC ./libft
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CCFLAGS) -o $@ -c $< 
+	@$(CC) $(CCFLAGS) -o $@ -c $<
 
 clean:
 	@$(RM_DIR) $(OBJ_DIR)

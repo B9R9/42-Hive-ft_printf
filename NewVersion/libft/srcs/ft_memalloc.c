@@ -15,9 +15,7 @@
 void	*ft_memalloc(size_t	size)
 {
 	unsigned char	*arr;
-	unsigned int	i;
 
-	i = 0;
 	arr = (unsigned char *)malloc(size);
 	if (arr == NULL)
 		return (NULL);

@@ -124,6 +124,7 @@ int			ft_isprint(int c);
 int			ft_isalpha(int c);
 int			ft_isspace(char c);
 t_bool		ft_isdoubleneg(long double x);
+t_bool		ft_isintneg(long long int number);
 
 /*FT_PUT FUNCTION*/
 void		ft_putchar(char c);
@@ -160,6 +161,7 @@ void		ft_display_file(int fd);
 int			get_next_line(const int fd, char **line);
 char		*fillit(char *dest, char c, int size);
 void		ft_swap(char *a, char *b);
+int			ft_printbits(void *ptr, int size);
 
 /*ERROR MESSAGE*/
 int		ft_errormem(char *file, int line);
@@ -188,19 +190,19 @@ void		print_dlist(dlist li);
 
 # define ResetAll = "\033[0m"
 
-# define	Bold       = "\033[1m"
-# define	Dim        = "\033[2m"
-# define	Underlined = "\033[4m"
-# define	Blink      = "\033[5m"
-# define	Reverse    = "\033[7m"
-# define	Hidden     = "\033[8m"
+# define	Bold        "\033[1m"
+# define	Dim         "\033[2m"
+# define	Underlined  "\033[4m"
+# define	Blink       "\033[5m"
+# define	Reverse     "\033[7m"
+# define	Hidden      "\033[8m"
 
-# define	ResetBold       = "\033[21m"
-# define	ResetDim        = "\033[22m"
-# define	ResetUnderlined = "\033[24m"
-# define	ResetBlink      = "\033[25m"
-# define	ResetReverse    = "\033[27m"
-# define	ResetHidden     = "\033[28m"
+# define	ResetBold       "\033[21m"
+# define	ResetDim         "\033[22m"
+# define	ResetUnderlined  "\033[24m"
+# define	ResetBlink       "\033[25m"
+# define	ResetReverse     "\033[27m"
+# define	ResetHidden      "\033[28m"
 
 # define	BackgroundDefault      = "\033[49m"
 # define	BackgroundBlack        = "\033[40m"

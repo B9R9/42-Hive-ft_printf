@@ -19,10 +19,10 @@ int main(void)
     // printf("================STR================\n");
     // char    *name;
     // char    *test_null;
-    
+
     // test_null = NULL;
     // name = "joe l' indien";
-    
+
     // ft_printf("FT ->%s<-\n", name);
     // printf("PF ->%s<-\n", name);
     // printf("------\n");
@@ -127,7 +127,7 @@ int main(void)
     //     printf("------\n");
     //     printf("Width = %d || Precision = %d\n", width, precision);
     //     ft_printf("FT->%*.*d<\n",width, precision, randonm);
-    //     printf("PF->%*.*d<\n",width, precision, randonm); 
+    //     printf("PF->%*.*d<\n",width, precision, randonm);
     //     width++;
     //     precision--;
     // }
@@ -195,63 +195,63 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT->%# 25.5p<\n", str);
     // printf("PF->%# 25.5p<\n", str);
-    // printf("================FLOAT================\n");  
+    // printf("================FLOAT================\n");
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.05); 
+    // ft_printf("FT->%.1f<-\n", 0.05);
     // printf("PF->%.1f<-\n", 0.05);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.10); 
+    // ft_printf("FT->%.1f<-\n", 0.10);
     // printf("PF->%.1f<-\n", 0.10);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.15); 
+    // ft_printf("FT->%.1f<-\n", 0.15);
     // printf("PF->%.1f<-\n", 0.15);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.20); 
+    // ft_printf("FT->%.1f<-\n", 0.20);
     // printf("PF->%.1f<-\n", 0.20);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.25); 
+    // ft_printf("FT->%.1f<-\n", 0.25);
     // printf("PF->%.1f<-\n", 0.25);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.30); 
+    // ft_printf("FT->%.1f<-\n", 0.30);
     // printf("PF->%.1f<-\n", 0.30);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.35); 
+    // ft_printf("FT->%.1f<-\n", 0.35);
     // printf("PF->%.1f<-\n", 0.35);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.40); 
+    // ft_printf("FT->%.1f<-\n", 0.40);
     // printf("PF->%.1f<-\n", 0.40);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.45); 
+    // ft_printf("FT->%.1f<-\n", 0.45);
     // printf("PF->%.1f<-\n", 0.45);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.50); 
+    // ft_printf("FT->%.1f<-\n", 0.50);
     // printf("PF->%.1f<-\n", 0.50);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.55); 
+    // ft_printf("FT->%.1f<-\n", 0.55);
     // printf("PF->%.1f<-\n", 0.55);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.60); 
+    // ft_printf("FT->%.1f<-\n", 0.60);
     // printf("PF->%.1f<-\n", 0.60);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.65); 
+    // ft_printf("FT->%.1f<-\n", 0.65);
     // printf("PF->%.1f<-\n", 0.65);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.70); 
+    // ft_printf("FT->%.1f<-\n", 0.70);
     // printf("PF->%.1f<-\n", 0.70);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.75); 
+    // ft_printf("FT->%.1f<-\n", 0.75);
     // printf("PF->%.1f<-\n", 0.75);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.80); 
+    // ft_printf("FT->%.1f<-\n", 0.80);
     // printf("PF->%.1f<-\n", 0.80);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.85); 
+    // ft_printf("FT->%.1f<-\n", 0.85);
     // printf("PF->%.1f<-\n", 0.85);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.90); 
+    // ft_printf("FT->%.1f<-\n", 0.90);
     // printf("PF->%.1f<-\n", 0.90);
     // printf("------\n");
-    // ft_printf("FT->%.1f<-\n", 0.95); 
+    // ft_printf("FT->%.1f<-\n", 0.95);
     // printf("PF->%.1f<-\n", 0.95);
     // printf("------\n");
     // ft_printf("FT->%.20f<\n", 0.152321654);
@@ -314,10 +314,29 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT->%015hhd<\n", test_sh);
     // printf("PT->%015hhd<\n", test_sh);
-    
-     
-    
-    
+    // printf("------\n");
+    // ft_printf("FT->%hhd<\n", 148);
+    // printf("PT->%hhd<\n", 148);
+    // printf("------\n");
+    // ft_printf("FT->%015hhd<\n", 2500);
+    // printf("PT->%015hhd<\n", 2500);
+    // printf("------\n");
+    // ft_printf("FT->% 15hhd<\n", 7);
+    // printf("PT->% 15hhd<\n", 7);
+    // printf("------\n");
+    // ft_printf("FT->%.15hhd<\n", 1);
+    // printf("PT->%.15hhd<\n", 1);
+    // printf("================BINAIRE================\n");
+    // int test = 1;
+    // char *a = "Hello World";
+    // printf("------\n");
+    // ft_printf("FT->%b<\n", a);
+    // ft_printf("FT->%b<\n", test);
+
+
+
+
+
     // int max = __INT_MAX__;
     // int min = -2147483648;
     // int randonm = 73;
@@ -336,7 +355,7 @@ int main(void)
     // while (width <= 20)
     // {
     //     ft_printf("  -FT->%*.*d<\n",width, precision, randonm);
-    //     printf("  -PF->%*.*d<\n",width, precision, randonm); 
+    //     printf("  -PF->%*.*d<\n",width, precision, randonm);
     //     width++;
     //     precision++;
     // }

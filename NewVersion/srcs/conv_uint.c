@@ -34,7 +34,7 @@ int format_uint(t_parameter *option, unsigned int number)
 	str = ft_uitoa_base(number, define_base(option));
 	if (!str)
 		exit(EXIT_FAILURE);
-	    
+
 	if (option->upper)
 		ft_strtoupper(str);
 	size += format_intoa(option, str);
@@ -42,30 +42,30 @@ int format_uint(t_parameter *option, unsigned int number)
 	return(size);
 }
 
-int	argtohexoroct(t_parameter *li, va_list ap)
+int	argtohexoroct(t_parameter *option, va_list ap)
 {
-	// if(!ft_strcmp(li.sizePrefix,"ll"))
-    //     return(ll_int_to_hex_or_oct(li, va_arg(ap, long long)));
-    // else if(!ft_strcmp(li.sizePrefix, "l"))
-    //     return(l_int_to_hex_or_oct(li, va_arg(ap, long)));
-    // else if(!ft_strcmp(li.sizePrefix, "h"))
-    //     return(short_int_to_hex_or_oct(li, (short)va_arg(ap, int)));
-    // else if(!ft_strcmp(li.sizePrefix, "hh"))
-    //     return(char_to_hex_or_oct(li, (char)va_arg(ap, int)));
-    // else
-    	return (format_uint(li, va_arg(ap, unsigned int)));
+	if(!ft_strcmp(option->sizePrefix,"ll"))
+        return(	u_ll_itoa(option, va_arg(ap, long long)));
+    else if(!ft_strcmp(option->sizePrefix, "l"))
+        return(u_ll_itoa(option, va_arg(ap, long)));
+    else if(!ft_strcmp(option->sizePrefix, "h"))
+        return(u_ll_itoa(option, (unsigned short)va_arg(ap, int)));
+    else if(!ft_strcmp(option->sizePrefix, "hh"))
+        return(u_ll_itoa(option, (unsigned char)va_arg(ap, int)));
+    else
+    	return (format_uint(option, va_arg(ap, unsigned int)));
 }
 
-int argto_u_int(t_parameter *li, va_list ap)
+int argto_u_int(t_parameter *option, va_list ap)
 {
-    // if(!ft_strcmp(li.sizePrefix,"ll"))
-    //     return(u_ll_intoa(li, va_arg(ap, unsigned long long)));
-    // else if(!ft_strcmp(li.sizePrefix, "l"))
-    //     return(u_ll_intoa(li, va_arg(ap, unsigned long)));
-    // else if(!ft_strcmp(li.sizePrefix, "h"))
-    //     return(u_short_intoa(li, (unsigned short)va_arg(ap, int)));
-    // else if(!ft_strcmp(li.sizePrefix, "hh"))
-    //     return(u_chartoa(li, (unsigned char)va_arg(ap, int)));
-    // else
-        return(format_uint(li, va_arg(ap, unsigned int)));
+    if(!ft_strcmp(option->sizePrefix,"ll"))
+        return(u_ll_itoa(option, va_arg(ap, unsigned long long)));
+    else if(!ft_strcmp(option->sizePrefix, "l"))
+        return(u_ll_itoa(option, va_arg(ap, unsigned long)));
+    else if(!ft_strcmp(option->sizePrefix, "h"))
+        return(u_ll_itoa(option, (unsigned short)va_arg(ap, int)));
+    else if(!ft_strcmp(option->sizePrefix, "hh"))
+        return(u_ll_itoa(option, (unsigned char)va_arg(ap, int)));
+    else
+        return(format_uint(option, va_arg(ap, unsigned int)));
 }

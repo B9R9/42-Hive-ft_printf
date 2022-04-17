@@ -17,7 +17,7 @@ static int    dispacht(va_list ap, t_parameter *new);
 
 /*
 ** Receive va_list and send to the right function
-*/ 
+*/
 static int    dispacht(va_list ap, t_parameter *new)
 {
 	return (funcFlagsArray[new->conv - 'a'](new, ap));
@@ -30,7 +30,7 @@ int ft_printf(const char *format, ...)
     va_list     ap;
     int         size;
     int         i;
-    
+
     size = 0;
     i = 0;
     option = NULL;

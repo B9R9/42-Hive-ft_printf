@@ -42,8 +42,8 @@ FILES	=	ft_putchar.c	ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 		get_next_line.c		ft_swap.c			ft_abs_float.c		ft_isupper.c\
 		ft_u_itoa.c 		ft_ll_itoa.c		ft_l_itoa.c      ft_u_short_itoa.c\
 		ft_abs_int.c 		ft_uitoa_base.c 	ft_reversestr.c \
-		ft_charjoin.c 		ft_strtoupper.c		ft_strtoupper.c  ft_str_rounding.c\
-		ft_isdoubleneg.c \
+		ft_charjoin.c 		ft_strtoupper.c		ft_strtoupper.c  ft_str_rounding.c	ft_printbits.c\
+		ft_isdoubleneg.c ft_isintneg.c \
 		newdlist.c			is_empty_dlist.c	dlist_length.c					\
 		dlist_first_end.c	push_back_dlist.c	push_front_dlist.c				\
 		pop_back_dlist.c	pop_front_dlist.c 	print_dlist.c					\
@@ -60,11 +60,11 @@ $(NAME): $(OBJS)
 	@echo "Creation of libft"
 	@ar rcs $(NAME) $(OBJS)
 	@echo "Libft created."
-	@ranlib $(NAME)   
+	@ranlib $(NAME)
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CCFLAGS) -o $@ -c $< 
+	@$(CC) $(CCFLAGS) -o $@ -c $<
 
 clean:
 	@$(RM_DIR) $(OBJ_DIR)

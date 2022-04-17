@@ -34,7 +34,7 @@ int print_0x(t_parameter *option)
 int print_intprecision(int start, t_parameter *option, int lenght)
 {
     int size;
-    
+
     size = 0;
     while (start < (option->precision - lenght) && option->conv != 'f')
     {
@@ -60,7 +60,7 @@ int print_intwidth(t_parameter *option, int lenght)
     int size;
 
     size = 0;
-    if (option->flags & F_NEGATIF && option->flags & F_ZERO)
+    if (option->negatif && option->flags & F_ZERO)
         size += print_char('-');
     if (option->flags & F_PLUS && option->flags & F_ZERO)
         size += print_char('+');
@@ -77,7 +77,7 @@ int print_intwidth(t_parameter *option, int lenght)
     if (option->flags & F_PLUS && !(option->flags & F_ZERO) && \
         (option->flags & F_HASHTAG))
         size += print_char('+');
-    if (option->flags & F_NEGATIF && !(option->flags & F_ZERO))
+    if (option->negatif && !(option->flags & F_ZERO))
         size += print_char('-');
     if (option->flags & F_HASHTAG && !(option->flags & F_ZERO))
         size += print_0x(option);
@@ -107,7 +107,7 @@ int align(char *str, t_parameter *option)
 int format_intoa(t_parameter *option, char *dest)
 {
     int size;
-    
+
     size = 0;
     if ((!option->precision || option->precision < (int)ft_strlen(dest)) && option->conv != 'f')
         option->precision = ft_strlen(dest);
@@ -124,7 +124,7 @@ int format_intoa(t_parameter *option, char *dest)
 // void    format_precision(char *str, t_parameter li)
 // {
 //     while((int)ft_strlen(str) <= li.width)
-//         str = ft_strjoin_replace("0", str, 1);   
+//         str = ft_strjoin_replace("0", str, 1);
 // }
 
 // void    format_width(char *str, t_parameter li)
@@ -149,13 +149,13 @@ int format_intoa(t_parameter *option, char *dest)
 // char    *parse_int(t_parameter li, char *source)
 // {
 //     char    *tmp;
-    
+
 //     if(!li.precision)
 //         li.precision = ft_strlen(source);
 //     tmp = ft_strnew(ft_abs_int(li.width - li.precsion));
 //     format_precision(source,li);
 //     format_width(source,li);
-    // while(((int)ft_strlen(source) < li.precision && (int)ft_strlen(source) < li.width) \
+    // while(((int)ft_strlen(source) < li.precision && (int)ft_strlen(source) < li.width)
     // || (int)ft_strlen(source) < li.width)
     //         source = ft_strjoin_replace("0", source);
     // if (li.width >= li.precision)

@@ -26,8 +26,9 @@ static void	resetoption(t_parameter *option, char *str)
 	option->width = 0;
 	option->precision = 0;
 	option->char_to_skip = 0;
-	ft_bzero(option->sizePrefix, 2);
+	ft_bzero(option->sizePrefix, 5);
 	option->size = ft_strlen(str);
+	option->negatif = false;
 
 }
 
@@ -61,7 +62,7 @@ static t_bool	checkparams(char c)
 t_parameter	*init(const char *format,t_parameter *option, va_list ap)
 {
 	char		*parameters;
-	char		*temp;
+
     int         index;
 
 	index = 1;
@@ -76,9 +77,7 @@ t_parameter	*init(const char *format,t_parameter *option, va_list ap)
 		if (!option)
 			exit(EXIT_FAILURE);
 	}
-	temp = parameters;
-	ft_memdel((void *)&parameters);
-	parameters = temp;
 	setup(parameters, option, ap);
+	ft_memdel((void *)&parameters);
 	return (option);
 }

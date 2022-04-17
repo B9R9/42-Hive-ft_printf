@@ -16,12 +16,17 @@ int char_to_arr(t_parameter *option, char number)
 {
     char    *temp;
     int     size;
-    
+
     size = 0;
+    if (number < 0)
+    {
+        number *= -1;
+        option->negatif = true;
+    }
     temp = ft_itoa(number);
     size = format_intoa(option, temp);
-    ft_memdel((void *) &temp);    
-    return (size); 
+    ft_memdel((void *) &temp);
+    return (size);
 }
 
 int short_int_to_arr(t_parameter *option, short int number)
@@ -33,14 +38,14 @@ int short_int_to_arr(t_parameter *option, short int number)
     temp = ft_u_itoa(number);
     size =  format_intoa(option, temp);
     ft_memdel((void *) &temp);
-    return (size); 
+    return (size);
 }
 
 int ll_int_to_arr(t_parameter *option, long long number)
 {
     char    *temp;
     int     size;
-    
+
     size = 0;
     temp = ft_ll_itoa(number);
     size =  format_intoa(option, temp);
