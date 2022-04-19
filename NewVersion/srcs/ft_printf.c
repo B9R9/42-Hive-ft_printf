@@ -54,6 +54,8 @@ int ft_printf(const char *format, ...)
         }
     }
     va_end(ap);
+    free(option);
+    option = NULL;
     return (size);
 }
 

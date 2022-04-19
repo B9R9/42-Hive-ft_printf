@@ -23,15 +23,16 @@ t_parameter	*checkoptionerror(t_parameter *li)
 		(li->conv != 'd' && li->conv != 'i' && \
 		li->conv != 'f'))
 		li->flags = li->flags ^ F_SPACE;
-	if (li->flags & F_PLUS && li->conv == 'p')
+	if (li->flags & F_PLUS && \
+	 (li->conv == 'p' || li->conv == 'x' || li->conv == 'u'))
 		li->flags = li->flags ^ F_PLUS;
 	if ((li->conv == 'x' || li->conv == 'X') && li->flags & F_HASHTAG && \
 		li->flags & F_PLUS)
 		li->flags = li->flags ^ F_PLUS;
-	if (li->flags & F_HASHTAG && (li->conv == 'u' || li->conv == 'd' ||
+	if (li->flags & F_HASHTAG && (li->conv == 'u' || li->conv == 'd' || \
 	li->conv == 'i' || li->conv == 'f'))
 		li->flags = li->flags ^ F_HASHTAG;
-	if (li->flags & F_SPACE && li->width == 0) 
+	if (li->flags & F_SPACE && li->width == 0)
 		li->part_1 = 1;
 	// if (li->flags & F_SPACE && li->flags & F_PLUS && (li->conv == 'd' || li->conv == 'i'))
 	// 	li->flags = li->flags ^ F_SPACE;

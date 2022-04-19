@@ -68,7 +68,7 @@ int print_intprecision(int start, t_parameter *option, int lenght)
 
 int adjust_lenght(t_parameter *option, int lenght)
 {
-    if (option->flags & F_PLUS && !(option->flags & F_ZERO))
+    if (option->flags & F_PLUS /*&& !(option->flags & F_ZERO)*/)
         lenght += 1;
     if (option->flags & F_PLUS && !(option->flags & F_SPACE))
         lenght -= 1;
@@ -135,12 +135,18 @@ int  print_sign(t_parameter *option)
         option->flags -= F_PLUS;
     }
     else if (option->width > option->precision || (option->flags & F_SPACE))
-        size += print_char(' ');
+    {
+        if (option->flags & F_ZERO)
+            size += print_char('0');
+        else
+            size += print_char(' ');
+    }
+
     return (size);
 }
 
 int print_sign_2(t_parameter *option)
-{   
+{
     int size;
 
     size = 0;
@@ -149,7 +155,7 @@ int print_sign_2(t_parameter *option)
         if (option->negatif)
             size += print_char('-');
         if (option->flags & F_PLUS)
-            size += print_char('+');       
+            size += print_char('+');
     }
     return (size);
 }
@@ -157,7 +163,7 @@ int print_sign_2(t_parameter *option)
 int print_part_1(t_parameter *option, int lenght)
 {
     int size;
- 
+
     size = 0;
     lenght = adjust_lenght(option, lenght);
     size += print_sign(option);
@@ -179,9 +185,9 @@ int print_part_1(t_parameter *option, int lenght)
 }
 
 void    define_part_1(t_parameter *option, char *dest)
-{ 
+{
     if ((!option->precision || option->precision < (int)ft_strlen(dest)) && option->conv != 'f')
-        option->precision = ft_strlen(dest);  
+        option->precision = ft_strlen(dest);
     option->part_1 = option->width - option->precision;
     if (option->part_1 <= 0)
         option->part_1 = 0;
@@ -203,8 +209,8 @@ int format_intoa(t_parameter *option, char *dest)
     size += print_part_1(option, option->precision);
     size += print_intprecision(0,option, (int)ft_strlen(dest));
     size += print_str(dest, (int)ft_strlen(dest));
-    
-    
+
+
     // if ((!option->precision || option->precision < (int)ft_strlen(dest)) && option->conv != 'f')
     //     option->precision = ft_strlen(dest);
     // if ((option->flags & F_SPACE) && option->width == 1 )

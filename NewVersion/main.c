@@ -83,7 +83,7 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT ->%%<-\n", "test");
     // printf("PF ->%%<-\n", "test");
-    
+
     // printf("================CHAR================\n");
     // char c = 'a';
     // char n = NULL;
@@ -143,8 +143,8 @@ int main(void)
      ft_printf("FT->%+ d<\n", 42);
     printf("PF->%+ d<\n", 42);
     printf("------\n");
-    // ft_printf("FT->%+lld<\n", 4242424242424242424242); // ne compil pas 
-    // printf("PF->%+lld<\n",4242424242424242424242);// ne compil pas 
+    // ft_printf("FT->%+lld<\n", 4242424242424242424242); // ne compil pas
+    // printf("PF->%+lld<\n",4242424242424242424242);// ne compil pas
     printf("------\n");
     ft_printf("FT->%d<\n", max);
     printf("PF->%d<\n", max);
@@ -172,6 +172,9 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%015.10d<\n", randonm);
     printf("PF->%015.10d<\n", randonm);
+    printf("------\n");
+    ft_printf("FT->%015.10X<\n", randonm);
+    printf("PF->%015.10X<\n", randonm);
 
     /*PRECSION ++*/
     // while (width <= 20)
@@ -193,14 +196,14 @@ int main(void)
     ft_printf("FT->%#6o<\n", 2500);//   "  4704"
     printf("PF->%#6o<\n", 2500); //     " 04704"
     printf("------\n");
-    ft_printf("FT->%-5.10o<\n", 2500);//  
-    printf("PF->%-5.10o<\n", 2500); //     
+    ft_printf("FT->%-5.10o<\n", 2500);//
+    printf("PF->%-5.10o<\n", 2500); //
     printf("------\n");
     ft_printf("FT->@moulitest: %.o %.0o<\n", 0, 0);//   Fail
     printf("PF->@moulitest: %.o %.0o<\n", 0, 0); //     FAIl
     printf("------\n");
-    ft_printf("FT->@moulitest: %5.o %5.0o<\n", 0, 0);//  
-    printf("PF->@moulitest: %5.o %5.0o<\n", 0, 0); //     
+    ft_printf("FT->@moulitest: %5.o %5.0o<\n", 0, 0);//
+    printf("PF->@moulitest: %5.o %5.0o<\n", 0, 0); //
     printf("------\n");
     ft_printf("FT->%#x<\n", 0);
     printf("PF->%#x<\n", 0);
@@ -243,6 +246,15 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%# 15x<\n", u_int);
     printf("PF->%# 15x<\n", u_int);
+    printf("------\n");
+    ft_printf("FT->%015.10X<\n", 4561258);
+    printf("PF->%015.10X<\n", 4561258 );
+    printf("------\n");
+    ft_printf("FT->%-#015.10X<\n", 4561258);
+    printf("PF->%-#015.10X<\n", 4561258 );
+    printf("------\n");
+    ft_printf("FT->%#015.10X<\n", 4561258);
+    printf("PF->%#015.10X<\n", 4561258 );
     // printf("================POINTEUR================\n");
     // char *str;
     // printf("------\n");
