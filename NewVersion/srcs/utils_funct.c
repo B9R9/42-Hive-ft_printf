@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:16:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/14 11:26:15 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:49:16 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	align_right(int start, int lenght);
 int	skip(char *str);
 int	print_char(char c);
-int	print_width(t_parameter *option, int lenght);
+// int	print_width(t_parameter *option, int lenght);
 
 int	align_right(int start, int lenght)
 {
@@ -78,4 +78,30 @@ int	print_width(t_parameter *option, int lenght)
 			size += print_char(' ');
 	}
 	return (size);
+}
+
+
+int align(char *str, t_parameter *option)
+{
+    int size;
+
+    size = 0;
+    if (option->flags & F_SPACE)
+    {
+        size += print_char(' ');
+        size += print_str(str, (int)ft_strlen(str));
+        while ( size < option->width)
+            size += print_char(' ');
+        return (size);
+    }
+    else if (option->width <= option->precision)
+    {
+        while (size < (option->precision - (int)ft_strlen(str)))
+            size += print_char('0');
+    }
+    size += print_0x(option);
+    size += print_str(str, (int)ft_strlen(str));
+    while ( size < option->width)
+        size += print_char(' ');
+    return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 11:29:23 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:37:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int intoa(t_parameter *option, int number)
     {
         number *= -1;
         option->negatif = true;
-        option->flags = option-> flags ^ F_PLUS;
+        option->flags = option->flags ^ F_PLUS;
     }
     dest = ft_itoa(number);
     size += format_intoa(option, dest);

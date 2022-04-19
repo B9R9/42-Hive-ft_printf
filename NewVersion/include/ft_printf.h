@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 09:31:16 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:06:56 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct  s_parameter {
 	t_bool		upper;  // check si le flag est Upper case OK
 	t_bool		negatif; // check if number is negatif
 	t_bool		dot;// check for the dot
+	int			part_1;
 	int			precision; // taille dela precision
 	int 		char_to_skip; //  nombre de cahr to skip
 	char 		sizePrefix[5]; // Sizeprefix conv
@@ -73,7 +74,7 @@ typedef int (*dispachtFlags)(t_parameter *li, va_list ap);
 
 static const dispachtFlags	funcFlagsArray[26] = {
 	NULL,			//A
-	argtovoid,	//B BONUS PRINT EN BINAIRE
+	argtovoid,		//B BONUS PRINT EN BINAIRE
 	argtochar,		//C
 	argtoint,		//D
 	NULL,			//E
@@ -139,6 +140,7 @@ int		skip(char *str);
 int		print_char(char c);
 int		print_width(t_parameter *option, int lenght);
 int		print_str(const char *str, int lenght);
+int 	align(char *str, t_parameter *option);
 
 /*UTILS_LIST.C*/
 // t_containeur	*newlist(void);

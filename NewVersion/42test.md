@@ -71,7 +71,7 @@ includes/projects/ft_printf/ft_printf_main.sh: line 206: printf: includes/projec
   ft_printf("%0+5d", 42);
   1. (    6) -->+00042<--
   2. (    5) -->+0042<--
-
+----------------TO BE CONTINUE
 # 0127 (int)
   ft_printf("%05d", -42);
   1. (    5) -->00-42<--

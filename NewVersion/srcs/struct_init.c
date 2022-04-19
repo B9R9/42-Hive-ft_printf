@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 09:31:38 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 13:48:15 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	resetoption(t_parameter *option, char *str)
 	option->dot = false;
 	option->precision = 0;
 	option->char_to_skip = 0;
+	option->part_1 = 0;
 	ft_bzero(option->sizePrefix, 5);
 	option->size = ft_strlen(str);
 	option->negatif = false;
