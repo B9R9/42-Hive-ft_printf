@@ -1,0 +1,28 @@
+Process:         test [55040]
+Path:            /Volumes/VOLUME/*/test
+Load Address:    0x10031f000
+Identifier:      test
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [62669]
+
+Date/Time:       2022-04-19 11:56:40.545 +0300
+Launch Time:     2022-04-19 11:56:40.251 +0300
+OS Version:      Mac OS X 10.14.6 (18G9323)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 11.3.1 (11C505)
+----
+
+leaks Report Version: 4.0
+Process 55040: 169 nodes malloced for 18 KB
+Process 55040: 6 leaks for 288 total leaked bytes.
+
+    6 (288 bytes) << TOTAL >>
+      1 (48 bytes) ROOT LEAK: 0x7f97b3402ac0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7f97b3402af0 [48]
+      1 (48 bytes) ROOT LEAK: 0x7f97b3402b20 [48]
+      1 (48 bytes) ROOT LEAK: 0x7f97b3500010 [48]
+      1 (48 bytes) ROOT LEAK: 0x7f97b3500040 [48]
+      1 (48 bytes) ROOT LEAK: 0x7f97b3500070 [48]
+

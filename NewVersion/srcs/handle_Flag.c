@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 14:10:31 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:30:54 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_parameter     *handle_precision(char *str, t_parameter *li, va_list ap)
 {
     if (str[0] == '.')
     {
+        li->dot = true;
         if (str[1] == '*')
         {
             li->precision = va_arg(ap ,int);

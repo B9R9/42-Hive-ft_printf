@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:11:05 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 12:24:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:42:03 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ static int	format_str(const char *str,t_parameter *option)
 		ft_putstr(str);
 		return (0);
 	}
-    if(!option->precision && str)
+    if((!option->precision && str) || (option->precision > (int)ft_strlen(str) && str))
         {option->precision = ft_strlen(str);}
-	if (!str)
-	{
+	if (str)
+	{ 
 		size += print_width(option, option->precision);
 		size += print_str(str, option->precision);
 		if (option->flags & F_MINUS)

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 16:26:48 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:37:02 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ int main(void)
     // test_null = NULL;
     // name = "joe l' indien";
 
+    // ft_printf("FT ->%.2s is a string<-\n", "");
+    // printf("PF ->%.2s is a string<-\n", "");
+    // printf("------\n");
+    // ft_printf("FT ->%5.2s is a string<-\n", "");
+    // printf("PF ->%5.2s is a string<-\n", "");
+    // printf("------\n");
+    // ft_printf("FT ->%-.2s is a string<-\n", "");
+    // printf("PF ->%-.2s is a string<-\n", "");
+    // printf("------\n");
+    // ft_printf("FT ->%-5.2s is a string<-\n", "");
+    // printf("PF ->%-5.2s is a string<-\n", "");
+    // printf("------\n");
     // ft_printf("FT ->%s<-\n", name);
     // printf("PF ->%s<-\n", name);
     // printf("------\n");
@@ -55,7 +67,23 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT ->%s<-\n", test_null);
     // printf("PF ->%s<-\n", test_null);
-
+    // printf("================%%================\n");
+    // printf("------\n");
+    // ft_printf("FT ->%%<-\n");
+    // printf("PF ->%%<-\n");
+    // printf("------\n");
+    // ft_printf("FT ->%5%<-\n");
+    // printf("PF ->%5%<-\n");
+    // printf("------\n");
+    // ft_printf("FT ->%-5%<-\n");
+    // printf("PF ->%-5%<-\n");
+    // printf("------\n");
+    // ft_printf("FT ->%.0%<-\n");
+    // printf("PF ->%.0%<-\n");
+    // printf("------\n");
+    // ft_printf("FT ->%%<-\n", "test");
+    // printf("PF ->%%<-\n", "test");
+    
     // printf("================CHAR================\n");
     // char c = 'a';
     // char n = NULL;
@@ -90,12 +118,33 @@ int main(void)
     // ft_printf("FT->%c<\n", 64);
     // printf("PF->%c<\n", 64);
 
-    // printf("================INT================\n");
+    printf("================INT================\n");
     // int max = __INT_MAX__;
     // int min = -2147483648;
     // int randonm = 73;
     // int precision    = 10;
     // int width       = 0;
+    // printf("------\n");
+    ft_printf("FT->% d<\n", 42);
+    printf("PF->% d<\n", 42);
+    printf("------\n");
+    ft_printf("FT->%+d<\n", 42);
+    printf("PF->%+d<\n", 42);
+    printf("------\n");
+    ft_printf("FT->% d<\n", -42);
+    printf("PF->% d<\n", -42);
+    printf("------\n");
+    ft_printf("FT->%+d<\n", -42);
+    printf("PF->%+d<\n", -42);
+    printf("------\n");
+    ft_printf("FT->%+d<\n", 0);
+    printf("PF->%+d<\n", 0);
+    printf("------\n");
+    ft_printf("FT->%+ d<\n", 42);
+    printf("PF->%+ d<\n", 42);
+    // printf("------\n");
+    // ft_printf("FT->%+lld<\n", 4242424242424242424242); // ne compil pas 
+    // printf("PF->%+lld<\n",4242424242424242424242);// ne compil pas 
     // printf("------\n");
     // ft_printf("FT->%d<\n", max);
     // printf("PF->%d<\n", max);
@@ -138,7 +187,30 @@ int main(void)
     // unsigned int u_int = 21;
     // unsigned long int ul_int = 123456789123456UL;
     // unsigned long long ull_int = 12345678912345456653ULL;
-
+    // printf("------\n");
+    // ft_printf("FT->%#6o<\n", 2500);//   "  4704"
+    // printf("PF->%#6o<\n", 2500); //     " 04704"
+    // printf("------\n");
+    // ft_printf("FT->%-5.10o<\n", 2500);//  
+    // printf("PF->%-5.10o<\n", 2500); //     
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %.o %.0o<\n", 0, 0);//   Fail
+    // printf("PF->@moulitest: %.o %.0o<\n", 0, 0); //     FAIl
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %5.o %5.0o<\n", 0, 0);//  
+    // printf("PF->@moulitest: %5.o %5.0o<\n", 0, 0); //     
+    // printf("------\n");
+    // ft_printf("FT->%#x<\n", 0);
+    // printf("PF->%#x<\n", 0);
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %#.x %#.0x<\n", 0, 0);//doesn't know the problem
+    // printf("PF->@moulitest: %#.x %#.0x<\n", 0, 0);// doesn't know the problem
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %5.x %5.0x<\n", 0, 0);
+    // printf("PF->@moulitest: %5.x %5.0x<\n", 0, 0);
+    // printf("------\n");
+    // ft_printf("FT->%u<\n", u_int);
+    // printf("PF->%u<\n", u_int);
     // printf("------\n");
     // ft_printf("FT->%u<\n", u_int);
     // printf("PF->%u<\n", u_int);

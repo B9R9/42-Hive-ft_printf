@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 14:19:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:31:16 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct  s_parameter {
 	char		conv; // letter de conv
 	t_bool		upper;  // check si le flag est Upper case OK
 	t_bool		negatif; // check if number is negatif
+	t_bool		dot;// check for the dot
 	int			precision; // taille dela precision
 	int 		char_to_skip; //  nombre de cahr to skip
 	char 		sizePrefix[5]; // Sizeprefix conv
@@ -130,6 +131,7 @@ int	u_ll_itoa(t_parameter *option, unsigned long long int number);
 // char    *l_int_to_arr(t_parameter li, long number);
 int	short_int_to_arr(t_parameter *option, short int number);
 int	char_to_arr(t_parameter *option, char number);
+int  format_char(t_parameter *option, char c);
 
 /*UTILS_FUNCT.C*/
 int		align_right(int start, int lenght);

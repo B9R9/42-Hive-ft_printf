@@ -6,14 +6,14 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 14:18:31 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:29:23 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static int intoa(t_parameter *li, int number);
-static int  format_char(t_parameter *option, char c);
+int  format_char(t_parameter *option, char c);
 
 static int intoa(t_parameter *option, int number)
 {
@@ -26,6 +26,18 @@ static int intoa(t_parameter *option, int number)
         if (number > 0)
             return (print_str("True", ft_strlen("True")));
         return (print_str("False", ft_strlen("False")));
+    }
+    if (number == 0)
+    {
+        if (option->dot)
+            return (format_char(option,' '));
+        return (format_char(option,'0'));
+    }
+    if (number < 0)
+    {
+        number *= -1;
+        option->negatif = true;
+        option->flags = option-> flags ^ F_PLUS;
     }
     dest = ft_itoa(number);
     size += format_intoa(option, dest);
@@ -50,12 +62,13 @@ int argtoint(t_parameter *option, va_list ap)
 /*
 **Receive va_arg as int and print a char
 */
-static int  format_char(t_parameter *option, char c)
+int  format_char(t_parameter *option, char c)
 {
     int size;
 
     size = 0;
-    
+    if (option->conv == '%')
+        c = '%';
     size += print_width(option, 1);
     size += print_char(c);
 	if (option->flags & F_MINUS)

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 09:52:48 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:52:44 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ t_parameter	*checkoptionerror(t_parameter *li)
 		li->flags & F_PLUS)
 		li->flags = li->flags ^ F_PLUS;
 	if (li->flags & F_HASHTAG && (li->conv == 'u' || li->conv == 'd' ||
-	li->conv == 'i' || li->conv == 'f'))
+	li->conv == 'i' || li->conv == 'f' || li->conv == 'o'))
 		li->flags = li->flags ^ F_HASHTAG;
+	if (li->flags & F_SPACE && li->width == 0) 
+		li->width = 1;
+	if (li->flags & F_SPACE && li->flags & F_PLUS && (li->conv == 'd' || li->conv == 'i'))
+		li->flags = li->flags ^ F_SPACE;
 	return (li);
 }

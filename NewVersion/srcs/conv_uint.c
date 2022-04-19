@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:05:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 13:18:47 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:32:01 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,17 @@ int format_uint(t_parameter *option, unsigned int number)
 
 	size = 0;
 
+    if (number == 0)
+    {
+        if (option->dot)
+            return (format_char(option,' '));
+        return (format_char(option,'0'));
+    }
 	str = ft_uitoa_base(number, define_base(option));
 	if (!str)
 		exit(EXIT_FAILURE);
-
-	if (option->upper)
+	ft_reverse_str(str);
+    if (option->upper)
 		ft_strtoupper(str);
 	size += format_intoa(option, str);
     ft_memdel((void **)&str);
