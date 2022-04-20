@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 11:42:35 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:29:51 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -539,6 +539,9 @@ int main(void)
     ft_printf("%lld\n", -9223372036854775808);
     printf("%lld\n", -9223372036854775808);
         printf("------\n");
+    ft_printf("%lld\n", 9223372036854775808);
+    printf("%lld\n", 9223372036854775808);
+        printf("------\n");
     ft_printf("%10.5d\n", 4242);
     printf("%10.5d\n", 4242);
         printf("------\n");
@@ -553,6 +556,9 @@ int main(void)
         printf("------\n");
     ft_printf("%03.2d\n", -1);
     printf("%03.2d\n", -1);
+        printf("------\n");
+    ft_printf("%-#6o\n", 2500);
+    printf("%-#6o\n", 2500);
     
 
 

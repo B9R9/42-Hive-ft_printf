@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:01:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 11:41:49 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:46:00 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int  print_sign(t_parameter *option)
         option->negatif = false;
         // if (option->flags & F_PLUS)
         // printf("\nVALUE (-) -->%d<--\n",option->flags);
-        option->flags = option->flags ^ F_PLUS;
+        // option->flags = option->flags ^ F_PLUS;
     }
     else if(option->flags & F_PLUS && (option->flags & F_ZERO || option->part_1== 0))
     {

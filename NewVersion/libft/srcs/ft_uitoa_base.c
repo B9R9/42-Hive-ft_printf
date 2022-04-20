@@ -6,11 +6,12 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/15 09:42:27 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:40:47 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char    *ft_uitoa_base(unsigned long long number, int base)
 {
