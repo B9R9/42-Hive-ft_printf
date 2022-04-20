@@ -175,6 +175,9 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%015.10X<\n", randonm);
     printf("PF->%015.10X<\n", randonm);
+    printf("------\n");
+    ft_printf("FT->%-+015.10d<\n", randonm);
+    printf("PF->%-+015.10d<\n", randonm);
 
     /*PRECSION ++*/
     // while (width <= 20)
