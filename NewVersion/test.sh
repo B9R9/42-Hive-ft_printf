@@ -19,7 +19,7 @@ fi
 if [ $1 = 'push' ];then
     cd ../
     git add ./NewVersion
-    git commit -m "AUTO SAVE"
+    git commit -m "$2"
     git push
 fi
 
