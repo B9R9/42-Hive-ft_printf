@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 17:22:54 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:42:35 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,14 @@ int main(void)
     // ft_printf("FT ->%-30.10s<-\n", name);
     // printf("PF ->%-30.10s<-\n", name);
     // printf("------\n");
-    // ft_printf("FT ->%s<-\n", test_null);
+    // // ft_printf("FT ->%s<-\n", test_null); //SEG FAULT  A passer au debuger
     // printf("PF ->%s<-\n", test_null);
+    // printf("------\n");
+    // ft_printf("FT ->%s<-\n", "\0");
+    // printf("PF ->%s<-\n", "\0");
+    // printf("------\n");
+    // ft_printf("FT ->%s<-\n", "");
+    // printf("PF ->%s<-\n", "");
     // printf("================%%================\n");
     // printf("------\n");
     // ft_printf("FT ->%%<-\n");
@@ -83,6 +89,10 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT ->%%<-\n", "test");
     // printf("PF ->%%<-\n", "test");
+    // printf("------\n");
+    // ft_printf("FT ->%%<-\n", "t");
+    // printf("PF ->%%<-\n", "t");
+    
 
     // printf("================CHAR================\n");
     // char c = 'a';
@@ -118,68 +128,68 @@ int main(void)
     // ft_printf("FT->%c<\n", 64);
     // printf("PF->%c<\n", 64);
 
-    printf("================INT================\n");
-    int max = __INT_MAX__;
-    int min = -2147483647;
-    int randonm = 73;
-    int precision    = 10;
-    int width       = 0;
-    printf("------\n");
-    ft_printf("FT->% d<\n", 42);
-    printf("PF->% d<\n", 42);
-    printf("------\n");
-    ft_printf("FT->%+d<\n", 42);
-    printf("PF->%+d<\n", 42);
-    printf("------\n");
-    ft_printf("FT->% d<\n", -42);
-    printf("PF->% d<\n", -42);
-    printf("------\n");
-    ft_printf("FT->%+d<\n", -42);
-    printf("PF->%+d<\n", -42);
-    printf("------\n");
-    ft_printf("FT->%+d<\n", 0); //FAIL
-    printf("PF->%+d<\n", 0); //FAIL
-    printf("------\n");
-     ft_printf("FT->%+ d<\n", 42);
-    printf("PF->%+ d<\n", 42);
-    printf("------\n");
-    // ft_printf("FT->%+lld<\n", 4242424242424242424242); // ne compil pas
-    // printf("PF->%+lld<\n",4242424242424242424242);// ne compil pas
-    printf("------\n");
-    ft_printf("FT->%d<\n", max);
-    printf("PF->%d<\n", max);
-    printf("------\n");
-    ft_printf("FT->%d<\n", min);
-    printf("PF->%d<\n", min);
-    printf("------\n");
-    ft_printf("FT->%d<\n", randonm);
-    printf("PF->%d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%+015d<\n", randonm);
-    printf("PF->%+015d<\n", randonm);
-    printf("---FAIL---\n");
-    ft_printf("FT->%+ 15d<\n", randonm);
-    printf("PF->%+ 15d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%- 15d<\n", randonm);
-    printf("PF->%- 15d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%-15d<\n", randonm);
-    printf("PF->%-15d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%-015d<\n", randonm);
-    printf("PF->%-015d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%015.10d<\n", randonm);
-    printf("PF->%015.10d<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%015.10X<\n", randonm);
-    printf("PF->%015.10X<\n", randonm);
-    printf("------\n");
-    ft_printf("FT->%-+015.10d<\n", randonm);
-    printf("PF->%-+015.10d<\n", randonm);
+    // printf("================INT================\n");
+    // int max = __INT_MAX__;
+    // int min = -2147483647;
+    // int randonm = 73;
+    // int precision    = 10;
+    // int width       = 0;
+    // printf("------\n");
+    // ft_printf("FT->% d<\n", 42);
+    // printf("PF->% d<\n", 42);
+    // printf("------\n");
+    // ft_printf("FT->%+d<\n", 42);
+    // printf("PF->%+d<\n", 42);
+    // printf("------\n");
+    // ft_printf("FT->% d<\n", -42);
+    // printf("PF->% d<\n", -42);
+    // printf("------\n");
+    // ft_printf("FT->%+d<\n", -42);
+    // printf("PF->%+d<\n", -42);
+    // printf("------\n");
+    // ft_printf("FT->%+d<\n", 0); //FAIL
+    // printf("PF->%+d<\n", 0); //FAIL
+    // printf("------\n");
+    //  ft_printf("FT->%+ d<\n", 42);
+    // printf("PF->%+ d<\n", 42);
+    // printf("------\n");
+    // // ft_printf("FT->%+lld<\n", 4242424242424242424242); // ne compil pas
+    // // printf("PF->%+lld<\n",4242424242424242424242);// ne compil pas
+    // printf("------\n");
+    // ft_printf("FT->%d<\n", max);
+    // printf("PF->%d<\n", max);
+    // printf("------\n");
+    // ft_printf("FT->%d<\n", min);
+    // printf("PF->%d<\n", min);
+    // printf("------\n");
+    // ft_printf("FT->%d<\n", randonm);
+    // printf("PF->%d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%+015d<\n", randonm);
+    // printf("PF->%+015d<\n", randonm);
+    // printf("---FAIL---\n");
+    // ft_printf("FT->%+ 15d<\n", randonm);
+    // printf("PF->%+ 15d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%- 15d<\n", randonm);
+    // printf("PF->%- 15d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%-15d<\n", randonm);
+    // printf("PF->%-15d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%-015d<\n", randonm);
+    // printf("PF->%-015d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%015.10d<\n", randonm);
+    // printf("PF->%015.10d<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%015.10X<\n", randonm);
+    // printf("PF->%015.10X<\n", randonm);
+    // printf("------\n");
+    // ft_printf("FT->%-+015.10d<\n", randonm);
+    // printf("PF->%-+015.10d<\n", randonm);
 
-    /*PRECSION ++*/
+    // /*PRECSION ++*/
     // while (width <= 20)
     // {
     //     printf("------\n");
@@ -189,75 +199,75 @@ int main(void)
     //     width++;
     //     precision--;
     // }
-    printf("================HEX&OCT&UINT================\n");
-    long int long_int = 9999999999;
-    long long int   ll_int = 999999999999999999LL;
-    unsigned int u_int = 21;
-    unsigned long int ul_int = 123456789123456UL;
-    unsigned long long ull_int = 12345678912345456653ULL;
-    printf("------\n");
-    ft_printf("FT->%#6o<\n", 2500);//   "  4704"
-    printf("PF->%#6o<\n", 2500); //     " 04704"
-    printf("------\n");
-    ft_printf("FT->%-5.10o<\n", 2500);//
-    printf("PF->%-5.10o<\n", 2500); //
-    printf("------\n");
-    ft_printf("FT->@moulitest: %.o %.0o<\n", 0, 0);//   Fail
-    printf("PF->@moulitest: %.o %.0o<\n", 0, 0); //     FAIl
-    printf("------\n");
-    ft_printf("FT->@moulitest: %5.o %5.0o<\n", 0, 0);//
-    printf("PF->@moulitest: %5.o %5.0o<\n", 0, 0); //
-    printf("------\n");
-    ft_printf("FT->%#x<\n", 0);
-    printf("PF->%#x<\n", 0);
-    printf("------\n");
-    ft_printf("FT->@moulitest: %#.x %#.0x<\n", 0, 0);//doesn't know the problem
-    printf("PF->@moulitest: %#.x %#.0x<\n", 0, 0);// doesn't know the problem
-    printf("------\n");
-    ft_printf("FT->@moulitest: %5.x %5.0x<\n", 0, 0);
-    printf("PF->@moulitest: %5.x %5.0x<\n", 0, 0);
-    printf("------\n");
-    ft_printf("FT->%u<\n", u_int);
-    printf("PF->%u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%u<\n", u_int);
-    printf("PF->%u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%#u<\n", u_int);
-    printf("PF->%#u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%#d<\n", u_int);
-    printf("PF->%#d<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%#015u<\n", u_int);
-    printf("PF->%#015u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%# 15u<\n", u_int);
-    printf("PF->%# 15u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%+ 15u<\n", u_int);
-    printf("PF->%+ 15u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%- 15u<\n", u_int);
-    printf("PF->%- 15u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%-# 15u<\n", u_int);
-    printf("PF->%-# 15u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%.1u<\n", u_int);
-    printf("PF->%.1u<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%# 15x<\n", u_int);
-    printf("PF->%# 15x<\n", u_int);
-    printf("------\n");
-    ft_printf("FT->%015.10X<\n", 4561258);
-    printf("PF->%015.10X<\n", 4561258 );
-    printf("------\n");
-    ft_printf("FT->%-#015.10X<\n", 4561258);
-    printf("PF->%-#015.10X<\n", 4561258 );
-    printf("------\n");
-    ft_printf("FT->%#015.10X<\n", 4561258);
-    printf("PF->%#015.10X<\n", 4561258 );
+    // printf("================HEX&OCT&UINT================\n");
+    // long int long_int = 9999999999;
+    // long long int   ll_int = 999999999999999999LL;
+    // unsigned int u_int = 21;
+    // unsigned long int ul_int = 123456789123456UL;
+    // unsigned long long ull_int = 12345678912345456653ULL;
+    // printf("------\n");
+    // ft_printf("FT->%#6o<\n", 2500);//   "  4704"
+    // printf("PF->%#6o<\n", 2500); //     " 04704"
+    // printf("------\n");
+    // ft_printf("FT->%-5.10o<\n", 2500);//
+    // printf("PF->%-5.10o<\n", 2500); //
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %.o %.0o<\n", 0, 0);//   Fail
+    // printf("PF->@moulitest: %.o %.0o<\n", 0, 0); //     FAIl
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %5.o %5.0o<\n", 0, 0);//
+    // printf("PF->@moulitest: %5.o %5.0o<\n", 0, 0); //
+    // printf("------\n");
+    // ft_printf("FT->%#x<\n", 0);
+    // printf("PF->%#x<\n", 0);
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %#.x %#.0x<\n", 0, 0);//doesn't know the problem
+    // printf("PF->@moulitest: %#.x %#.0x<\n", 0, 0);// doesn't know the problem
+    // printf("------\n");
+    // ft_printf("FT->@moulitest: %5.x %5.0x<\n", 0, 0);
+    // printf("PF->@moulitest: %5.x %5.0x<\n", 0, 0);
+    // printf("------\n");
+    // ft_printf("FT->%u<\n", u_int);
+    // printf("PF->%u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%u<\n", u_int);
+    // printf("PF->%u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%#u<\n", u_int);
+    // printf("PF->%#u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%#d<\n", u_int);
+    // printf("PF->%#d<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%#015u<\n", u_int);
+    // printf("PF->%#015u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%# 15u<\n", u_int);
+    // printf("PF->%# 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%+ 15u<\n", u_int);
+    // printf("PF->%+ 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%- 15u<\n", u_int);
+    // printf("PF->%- 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%-# 15u<\n", u_int);
+    // printf("PF->%-# 15u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%.1u<\n", u_int);
+    // printf("PF->%.1u<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%# 15x<\n", u_int);
+    // printf("PF->%# 15x<\n", u_int);
+    // printf("------\n");
+    // ft_printf("FT->%015.10X<\n", 4561258);
+    // printf("PF->%015.10X<\n", 4561258 );
+    // printf("------\n");
+    // ft_printf("FT->%-#015.10X<\n", 4561258);
+    // printf("PF->%-#015.10X<\n", 4561258 );
+    // printf("------\n");
+    // ft_printf("FT->%#015.10X<\n", 4561258);
+    // printf("PF->%#015.10X<\n", 4561258 );
     // printf("================POINTEUR================\n");
     // char *str;
     // printf("------\n");
@@ -369,17 +379,17 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT->%.60f<\n", 0.123456);
     // printf("PF->%.60f<\n", 0.123456);
-    // printf("================COLOR================\n");
-    // char *str;
-    // str = "Hello World";
-    // printf("------\n");
-    // // ft_printf("FT->%s%s%s<\n", "\x1B[31m", str, "\x1B[0m");
-    // printf("PF->%s%s%s<\n", "\033[4m", str);
+    // // printf("================COLOR================\n"); segfault
+    // // char *test_1;
+    // // str = "Hello World";
+    // // printf("------\n");
+    // // // ft_printf("FT->%s%s%s<\n", "\x1B[31m", str, "\x1B[0m");
+    // // printf("PF->%s%s%s<\n", "\033[4m", test_1);
     // printf("================BOOL================\n");
-    // t_bool test = true;
+    // t_bool test1 = true;
     // t_bool test2 = false;
     // printf("------\n");
-    // ft_printf("FT->%t<\n", test);
+    // ft_printf("FT->%t<\n", test1);
     // ft_printf("FT->%t<\n", test2);
     // printf("================L&LL INT================\n");
     // long long int test_ll = 123456789132456789LL;
@@ -391,13 +401,13 @@ int main(void)
     // ft_printf("FT->%ld<\n", test_l);
     // printf("PT->%ld<\n", test_l);
     // printf("================SHORT INT================\n");
-    // short int test_sh = 128;
+    // short int test_sh_1 = 128;
     // printf("------\n");
-    // ft_printf("FT->%hd<\n", test_sh);
-    // printf("PT->%hd<\n", test_sh);
+    // ft_printf("FT->%hd<\n", test_sh_1);
+    // printf("PT->%hd<\n", test_sh_1);
     // printf("------\n");
-    // ft_printf("FT->%015hd<\n", test_sh);
-    // printf("PT->%015hd<\n", test_sh);
+    // ft_printf("FT->%015hd<\n", test_sh_1);
+    // printf("PT->%015hd<\n", test_sh_1);
     // printf("================CHAR INT================\n");
     // char  test_sh = -275;
     // printf("------\n");
@@ -419,11 +429,131 @@ int main(void)
     // ft_printf("FT->%.15hhd<\n", 1);
     // printf("PT->%.15hhd<\n", 1);
     // printf("================BINAIRE================\n");
+
     // int test = 1;
     // char *a = "Hello World";
     // printf("------\n");
     // ft_printf("FT->%b<\n", a);
     // ft_printf("FT->%b<\n", test);
+    // printf("================ALIGN================\n");
+    // int number = 123456;
+    // // double decimal = 123.123456;
+    // // char *ptr = NULL;
+    
+    // printf("------\n");
+    // ft_printf("FT->%-d<\n", number);
+    // printf("PT->%-d<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%- d<\n", number);
+    // printf("PT->%- d<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-15d<\n", number);
+    // printf("PT->%-15d<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-15.10d<\n", number);
+    // printf("PT->%-15.10d<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-+15.10d<\n", number);
+    // printf("PT->%-+15.10d<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-015d<\n", number);
+    // printf("PT->%-015d<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-#x<\n", number);
+    // printf("PT->%-#x<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-#15x<\n", number);
+    // printf("PT->%-#15x<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-#015x<\n", number);
+    // printf("PT->%-#015x<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-# 15x<\n", number);
+    // printf("PT->%-# 15x<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-#o<\n", number);
+    // printf("PT->%-#o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-o<\n", number);
+    // printf("PT->%-o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-# 15o<\n", number);
+    // printf("PT->%-# 15o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-o<\n", number);
+    // printf("PT->%-o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%- o<\n", number);
+    // printf("PT->%- o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-15o<\n", number);
+    // printf("PT->%-15o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-15.10o<\n", number);
+    // printf("PT->%-15.10o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-+15.10o<\n", number);
+    // printf("PT->%-+15.10o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-015o<\n", number);
+    // printf("PT->%-015o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-+o<\n", number);
+    // printf("PT->%-+o<\n", number);
+    // printf("------\n");
+    // ft_printf("FT->%-o<\n", number);
+    // printf("PT->%-o<\n", number);
+    printf("================MOULITEST================\n");
+    int number = 73;
+    printf("------\n");
+    ft_printf("FT->%#6o<\n", number);
+    printf("PT->%#6o<\n", number);
+    printf("------\n");
+    ft_printf("FT->%-#6o<\n", number);
+    printf("PT->%-#6o<\n", number);
+    printf("------\n");
+    ft_printf("FT->%d<\n", 2147483648);
+    printf("PT->%d<\n", 2147483648);
+    printf("------\n");
+    ft_printf("FT->%d<\n", -2147483648);
+    printf("PT->%d<\n", -2147483648);
+    printf("------\n");
+    ft_printf("FT->%5d<\n", -42);
+    printf("PT->%5d<\n", -42);
+    printf("------\n");
+    ft_printf("FT->%-5d<\n", -42);
+    printf("PT->%-5d<\n", -42);
+    printf("------\n");
+    ft_printf("FT->%-05d<\n", -42);
+    printf("PT->%-05d<\n", -42);
+    printf("------\n");
+    ft_printf("FT->%hd<\n", 32768);
+    printf("PT->%hd<\n", 32768);
+    printf("------\n");
+    ft_printf("FT->%hhd<\n",-128);
+    printf("PT->%hhd<\n", -128);
+    printf("------\n");
+    ft_printf("FT->%hhd<\n",128);
+    printf("PT->%hhd<\n", 128);
+        printf("------\n");
+    ft_printf("%lld\n", -9223372036854775808);
+    printf("%lld\n", -9223372036854775808);
+        printf("------\n");
+    ft_printf("%10.5d\n", 4242);
+    printf("%10.5d\n", 4242);
+        printf("------\n");
+    ft_printf("% 10.5d\n", 4242);
+    printf("% 10.5d\n", 4242);
+        printf("------\n");
+    ft_printf("%+10.5d\n", 4242);
+    printf("%+10.5d\n", 4242);
+        printf("------\n");
+    ft_printf("%03.2d\n", 0);
+    printf("%03.2d\n", 0);
+        printf("------\n");
+    ft_printf("%03.2d\n", -1);
+    printf("%03.2d\n", -1);
+    
 
 
 

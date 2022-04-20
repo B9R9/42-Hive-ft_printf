@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 17:06:56 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:48:17 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,11 @@ t_parameter *checkoptionerror(t_parameter *li);
 /*PARSE_INT.C*/
 int format_intoa(t_parameter *option, char *dest);
 int print_intwidth(t_parameter *option, int lenght);
-int print_intprecsion(int start, t_parameter *option, int lenght);
-int ajust_lenght(t_parameter *option, int lenght);
+int print_intprecision(int start, t_parameter *option, int lenght);
+int adjust_lenght(t_parameter *option, int lenght);
 int print_0x(t_parameter *option);
+int  print_sign(t_parameter *option);
+int print_sign_2(t_parameter *option);
 /*CONV_HEX*/
 int format_uint(t_parameter *option, unsigned int number);
 int	define_base(t_parameter *option);

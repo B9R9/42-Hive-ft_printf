@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:01:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 17:48:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:41:49 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ int print_0x(t_parameter *option)
     else if (!option->upper && option->conv == 'x' && option->flags & F_ZERO)
         {
             size += print_str("0x", ft_strlen("0x"));
-             option->flags = option->flags ^ F_HASHTAG;
+            option->flags = option->flags ^ F_HASHTAG;
+        }
+    else if (option->conv == 'o' && option->width <= 1)
+        {
+            size += print_char('0');
+            option->flags = option->flags ^ F_HASHTAG;
         }
     return (size);
 }
@@ -48,7 +53,12 @@ int print_0x_2(t_parameter *option)
     else if (!option->upper && option->conv == 'x')
         {
             size += print_str("0x", ft_strlen("0x"));
-             option->flags = option->flags ^ F_HASHTAG;
+            option->flags = option->flags ^ F_HASHTAG;
+        }
+    else if (option->conv == 'o' && option->flags & F_HASHTAG)
+        {
+            size += print_char('0');
+            option->flags = option->flags ^ F_HASHTAG;
         }
     return (size);
 }
@@ -70,10 +80,13 @@ int adjust_lenght(t_parameter *option, int lenght)
 {
     if (option->flags & F_PLUS /*&& !(option->flags & F_ZERO)*/)
         lenght += 1;
-    if (option->flags & F_PLUS && !(option->flags & F_SPACE))
+    else if (option->flags & F_PLUS && !(option->flags & F_SPACE))
         lenght -= 1;
-    if (option->flags & F_HASHTAG && !(option->flags & F_ZERO))
-        lenght += 2;
+    else if (option->flags & F_HASHTAG && !(option->flags & F_ZERO))
+{        if (option->conv == 'o')
+            lenght += 1;
+        else
+            lenght += 2;}
     if (option->flags == F_SPACE && option->negatif)
         lenght += 1;
     return (lenght);
@@ -125,14 +138,15 @@ int  print_sign(t_parameter *option)
     {
         size += print_char('-');
         option->negatif = false;
-        if (option->flags & F_PLUS)
-            option->flags = option->flags ^ F_PLUS;
+        // if (option->flags & F_PLUS)
+        // printf("\nVALUE (-) -->%d<--\n",option->flags);
+        option->flags = option->flags ^ F_PLUS;
     }
     else if(option->flags & F_PLUS && (option->flags & F_ZERO || option->part_1== 0))
     {
         size += print_char('+');
-        option->negatif = false;
-        option->flags -= F_PLUS;
+        // option->negatif = false;
+        option->flags = option->flags ^ F_PLUS;
     }
     else if (option->width > option->precision || (option->flags & F_SPACE))
     {
@@ -150,11 +164,11 @@ int print_sign_2(t_parameter *option)
     int size;
 
     size = 0;
-    if (option->negatif || option->flags & F_PLUS)
+    if ((option->negatif > 0) || (option->flags & F_PLUS) > 0)
     {
         if (option->negatif)
             size += print_char('-');
-        if (option->flags & F_PLUS)
+        else if (option->flags & F_PLUS)
             size += print_char('+');
     }
     return (size);
@@ -166,9 +180,10 @@ int print_part_1(t_parameter *option, int lenght)
 
     size = 0;
     lenght = adjust_lenght(option, lenght);
-    size += print_sign(option);
-    if (option->conv == 'o')
-        size += print_char('0');
+    if((option->negatif || option->flags & F_PLUS || option->flags & F_SPACE) && option->conv != 'o')
+        size += print_sign(option);
+    // if (option->conv == 'o')
+    //     size += print_char('0');
     if (option->flags & F_HASHTAG)
         size += print_0x(option);
     while (size < (option->width - lenght))
@@ -204,6 +219,8 @@ int format_intoa(t_parameter *option, char *dest)
 
     size = 0;
     define_part_1(option, dest); // Not USE
+    if ((!option->precision || option->precision < (int)ft_strlen(dest)) && option->conv != 'f')
+        option->precision = ft_strlen(dest);
     if (option->flags & F_MINUS)
         return (align(dest, option));
     size += print_part_1(option, option->precision);
@@ -211,8 +228,6 @@ int format_intoa(t_parameter *option, char *dest)
     size += print_str(dest, (int)ft_strlen(dest));
 
 
-    // if ((!option->precision || option->precision < (int)ft_strlen(dest)) && option->conv != 'f')
-    //     option->precision = ft_strlen(dest);
     // if ((option->flags & F_SPACE) && option->width == 1 )
     //     option->width = (int)ft_strlen(dest) + 1;
     // if (option->flags & F_MINUS)

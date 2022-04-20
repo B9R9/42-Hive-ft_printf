@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 15:37:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:40:34 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int intoa(t_parameter *option, int number)
             return (format_char(option,' '));
         return (format_char(option,'0'));
     }
-    if (number < 0)
+    if (number < 0 && number > -2147483648)
     {
         number *= -1;
         option->negatif = true;

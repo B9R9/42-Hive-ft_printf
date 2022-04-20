@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:16:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 16:49:16 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:47:57 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,28 +80,58 @@ int	print_width(t_parameter *option, int lenght)
 	return (size);
 }
 
-
 int align(char *str, t_parameter *option)
 {
     int size;
+	// int lenght;
 
     size = 0;
-    if (option->flags & F_SPACE)
-    {
-        size += print_char(' ');
-        size += print_str(str, (int)ft_strlen(str));
-        while ( size < option->width)
-            size += print_char(' ');
-        return (size);
-    }
-    else if (option->width <= option->precision)
-    {
-        while (size < (option->precision - (int)ft_strlen(str)))
-            size += print_char('0');
-    }
-    size += print_0x(option);
+	// lenght = adjust_lenght(option, option->precision);
+	// if (option->flags & F_SPACE)
+	// 	size += print_char(' ');
+	if((option->negatif || option->flags & F_PLUS) && option->conv != 'o')
+		size += print_sign_2(option);
+	// if (option->conv == 'o')
+    //     size += print_char('0');
+    if (option->flags & F_HASHTAG)
+        size += print_0x(option);
+	size += print_intprecision(0,option, (int)ft_strlen(str));
     size += print_str(str, (int)ft_strlen(str));
-    while ( size < option->width)
-        size += print_char(' ');
-    return (size);
+	while (size < option->width )
+		size += print_char(' ');
+	return (size);
 }
+
+
+
+
+
+// int align(char *str, t_parameter *option)
+// {
+//     int size;
+
+//     size = 0;
+//     if (option->flags & F_SPACE)
+//     {
+//         size += print_char(' ');
+//         size += print_str(str, (int)ft_strlen(str));
+//         while ( size < option->width)
+//             size += print_char(' ');
+//         return (size);
+//     }
+//     else if (option->width <= option->precision)
+//     {
+//         while (size < (option->precision - (int)ft_strlen(str)))
+//             size += print_char('0');
+//     }
+//     if (option->flags & F_HASHTAG)
+//         size += print_0x(option);
+// 	if (option->flags & F_ZERO)
+// 	{
+// 		while ()
+// 	}
+//     size += print_str(str, (int)ft_strlen(str));
+//     while (size < option->width)
+//         size += print_char(' ');
+//     return (size);
+// }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:11:05 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 09:42:03 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/20 09:48:52 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@ t_bool	is_blink(const char *s)
 */
 t_bool	is_color(const char *s)// supprimer la "red"si jevuex imprimer red mais pas en rouge
 {
-	if (!ft_strcmp(s, "red") || !ft_strcmp(s, RED))
+	if (!ft_strcmp(s, RED))
 		return (true);
-	if (!ft_strcmp(s, "default") || !ft_strcmp(s, DEFAULT))
+	if ( !ft_strcmp(s, DEFAULT))
 		return (true);
-	if (!ft_strcmp(s, "green") || !ft_strcmp(s, GREEN))
+	if ( !ft_strcmp(s, GREEN))
 		return (true);
-	if (!ft_strcmp(s, "yellow") || !ft_strcmp(s, YELLOW))
+	if ( !ft_strcmp(s, YELLOW))
 		return (true);
-	if (!ft_strcmp(s, "blue") || !ft_strcmp(s, BLUE))
+	if (!ft_strcmp(s, BLUE))
 		return (true);
-	if (!ft_strcmp(s, "magenta") || !ft_strcmp(s, MAGENTA))
+	if (!ft_strcmp(s, MAGENTA))
 		return (true);
-	if (!ft_strcmp(s, "cyan") || !ft_strcmp(s, CYAN))
+	if (!ft_strcmp(s, CYAN))
 		return (true);
-	if (!ft_strcmp(s, "white") || !ft_strcmp(s, WHITE))
+	if (!ft_strcmp(s, WHITE))
 		return (true);
 	return(false);
 }
@@ -93,6 +93,8 @@ static int	format_str(const char *str,t_parameter *option)
 	}
     if((!option->precision && str) || (option->precision > (int)ft_strlen(str) && str))
         {option->precision = ft_strlen(str);}
+	if (str == NULL)
+		return (print_str("(null)", (int)ft_strlen("(null)")));
 	if (str)
 	{ 
 		size += print_width(option, option->precision);
@@ -101,8 +103,7 @@ static int	format_str(const char *str,t_parameter *option)
 			size += align_right(size, option->width);
 		return (size);
 	}
-	else
-		return (print_str("(null)", (int)ft_strlen("(null)")));
+	return (size);
 }
 /*
 ** TURN ARGUMENT TO STR
