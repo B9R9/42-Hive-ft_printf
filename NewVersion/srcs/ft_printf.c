@@ -21,7 +21,7 @@ static int    dispacht(va_list ap, t_parameter *new);
 static int    dispacht(va_list ap, t_parameter *new)
 {
     if (new->conv == '%')
-        return (argtochar(new,ap));
+        return (conv_to_int(new,ap));
     else
 	    return (funcFlagsArray[new->conv - 'a'](new, ap));
 }
@@ -70,4 +70,16 @@ void    check_parameter(t_parameter *li)
     printf("char_to_skip    -->%d\n", li->char_to_skip);
     printf("size_Prefix     -->%s\n", li->sizePrefix);
     printf("size            -->%d\n", li->size);
+}
+
+/*PRINT VALEUR DE option->flags*/
+void    check_flasgbit(t_parameter *option)
+{
+    printf("F_NEGATIF ->%d<-\n", option->flags & F_NEGATIF);
+    printf("F_HASHTAG ->%d<-\n", option->flags & F_HASHTAG);
+    printf("F_ZERO ->%d<-\n", option->flags & F_ZERO);
+    printf("F_PLUS ->%d<-\n", option->flags & F_PLUS);
+    printf("F_MINUS ->%d<-\n", option->flags & F_MINUS);
+    printf("F_SPACE ->%d<-\n", option->flags & F_SPACE);
+    printf("BOOL Negatif ->%d<-\n", option->negatif);
 }

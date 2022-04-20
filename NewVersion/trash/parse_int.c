@@ -18,7 +18,7 @@ int format_intoa(t_parameter *option, char *dest);
 int print_0x(t_parameter *option);
 int adjust_lenght(t_parameter *option, int lenght);
 
-int print_0x(t_parameter *option)
+int print_0x_1(t_parameter *option)
 {
     int size;
 
@@ -129,7 +129,7 @@ int print_intwidth(t_parameter *option, int lenght)
     return (size);
 }
 
-int  print_sign(t_parameter *option)
+int  print_sign_3(t_parameter *option)
 {
     int size;
 

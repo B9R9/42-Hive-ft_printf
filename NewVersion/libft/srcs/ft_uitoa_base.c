@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char    *ft_uitoa_base(unsigned long long number, int base)
 {
-    int                     index;
-	char					*str;
+    int     index;
+	char    *str;
 
     index = 0;
     str = ft_strnew(ft_numlenght(number));
@@ -30,5 +29,6 @@ char    *ft_uitoa_base(unsigned long long number, int base)
         number = number / base;
         index++;
     }
+    ft_reverse_str(str);
 	return (str);
 }

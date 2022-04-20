@@ -20,12 +20,13 @@
 # include <stdio.h> //---> to remove
 
 /*DEFINE*/
-# define F_NEGATIF 0x100
 # define F_HASHTAG 0x80
 # define F_ZERO 0x40
 # define F_PLUS 0x20
 # define F_MINUS 0x10
 # define F_SPACE 0x08
+# define F_NEGATIF 0x04
+# define F_MOD 0x02
 
 # define ARRFLAGS "scdxXop%ifut"
 
@@ -52,6 +53,7 @@ typedef struct  s_parameter {
 	t_bool		upper;  // check si le flag est Upper case OK
 	t_bool		negatif; // check if number is negatif
 	t_bool		dot;// check for the dot
+	int			lenght;
 	int			part_1;
 	int			precision; // taille dela precision
 	int 		char_to_skip; //  nombre de cahr to skip
@@ -61,42 +63,40 @@ typedef struct  s_parameter {
 
 /*DISPACHT TABLE*/
 /*FUNCTION IN DISPACHT FLAG ARRAY*/
-int	argtostr(t_parameter *li, va_list ap);
-int	argtochar(t_parameter *li, va_list ap);
-int	argtoint(t_parameter *li, va_list ap);
-int	argtohexoroct(t_parameter *li, va_list ap); //Voir si la meme que uint
-int	argto_u_int(t_parameter *li, va_list ap);
-int	argtoptr(t_parameter *li, va_list ap);
-int	argtofloat(t_parameter *li, va_list ap);
-int	argtovoid(t_parameter *li, va_list ap);
+int	conv_to_str(t_parameter *li, va_list ap);
+int	conv_to_int(t_parameter *li, va_list ap);
+int	conv_to_uint(t_parameter *li, va_list ap); //Voir si la meme que uint
+int	conv_to_ptr(t_parameter *li, va_list ap);
+int	conv_to_dbl(t_parameter *li, va_list ap);
+int	conv_to_void(t_parameter *li, va_list ap);
 
 typedef int (*dispachtFlags)(t_parameter *li, va_list ap);
 
 static const dispachtFlags	funcFlagsArray[26] = {
 	NULL,			//A
-	argtovoid,		//B BONUS PRINT EN BINAIRE
-	argtochar,		//C
-	argtoint,		//D
+	conv_to_void,	//B BONUS PRINT EN BINAIRE
+	conv_to_int,	//C
+	conv_to_int,	//D
 	NULL,			//E
-	argtofloat,		//F
+	conv_to_dbl,	//F
 	NULL,			//G
 	NULL,			//H
-	argtoint,		//I
+	conv_to_int,	//I
 	NULL,			//J
 	NULL,			//K
 	NULL,			//L
 	NULL,			//M
 	NULL,			//N
-	argtohexoroct,	//O
-	argtoptr,		//P
+	conv_to_uint,	//O
+	conv_to_ptr,	//P
 	NULL,			//Q
 	NULL,			//R
-	argtostr,		//S
-	argtoint,		//T BONUS BOOLEAN PRINT TRUE OR FALSE
-	argto_u_int,	//U
+	conv_to_str,	//S
+	conv_to_int,	//T BONUS BOOLEAN PRINT TRUE OR FALSE
+	conv_to_uint,	//U
 	NULL,			//V
 	NULL,			//W
-	argtohexoroct,	//X
+	conv_to_uint,	//X
 	NULL,			//Y
 	NULL,			//Z
 };
@@ -107,43 +107,53 @@ int ft_printf(const char *format, ...);
 /*FUNCTIONS*/
 /*STRUCT_INIT.C*/
 t_parameter	*init(const char *format,t_parameter *li, va_list ap);
+
+/*PRINT_STR.C*/
+int	print_width(t_parameter *option, int lenght);
+int	print_str(const char *str, int lenght);
+int	print_char(char c);
+int	align_right(int start, int lenght);
+
+/*BONUS.C*/
+int	is_bonus(const char *s);
+
 /*HANDLE_FLAG*/
 t_parameter *handle_flag(char *str, t_parameter *li);
 t_parameter *handle_width(char *str, t_parameter *li, va_list ap);
 t_parameter *handle_precision(char *str, t_parameter *li, va_list ap);
 t_parameter	*handle_size_prefix(char *str, t_parameter *li);
+
 /*ERROR.C*/
 t_parameter *checkoptionerror(t_parameter *li);
-/*CONV_STR.C*/
-// char	*setstr(char *dest, t_parameter li, char *source);
-/*PARSE_INT.C*/
-int format_intoa(t_parameter *option, char *dest);
-int print_intwidth(t_parameter *option, int lenght);
-int print_intprecision(int start, t_parameter *option, int lenght);
-int adjust_lenght(t_parameter *option, int lenght);
-int print_0x(t_parameter *option);
-int  print_sign(t_parameter *option);
-int print_sign_2(t_parameter *option);
+void		error_message(const char *message);
+
+/*PRINT_INT.C*/
+int		print_int(t_parameter *option, char *str);
+void	set_lenght(t_parameter *option, char *str);
+int		print_precision(int start, t_parameter *option, int lenght);
+int		print_sign(t_parameter *option);
+int		print_0x(t_parameter *option);
+
 /*CONV_HEX*/
 int format_uint(t_parameter *option, unsigned int number);
-int	define_base(t_parameter *option);
+
 
 /*handle_sizePrefix_for_flag_d.c*/
+int dispach_to_SizePrefix(t_parameter *option, va_list ap);
 int	ll_int_to_arr(t_parameter *option, long long number);
-int	u_ll_itoa(t_parameter *option, unsigned long long int number);
+
 // char    *l_int_to_arr(t_parameter li, long number);
 int	short_int_to_arr(t_parameter *option, short int number);
 int	char_to_arr(t_parameter *option, char number);
+int format_uint(t_parameter *option, unsigned int number);
 int  format_char(t_parameter *option, char c);
 
 /*UTILS_FUNCT.C*/
-int		align_right(int start, int lenght);
+int		define_base(t_parameter *option);
 int		skip(char *str);
-int		print_char(char c);
-int		print_width(t_parameter *option, int lenght);
-int		print_str(const char *str, int lenght);
 int 	align(char *str, t_parameter *option);
 
+int	u_ll_itoa(t_parameter *option, unsigned long long int number);
 /*UTILS_LIST.C*/
 // t_containeur	*newlist(void);
 // t_bool			is_empty(t_containeur *li);
@@ -153,5 +163,6 @@ int 	align(char *str, t_parameter *option);
 
 /*TO REMOVE*/
 void check_parameter(t_parameter *li);
+void    check_flasgbit(t_parameter *option);
 
 #endif

@@ -31,7 +31,7 @@ static t_uchar get_flag(char c)
 t_parameter *handle_flag(char *str, t_parameter *li)
 {
     int i;
-    
+
     li->flags = 0x00;
     i = 0;
     while (str[i] == '#' || str[i] == '0' || str[i] == '+' || str[i] == '-' \
@@ -51,7 +51,7 @@ t_parameter     *handle_width(char *str, t_parameter *li, va_list ap)
         li->width = va_arg(ap, int);
         li->char_to_skip += 1;
         /*What happend if width is negatif ???
-        D apres la doc width  doit un entier non negatif 
+        D apres la doc width  doit un entier non negatif
         a verifier avec printf*/
     }
     else
@@ -86,6 +86,7 @@ t_parameter *handle_size_prefix(char *str, t_parameter *li)
     int     i;
 
     i = 0;
+    ft_bzero(li->sizePrefix, 5);
     if (str[0] == 'l' || str[0] == 'h' || str[0] == 'L')
     {
         li->sizePrefix[i] = str[i];
@@ -97,6 +98,7 @@ t_parameter *handle_size_prefix(char *str, t_parameter *li)
         }
         li->sizePrefix[i] = '\0';
         li->char_to_skip += ft_strlen(li->sizePrefix);
+        li->flags = li->flags | F_MOD;
     }
     return (li);
 }

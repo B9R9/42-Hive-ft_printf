@@ -25,12 +25,13 @@ SRC_DIR =	./srcs/
 SRC		=	ft_printf.c							\
 			struct_init.c						\
 			handle_Flag.c error.c				\
-			conv_str.c  conv_int.c conv_uint.c conv_p.c conv_f.c \
-			conv_void.c \
-			parse_int.c							\
+			conv_str.c  conv_int.c conv_uint.c conv_p.c conv_dbl.c \
+			conv_void.c	\
+			print_str.c	print_int.c\
 			handle_sizePrefix_for_flag_d.c		\
 			handle_sizePrefix_flag_u.c			\
 			utils_funct.c 						\
+			bonus.c \
 
 #OBJECT FILE
 OBJ_DIR	=	./objectFiles/

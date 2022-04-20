@@ -27,10 +27,11 @@ static void	resetoption(t_parameter *option, char *str)
 	option->dot = false;
 	option->precision = 0;
 	option->char_to_skip = 0;
-	option->part_1 = 0;
+	// option->part_1 = 0;
 	ft_bzero(option->sizePrefix, 5);
 	option->size = ft_strlen(str);
 	option->negatif = false;
+	option->lenght = 0;
 
 }
 
@@ -70,6 +71,11 @@ t_parameter	*init(const char *format,t_parameter *option, va_list ap)
 	index = 1;
 	while (checkparams(format[index]))
 		index++;
+	if (index == (int)ft_strlen(ARRFLAGS))
+		{
+			error_message("Error: No flags founded\n");
+			exit(EXIT_FAILURE);
+		}
 	parameters = ft_strsub(format, 1, index);
 	if (!parameters)
 		exit(EXIT_FAILURE);

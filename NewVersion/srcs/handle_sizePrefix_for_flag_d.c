@@ -21,10 +21,10 @@ int char_to_arr(t_parameter *option, char number)
     if (number < 0 && number > -127)
     {
         number *= -1;
-        option->negatif = true;
+        option->flags = option->flags | F_NEGATIF;
     }
     temp = ft_itoa(number);
-    size = format_intoa(option, temp);
+    size = print_int(option, temp);
     ft_memdel((void *) &temp);
     return (size);
 }
@@ -36,7 +36,7 @@ int short_int_to_arr(t_parameter *option, short int number)
 
     size = 0;
     temp = ft_itoa(number);
-    size =  format_intoa(option, temp);
+    size =  print_int(option, temp);
     ft_memdel((void *) &temp);
     return (size);
 }
@@ -49,12 +49,24 @@ int ll_int_to_arr(t_parameter *option, long long number)
     if (number < 0)
     {
         number *= -1;
-        option->negatif = true;
+        option->flags = option->flags | F_NEGATIF;
     }
     size = 0;
     temp = ft_uitoa_base(number, 10);
-    ft_reverse_str(temp);
-    size =  format_intoa(option, temp);
+    size =  print_int(option, temp);
     ft_memdel((void *) &temp);
     return (size);
+}
+
+int dispach_to_SizePrefix(t_parameter *option, va_list ap)
+{
+    if(!ft_strcmp(option->sizePrefix,"ll"))
+        return(ll_int_to_arr(option, va_arg(ap, long long)));
+    else if(!ft_strcmp(option->sizePrefix, "l"))
+        return(ll_int_to_arr(option, va_arg(ap, long)));
+    else if(!ft_strcmp(option->sizePrefix, "h"))
+        return(short_int_to_arr(option, (short)va_arg(ap, int)));
+    else if(!ft_strcmp(option->sizePrefix, "hh"))
+        return(char_to_arr(option, (char)va_arg(ap, int)));
+    return(-1);
 }

@@ -15,10 +15,9 @@ int	u_ll_itoa(t_parameter *option, unsigned long long int number)
 	temp = ft_uitoa_base(number, define_base(option));
 	if (!temp)
 		exit(EXIT_FAILURE);
-	ft_reverse_str(temp);
-	if (option->upper)
-		ft_strtoupper(temp);
-	size += format_intoa(option, temp);
+	// if (option->upper)
+	// 	ft_strtoupper(temp);
+	size += print_int(option, temp);
     ft_memdel((void **)&temp);
 	return (size);
 }

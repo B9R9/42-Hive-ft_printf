@@ -12,6 +12,9 @@
 
 #include "ft_printf.h"
 
+void	error_message(const char *message);
+t_parameter	*checkoptionerror(t_parameter *options);
+
 t_parameter	*checkoptionerror(t_parameter *options)
 {
 	if (options->flags & F_ZERO && options->flags & F_MINUS)
@@ -23,4 +26,9 @@ t_parameter	*checkoptionerror(t_parameter *options)
 		options->conv != 'f'))
 		options->flags = options->flags ^ F_SPACE;
 	return (options);
+}
+
+void	error_message(const char *message)
+{
+	write(2, message, ft_strlen(message));
 }

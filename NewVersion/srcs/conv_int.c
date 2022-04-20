@@ -12,21 +12,16 @@
 
 #include "ft_printf.h"
 
-static int intoa(t_parameter *li, int number);
+static int format_int(t_parameter *li, int number);
 int  format_char(t_parameter *option, char c);
+static int  format_bool(int number);
 
-static int intoa(t_parameter *option, int number)
+static int format_int(t_parameter *option, int number)
 {
 	char    *dest;
     int     size;
-    
+
     size = 0;
-    if (option->conv == 't')
-    {
-        if (number > 0)
-            return (print_str("True", ft_strlen("True")));
-        return (print_str("False", ft_strlen("False")));
-    }
     if (number == 0)
     {
         if (option->dot)
@@ -36,27 +31,17 @@ static int intoa(t_parameter *option, int number)
     if (number < 0 && number > -2147483648)
     {
         number *= -1;
-        option->negatif = true;
-        option->flags = option->flags ^ F_PLUS;
+        // check_flasgbit(option);
+        option->flags = option->flags | F_NEGATIF;
+        if (option->flags & F_PLUS)
+            option->flags = option->flags ^ F_PLUS;
+        // check_flasgbit(option);
     }
     dest = ft_itoa(number);
-    size += format_intoa(option, dest);
+    size += print_int(option, dest);
+    // size += format_intoa(option, dest);
     ft_memdel((void *)&dest);
 	return (size);
-}
-
-int argtoint(t_parameter *option, va_list ap)
-{
-    if(!ft_strcmp(option->sizePrefix,"ll"))
-        return(ll_int_to_arr(option, va_arg(ap, long long)));
-    else if(!ft_strcmp(option->sizePrefix, "l"))
-        return(ll_int_to_arr(option, va_arg(ap, long)));
-    else if(!ft_strcmp(option->sizePrefix, "h"))
-        return(short_int_to_arr(option, (short)va_arg(ap, int)));
-    else if(!ft_strcmp(option->sizePrefix, "hh"))
-        return(char_to_arr(option, (char)va_arg(ap, int)));
-    else
-		return (intoa(option, va_arg(ap, int)));
 }
 
 /*
@@ -72,12 +57,31 @@ int  format_char(t_parameter *option, char c)
     size += print_width(option, 1);
     size += print_char(c);
 	if (option->flags & F_MINUS)
-		size += align_right(size, option->width); 
-    return (size); 
+		size += align_right(size, option->width);
+    return (size);
 }
 
-/*Turn va_arg into an int*/
-int argtochar(t_parameter *li, va_list ap)
+/*
+** Receive va_arg as int
+** printf a char* true or false
+*/
+static int  format_bool(int number)
 {
-    return(format_char(li, va_arg(ap, int)));
+    if (number > 0)
+        return (print_str("True", ft_strlen("True")));
+    return (print_str("False", ft_strlen("False")));
 }
+
+int conv_to_int(t_parameter *option, va_list ap)
+{
+    if(option->conv == 'c')
+        return(format_char(option, va_arg(ap, int)));
+    else if (option->conv == 't')
+        return (format_bool(va_arg(ap, int)));
+    else if (option->flags & F_MOD)
+        return (dispach_to_SizePrefix(option, ap));
+    else
+        return (format_int(option, va_arg(ap, int)));
+    }
+
+

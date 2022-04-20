@@ -92,7 +92,7 @@ int main(void)
     // printf("------\n");
     // ft_printf("FT ->%%<-\n", "t");
     // printf("PF ->%%<-\n", "t");
-    
+
 
     // printf("================CHAR================\n");
     // char c = 'a';
@@ -439,7 +439,7 @@ int main(void)
     // int number = 123456;
     // // double decimal = 123.123456;
     // // char *ptr = NULL;
-    
+
     // printf("------\n");
     // ft_printf("FT->%-d<\n", number);
     // printf("PT->%-d<\n", number);
@@ -559,8 +559,10 @@ int main(void)
         printf("------\n");
     ft_printf("%-#6o\n", 2500);
     printf("%-#6o\n", 2500);
-    
-
+   printf("================ TEST FLAGS ================\n");
+    printf("------\n");
+    ft_printf("%+ 12d\n", -2500);
+    printf("%+ 12d\n", -2500);
 
 
 

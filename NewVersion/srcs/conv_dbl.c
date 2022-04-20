@@ -12,6 +12,10 @@
 
 #include "ft_printf.h"
 
+static int  format_dbl(t_parameter *option,  double number);
+static int  getroudingdigit(int precision,long double fpart);
+char        *set_fpart(char *box, t_parameter *option, long double fpart);
+
 /*Get digit == precision + 1 to make the rouding*/
 static int     getroudingdigit(int precision,long double fpart)
 {
@@ -50,7 +54,7 @@ char *set_fpart(char *box, t_parameter *option, long double fpart)
     return (box);
     // int     i;
     // char *temp;
-    
+
     // i = 0;
     // str = ft_strjoin(str, ".");
     // printf("IN SET_FPART 1str -> %s\n", str);
@@ -82,7 +86,7 @@ char *set_fpart(char *box, t_parameter *option, long double fpart)
 //     char    *containeur;
 //     unsigned long long ipart;
 //     long double fpart;
-    
+
 //     if (ft_isdoubleneg(number))
 //     {
 //         number =  number * -1;
@@ -104,7 +108,7 @@ char *set_fpart(char *box, t_parameter *option, long double fpart)
 //     return (containeur);
 // }
 
-char *check_ret(char *str, double number) // Ne fonctionne pas 
+char *check_ret(char *str, double number) // Ne fonctionne pas
 {
     if (!ft_strcmp(str, "0.0") && number == 0.05)
         str[2] = '1';
@@ -115,8 +119,8 @@ char *check_ret(char *str, double number) // Ne fonctionne pas
     return (str);
 }
 
-int ftoa(t_parameter *option,  double number)
-{ 
+static int format_dbl(t_parameter *option,  double number)
+{
     unsigned long long  ipart;
     long double   fpart;
     char    *temp;
@@ -124,7 +128,7 @@ int ftoa(t_parameter *option,  double number)
     int     size;
 
     size = 0;
-    if (ft_isdoubleneg(number)) // verifier si la sortie est negstif 
+    if (ft_isdoubleneg(number)) // verifier si la sortie est negstif
     {
         number =  number * -1;
         option->flags = option->flags | F_NEGATIF;
@@ -134,7 +138,6 @@ int ftoa(t_parameter *option,  double number)
     if(option->precision == 0)
         option->precision = 6;
     temp = ft_uitoa_base(ipart, 10);
-    ft_reverse_str(temp);
     if (option->flags & F_NEGATIF) // a ton besoinde cela si ft_is neg turn in positif number
         fpart = fpart * -1;
     test = ft_strnew(option->precision + 1);
@@ -144,22 +147,22 @@ int ftoa(t_parameter *option,  double number)
     temp = ft_str_rounding(temp, getroudingdigit(option->precision, fpart), (ft_strlen(temp) - 1));
     if (option->precision == 1 && number > 0)
         temp = check_ret(temp, number);
- 
+
 	/*SET temp With width and preccision*/
-    size  = format_intoa(option, temp);
+    size  = print_int(option, temp);
     ft_memdel((void *)&temp);
 	return(size);
 }
 
 /*turn va_arg into a double or long double*/
-int argtofloat(t_parameter *li, va_list ap)
+int conv_to_dbl(t_parameter *li, va_list ap)
 {
     long double number;
     if (!ft_strcmp(li->sizePrefix, "l"))
-           number = va_arg(ap, long double);
+        number = va_arg(ap, long double);
     else
         number = va_arg(ap, double);
     // if((!ft_strcmp(li->sizePrefix, "l")))
     //     return (ftoa(li, va_arg(ap, long double)));
-    return (ftoa(li, number));
+    return (format_dbl(li, number));
 }

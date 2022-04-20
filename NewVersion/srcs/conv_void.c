@@ -1,6 +1,8 @@
 #include "ft_printf.h"
 
-int	format_binary(t_parameter *option, void const *ptr)
+static int	format_binary(t_parameter *option, void const *ptr);
+
+static int	format_binary(t_parameter *option, void const *ptr)
 {
 	int size;
 	(void)option;
@@ -11,7 +13,7 @@ int	format_binary(t_parameter *option, void const *ptr)
 }
 
 
-int	argtovoid(t_parameter *li, va_list ap)
+int	conv_to_void(t_parameter *li, va_list ap)
 {
 	return (format_binary(li,va_arg(ap, void *)));
 }

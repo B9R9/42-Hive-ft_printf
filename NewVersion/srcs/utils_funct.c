@@ -12,22 +12,17 @@
 
 #include "ft_printf.h"
 
-int	align_right(int start, int lenght);
 int	skip(char *str);
-int	print_char(char c);
+int	define_base(t_parameter *option);
 // int	print_width(t_parameter *option, int lenght);
 
-int	align_right(int start, int lenght)
+int	define_base(t_parameter *option)
 {
-	int size;
-	
-	size = 0;
-	while (start < lenght)
-	{
-		size += print_char(' ');
-		start++;
-	}
-	return (size);
+	if (option->conv == 'x' || option->conv == 'X' || option->conv == 'p')
+		return (16);
+	if (option->conv == 'o')
+		return (8);
+	return (10);
 }
 
 int	skip(char *str)
@@ -38,67 +33,32 @@ int	skip(char *str)
 	return index;
 }
 
-int	print_char(char c)
-{
-	write(1 ,&c, 1);
-	return (1);
-}
-
-/*
-**print a char* until precision
-*/
-int	print_str(const char *str, int lenght)
-{
-	int	i;
-	int	size;
-
-	size = 0;
-	i = 0;
-	while (i < lenght)
-	{
-		size += print_char(str[i]);
-		i++;
-	}
-	return (size);
-}
-
-/*
-** print width parameter for flag c & s
-*/
-int	print_width(t_parameter *option, int lenght)
-{
-	int size;
-
-	size = 0;
-	while (size < (option->width - lenght) && option->flags ^ F_MINUS)
-	{
-		if (option->flags & F_ZERO)
-			size += print_char('0');
-		else
-			size += print_char(' ');
-	}
-	return (size);
-}
-
 int align(char *str, t_parameter *option)
 {
     int size;
-	// int lenght;
 
     size = 0;
-	// lenght = adjust_lenght(option, option->precision);
-	// if (option->flags & F_SPACE)
-	// 	size += print_char(' ');
-	if((option->negatif || option->flags & F_PLUS) && option->conv != 'o')
-		size += print_sign_2(option);
-	// if (option->conv == 'o')
-    //     size += print_char('0');
-    if (option->flags & F_HASHTAG)
-        size += print_0x(option);
-	size += print_intprecision(0,option, (int)ft_strlen(str));
-    size += print_str(str, (int)ft_strlen(str));
-	while (size < option->width )
+	if (option->flags & F_HASHTAG)
+		size += print_0x(option);
+	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
+		size += print_sign(option);
+	size += print_precision(0, option, (int)ft_strlen(str));
+	size += print_str(str, (int)ft_strlen(str));
+	while (size < option->width)
 		size += print_char(' ');
+	// // lenght = adjust_lenght(option, option->precision);
+	// // if (option->flags & F_SPACE)
+	// // 	size += print_char(' ');
+	// if((option->negatif || option->flags & F_PLUS) && option->conv != 'o')
+	// 	size += print_sign_2(option);
+	// // if (option->conv == 'o')
+    // //     size += print_char('0');
+    // if (option->flags & F_HASHTAG)
+    //     {size += print_0x(option);}
+	// size += print_intprecision(0,option, (int)ft_strlen(str));
+    // size += print_str(str, (int)ft_strlen(str));
+	// while (size < option->width )
+	// 	size += print_char(' ');
 	return (size);
 }
 
