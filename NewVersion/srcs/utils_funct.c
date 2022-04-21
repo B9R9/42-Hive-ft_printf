@@ -38,6 +38,8 @@ int align(char *str, t_parameter *option)
     int size;
 
     size = 0;
+	if ( option->flags & F_SPACE && (!(option->flags & F_NEGATIF) && !(option->flags & F_PLUS)))
+		size += print_char(' ');
 	if (option->flags & F_HASHTAG)
 		size += print_0x(option);
 	if (option->flags & F_PLUS || option->flags & F_NEGATIF)

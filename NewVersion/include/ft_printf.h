@@ -30,13 +30,6 @@
 
 # define ARRFLAGS "scdxXop%ifut"
 
-// /*ENUM*/
-// typedef enum
-// {
-// 	false,
-// 	true,
-// }		t_bool;
-
 typedef unsigned char	t_uchar;
 
 /*STRUCT*/
@@ -54,7 +47,6 @@ typedef struct  s_parameter {
 	t_bool		negatif; // check if number is negatif
 	t_bool		dot;// check for the dot
 	int			lenght;
-	int			part_1;
 	int			precision; // taille dela precision
 	int 		char_to_skip; //  nombre de cahr to skip
 	char 		sizePrefix[5]; // Sizeprefix conv
@@ -124,8 +116,11 @@ t_parameter *handle_precision(char *str, t_parameter *li, va_list ap);
 t_parameter	*handle_size_prefix(char *str, t_parameter *li);
 
 /*ERROR.C*/
-t_parameter *checkoptionerror(t_parameter *li);
+t_parameter *checkoptionerror(t_parameter *option);
 void		error_message(const char *message);
+
+/*CONV_INT.C*/
+int  format_char(t_parameter *option, char c);
 
 /*PRINT_INT.C*/
 int		print_int(t_parameter *option, char *str);
@@ -134,32 +129,27 @@ int		print_precision(int start, t_parameter *option, int lenght);
 int		print_sign(t_parameter *option);
 int		print_0x(t_parameter *option);
 
-/*CONV_HEX*/
+/*CONV_UINT.C*/
 int format_uint(t_parameter *option, unsigned int number);
-
+int	u_ll_itoa(t_parameter *option, unsigned long long int number);
 
 /*handle_sizePrefix_for_flag_d.c*/
-int dispach_to_SizePrefix(t_parameter *option, va_list ap);
+int dispach_to_intSizePrefix(t_parameter *option, va_list ap);
 int	ll_int_to_arr(t_parameter *option, long long number);
-
-// char    *l_int_to_arr(t_parameter li, long number);
 int	short_int_to_arr(t_parameter *option, short int number);
 int	char_to_arr(t_parameter *option, char number);
-int format_uint(t_parameter *option, unsigned int number);
-int  format_char(t_parameter *option, char c);
+
 
 /*UTILS_FUNCT.C*/
 int		define_base(t_parameter *option);
 int		skip(char *str);
 int 	align(char *str, t_parameter *option);
 
-int	u_ll_itoa(t_parameter *option, unsigned long long int number);
-/*UTILS_LIST.C*/
-// t_containeur	*newlist(void);
-// t_bool			is_empty(t_containeur *li);
-// t_containeur	*push_back(t_containeur *li, char *str);
-// t_containeur	*pop_front(t_containeur *li);
-// t_containeur	*clearlist(t_containeur *li);
+/*UTILS_PRINT_INT.C*/
+int		add_character_F_HASTAG(char conv);
+int		set_space(t_parameter *option);
+int		set_zero(t_parameter *option);
+void	adjust_lenght(t_parameter *option, char *str, int to_remove);
 
 /*TO REMOVE*/
 void check_parameter(t_parameter *li);

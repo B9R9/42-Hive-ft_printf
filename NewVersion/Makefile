@@ -29,8 +29,7 @@ SRC		=	ft_printf.c							\
 			conv_void.c	\
 			print_str.c	print_int.c\
 			handle_sizePrefix_for_flag_d.c		\
-			handle_sizePrefix_flag_u.c			\
-			utils_funct.c 						\
+			utils_funct.c utils_print_int.c 	\
 			bonus.c \
 
 #OBJECT FILE

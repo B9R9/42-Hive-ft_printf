@@ -12,9 +12,19 @@
 
 #include "ft_printf.h"
 
-static int format_int(t_parameter *li, int number);
-int  format_char(t_parameter *option, char c);
+static int  format_int(t_parameter *li, int number);
+int         format_char(t_parameter *option, char c);
 static int  format_bool(int number);
+static  int set_negatif(int number, t_parameter *option);
+
+static int  set_negatif(int number, t_parameter *option)
+{
+    number *= -1;
+    option->flags = option->flags | F_NEGATIF;
+    if (option->flags & F_PLUS)
+        option->flags = option->flags ^ F_PLUS;
+    return (number);
+}
 
 static int format_int(t_parameter *option, int number)
 {
@@ -22,24 +32,10 @@ static int format_int(t_parameter *option, int number)
     int     size;
 
     size = 0;
-    if (number == 0)
-    {
-        if (option->dot)
-            return (format_char(option,' '));
-        return (format_char(option,'0'));
-    }
     if (number < 0 && number > -2147483648)
-    {
-        number *= -1;
-        // check_flasgbit(option);
-        option->flags = option->flags | F_NEGATIF;
-        if (option->flags & F_PLUS)
-            option->flags = option->flags ^ F_PLUS;
-        // check_flasgbit(option);
-    }
+        number = set_negatif(number, option);
     dest = ft_itoa(number);
     size += print_int(option, dest);
-    // size += format_intoa(option, dest);
     ft_memdel((void *)&dest);
 	return (size);
 }
@@ -74,12 +70,12 @@ static int  format_bool(int number)
 
 int conv_to_int(t_parameter *option, va_list ap)
 {
-    if(option->conv == 'c')
+    if(option->conv == 'c' || option->conv == '%')
         return(format_char(option, va_arg(ap, int)));
     else if (option->conv == 't')
         return (format_bool(va_arg(ap, int)));
     else if (option->flags & F_MOD)
-        return (dispach_to_SizePrefix(option, ap));
+        return (dispach_to_intSizePrefix(option, ap));
     else
         return (format_int(option, va_arg(ap, int)));
     }

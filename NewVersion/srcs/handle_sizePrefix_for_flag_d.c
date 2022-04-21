@@ -58,7 +58,7 @@ int ll_int_to_arr(t_parameter *option, long long number)
     return (size);
 }
 
-int dispach_to_SizePrefix(t_parameter *option, va_list ap)
+int dispach_to_intSizePrefix(t_parameter *option, va_list ap)
 {
     if(!ft_strcmp(option->sizePrefix,"ll"))
         return(ll_int_to_arr(option, va_arg(ap, long long)));

@@ -31,14 +31,14 @@ static int	format_str(const char *str,t_parameter *option)
 	int	size;
 
 	size = 0;
+	if (str == NULL)
+		return (print_str("(null)", (int)ft_strlen("(null)")));
 	if(is_bonus(str))
 	{
 		ft_putstr(str);
 		return (0);
 	}
 	set_precision(option, str);
-	if (str == NULL)
-		return (print_str("(null)", (int)ft_strlen("(null)")));
 	size += print_width(option, option->precision);
 	size += print_str(str, option->precision);
 	if (option->flags & F_MINUS)

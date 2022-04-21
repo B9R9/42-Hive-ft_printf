@@ -25,6 +25,8 @@ t_parameter	*checkoptionerror(t_parameter *options)
 		(options->conv != 'd' && options->conv != 'i' && \
 		options->conv != 'f'))
 		options->flags = options->flags ^ F_SPACE;
+	if (options->precision && options->flags & F_ZERO )
+		options->flags = options->flags ^ F_ZERO;
 	return (options);
 }
 

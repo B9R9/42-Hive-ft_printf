@@ -1,7 +1,10 @@
 #include "ft_printf.h"
 
-// static int	set_lenght(t_parameter *option, char *str);
-int	print_sign(t_parameter *option);
+int		print_sign(t_parameter *option);
+int		print_0x(t_parameter *option);
+int		print_precision(int start, t_parameter *option, int lenght);
+void	set_lenght(t_parameter *option, char *str);
+int		print_int(t_parameter *option, char *str);
 
 int	print_0x(t_parameter *option)
 {
@@ -61,25 +64,14 @@ void	set_lenght(t_parameter *option, char *str)
 	int	to_remove;
 
 	to_remove = 0;
-	if (option->flags & F_HASHTAG)
-	{
-		if(option->conv == 'o')
-			to_remove += 1;
-		else
-			to_remove += 2;
-	}
-	if (option->flags & F_NEGATIF || option->flags & F_PLUS)
-		to_remove += 1;
-	if(option->precision < (int)ft_strlen(str))
+	if(option->precision < (int)ft_strlen(str) && option->conv != 'f')
 		option->precision = (int)ft_strlen(str);
-	if (option->precision > option->width)
-		option->width = 0;
-	else
-	{
-		option->lenght = (option->width - to_remove) - option->precision;
-		if (option->lenght < 0)
-			option->lenght = 0;
-	}
+	if (option->flags & F_HASHTAG)
+		to_remove += add_character_F_HASTAG(option->conv);
+	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
+	option->width >= option->precision)
+		to_remove += 1;
+	adjust_lenght(option, str, to_remove);
 }
 
 int	print_int(t_parameter *option, char *str)
@@ -87,33 +79,18 @@ int	print_int(t_parameter *option, char *str)
 	int	size;
 
 	size = 0;
-	// check_flasgbit(option);
 	set_lenght(option, str);
 	if (option->flags & F_MINUS)
 		return (align(str,option));
-	//lenght = set_lenght(option, str);
 	if (option->flags & F_SPACE || \
 	(!(option->flags & F_SPACE) && !(option->flags & F_ZERO) && option->width > 0))
-	{
-		while (size < option->lenght)
-			size += print_char(' ');
-		if (option->flags & F_HASHTAG)
-			size += print_0x(option);
-		if (option->flags & F_PLUS || option->flags & F_NEGATIF)
-			size += print_sign(option);
-		size += print_precision(0, option, (int)ft_strlen(str));
-		size += print_str(str, (int)ft_strlen(str));
-	}
+		size += set_space(option);
 	else
-	{
-		if (option->flags & F_HASHTAG)
-			size += print_0x(option);
-		if (option->flags & F_PLUS || option->flags & F_NEGATIF)
-			size += print_sign(option);
-		while (size < option->lenght)
-			size += print_char('0');
-		size += print_precision(0, option, (int)ft_strlen(str));
+		size += set_zero(option);
+	size += print_precision(0, option, (int)ft_strlen(str));
+	if (!str)
+		size += print_char('0');
+	else
 		size += print_str(str, (int)ft_strlen(str));
-	}
 	return (size);
 }
