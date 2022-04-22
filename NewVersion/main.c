@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 13:29:51 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 10:39:36 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ int main(void)
     ft_printf("FT ->%%<-\n");
     printf("PF ->%%<-\n");
     printf("------\n");
-    ft_printf("FT ->%5%<-\n"); // return UBUNTU ->    %<-
+    ft_printf("FT ->%5%<-\n"); // return UBUNTU ->    %<- MAC OK
     printf("PF ->%5%<-\n");
     printf("------\n");
-    ft_printf("FT ->%-5%<-\n"); // return UBUNTU ->%    <-
+    ft_printf("FT ->%-5%<-\n"); // return UBUNTU ->%    <- MAC OK
     printf("PF ->%-5%<-\n");
     printf("------\n");
     ft_printf("FT ->%.0%<-\n");
@@ -117,7 +117,7 @@ int main(void)
     ft_printf("FT ->%.12c<-\n", c);
     printf("PF ->%.12c<-\n", c);
     printf("------\n");
-    ft_printf("FT ->%05c<-\n", c); // RET UN->0000a<-
+    ft_printf("FT ->%05c<-\n", c); // RET UN->0000a<- MAC OK
     printf("PF ->%05c<-\n", c);
     printf("------\n");
     ft_printf("FT ->% 5c<-\n", c);
@@ -207,11 +207,11 @@ int main(void)
     unsigned long int ul_int = 123456789123456UL;
     unsigned long long ull_int = 12345678912345456653ULL;
     printf("------\n");
-    ft_printf("FT->%#6o<\n", 2500);//   "  4704"
-    printf("PF->%#6o<\n", 2500); //     " 04704"
+    ft_printf("FT->%#6o<\n", 2500);
+    printf("PF->%#6o<\n", 2500); 
     printf("------\n");
-    ft_printf("FT->%-5.10o<\n", 2500);//
-    printf("PF->%-5.10o<\n", 2500); //
+    ft_printf("FT->%-5.10o<\n", 2500);
+    printf("PF->%-5.10o<\n", 2500); 
     printf("------\n");
     ft_printf("FT->@moulitest: %.o %.0o<\n", 0, 0);//   Fail
     printf("PF->@moulitest: %.o %.0o<\n", 0, 0); //     FAIl
@@ -380,7 +380,7 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%.60f<\n", 0.123456);
     printf("PF->%.60f<\n", 0.123456);
-    printf("================BONUS================\n"); //segfault
+    printf("================BONUS================\n"); 
 
     printf("------\n");
     ft_printf("FT->%s%s%s<\n", "\x1B[31m", "Hello", "\x1B[0m");
@@ -577,6 +577,39 @@ int main(void)
     printf("------\n");
     ft_printf("%+ 12d\n", -2500);
     printf("%+ 12d\n", -2500);
+    printf("---FAIL---\n");
+    ft_printf("FT->%+ 15u<\n", u_int); // ret home -->             +21<-
+    printf("PF->%+ 15u<\n", u_int);
+    printf("---FAIL---\n");
+    ft_printf("FT->%+u<\n", u_int); // ret home -->             +21<-
+    printf("PF->%+u<\n", u_int);
+    printf("---FAIL---\n");
+    ft_printf("FT->%+p<\n", u_int); // ret home -->             +21<-
+    printf("PF->%+p<\n", u_int);
+    printf("---FAIL---\n");
+    ft_printf("FT->%+o<\n", u_int); // ret home -->             +21<-
+    printf("PF->%+o<\n", u_int);
+    printf("---FAIL---\n");
+    ft_printf("FT->%+x<\n", u_int); // ret home -->             +21<-
+    printf("PF->%+x<\n", u_int);
+    printf("---FAIL---\n");
+    ft_printf("FT->%-+o<\n", number); // verifier sur mac si flag + ave conv o
+    printf("PT->%-+o<\n", number);
+    printf("------\n");
+        ft_printf("FT->%-+15.10o<\n", number);  // verifier sur mac si flag + ave conv o
+    printf("PT->%-+15.10o<\n", number);
+    
+    printf("================ unbehavior test ================\n");
+    // ft_printf("%");
+    //printf("%");
+    printf("------\n");
+    // ft_printf("% ");
+    // printf("% h");
+    printf("------\n");
+    // ft_printf("% hZ");
+    // printf("% hZ%");
+    printf("------\n");
+
 
 
 

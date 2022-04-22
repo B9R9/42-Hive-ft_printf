@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 12:54:42 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 10:50:54 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static int format_int(t_parameter *option, int number)
     size = 0;
     if (number < 0 && number > -2147483648)
         number = set_negatif(number, option);
+    if (number == 0 && option->dot && option->precision == 0)
+        return (format_char(option, ' '));
     dest = ft_itoa(number);
     size += print_int(option, dest);
     ft_memdel((void *)&dest);

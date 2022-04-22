@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:05:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 14:17:51 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 10:51:04 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,8 @@ int format_uint(t_parameter *option, unsigned int number)
 
 	size = 0;
 
-    if (number == 0)
-    {
-        if (option->dot)
-            return (format_char(option,' '));
-        return (format_char(option,'0'));
-    }
+    if (number == 0 && option->dot && option->precision == 0)
+        return (format_char(option, ' '));
 	str = ft_uitoa_base(number, define_base(option));
 	if (!str)
 		exit(EXIT_FAILURE);
