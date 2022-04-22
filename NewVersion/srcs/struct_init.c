@@ -6,15 +6,25 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 13:48:15 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 14:55:51 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_bool	checkparams(char c);
-// static void	resetoption(t_parameter *li, char *str);
-static t_parameter	*setup(char *str, t_parameter *li, va_list ap);
+t_parameter			*init(const char *format,t_parameter *option, va_list ap);
+t_bool			checkparams(char c);
+static	void		resetoption(t_parameter *li, char *str);
+// static	t_bool		isnot_valid(char *str);
+static	t_parameter	*setup(char *str, t_parameter *li, va_list ap);
+
+/*
+** Check if parameter is valid or not
+*/
+// static t_bool	isnot_valid(char *str)
+// {
+	
+// }
 
 
 /*RESET ALL PARAMETERS*/
@@ -25,6 +35,7 @@ static void	resetoption(t_parameter *option, char *str)
 		option->upper = 1;
 	option->width = 0;
 	option->dot = false;
+	option->error = false;
 	option->precision = 0;
 	option->char_to_skip = 0;
 	// option->part_1 = 0;
@@ -48,7 +59,7 @@ static t_parameter	*setup(char *str, t_parameter *li, va_list ap)
 	return (li);
 }
 /*LOOKING FOR THE FLAG*/
-static t_bool	checkparams(char c)
+t_bool	checkparams(char c)
 {
 	size_t	i;
 
@@ -65,17 +76,13 @@ static t_bool	checkparams(char c)
 t_parameter	*init(const char *format,t_parameter *option, va_list ap)
 {
 	char		*parameters;
-
     int         index;
 
 	index = 1;
-	while (checkparams(format[index]))
+	while (checkparams(format[index]) && format)
 		index++;
-	if (index == (int)ft_strlen(ARRFLAGS))
-		{
-			error_message("Error: No flags founded\n");
-			exit(EXIT_FAILURE);
-		}
+	// if (index >= (int)ft_strlen(format))
+	// 	option->error = true;
 	parameters = ft_strsub(format, 1, index);
 	if (!parameters)
 		exit(EXIT_FAILURE);

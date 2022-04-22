@@ -6,14 +6,18 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:16:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/22 10:18:14 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:52:29 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	skip(char *str);
+t_bool	isnot_sizePrefix(char *str);
 int	define_base(t_parameter *option);
+int align(char *str, t_parameter *option);
+t_bool	isnot_precision(int c);
+
 
 int	define_base(t_parameter *option)
 {
@@ -48,4 +52,28 @@ int align(char *str, t_parameter *option)
 	while (size < option->width)
 		size += print_char(' ');
 	return (size);
+}
+
+t_bool	isnot_sizePrefix(char *str)// return 0 si c est sieprefix 1 si cest diffetem
+{
+	int	i;
+
+	i = 0;
+ 	if (str[0] != 'l' || str[0] != 'h' || str[0] != 'L' || str[0] != 'z')
+		return (true);
+	if (str[0] == 'l' || str[0] == 'h')
+	{
+		if (str[0] == str[1] && str[1] != 'l' && str[1] != 'h')
+			return (true);
+		if (str[0] == str[1])
+	}
+
+}
+t_bool	isnot_precision(int c)
+{
+	if(c == '.')
+		return (false);
+	if(c == '*')
+		return (false);
+	return (true);
 }

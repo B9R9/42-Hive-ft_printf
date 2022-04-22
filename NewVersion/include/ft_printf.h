@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 11:48:17 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:34:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define F_NEGATIF 0x04
 # define F_MOD 0x02
 
-# define ARRFLAGS "scdxXop%ifut"
+# define ARRFLAGS "scdxXop%ifutb"
 
 typedef unsigned char	t_uchar;
 
@@ -46,6 +46,7 @@ typedef struct  s_parameter {
 	t_bool		upper;  // check si le flag est Upper case OK
 	t_bool		negatif; // check if number is negatif
 	t_bool		dot;// check for the dot
+	t_bool		error;
 	int			lenght;
 	int			precision; // taille dela precision
 	int 		char_to_skip; //  nombre de cahr to skip
@@ -99,6 +100,7 @@ int ft_printf(const char *format, ...);
 /*FUNCTIONS*/
 /*STRUCT_INIT.C*/
 t_parameter	*init(const char *format,t_parameter *li, va_list ap);
+t_bool		checkparams(char c);
 
 /*PRINT_STR.C*/
 int	print_width(t_parameter *option, int lenght);
@@ -117,7 +119,7 @@ t_parameter	*handle_size_prefix(char *str, t_parameter *li);
 
 /*ERROR.C*/
 t_parameter *checkoptionerror(t_parameter *option);
-void		error_message(const char *message);
+int		error_message(const char *message);
 
 /*CONV_INT.C*/
 int  format_char(t_parameter *option, char c);
@@ -144,6 +146,8 @@ int	char_to_arr(t_parameter *option, char number);
 int		define_base(t_parameter *option);
 int		skip(char *str);
 int 	align(char *str, t_parameter *option);
+t_bool	isnot_sizePrefix(char *str);
+t_bool	isnot_precision(int c);
 
 /*UTILS_PRINT_INT.C*/
 int		add_character_F_HASTAG(char conv);

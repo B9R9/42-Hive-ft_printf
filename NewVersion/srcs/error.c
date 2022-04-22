@@ -6,13 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/22 10:30:24 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 13:59:09 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	error_message(const char *message);
+int			error_message(const char *message);
 t_parameter	*checkoptionerror(t_parameter *options);
 
 t_parameter	*checkoptionerror(t_parameter *options)
@@ -33,7 +33,8 @@ t_parameter	*checkoptionerror(t_parameter *options)
 	return (options);
 }
 
-void	error_message(const char *message)
+int	error_message(const char *message)
 {
 	write(2, message, ft_strlen(message));
+	return (-1);
 }

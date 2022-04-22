@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/19 09:30:54 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:42:12 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ t_parameter     *handle_width(char *str, t_parameter *li, va_list ap)
     else
     {
         li->width = ft_atoi(str);
+        // if(!li->width && isnot_precision(str[0]) && checkparams(str[0]) && isnot_sizePrefix(str))
+        if(!li->width && isnot_precision(str[0]) && checkparams(str[0]))
+            li->error = true;
         li->char_to_skip += skip(str);
     }
     return (li);
@@ -75,9 +78,13 @@ t_parameter     *handle_precision(char *str, t_parameter *li, va_list ap)
         else
         {
             li->precision = ft_atoi(&str[1]);
+            // if(!li->precision && checkparams(str[1]))
+            //     li->error = true;
             li->char_to_skip += skip(&str[1]) + 1;
         }
     }
+    // else if (str[0] != '.' && checkparams(str[0]))
+    //     li->error = true;
     return (li);
 }
 
@@ -87,15 +94,17 @@ t_parameter *handle_size_prefix(char *str, t_parameter *li)
 
     i = 0;
     ft_bzero(li->sizePrefix, 5);
-    if (str[0] == 'l' || str[0] == 'h' || str[0] == 'L')
+    if (str[0] == 'l' || str[0] == 'h' || str[0] == 'L' || str[0] == 'z') //inclure une error en cas de LL ou ZZ
     {
         li->sizePrefix[i] = str[i];
         i += 1;
-        while (str[i - 1] == str[i])
+        while (str[i - 1] == str[i] && i < 2)
         {
             li->sizePrefix[i] = str[i];
             i++;
         }
+        // if (checkparams(str[i]))
+        //     li->error = true;
         li->sizePrefix[i] = '\0';
         li->char_to_skip += ft_strlen(li->sizePrefix);
         li->flags = li->flags | F_MOD;
