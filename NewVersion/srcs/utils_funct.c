@@ -56,19 +56,16 @@ int align(char *str, t_parameter *option)
 
 t_bool	isnot_sizePrefix(char *str)// return 0 si c est sieprefix 1 si cest diffetem
 {
-	int	i;
-
-	i = 0;
- 	if (str[0] != 'l' || str[0] != 'h' || str[0] != 'L' || str[0] != 'z')
-		return (true);
-	if (str[0] == 'l' || str[0] == 'h')
-	{
-		if (str[0] == str[1] && str[1] != 'l' && str[1] != 'h')
-			return (true);
-		if (str[0] == str[1])
-	}
-
+ 	if ((str[0] == 'l' || str[0] == 'h' || str[0] == 'L' || str[0] == 'z') && \
+	 !checkparams(str[1]))
+		return (false);
+	if (str[0] == 'l' && str[1] == 'l' && !checkparams(str[2]))
+		return (false);
+	if (str[0] == 'h' && str[1] == 'h' && !checkparams(str[2]))
+		return (false);
+	return (true);
 }
+
 t_bool	isnot_precision(int c)
 {
 	if(c == '.')

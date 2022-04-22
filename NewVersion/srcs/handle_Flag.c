@@ -57,8 +57,8 @@ t_parameter     *handle_width(char *str, t_parameter *li, va_list ap)
     else
     {
         li->width = ft_atoi(str);
-        // if(!li->width && isnot_precision(str[0]) && checkparams(str[0]) && isnot_sizePrefix(str))
-        if(!li->width && isnot_precision(str[0]) && checkparams(str[0]))
+        if(!li->width && isnot_precision(str[0]) && checkparams(str[0]) && \
+        isnot_sizePrefix(str))
             li->error = true;
         li->char_to_skip += skip(str);
     }
@@ -83,8 +83,8 @@ t_parameter     *handle_precision(char *str, t_parameter *li, va_list ap)
             li->char_to_skip += skip(&str[1]) + 1;
         }
     }
-    // else if (str[0] != '.' && checkparams(str[0]))
-    //     li->error = true;
+    else if (checkparams(str[0]) && isnot_sizePrefix(str))
+        li->error = true;
     return (li);
 }
 

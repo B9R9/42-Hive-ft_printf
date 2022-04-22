@@ -45,7 +45,7 @@ int format_uint(t_parameter *option, unsigned int number)
 	size = 0;
 
     if (number == 0 && option->dot && option->precision == 0)
-        return (format_char(option, ' '));
+        {return (format_char(option, ' '));}
 	str = ft_uitoa_base(number, define_base(option));
 	if (!str)
 		exit(EXIT_FAILURE);
