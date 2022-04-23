@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlenght.c                                     :+:      :+:    :+:   */
+/*   ft_charjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:47:44 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 16:05:48 by briffard         ###   ########.fr       */
+/*   Created: 2022/04/01 14:11:06 by briffard          #+#    #+#             */
+/*   Updated: 2022/04/23 16:44:52 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long long int	ft_numlenght(unsigned long long int n)
+char	*ft_charjoin(char c, char *dest)
 {
-	unsigned long long	count;
+	char	*temp;
 
-	count = 0;
-	while (n > 0)
-	{
-		n = n / 10;
-		count++;
-	}
-	return (count);
+	temp = ft_strjoin(" ", dest);
+	if(!temp)
+		return (NULL);
+	temp[0] = c;
+	ft_memdel ((void **)&dest);
+	dest = temp;
+ 	return (dest);
 }
+

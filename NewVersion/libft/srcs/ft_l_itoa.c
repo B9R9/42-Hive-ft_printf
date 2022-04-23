@@ -30,7 +30,7 @@ static int	numlenght(long n)
 	return (count);
 }
 
-char   *ft_l_itoa(long number)
+char	*ft_l_itoa(long number)
 {
 	long	i;
 	char	*str;
@@ -53,5 +53,4 @@ char   *ft_l_itoa(long number)
 		number = number / 10;
 	}
 	return (str);
-     
 }

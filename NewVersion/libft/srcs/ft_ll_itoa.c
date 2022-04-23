@@ -30,10 +30,10 @@ static long long	numlenght(long long int n)
 	return (count);
 }
 
-char    *ft_ll_itoa(long long int number)
+char	*ft_ll_itoa(long long int number)
 {
 	long long int		i;
-	char	        *str;
+	char				*str;
 
 	i = numlenght(number);
 	if (number == 0)

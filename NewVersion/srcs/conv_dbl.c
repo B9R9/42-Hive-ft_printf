@@ -52,61 +52,7 @@ char *set_fpart(char *box, t_parameter *option, long double fpart)
     ft_memdel((void **)&box);
     box = temp;
     return (box);
-    // int     i;
-    // char *temp;
-
-    // i = 0;
-    // str = ft_strjoin(str, ".");
-    // printf("IN SET_FPART 1str -> %s\n", str);
-    // printf("PRECISION == %d || i == %d\n", li.precision, i);
-    // while (i < li.precision)
-    // {
-    //     fpart = fpart * 10;
-    //     printf("IN SET_FPART Fpart -> %Lf\n", fpart);
-    //     if ((int)fpart == 0)
-    //         str = ft_strjoin(str, "0");
-    //     else
-    //         {
-    //             temp = ft_itoa((int) fpart);
-    //             printf("IN SET_FPART temp -> %s\n", temp);
-    //             printf("IN SET_FPART 2str -> %s\n", str);
-    //             str = ft_strjoin(str, temp);
-    //         }
-    //     printf("IN SET_FPART 3str -> %s\n", str);
-    //     fpart = fpart - (long long)fpart;
-    //     i++;
-    // }
-    // return (str);
 }
-
-// /* Turn a float/double into a string -- When sizePrefix L or l  is use*/
-// int l_doubleToa(t_parameter *li, long double number)
-// {
-//     char    *temp;
-//     char    *containeur;
-//     unsigned long long ipart;
-//     long double fpart;
-
-//     if (ft_isdoubleneg(number))
-//     {
-//         number =  number * -1;
-//         li->flags = li->flags | F_NEGATIF;
-//     }
-//     ipart = (long long)number;
-//     if ( ipart < 0)
-//         ipart *= -1;
-//     fpart = number - ipart;
-//     if(li->precision == 0)
-//         li->precision = 6;
-//     temp = ft_u_itoa(ipart);
-//     if(li->precision != 0)
-//         temp = set_fpart(temp, li, fpart);
-//     /*ROUDING PART*/
-//     ft_str_rounding(temp, getroudingdigit(li->precision, fpart), (ft_strlen(temp) - 1));
-//     containeur =  temp;
-//     ft_memdel((void *) &temp);
-//     return (containeur);
-// }
 
 char *check_ret(char *str, double number) // Ne fonctionne pas
 {
@@ -143,11 +89,10 @@ static int format_dbl(t_parameter *option,  double number)
     test = ft_strnew(option->precision + 1);
     if(option->precision != 0)
         temp = ft_strjoin_replace(temp,set_fpart(test, option, fpart), 1);
-	/*ROUDING PART*/ // need to a special rounding between 0 and 1 0.05 0.45 0.65
+	/*ROUDING PART*/
     temp = ft_str_rounding(temp, getroudingdigit(option->precision, fpart), (ft_strlen(temp) - 1));
     if (option->precision == 1 && number > 0)
         temp = check_ret(temp, number);
-
 	/*SET temp With width and preccision*/
     size  = print_int(option, temp);
     ft_memdel((void *)&temp);
@@ -158,11 +103,9 @@ static int format_dbl(t_parameter *option,  double number)
 int conv_to_dbl(t_parameter *li, va_list ap)
 {
     long double number;
-    if (!ft_strcmp(li->sizePrefix, "l"))
+    if (!ft_strcmp(li->sizePrefix, "L"))
         number = va_arg(ap, long double);
     else
         number = va_arg(ap, double);
-    // if((!ft_strcmp(li->sizePrefix, "l")))
-    //     return (ftoa(li, va_arg(ap, long double)));
     return (format_dbl(li, number));
 }

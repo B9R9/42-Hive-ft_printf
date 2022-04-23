@@ -1,3 +1,21 @@
 {
-	"C_Cpp.errorSquiggles": "Disabled"
+	"C_Cpp.errorSquiggles": "Disabled",
+// The number of spaces a tab is equal to.
+"editor.tabSize": 4,
+
+// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+"editor.detectIndentation": true,
+	/*42 Header Setting*/
+	"42header.username": "briffard",
+	"42header.email": "briffard@gmail.com",
+
+	/*Auto Save*/
+	"files.autoSave": "afterDelay",
+
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "all",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"kite.showWelcomeNotificationOnStartup": false,
+
 }

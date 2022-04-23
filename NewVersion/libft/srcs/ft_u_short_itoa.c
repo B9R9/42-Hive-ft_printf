@@ -34,7 +34,7 @@ char	*ft_u_short_itoa(short int n)
 {
 	int		i;
 	char	*str;
-    
+
 	i = numlenght(n);
 	if (n == 0)
 		return (ft_strdup("0"));

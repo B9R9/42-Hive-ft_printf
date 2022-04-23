@@ -8,21 +8,21 @@ static t_bool	is_underline(const char *s);
 
 static t_bool	is_underline(const char *s)
 {
-	if (!ft_strcmp(s, Underlined) || !ft_strcmp(s, ResetUnderlined))
+	if (!ft_strcmp(s, UNDERLINED) || !ft_strcmp(s, RESETUNDERLINED))
 		return (true);
 	return (false);
 }
 
 static t_bool	is_bold(const char *s)
 {
-	if (!ft_strcmp(s, Bold) || !ft_strcmp(s, ResetBold))
+	if (!ft_strcmp(s, BOLD) || !ft_strcmp(s, RESETBOLD))
 		return (true);
 	return (false);
 }
 
 static t_bool	is_blink(const char *s)
 {
-	if (!ft_strcmp(s, Blink) || !ft_strcmp(s, ResetBlink))
+	if (!ft_strcmp(s, BLINK) || !ft_strcmp(s, RESETBLINK))
 		return (true);
 	return (false);
 }
@@ -64,5 +64,4 @@ int	is_bonus(const char *s)
 	if (is_blink(s))
 		return (true);
 	return (false);
-
 }

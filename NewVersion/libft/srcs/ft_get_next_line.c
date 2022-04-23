@@ -76,7 +76,7 @@ static int	error_check(int fd, char **line)
 	return (0);
 }
 
-int	get_next_line(const int fd, char **line)
+int	ft_get_next_line(const int fd, char **line)
 {
 	static char	*str[FD_SIZE];
 	char		buffer[BUFF_SIZE + 1];

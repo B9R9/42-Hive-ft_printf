@@ -6,29 +6,29 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/20 13:40:47 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/23 17:15:26 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_uitoa_base(unsigned long long number, int base)
+char	*ft_uitoa_base(unsigned long long number, int base)
 {
-    int     index;
-	char    *str;
+	int		index;
+	char	*str;
 
-    index = 0;
-    str = ft_strnew(ft_numlenght(number));
-    if (!str)
-        return (NULL);
-    if (number == 0)
-        return (ft_strdup("0"));
-    while (number != 0)
-    {
-        str[index] = BASE[number % base];
-        number = number / base;
-        index++;
-    }
-    ft_reverse_str(str);
+	index = 0;
+	str = ft_strnew(ft_numlenght(number));
+	if (!str)
+		return (NULL);
+	if (number == 0)
+		return (ft_strdup("0"));
+	while (number != 0)
+	{
+		str[index] = BASE[number % base];
+		number = number / base;
+		index++;
+	}
+	ft_reverse_str(str);
 	return (str);
 }
