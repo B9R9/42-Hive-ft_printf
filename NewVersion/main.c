@@ -652,8 +652,8 @@ int main(void)
     ft_printf("%zd\n", 4294967295);
     printf("%zd\n", 4294967295);
     printf("------\n");
-    ft_printf("%zd", 4294967296);
-    printf("%zd", 4294967296);
+    ft_printf("%zd\n", 4294967296);
+    printf("%zd\n", 4294967296);
     printf("------\n");
     ft_printf("%ju\n", 4999999999);
     printf("%ju\n", 4999999999);
@@ -664,11 +664,17 @@ int main(void)
     ft_printf("@main_ftprintf: %####0000 33..1..#00d\\n\n", 256);
     printf("@main_ftprintf: %####0000 33..1..#00d\\n\n", 256);
     printf("------\n");
+    ft_printf("@main_ftprintf: %####0000 33..1..#00d\\n\n", 256);
+    printf("@main_ftprintf: %####000033....21d\\n\n", 256);
+    printf("------\n");
     ft_printf("@main_ftprintf: %####0000 33..1d\n", 256);
     printf("@main_ftprintf: %####0000 33..1d\n", 256);
     printf("------\n");
     ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
     printf("@main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
+    printf("------\n");
+    ft_printf("FT->%lls\n", "test lls");
+    printf("PF->%lls\n", "lls");
 
     // int max = __INT_MAX__;
     // int min = -2147483648;

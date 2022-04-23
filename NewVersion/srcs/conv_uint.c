@@ -45,7 +45,9 @@ int format_uint(t_parameter *option, unsigned int number)
 	size = 0;
 
     if (number == 0 && option->dot && option->precision == 0)
-        {return (format_char(option, ' '));}
+        {	if(option->flags & F_HASHTAG)
+				option->flags = option->flags ^ F_HASHTAG;
+			return (print_int(option, ""));}
 	str = ft_uitoa_base(number, define_base(option));
 	if (!str)
 		exit(EXIT_FAILURE);
@@ -66,6 +68,8 @@ int conv_to_uint(t_parameter *option, va_list ap)
         return(u_ll_itoa(option, (unsigned short)va_arg(ap, int)));
     else if(!ft_strcmp(option->sizePrefix, "hh"))
         return(u_ll_itoa(option, (unsigned char)va_arg(ap, int)));
+    else if(!ft_strcmp(option->sizePrefix, "z"))
+        return(u_ll_itoa(option, va_arg(ap, unsigned long)));
     else
     	return (format_uint(option, va_arg(ap, unsigned int)));
 }

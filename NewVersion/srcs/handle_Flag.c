@@ -78,8 +78,8 @@ t_parameter     *handle_precision(char *str, t_parameter *li, va_list ap)
         else
         {
             li->precision = ft_atoi(&str[1]);
-            // if(!li->precision && checkparams(str[1]))
-            //     li->error = true;
+            if(!li->precision && checkparams(str[1]) && str[1] != '0')
+                li->error = true;
             li->char_to_skip += skip(&str[1]) + 1;
         }
     }
