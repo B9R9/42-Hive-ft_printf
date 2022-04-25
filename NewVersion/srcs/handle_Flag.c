@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:49:59 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:12:29 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,12 @@ t_parameter	*handle_size_prefix(char *str, t_parameter *li)
 	int	i;
 
 	i = 0;
-	ft_bzero(li->sizeprefix, 5);
+	// ft_bzero(li->sizeprefix, 5);
 	if (str[0] == 'l' || str[0] == 'h' || str[0] == 'L' || str[0] == 'z')
 	{
+		li->sizeprefix = ft_strnew(5);
+		if (!li->sizeprefix)
+			exit(EXIT_FAILURE);
 		li->sizeprefix[i] = str[i];
 		i += 1;
 		while (str[i - 1] == str[i] && i < 2)
@@ -106,6 +109,8 @@ t_parameter	*handle_size_prefix(char *str, t_parameter *li)
 			i++;
 		}
 		li->sizeprefix[i] = '\0';
+		while (i <= 5)
+			li->sizeprefix[i++] = '\0';
 		li->char_to_skip += ft_strlen(li->sizeprefix);
 		li->flags = li->flags | F_MOD;
 	}

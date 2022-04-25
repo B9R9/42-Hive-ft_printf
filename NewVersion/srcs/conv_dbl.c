@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 14:01:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:30:00 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static int	format_dbl(t_parameter *option, long double number)
 	int					size;
 
 	size = 0;
+	test = NULL;
 	number = set_dbl_negtif(number, option);
 	ipart = (unsigned long long)number;
 	fpart = number - (long double)ipart;
