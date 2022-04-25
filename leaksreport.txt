@@ -1,0 +1,24 @@
+Process:         test [66875]
+Path:            /Volumes/VOLUME/*/test
+Load Address:    0x10ae3a000
+Identifier:      test
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [65627]
+
+Date/Time:       2022-04-25 15:43:00.547 +0300
+Launch Time:     2022-04-25 15:43:00.261 +0300
+OS Version:      Mac OS X 10.14.6 (18G9323)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 11.3.1 (11C505)
+----
+
+leaks Report Version: 4.0
+Process 66875: 170 nodes malloced for 18 KB
+Process 66875: 2 leaks for 32 total leaked bytes.
+
+    2 (32 bytes) << TOTAL >>
+      1 (16 bytes) ROOT LEAK: 0x7ff800c00620 [16]  length: 1  "0"
+      1 (16 bytes) ROOT LEAK: 0x7ff800c02a90 [16]
+

@@ -5,51 +5,56 @@
 #                                                     +:+ +:+         +:+      #
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/18 11:19:02 by briffard          #+#    #+#              #
-#    Updated: 2022/03/01 16:25:15 by briffard         ###   ########.fr        #
+#    Created: 2022/04/12 12:13:08 by briffard          #+#    #+#              #
+#    Updated: 2022/04/25 10:29:32 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#EXECUTABLE
-NAME		=		test
-
-#HEADER FILE
-SRCS		=		main.c
-SRCS_DIR	=		./srcs/
-
-OBJ_DIR		=		./objects/
-OBJ			=		$(addprefix $(OBJ-DIR), $(SRCS;.c=.o))
-
-#LIBFT Library
-INCL_LIBFT	=	./libft/includes/
-LIBFT		=	./libft/ -lft
-
-#FT_PRINTF Library
-INCL_FT_PRINTF	=	./ft_printf/includes/
-LFT_PRINTF		=	./ft_printf/ -lftprintf
+NAME	=	libftprintf.a
 
 #COMPILATION
-CC			=	gcc
-CCFLAGS		=	-Werror -Wextra -Wall
+CC		=	gcc
+CCFLAGS	=	-Werror -Wextra -Wall -I./libft/includes -Iinclude -g
 
-#DELETE
-RM			=	rm -f
-RM_D		=	rm -rf
+#CLEAN & FCLEAN
+RM_DIR	=	rm -rf
+RM		=	rm	-f
 
-all: $(NAME)
+#SOURCE FILE
+SRC_DIR =	./srcs/
+SRC		=	ft_printf.c							\
+			struct_init.c						\
+			handle_Flag.c error.c				\
+			conv_str.c  conv_int.c conv_uint.c conv_p.c conv_dbl.c \
+			conv_void.c	\
+			print_str.c	print_int.c\
+			handle_sizePrefix_for_flag_d.c		\
+			utils_funct.c utils_print_int.c 	\
+			bonus.c \
 
-$(NAME):
-	make -C ft_printf/ fclean && make -C ft_printf/
-	$(CC) $(CCFLAGS) -I$(INCL_FT_PRINTF) -o $@  ./srcs/main.c  -L $(LFT_PRINTF)
+#OBJECT FILE
+OBJ_DIR	=	./objectFiles/
+OBJS		=	$(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
+
+all:$(NAME)
+
+$(NAME):$(OBJS)
+	@cp libft/libft.a $(NAME)
+	@ar rcs $(NAME) $(OBJS)
+
+$(OBJ_DIR)%.o:$(SRC_DIR)%.c
+	@make -sC ./libft
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CCFLAGS) -o $@ -c $<
 
 clean:
-	$(RM_d) $(OBJ_DIR)
-	make -C ft_printf/ clean
+	@$(RM_DIR) $(OBJ_DIR)
+	@echo "FT_PRINTF: Object Files directory has been deleted"
+	@make -sC ./libft/ clean
 
-fclean:
-	$(RM) $(NAME)
-	make -C ft_printf/ fclean
+fclean: clean
+	@$(RM) $(NAME)
+	@echo "libftprintf.a file has been deleted"
+	@make -sC ./libft/ fclean
 
-re: fclean all
-
-.PHONY: all clean fclean re
+re:fclean all clean
