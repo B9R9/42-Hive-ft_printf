@@ -6,13 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:38:25 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 12:45:55 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		add_character_F_HASTAG(char conv);
+int		add_character_f_hashatg(char conv);
 int		set_space(t_parameter *option);
 int		set_zero(t_parameter *option);
 void	adjust_lenght(t_parameter *option, char *str, int to_remove);

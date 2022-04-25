@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:33:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 13:31:37 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,16 @@ t_bool	checkparams(char c)
 
 t_parameter	*init(const char *format, t_parameter *option, va_list ap)
 {
+	char		*temp;
 	char		*parameters;
 	int			index;
 
 	index = 1;
 	while (checkparams(format[index]) && format)
 		index++;
-	parameters = ft_strsub(format, 1, index);
+	temp = ft_strsub(format, 1, index);
+	parameters = temp;
+	ft_memdel((void *)&temp);
 	if (!parameters)
 		exit(EXIT_FAILURE);
 	if (!option)
@@ -80,6 +83,5 @@ t_parameter	*init(const char *format, t_parameter *option, va_list ap)
 			exit(EXIT_FAILURE);
 	}
 	setup(parameters, option, ap);
-	ft_memdel((void *)&parameters);
 	return (option);
 }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:22:31 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 12:49:59 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_parameter	*handle_width(char *str, t_parameter *li, va_list ap)
 	{
 		li->width = ft_atoi(str);
 		if (!li->width && isnot_precision(str[0]) && checkparams(str[0]) && \
-		isnot_sizePrefix(str))
+		isnot_sizeprefix(str))
 			li->error = true;
 		li->char_to_skip += skip(str);
 	}
@@ -85,7 +85,7 @@ t_parameter	*handle_precision(char *str, t_parameter *li, va_list ap)
 			li->char_to_skip += skip(&str[1]) + 1;
 		}
 	}
-	else if (checkparams(str[0]) && isnot_sizePrefix(str))
+	else if (checkparams(str[0]) && isnot_sizeprefix(str))
 		li->error = true;
 	return (li);
 }

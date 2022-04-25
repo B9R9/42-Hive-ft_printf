@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:29:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 12:49:11 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	set_lenght(t_parameter *option, char *str)
 	if (option->precision < (int)ft_strlen(str) && option->conv != 'f')
 		option->precision = (int)ft_strlen(str);
 	if (option->flags & F_HASHTAG)
-		to_remove += add_character_F_HASTAG(option->conv);
+		to_remove += add_character_f_hashtag(option->conv);
 	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
 	option->width >= option->precision)
 		to_remove += 1;

@@ -6,14 +6,14 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:16:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:36:36 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 12:46:08 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int			skip(char *str);
-t_bool		isnot_sizePrefix(char *str);
+t_bool		isnot_sizeprefix(char *str);
 int			define_base(t_parameter *option);
 t_bool		isnot_precision(int c);
 long double	set_dbl_negtif(long double number, t_parameter *option);

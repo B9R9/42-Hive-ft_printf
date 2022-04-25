@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 10:00:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 09:43:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:03:30 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*check_for_zero(char *number, int last_index)
 	return (number);
 }
 
-char	*ft_str_rounding(char *number, int fpart, int last_index)
+char	*jft_str_rounding(char *number, int fpart, int last_index)
 {
 	if (fpart > 5)
 	{
