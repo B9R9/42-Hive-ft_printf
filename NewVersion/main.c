@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/22 15:27:31 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 10:18:45 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%c<\n", 64);
     printf("PF->%c<\n", 64);
+
 
     printf("================INT================\n");
     int max = __INT_MAX__;
@@ -276,6 +277,9 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%#015.10X<\n", 4561258);
     printf("PF->%#015.10X<\n", 4561258 );
+    // printf("------\n");
+    // ft_printf("FT->%#015.10X<\n", );
+    // printf("PF->%#015.10X<\n", 4561258 );
     printf("================POINTEUR================\n");
     char *str;
     printf("------\n");
@@ -655,6 +659,9 @@ int main(void)
     ft_printf("%zd\n", 4294967296);
     printf("%zd\n", 4294967296);
     printf("------\n");
+    ft_printf("%zu\n", 4294967296);
+    printf("%zu\n", 4294967296);
+    printf("------\n");
     ft_printf("%ju\n", 4999999999);
     printf("%ju\n", 4999999999);
     printf("------\n");
@@ -674,7 +681,10 @@ int main(void)
     printf("@main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
     printf("------\n");
     ft_printf("FT->%lls\n", "test lls");
-    printf("PF->%lls\n", "lls");
+    printf("PF->%lls\n", "test lls");
+    printf("------\n");
+    ft_printf("FT->%*s<-\n", -12,"lls");
+    printf("PF->%*s<-\n", -12,"lls");
 
     // int max = __INT_MAX__;
     // int min = -2147483648;

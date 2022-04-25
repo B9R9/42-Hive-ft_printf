@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_print_int.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
+/*   Updated: 2022/04/25 12:38:25 by briffard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int		add_character_F_HASTAG(char conv);
 int		set_space(t_parameter *option);
 int		set_zero(t_parameter *option);
 void	adjust_lenght(t_parameter *option, char *str, int to_remove);
+int		align(char *str, t_parameter *option);
 
-int	add_character_F_HASTAG(char conv)
+int	add_character_f_hashtag(char conv)
 {
-	if(conv == 'o')
+	if (conv == 'o')
 		return (1);
 	else
 		return (2);
@@ -29,7 +42,7 @@ int	set_space(t_parameter *option)
 
 int	set_zero(t_parameter *option)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	if (option->flags & F_HASHTAG)
@@ -61,4 +74,23 @@ void	adjust_lenght(t_parameter *option, char *str, int to_remove)
 	if (option->conv == 'u' && option->flags & F_HASHTAG && \
 	option->width > option->precision)
 		option->lenght += 2;
+}
+
+int	align(char *str, t_parameter *option)
+{
+	int	size;
+
+	size = 0;
+	if (option->flags & F_SPACE && (!(option->flags & F_NEGATIF) && \
+	!(option->flags & F_PLUS)))
+		size += print_char(' ');
+	if (option->flags & F_HASHTAG)
+		size += print_0x(option);
+	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
+		size += print_sign(option);
+	size += print_precision(0, option, (int)ft_strlen(str));
+	size += print_str(str, (int)ft_strlen(str));
+	while (size < option->width)
+		size += print_char(' ');
+	return (size);
 }

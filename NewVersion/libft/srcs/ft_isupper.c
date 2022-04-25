@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: briffard <briffard@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:23:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/24 15:24:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 09:37:25 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isupper(int c)
+int	ft_isupper(int c)
 {
-    if (c >= 'A' && c <= 'Z')
-        return 1;
-    return 0;
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

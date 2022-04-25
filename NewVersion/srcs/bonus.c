@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bonus.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/25 11:04:06 by briffard          #+#    #+#             */
+/*   Updated: 2022/04/25 11:04:14 by briffard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	is_bonus(const char *s);
+int				is_bonus(const char *s);
 static t_bool	is_color(const char *s);
 static t_bool	is_bold(const char *s);
 static t_bool	is_blink(const char *s);
@@ -35,11 +47,11 @@ static t_bool	is_color(const char *s)
 {
 	if (!ft_strcmp(s, RED))
 		return (true);
-	if ( !ft_strcmp(s, DEFAULT))
+	if (!ft_strcmp(s, DEFAULT))
 		return (true);
-	if ( !ft_strcmp(s, GREEN))
+	if (!ft_strcmp(s, GREEN))
 		return (true);
-	if ( !ft_strcmp(s, YELLOW))
+	if (!ft_strcmp(s, YELLOW))
 		return (true);
 	if (!ft_strcmp(s, BLUE))
 		return (true);
@@ -49,9 +61,8 @@ static t_bool	is_color(const char *s)
 		return (true);
 	if (!ft_strcmp(s, WHITE))
 		return (true);
-	return(false);
+	return (false);
 }
-
 
 int	is_bonus(const char *s)
 {

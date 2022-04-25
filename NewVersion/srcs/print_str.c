@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_str.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/25 12:29:25 by briffard          #+#    #+#             */
+/*   Updated: 2022/04/25 12:31:01 by briffard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	print_width(t_parameter *option, int lenght);
@@ -7,7 +19,7 @@ int	align_right(int start, int lenght);
 
 int	align_right(int start, int lenght)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (start < lenght)
@@ -23,7 +35,7 @@ int	align_right(int start, int lenght)
 */
 int	print_char(char c)
 {
-	write(1 ,&c, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
@@ -50,7 +62,7 @@ int	print_str(const char *str, int lenght)
 */
 int	print_width(t_parameter *option, int lenght)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (size < (option->width - lenght) && option->flags ^ F_MINUS)

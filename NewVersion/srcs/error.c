@@ -6,13 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/22 13:59:09 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 12:15:15 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			error_message(const char *message);
+int			error(const char *message);
 t_parameter	*checkoptionerror(t_parameter *options);
 
 t_parameter	*checkoptionerror(t_parameter *options)
@@ -25,15 +25,16 @@ t_parameter	*checkoptionerror(t_parameter *options)
 		(options->conv != 'd' && options->conv != 'i' && \
 		options->conv != 'f'))
 		options->flags = options->flags ^ F_SPACE;
-	if (options->precision && options->flags & F_ZERO )
+	if (options->precision && options->flags & F_ZERO)
 		options->flags = options->flags ^ F_ZERO;
 	if (options->flags & F_PLUS && \
-	(options->conv == 'u' || options->conv == 'x' || options->conv == 'p' || options->conv == 'o'))
+	(options->conv == 'u' || options->conv == 'x' || options->conv == 'p' || \
+	options->conv == 'o'))
 		options->flags = options->flags ^ F_PLUS;
 	return (options);
 }
 
-int	error_message(const char *message)
+int	error(const char *message)
 {
 	write(2, message, ft_strlen(message));
 	return (-1);

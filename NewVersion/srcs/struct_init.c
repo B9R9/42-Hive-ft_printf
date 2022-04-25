@@ -6,26 +6,16 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/22 14:55:51 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 12:33:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_parameter			*init(const char *format,t_parameter *option, va_list ap);
-t_bool			checkparams(char c);
-static	void		resetoption(t_parameter *li, char *str);
-// static	t_bool		isnot_valid(char *str);
-static	t_parameter	*setup(char *str, t_parameter *li, va_list ap);
-
-/*
-** Check if parameter is valid or not
-*/
-// static t_bool	isnot_valid(char *str)
-// {
-	
-// }
-
+t_parameter			*init(const char *format, t_parameter *option, va_list ap);
+t_bool				checkparams(char c);
+static void			resetoption(t_parameter *li, char *str);
+static t_parameter	*setup(char *str, t_parameter *li, va_list ap);
 
 /*RESET ALL PARAMETERS*/
 static void	resetoption(t_parameter *option, char *str)
@@ -38,12 +28,10 @@ static void	resetoption(t_parameter *option, char *str)
 	option->error = false;
 	option->precision = 0;
 	option->char_to_skip = 0;
-	// option->part_1 = 0;
-	ft_bzero(option->sizePrefix, 5);
+	ft_bzero(option->sizeprefix, 5);
 	option->size = ft_strlen(str);
 	option->negatif = false;
 	option->lenght = 0;
-
 }
 
 /*PARSE PARAMETERS STR TO DEFINE THEM INTO THE STRUCT*/
@@ -58,6 +46,7 @@ static t_parameter	*setup(char *str, t_parameter *li, va_list ap)
 	checkoptionerror(li);
 	return (li);
 }
+
 /*LOOKING FOR THE FLAG*/
 t_bool	checkparams(char c)
 {
@@ -73,16 +62,14 @@ t_bool	checkparams(char c)
 	return (true);
 }
 
-t_parameter	*init(const char *format,t_parameter *option, va_list ap)
+t_parameter	*init(const char *format, t_parameter *option, va_list ap)
 {
 	char		*parameters;
-    int         index;
+	int			index;
 
 	index = 1;
 	while (checkparams(format[index]) && format)
 		index++;
-	// if (index >= (int)ft_strlen(format))
-	// 	option->error = true;
 	parameters = ft_strsub(format, 1, index);
 	if (!parameters)
 		exit(EXIT_FAILURE);

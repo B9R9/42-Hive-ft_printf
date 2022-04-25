@@ -7,7 +7,7 @@
 "editor.detectIndentation": true,
 	/*42 Header Setting*/
 	"42header.username": "briffard",
-	"42header.email": "briffard@gmail.com",
+	"42header.email": "briffard@student.42.fr",
 
 	/*Auto Save*/
 	"files.autoSave": "afterDelay",
