@@ -20,8 +20,7 @@ if [ $1 = 'valgrind' ];then
     exit 1
 fi
 if [ $1 = 'push' ];then
-    cd ../
-    git add ./NewVersion
+    git add .
     git commit -m "$2"
     git push
 fi

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 14:30:00 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:39:06 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 		fpart = fpart - (int)fpart;
 		i++;
 	}
-	ft_memdel((void **)&box);
+	ft_memdel((void *)&box);
 	box = temp;
 	return (box);
 }

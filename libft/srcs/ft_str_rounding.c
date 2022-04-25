@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 10:00:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 14:22:28 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:39:47 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*check_for_zero(char *number, int last_index)
 {
 	if (last_index == 0)
-		number = ft_strjoin_replace("1", number, 1);
+		number = ft_strjoin("1", number);
 	else
 		number[last_index - 1] = number[last_index - 1] + 1;
 	return (number);
@@ -38,7 +38,7 @@ char	*ft_str_rounding(char *number, int fpart, int last_index)
 			if ((number[0] == ':' || number[0] == '.') && (int)last_index == 0)
 			{
 				number[0] = '0';
-				number = ft_strjoin_replace ("1", number, 1);
+				number = ft_strjoin("1", number);
 			}
 			last_index--;
 		}

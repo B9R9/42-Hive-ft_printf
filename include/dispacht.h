@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 10:12:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 14:55:21 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:41:28 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_parameter
 	int			lenght;
 	int			precision;
 	int			char_to_skip;
-	// char		sizeprefix[5];
-	char		*sizeprefix;
+	char		sizeprefix[5];
+	// char		*sizeprefix;
 	int			size;
 }	t_parameter;
 
