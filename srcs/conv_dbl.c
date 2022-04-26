@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 16:39:06 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 08:49:14 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,20 @@ static int	getroudingdigit(int precision, long double fpart)
 char	*set_fpart(char *box, t_parameter *option, long double fpart)
 {
 	int		i;
-	char	*temp;
+	// char	*temp;
 
-	temp = ft_strnew(option->precision + 1);
-	if (!temp)
+	box = ft_strnew(option->precision + 1);
+	if (!box)
 		exit (EXIT_FAILURE);
-	temp[0] = '.';
+	box[0] = '.';
 	i = 0;
 	while (i < option->precision)
 	{
 		fpart = fpart * 10;
-		temp[i + 1] = 48 + (((int)fpart) % 10);
+		box[i + 1] = 48 + (((int)fpart) % 10);
 		fpart = fpart - (int)fpart;
 		i++;
 	}
-	ft_memdel((void *)&box);
-	box = temp;
 	return (box);
 }
 
@@ -83,15 +81,16 @@ static int	format_dbl(t_parameter *option, long double number)
 	temp = ft_uitoa_base(ipart, 10);
 	if (option->flags & F_NEGATIF)
 		fpart = fpart * -1;
-	test = ft_strnew(option->precision + 1);
+	test = set_fpart(test, option, fpart);
 	if (option->precision != 0)
-	temp = ft_strjoin_replace(temp, set_fpart(test, option, fpart), 1);
+			temp = ft_strjoin_replace(temp, test, 0);
+	ft_memdel((void *) &test);
 	temp = ft_str_rounding(temp, getroudingdigit(option->precision, fpart), \
 	(ft_strlen(temp) - 1));
 	if (option->precision == 1 && number > 0)
 		temp = check_ret(temp, number);
 	size = print_int(option, temp);
-	ft_memdel((void *)&temp);
+	ft_memdel((void *) &temp);
 	return (size);
 }
 

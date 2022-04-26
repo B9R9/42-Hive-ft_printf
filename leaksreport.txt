@@ -1,13 +1,13 @@
-Process:         test [94812]
+Process:         test [89580]
 Path:            /Volumes/VOLUME/*/test
-Load Address:    0x100419000
+Load Address:    0x109696000
 Identifier:      test
 Version:         ???
 Code Type:       X86-64
-Parent Process:  zsh [65627]
+Parent Process:  zsh [61055]
 
-Date/Time:       2022-04-25 16:42:03.921 +0300
-Launch Time:     2022-04-25 16:42:03.610 +0300
+Date/Time:       2022-04-26 09:00:20.537 +0300
+Launch Time:     2022-04-26 09:00:20.271 +0300
 OS Version:      Mac OS X 10.14.6 (18G9323)
 Report Version:  7
 Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
@@ -15,30 +15,8 @@ Analysis Tool Version:  Xcode 11.3.1 (11C505)
 ----
 
 leaks Report Version: 4.0
-Process 94812: 196 nodes malloced for 19 KB
-Process 94812: 22 leaks for 1264 total leaked bytes.
+Process 89580: 186 nodes malloced for 29 KB
+Process 89580: 1 leak for 64 total leaked bytes.
 
-    22 (1.23K) << TOTAL >>
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02a90 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02d70 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02db0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02e20 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02e60 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02ea0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02ee0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02f20 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02f60 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02fa0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c02fe0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c03020 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c03060 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c030a0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c030e0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c03120 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c03160 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c031a0 [64]
-      1 (64 bytes) ROOT LEAK: 0x7fc467c031e0 [64]
-      1 (16 bytes) ROOT LEAK: 0x7fc467c00620 [16]  length: 5  "00.00"
-      1 (16 bytes) ROOT LEAK: 0x7fc467c00630 [16]  length: 5  "00.00"
-      1 (16 bytes) ROOT LEAK: 0x7fc467c02ad0 [16]  length: 5  "00.00"
+    1 (64 bytes) ROOT LEAK: 0x7f8957402dc0 [64]
 

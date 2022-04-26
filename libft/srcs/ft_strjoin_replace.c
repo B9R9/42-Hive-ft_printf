@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:25:04 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 16:35:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 08:38:11 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@ char	*ft_strjoin_replace(char *s0, char *s1, int choice)
 {
 	char	*tmp;
 
-	choice = 0;
 	tmp = ft_strjoin(s0, s1);
-	ft_memdel((void *)&s1);
-	ft_memdel((void *)&s0);
+	if (choice == 0)
+		ft_memdel((void *)&s0);
+	else if (choice == 1)
+		ft_memdel((void *)&s1);
+	else if (choice == 2)
+		{
+			ft_memdel((void *)&s0);
+			ft_memdel((void *)&s1);
+		}
 	s0 = tmp;
 	return (s0);
 }
