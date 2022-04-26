@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 12:13:08 by briffard          #+#    #+#              #
-#    Updated: 2022/04/26 09:27:35 by briffard         ###   ########.fr        #
+#    Updated: 2022/04/26 09:54:45 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,4 +58,4 @@ fclean: clean
 	@echo "libftprintf.a file has been deleted"
 	@make -sC ./libft/ fclean
 
-re:fclean all clean
+re:fclean all
