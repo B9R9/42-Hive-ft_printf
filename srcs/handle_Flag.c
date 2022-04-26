@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 16:41:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:24:49 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ t_parameter	*handle_precision(char *str, t_parameter *li, va_list ap)
 		li->dot = true;
 		if (str[1] == '*')
 		{
-			li->precision = va_arg(ap, int);
+			li->pre = va_arg(ap, int);
 			li->char_to_skip += 2;
 		}
 		else
 		{
-			li->precision = ft_atoi(&str[1]);
-			if (!li->precision && checkparams(str[1]) && str[1] != '0')
+			li->pre = ft_atoi(&str[1]);
+			if (!li->pre && checkparams(str[1]) && str[1] != '0')
 				li->error = true;
 			li->char_to_skip += skip(&str[1]) + 1;
 		}

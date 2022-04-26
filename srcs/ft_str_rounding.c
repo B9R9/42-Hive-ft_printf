@@ -6,11 +6,11 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 10:00:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 08:41:35 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:27:45 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char	*check_for_zero(char *number, int last_index)
 {
@@ -21,7 +21,7 @@ char	*check_for_zero(char *number, int last_index)
 	return (number);
 }
 
-char	*ft_str_rounding(char *number, int fpart, int last_index)
+char	*rounding(char *number, int fpart, int last_index)
 {
 	if (fpart > 5)
 	{

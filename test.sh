@@ -3,6 +3,8 @@
 if [ $1 = 'clean' ];then
     rm -f *.o
     rm -f test
+    rm -f leaksreport.txt
+    rm -f Valgrindlog
     exit 1
 fi
 if [ $1 = 'compil' ];then

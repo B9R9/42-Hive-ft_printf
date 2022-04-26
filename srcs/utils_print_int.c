@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:45:55 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:24:50 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,20 @@ int	set_zero(t_parameter *option)
 
 void	adjust_lenght(t_parameter *option, char *str, int to_remove)
 {
-	if (option->precision > option->width && option->conv != 'f')
+	if (option->pre > option->width && option->conv != 'f')
 		option->width = 0;
 	else
 	{
-		option->lenght = (option->width - to_remove) - option->precision;
+		option->lenght = (option->width - to_remove) - option->pre;
 		if (option->lenght < 0)
 			option->lenght = 0;
 	}
-	if (option->width == 0 && option->precision == (int)ft_strlen(str) && \
+	if (option->width == 0 && option->pre == (int)ft_strlen(str) && \
 	option->flags & F_SPACE && (!(option->flags & F_NEGATIF) && \
 	!(option->flags & F_PLUS)))
 		option->lenght += 1;
 	if (option->conv == 'u' && option->flags & F_HASHTAG && \
-	option->width > option->precision)
+	option->width > option->pre)
 		option->lenght += 2;
 }
 

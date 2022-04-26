@@ -6,23 +6,23 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 08:49:14 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:31:51 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static int	format_dbl(t_parameter *option, long double number);
-static int	getroudingdigit(int precision, long double fpart);
+static int	getdigit(int pre, long double fpart);
 char		*set_fpart(char *box, t_parameter *option, long double fpart);
 
-/*Get digit == precision + 1 to make the rouding*/
-static int	getroudingdigit(int precision, long double fpart)
+/*Get digit == pre + 1 to make the rouding*/
+static int	getdigit(int pre, long double fpart)
 {
 	int	i;
 
 	i = 0;
-	while (i < precision)
+	while (i < pre)
 	{
 		fpart = fpart * 10;
 		fpart = fpart - (long long) fpart;
@@ -35,14 +35,13 @@ static int	getroudingdigit(int precision, long double fpart)
 char	*set_fpart(char *box, t_parameter *option, long double fpart)
 {
 	int		i;
-	// char	*temp;
 
-	box = ft_strnew(option->precision + 1);
+	box = ft_strnew(option->pre + 1);
 	if (!box)
 		exit (EXIT_FAILURE);
 	box[0] = '.';
 	i = 0;
-	while (i < option->precision)
+	while (i < option->pre)
 	{
 		fpart = fpart * 10;
 		box[i + 1] = 48 + (((int)fpart) % 10);
@@ -76,18 +75,16 @@ static int	format_dbl(t_parameter *option, long double number)
 	number = set_dbl_negtif(number, option);
 	ipart = (unsigned long long)number;
 	fpart = number - (long double)ipart;
-	if (option->precision == 0)
-		option->precision = 6;
+	if (option->pre == 0)
+		option->pre = 6;
 	temp = ft_uitoa_base(ipart, 10);
 	if (option->flags & F_NEGATIF)
 		fpart = fpart * -1;
 	test = set_fpart(test, option, fpart);
-	if (option->precision != 0)
-			temp = ft_strjoin_replace(temp, test, 0);
+	temp = ft_strjoin_replace(temp, test, 0);
 	ft_memdel((void *) &test);
-	temp = ft_str_rounding(temp, getroudingdigit(option->precision, fpart), \
-	(ft_strlen(temp) - 1));
-	if (option->precision == 1 && number > 0)
+	temp = rounding(temp, getdigit(option->pre, fpart), (ft_strlen(temp) - 1));
+	if (option->pre == 1 && number > 0)
 		temp = check_ret(temp, number);
 	size = print_int(option, temp);
 	ft_memdel((void *) &temp);

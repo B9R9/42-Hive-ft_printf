@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:13:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:24:48 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	format_int(t_parameter *option, int number)
 	size = 0;
 	if (number < 0 && number > -2147483648)
 		number = set_negatif(number, option);
-	if (number == 0 && option->dot && option->precision == 0)
+	if (number == 0 && option->dot && option->pre == 0)
 	{
 		if (option->flags & F_HASHTAG)
 				option->flags = option->flags ^ F_HASHTAG;

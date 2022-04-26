@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:50:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:34:21 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int			define_base(t_parameter *option);
 int			skip(char *str);
 t_bool		isnot_sizeprefix(char *str);
 t_bool		isnot_precision(int c);
-long double set_dbl_negtif(long double number, t_parameter *option);
+long double	set_dbl_negtif(long double number, t_parameter *option);
 
 /*UTILS_PRINT_INT.C*/
 int			add_character_f_hashtag(char conv);
@@ -99,8 +99,7 @@ int			set_zero(t_parameter *option);
 void		adjust_lenght(t_parameter *option, char *str, int to_remove);
 int			align(char *str, t_parameter *option);
 
-/*TO REMOVE*/
-void		check_parameter(t_parameter *li);
-void		check_flasgbit(t_parameter *option);
+/*FT_STR_ROUDING*/
+char		*rounding(char *number, int fpart, int last_index);
 
 #endif

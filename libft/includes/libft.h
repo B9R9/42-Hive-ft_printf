@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 16:18:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:29:29 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef enum s_bool
+typedef enum e_bool
 {
 	false,
 	true
@@ -156,6 +156,5 @@ void				ft_swap(char *a, char *b);
 /*MATH*/
 double				ft_abs_float(double value);
 long long			ft_abs_int(long long value);
-char				*ft_str_rounding(char *number, int fpart, int last_index);
 unsigned long long	ft_numlenght(unsigned long long int n);
 #endif

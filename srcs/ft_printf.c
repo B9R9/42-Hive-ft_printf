@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 08:24:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 13:47:13 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:33:46 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			option = init(&format[i], option, ap);
-			if (option->error)
+			if (option == NULL)
 				return (error ("(Error founded.The output will be altered)\n"));
 			size += dispacht(ap, option);
 			i += option->size + 1;
@@ -52,29 +52,4 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	free(option);
 	return (size);
-}
-
-/*TO REMOVE*/
-/*PRINT PARAMETER*/
-void	check_parameter(t_parameter *li)
-{
-    printf("WIDTH           -->%d\n", li->width);
-    printf("FLAG            -->%c\n", li->conv);
-    printf("upper           -->%d\n", li->upper);
-    printf("precision       -->%d\n", li->precision);
-    printf("char_to_skip    -->%d\n", li->char_to_skip);
-    printf("size_Prefix     -->%s\n", li->sizeprefix);
-    printf("size            -->%d\n", li->size);
-}
-
-/*PRINT VALEUR DE option->flags*/
-void    check_flasgbit(t_parameter *option)
-{
-    printf("F_NEGATIF ->%d<-\n", option->flags & F_NEGATIF);
-    printf("F_HASHTAG ->%d<-\n", option->flags & F_HASHTAG);
-    printf("F_ZERO ->%d<-\n", option->flags & F_ZERO);
-    printf("F_PLUS ->%d<-\n", option->flags & F_PLUS);
-    printf("F_MINUS ->%d<-\n", option->flags & F_MINUS);
-    printf("F_SPACE ->%d<-\n", option->flags & F_SPACE);
-    printf("BOOL Negatif ->%d<-\n", option->negatif);
 }

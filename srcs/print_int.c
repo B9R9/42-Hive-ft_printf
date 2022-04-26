@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:49:11 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:24:50 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	print_precision(int start, t_parameter *option, int lenght)
 	int	size;
 
 	size = 0;
-	while (start < (option->precision - lenght) && option->conv != 'f')
+	while (start < (option->pre - lenght) && option->conv != 'f')
 	{
 		size += print_char('0');
 		start++;
@@ -75,12 +75,12 @@ void	set_lenght(t_parameter *option, char *str)
 	int	to_remove;
 
 	to_remove = 0;
-	if (option->precision < (int)ft_strlen(str) && option->conv != 'f')
-		option->precision = (int)ft_strlen(str);
+	if (option->pre < (int)ft_strlen(str) && option->conv != 'f')
+		option->pre = (int)ft_strlen(str);
 	if (option->flags & F_HASHTAG)
 		to_remove += add_character_f_hashtag(option->conv);
 	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
-	option->width >= option->precision)
+	option->width >= option->pre)
 		to_remove += 1;
 	adjust_lenght(option, str, to_remove);
 }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:29:25 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:31:01 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:24:50 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	print_char(char c)
 }
 
 /*
-**print a char* until precision
+**print a char* until pre
 */
 int	print_str(const char *str, int lenght)
 {

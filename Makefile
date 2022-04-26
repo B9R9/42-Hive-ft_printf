@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 12:13:08 by briffard          #+#    #+#              #
-#    Updated: 2022/04/25 10:29:32 by briffard         ###   ########.fr        #
+#    Updated: 2022/04/26 09:27:35 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC		=	ft_printf.c							\
 			print_str.c	print_int.c\
 			handle_sizePrefix_for_flag_d.c		\
 			utils_funct.c utils_print_int.c 	\
+			ft_str_rounding.c \
 			bonus.c \
 
 #OBJECT FILE

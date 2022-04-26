@@ -42,7 +42,7 @@ FILES	=ft_putchar.c	ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 	ft_get_next_line.c		ft_swap.c		ft_abs_float.c		ft_isupper.c\
 	ft_u_itoa.c 		ft_ll_itoa.c		ft_l_itoa.c		ft_u_short_itoa.c\
 	ft_abs_int.c 		ft_uitoa_base.c 	ft_reversestr.c \
-	ft_charjoin.c 		ft_strtoupper.c		ft_strtoupper.c  ft_str_rounding.c\
+	ft_charjoin.c 		ft_strtoupper.c		ft_strtoupper.c  \
 	ft_isdoubleneg.c	ft_isintneg.c 		ft_strjoin_replace.c\
 
 #OBJECT FILE

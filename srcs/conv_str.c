@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:11:05 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 11:49:47 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:24:49 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	set_precision(t_parameter *option, const char *str);
 
 static void	set_precision(t_parameter *option, const char *str)
 {
-	if ((!option->precision && str) || \
-	(option->precision > (int)ft_strlen(str) && str))
-		option->precision = ft_strlen(str);
+	if ((!option->pre && str) || \
+	(option->pre > (int)ft_strlen(str) && str))
+		option->pre = ft_strlen(str);
 }
 
 /*
@@ -39,8 +39,8 @@ static int	format_str(const char *str, t_parameter *option)
 		return (0);
 	}
 	set_precision(option, str);
-	size += print_width(option, option->precision);
-	size += print_str(str, option->precision);
+	size += print_width(option, option->pre);
+	size += print_str(str, option->pre);
 	if (option->flags & F_MINUS)
 		size += align_right(size, option->width);
 	return (size);
