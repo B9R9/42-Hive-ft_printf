@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:24:47 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/26 09:47:26 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int main(void)
 //     printf("ret = %d\n", result);
 
 
+    printf("================SPECIFIC================\n");
+    ft_printf("FT ->%#x<-\n", 0); // NO LEAKS
+    printf("PF ->%#x<-\n", );// NO LEAKS
+    printf("------\n");
+    
     printf("================STR================\n");
     char    *name;
     char    *test_null;
