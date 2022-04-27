@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:24:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/27 12:26:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	print_0x(t_parameter *option)
 	int	size;
 
 	size = 0;
-	if (option->conv == 'x')
+	if (option->conv == 'x' || option->conv == 'p')
 	{
 		if (option->upper)
 			size += print_str("0X", ft_strlen("0X"));

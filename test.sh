@@ -4,7 +4,7 @@ if [ $1 = 'clean' ];then
     rm -f *.o
     rm -f test
     rm -f leaksreport.txt
-    rm -f Valgrindlog
+    rm -f valgrindlog
     exit 1
 fi
 if [ $1 = 'compil' ];then
@@ -13,12 +13,12 @@ if [ $1 = 'compil' ];then
     exit 1
 fi
 if [ $1 = 'valgrind' ];then
-    if [ -e "/Users/briffard/Desktop/B9R9-ft_printf/NewVersion/Valgrindlog" ]; then
+    if [ -e "/Users/briffard/Desktop/B9R9-ft_printf/NewVersion/valgrindlog" ]; then
         rm -f /Users/briffard/Desktop/B9R9-ft_printf/NewVersion/Valgrindlog
     fi
     gcc -o main.o  -c main.c -Iinclude -I./libft/includes -g
     gcc -o test main.o -L. -lftprintf -g
-    valgrind  --leak-check=full --show-leak-kinds=all --log-file="Valgrindlog" test
+    valgrind  --leak-check=full --show-leak-kinds=all --log-file="valgrindlog" test
     exit 1
 fi
 if [ $1 = 'push' ];then

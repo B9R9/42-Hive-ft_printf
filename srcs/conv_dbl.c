@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:31:51 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/27 12:07:38 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 {
 	int		i;
 
-	box = ft_strnew(option->pre + 1);
+	box = ft_strnew(option->pre);
 	if (!box)
 		exit (EXIT_FAILURE);
 	box[0] = '.';
@@ -44,10 +44,11 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 	while (i < option->pre)
 	{
 		fpart = fpart * 10;
-		box[i + 1] = 48 + (((int)fpart) % 10);
+		box[i + 1] = 48 + ((((int)fpart) % 10) * -1);
 		fpart = fpart - (int)fpart;
 		i++;
 	}
+	box[i + 1] = '\0';
 	return (box);
 }
 
@@ -97,6 +98,8 @@ int	conv_to_dbl(t_parameter *li, va_list ap)
 	long double	number;
 
 	if (!ft_strcmp(li->sizeprefix, "L"))
+		number = va_arg(ap, long double);
+	else if (!ft_strcmp(li->sizeprefix, "l"))
 		number = va_arg(ap, long double);
 	else
 		number = va_arg(ap, double);

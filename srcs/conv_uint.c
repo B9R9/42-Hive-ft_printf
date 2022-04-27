@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:05:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:52:37 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/27 12:42:30 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	u_ll_itoa(t_parameter *option, unsigned long long int number)
 	if (option->upper)
 		ft_strtoupper(temp);
 	size += print_int(option, temp);
-	ft_memdel((void **)&temp);
+	ft_memdel((void *)&temp);
 	return (size);
 }
 
@@ -59,7 +59,7 @@ int	format_uint(t_parameter *option, unsigned int number)
 	if (option->upper)
 		ft_strtoupper(str);
 	size += print_int(option, str);
-	ft_memdel((void **)&str);
+	ft_memdel((void *)&str);
 	return (size);
 }
 

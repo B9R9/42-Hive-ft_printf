@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:06:06 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 13:50:54 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/27 12:24:21 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ static int	format_ptr(t_parameter *option, unsigned long long int number)
 
 int	conv_to_ptr(t_parameter *li, va_list ap)
 {
+	if (!(li->flags & F_HASHTAG))
+		li->flags = li->flags | F_HASHTAG;
 	return (format_ptr(li, va_arg(ap, unsigned long long int)));
 }
