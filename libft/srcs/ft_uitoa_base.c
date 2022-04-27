@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/27 12:45:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/27 15:50:12 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ char	*ft_uitoa_base(unsigned long long number, int base)
 		str[index] = BASE[number % base];
 		number = number / base;
 		index++;
-	}	
+	}
+	str[index] = '\0';
 	ft_reverse_str(str);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/27 12:07:38 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/27 14:50:04 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ static int	getdigit(int pre, long double fpart)
 char	*set_fpart(char *box, t_parameter *option, long double fpart)
 {
 	int		i;
-
-	box = ft_strnew(option->pre);
+	box = ft_strnew(option->pre + 1);
 	if (!box)
 		exit (EXIT_FAILURE);
 	box[0] = '.';
@@ -44,11 +43,12 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 	while (i < option->pre)
 	{
 		fpart = fpart * 10;
-		box[i + 1] = 48 + ((((int)fpart) % 10) * -1);
+		box[i + 1] = 48 + ((((int)fpart) % 10));
 		fpart = fpart - (int)fpart;
 		i++;
 	}
 	box[i + 1] = '\0';
+	// printf("\nbox->%s<-\n", box);
 	return (box);
 }
 
@@ -73,14 +73,14 @@ static int	format_dbl(t_parameter *option, long double number)
 
 	size = 0;
 	test = NULL;
+	if (number !=  number)
+		number = 0.000000;
 	number = set_dbl_negtif(number, option);
 	ipart = (unsigned long long)number;
 	fpart = number - (long double)ipart;
 	if (option->pre == 0)
 		option->pre = 6;
 	temp = ft_uitoa_base(ipart, 10);
-	if (option->flags & F_NEGATIF)
-		fpart = fpart * -1;
 	test = set_fpart(test, option, fpart);
 	temp = ft_strjoin_replace(temp, test, 0);
 	ft_memdel((void *) &test);
@@ -100,7 +100,7 @@ int	conv_to_dbl(t_parameter *li, va_list ap)
 	if (!ft_strcmp(li->sizeprefix, "L"))
 		number = va_arg(ap, long double);
 	else if (!ft_strcmp(li->sizeprefix, "l"))
-		number = va_arg(ap, long double);
+		number = va_arg(ap, double);
 	else
 		number = va_arg(ap, double);
 	return (format_dbl(li, number));
