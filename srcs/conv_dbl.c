@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/29 13:05:58 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:28:29 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,6 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 		box[i + 1] = '\0';
 	}
 	return (box);
-}
-
-char	*round2(char *str, int fpart, long double number, t_parameter *li)
-{
-	int	last_index;
-
-	last_index = (int)ft_strlen(str) - 1;
-	if (li->pre == 0)
-	{
-		if (number > 0.50)
-			str[last_index] = str[last_index] + 1;
-	}
-	else if (li->pre == 1)
-	{
-		if (fpart >= 5 && number != 0.25)
-			str[last_index] = str[last_index] + 1;
-		str = formatrounding(str, last_index);
-	}
-	return (str);
 }
 
 static int	format_dbl(t_parameter *li, long double number)

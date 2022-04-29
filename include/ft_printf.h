@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/29 12:59:25 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:25:05 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int			align(char *str, t_parameter *option);
 /*FT_STR_ROUDING*/
 char		*rounding(char *number, int fpart, int last_index);
 char		*formatrounding(char *number, int last_index);
+char		*round2(char *str, int fpart, long double number, t_parameter *li);
 
 #endif
