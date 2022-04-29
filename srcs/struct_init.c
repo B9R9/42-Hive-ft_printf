@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:24:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/29 09:27:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	resetoption(t_parameter *option, char *str)
 	option->size = ft_strlen(str);
 	option->negatif = false;
 	option->lenght = 0;
+	option->conv = ft_tolower(str[ft_strlen(str) - 1]);
 }
 
 /*PARSE PARAMETERS STR TO DEFINE THEM INTO THE STRUCT*/
@@ -42,7 +43,7 @@ static t_parameter	*setup(char *str, t_parameter *li, va_list ap)
 	handle_width(&str[li->char_to_skip], li, ap);
 	handle_precision(&str[li->char_to_skip], li, ap);
 	handle_size_prefix(&str[li->char_to_skip], li);
-	li->conv = ft_tolower(str[li->char_to_skip]);
+	// li->conv = ft_tolower(str[li->char_to_skip]);
 	checkoptionerror(li);
 	return (li);
 }

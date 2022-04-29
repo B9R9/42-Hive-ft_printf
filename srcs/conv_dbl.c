@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/28 08:55:05 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/29 12:58:56 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,37 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 	box = ft_strnew(option->pre + 1);
 	if (!box)
 		exit (EXIT_FAILURE);
-	box[0] = '.';
-	i = 0;
-	while (i < option->pre)
+	if (option->pre > 0)
 	{
-		fpart = fpart * 10;
-		box[i + 1] = 48 + ((((int)fpart) % 10));
-		fpart = fpart - (int)fpart;
-		i++;
+		box[0] = '.';
+		i = 0;
+		while (i < option->pre)
+		{
+			fpart = fpart * 10;
+			box[i + 1] = 48 + ((((int)fpart) % 10));
+			fpart = fpart - (int)fpart;
+			i++;
+		}
+		box[i + 1] = '\0';
 	}
-	box[i + 1] = '\0';
-	// printf("\nbox->%s<-\n", box);
 	return (box);
+}
+
+char	*round2(char *str, int fpart, long double number, t_parameter *li)
+{
+	int last_index = (int)ft_strlen(str) - 1;
+	if (li->pre == 0)
+	{
+		if (number > 0.50)
+			str[last_index] = str[last_index] + 1;	
+	}
+	else if (li->pre == 1)
+	{
+			if (fpart >= 5 && number != 0.25)
+				str[last_index] = str[last_index] + 1;
+			str = formatrounding(str,last_index);
+	}
+	return (str);
 }
 
 char	*check_ret(char *str, double number)
@@ -63,7 +82,7 @@ char	*check_ret(char *str, double number)
 	return (str);
 }
 
-static int	format_dbl(t_parameter *option, long double number)
+static int	format_dbl(t_parameter *li, long double number)
 {
 	unsigned long long	ipart;
 	long double			fpart;
@@ -75,19 +94,18 @@ static int	format_dbl(t_parameter *option, long double number)
 	test = NULL;
 	if (number !=  number)
 		number = 0.000000;
-	number = set_dbl_negtif(number, option);
+	number = set_dbl_negtif(number, li);
 	ipart = (unsigned long long)number;
 	fpart = number - (long double)ipart;
-	if (option->pre == 0)
-		option->pre = 6;
 	temp = ft_uitoa_base(ipart, 10);
-	test = set_fpart(test, option, fpart);
+	test = set_fpart(test, li, fpart);
 	temp = ft_strjoin_replace(temp, test, 0);
 	ft_memdel((void *) &test);
-	temp = rounding(temp, getdigit(option->pre, fpart), (ft_strlen(temp) - 1));
-	if (option->pre == 1 && number > 0)
-		temp = check_ret(temp, number);
-	size = print_int(option, temp);
+	if ((number >= 1) || (number < 1 && li->pre > 1))
+		temp = rounding(temp, getdigit(li->pre, fpart), (ft_strlen(temp) - 1));
+	else
+	 	temp = round2(temp, getdigit(li->pre, fpart), number, li);
+	size = print_int(li, temp);
 	ft_memdel((void *) &temp);
 	return (size);
 }
@@ -96,7 +114,8 @@ static int	format_dbl(t_parameter *option, long double number)
 int	conv_to_dbl(t_parameter *li, va_list ap)
 {
 	long double	number;
-
+	if (!li->dot)
+		li->pre = 6;
 	if (!ft_strcmp(li->sizeprefix, "L"))
 		number = va_arg(ap, long double);
 	else if (!ft_strcmp(li->sizeprefix, "l"))

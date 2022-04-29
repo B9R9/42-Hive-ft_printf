@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/27 15:44:25 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/29 12:51:46 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 int main(void)
 {
+    // char *test_atoi = "abfbd";
+    // int ret = ft_atoi(test_atoi);
+    // printf("%d\n", ret);
 
     printf("================SPECIFIC================\n");
     // ft_printf("FT ->%#x<-\n", 0); // NO LEAKS
@@ -48,6 +51,58 @@ int main(void)
     printf("------\n");
     ft_printf("FT->%llo<\n", __INT_MAX__);
     printf("PF->%llo<\n", __INT_MAX__);
+    printf("------\n");
+    ft_printf("FT->%.f<\n", 0.005);// 0
+    printf("PF->%.f<\n", 0.005); // 0
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.05); //0
+    printf("PF->%.0f<\n", 0.05);//0
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.55); // 0
+    printf("PF->%.0f<\n", 0.55); // 1
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.51); // 0
+    printf("PF->%.0f<\n", 0.51); // 1
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.50); // 0
+    printf("PF->%.0f<\n", 0.50); // 0
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.49); //0
+    printf("PF->%.0f<\n", 0.49);// 0
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.45); // 0
+    printf("PF->%.0f<\n", 0.45); // 0
+    printf("------\n");
+    ft_printf("FT->%.0f<\n", 0.65);// 1
+    printf("PF->%.0f<\n", 0.65); // 1
+    printf("------\n");
+    ft_printf("FT->%.f<\n", 1.05252);// 1
+    printf("PF->%.f<\n",1.05252); // 1
+    printf("------\n");
+    ft_printf("FT->%.f<\n", 1.5252); // 2
+    printf("PF->%.f<\n",1.5252); // 2
+    printf("------\n");
+    ft_printf("FT->%.1f<\n", 0.05252);//0.0
+    printf("PF->%.1f<\n",0.05252); //0.1
+    printf("------\n");
+    ft_printf("FT->%.1f<\n", 0.04252);//0.0
+    printf("PF->%.1f<\n",0.04252); //0.1
+    printf("------\n");
+    ft_printf("FT->%.1f<\n", 0.06252);//0.1
+    printf("PF->%.1f<\n",0.06252); //0.1
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.30);//0.3
+    printf("PF->%.1f<-\n", 0.30);//0.3
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.95);//0.9
+    printf("PF->%.1f<-\n", 0.95);// 0.9
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.96);//0.9
+    printf("PF->%.1f<-\n", 0.96);// 0.9
+    printf("------\n");
+    ft_printf("FT->%.f<-\n", 0.95);//??
+    printf("PF->%.f<-\n", 0.95);// ??
+
     
 
     
@@ -349,62 +404,65 @@ int main(void)
     printf("PF->%# 25.5p<\n", &str);
     printf("================FLOAT================\n"); // NO LEAKS
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.05); 
-    printf("PF->%.1f<-\n", 0.05);
+    ft_printf("FT->%.1f<-\n", 0.05); // 0.1
+    printf("PF->%.1f<-\n", 0.05);// 0.1
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.10);
-    printf("PF->%.1f<-\n", 0.10);
+    ft_printf("FT->%.1f<-\n", 0.03); // 0.0
+    printf("PF->%.1f<-\n", 0.03);// 0.0
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.15);
-    printf("PF->%.1f<-\n", 0.15);
+    ft_printf("FT->%.1f<-\n", 0.10); // 0.1
+    printf("PF->%.1f<-\n", 0.10); //0.1
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.20);
-    printf("PF->%.1f<-\n", 0.20);
+    ft_printf("FT->%.1f<-\n", 0.15); //0.1
+    printf("PF->%.1f<-\n", 0.15);// 0.1
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.25);
-    printf("PF->%.1f<-\n", 0.25);
+    ft_printf("FT->%.1f<-\n", 0.20); //0.2
+    printf("PF->%.1f<-\n", 0.20);//0.2
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.30);
-    printf("PF->%.1f<-\n", 0.30);
+    ft_printf("FT->%.1f<-\n", 0.25); //0.2
+    printf("PF->%.1f<-\n", 0.25); //0.2
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.35);
-    printf("PF->%.1f<-\n", 0.35);
+    ft_printf("FT->%.1f<-\n", 0.30);//0.3
+    printf("PF->%.1f<-\n", 0.30);//0.3
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.40);
-    printf("PF->%.1f<-\n", 0.40);
+    ft_printf("FT->%.1f<-\n", 0.35); //0.3
+    printf("PF->%.1f<-\n", 0.35); //0.3
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.45);
-    printf("PF->%.1f<-\n", 0.45);
+    ft_printf("FT->%.1f<-\n", 0.40); // 0.4
+    printf("PF->%.1f<-\n", 0.40);//0.4
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.50);
-    printf("PF->%.1f<-\n", 0.50);
+    ft_printf("FT->%.1f<-\n", 0.45);//0.5
+    printf("PF->%.1f<-\n", 0.45);//0.5
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.55);
-    printf("PF->%.1f<-\n", 0.55);
+    ft_printf("FT->%.1f<-\n", 0.50);//0.5
+    printf("PF->%.1f<-\n", 0.50);//0.5
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.60);
-    printf("PF->%.1f<-\n", 0.60);
+    ft_printf("FT->%.1f<-\n", 0.55);//0.6
+    printf("PF->%.1f<-\n", 0.55);//0.6
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.65);
-    printf("PF->%.1f<-\n", 0.65);
+    ft_printf("FT->%.1f<-\n", 0.60);// 0.6
+    printf("PF->%.1f<-\n", 0.60);// 0.6
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.70);
-    printf("PF->%.1f<-\n", 0.70);
+    ft_printf("FT->%.1f<-\n", 0.65);// 0.7
+    printf("PF->%.1f<-\n", 0.65);// 0.7
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.75);
-    printf("PF->%.1f<-\n", 0.75);
+    ft_printf("FT->%.1f<-\n", 0.70);//0.7
+    printf("PF->%.1f<-\n", 0.70);//0.7
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.80);
-    printf("PF->%.1f<-\n", 0.80);
+    ft_printf("FT->%.1f<-\n", 0.75);//0.8
+    printf("PF->%.1f<-\n", 0.75);//0.8
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.85);
-    printf("PF->%.1f<-\n", 0.85);
+    ft_printf("FT->%.1f<-\n", 0.80);//0.8
+    printf("PF->%.1f<-\n", 0.80);//0.8
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.90);
-    printf("PF->%.1f<-\n", 0.90);
+    ft_printf("FT->%.1f<-\n", 0.85);//0.9
+    printf("PF->%.1f<-\n", 0.85);//0.9
     printf("------\n");
-    ft_printf("FT->%.1f<-\n", 0.95);
-    printf("PF->%.1f<-\n", 0.95);
+    ft_printf("FT->%.1f<-\n", 0.90);//0.99
+    printf("PF->%.1f<-\n", 0.90);//0.9
+    printf("------\n");
+    ft_printf("FT->%.1f<-\n", 0.95);//??
+    printf("PF->%.1f<-\n", 0.95);// ??
     printf("------\n");
     ft_printf("FT->%.20f<\n", 0.152321654);
     printf("PF->%.20f<\n", 0.152321654);
