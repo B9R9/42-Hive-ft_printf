@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/29 12:58:56 by briffard         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:05:58 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static int	getdigit(int pre, long double fpart)
 char	*set_fpart(char *box, t_parameter *option, long double fpart)
 {
 	int		i;
+
 	box = ft_strnew(option->pre + 1);
 	if (!box)
 		exit (EXIT_FAILURE);
@@ -56,29 +57,20 @@ char	*set_fpart(char *box, t_parameter *option, long double fpart)
 
 char	*round2(char *str, int fpart, long double number, t_parameter *li)
 {
-	int last_index = (int)ft_strlen(str) - 1;
+	int	last_index;
+
+	last_index = (int)ft_strlen(str) - 1;
 	if (li->pre == 0)
 	{
 		if (number > 0.50)
-			str[last_index] = str[last_index] + 1;	
+			str[last_index] = str[last_index] + 1;
 	}
 	else if (li->pre == 1)
 	{
-			if (fpart >= 5 && number != 0.25)
-				str[last_index] = str[last_index] + 1;
-			str = formatrounding(str,last_index);
+		if (fpart >= 5 && number != 0.25)
+			str[last_index] = str[last_index] + 1;
+		str = formatrounding(str, last_index);
 	}
-	return (str);
-}
-
-char	*check_ret(char *str, double number)
-{
-	if (!ft_strcmp(str, "0.0") && number == 0.05)
-		str[2] = '1';
-	if (!ft_strcmp(str, "0.4") && number == 0.45)
-		str[2] = '5';
-	if (!ft_strcmp(str, "0.6") && number == 0.65)
-		str[2] = '7';
 	return (str);
 }
 
@@ -92,7 +84,7 @@ static int	format_dbl(t_parameter *li, long double number)
 
 	size = 0;
 	test = NULL;
-	if (number !=  number)
+	if (number != number)
 		number = 0.000000;
 	number = set_dbl_negtif(number, li);
 	ipart = (unsigned long long)number;
@@ -104,7 +96,7 @@ static int	format_dbl(t_parameter *li, long double number)
 	if ((number >= 1) || (number < 1 && li->pre > 1))
 		temp = rounding(temp, getdigit(li->pre, fpart), (ft_strlen(temp) - 1));
 	else
-	 	temp = round2(temp, getdigit(li->pre, fpart), number, li);
+		temp = round2(temp, getdigit(li->pre, fpart), number, li);
 	size = print_int(li, temp);
 	ft_memdel((void *) &temp);
 	return (size);
@@ -114,6 +106,7 @@ static int	format_dbl(t_parameter *li, long double number)
 int	conv_to_dbl(t_parameter *li, va_list ap)
 {
 	long double	number;
+
 	if (!li->dot)
 		li->pre = 6;
 	if (!ft_strcmp(li->sizeprefix, "L"))
