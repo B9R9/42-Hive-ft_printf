@@ -12,6 +12,11 @@ if [ $1 = 'compil' ];then
     gcc -o test main.o -L. -lftprintf -g
     exit 1
 fi
+if [ $1 = 'compilitoe' ];then
+    gcc -o main2.o  -c main2.c -Iinclude -I./libft/includes -g
+    gcc -o test main2.o -L. -lftprintf -g
+    exit 1
+fi
 if [ $1 = 'valgrind' ];then
     if [ -e "/Users/briffard/Desktop/B9R9-ft_printf/NewVersion/valgrindlog" ]; then
         rm -f /Users/briffard/Desktop/B9R9-ft_printf/NewVersion/Valgrindlog

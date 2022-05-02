@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 12:58:40 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:49:22 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	add_character_f_hashtag(char conv)
 {
 	if (conv == 'o')
 		return (1);
-	else
+	else if (conv == 'x')
 		return (2);
+	else 
+		return (0);
 }
 
 int	set_space(t_parameter *option, char *str)
@@ -32,8 +34,11 @@ int	set_space(t_parameter *option, char *str)
 
 	size = 0;
  	// printf("\nLENGTH-->%d<--\n", option->lenght);
-	if (option->lenght == 0)
-		size += print_char(' ');
+	if (option->lenght == 1)
+		{
+			size += print_char(' ');
+			option->lenght -= 1;
+		}
 	while (size < option->lenght)
 		size += print_char(' ');
 	if (option->flags & F_HASHTAG)

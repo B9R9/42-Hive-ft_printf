@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 13:03:36 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/02 18:09:58 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,8 @@ void	set_lenght(t_parameter *option, char *str)
 	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
 	option->width >= option->pre)
 		to_remove += 1;
-	// printf("\nPRE-->%d<--", option->pre);
-	if (option->flags & F_ZERO && option->conv != 'f' && \
-	option->pre > (int)ft_strlen(str))
+	if (option->flags & F_ZERO && (option->conv != 'f') && \
+	option->pre >= (int)ft_strlen(str))
 		option->flags = option->flags ^ F_ZERO;
 	adjust_lenght(option, str, to_remove);
 }
