@@ -1,13 +1,13 @@
-Process:         test [2411]
+Process:         test [7305]
 Path:            /Volumes/VOLUME/*/test
-Load Address:    0x10800b000
+Load Address:    0x108cd5000
 Identifier:      test
 Version:         ???
 Code Type:       X86-64
 Parent Process:  zsh [8731]
 
-Date/Time:       2022-05-02 13:07:19.345 +0300
-Launch Time:     2022-05-02 13:07:19.082 +0300
+Date/Time:       2022-05-02 13:29:02.401 +0300
+Launch Time:     2022-05-02 13:29:02.131 +0300
 OS Version:      Mac OS X 10.14.6 (18G9323)
 Report Version:  7
 Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
@@ -15,6 +15,6 @@ Analysis Tool Version:  Xcode 11.3.1 (11C505)
 ----
 
 leaks Report Version: 4.0
-Process 2411: 185 nodes malloced for 21 KB
-Process 2411: 0 leaks for 0 total leaked bytes.
+Process 7305: 186 nodes malloced for 23 KB
+Process 7305: 0 leaks for 0 total leaked bytes.
 

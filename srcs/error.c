@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 12:03:19 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:21:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_parameter	*checkoptionerror(t_parameter *options)
 	(options->conv == 'u' || options->conv == 'x' || options->conv == 'p' || \
 	options->conv == 'o'))
 		options->flags = options->flags ^ F_PLUS;
+	if (options->dot && options->conv == 'o' && options->flags & F_ZERO)
+		options->flags = options->flags ^ F_ZERO;
 	return (options);
 }
 
