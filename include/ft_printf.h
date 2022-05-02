@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/29 13:25:05 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/02 12:42:07 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int			print_int(t_parameter *option, char *str);
 void		set_lenght(t_parameter *option, char *str);
 int			print_precision(int start, t_parameter *option, int lenght);
 int			print_sign(t_parameter *option);
-int			print_0x(t_parameter *option);
+int			print_0x(t_parameter *option, char *str);
 
 /*CONV_UINT.C*/
 int			format_uint(t_parameter *option, unsigned int number);
@@ -94,8 +94,8 @@ long double	set_dbl_negtif(long double number, t_parameter *option);
 
 /*UTILS_PRINT_INT.C*/
 int			add_character_f_hashtag(char conv);
-int			set_space(t_parameter *option);
-int			set_zero(t_parameter *option);
+int			set_space(t_parameter *option, char *str);
+int			set_zero(t_parameter *option, char *str);
 void		adjust_lenght(t_parameter *option, char *str, int to_remove);
 int			align(char *str, t_parameter *option);
 

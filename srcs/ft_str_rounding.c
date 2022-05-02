@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 10:00:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/29 13:24:46 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/02 09:35:36 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*round2(char *str, int fpart, long double number, t_parameter *li)
 	}
 	else if (li->pre == 1)
 	{
-		if (fpart >= 5 && number != 0.25)
+		if ((fpart >= 5) && number != 0.25)
 			str[last_index] = str[last_index] + 1;
 		str = formatrounding(str, last_index);
 	}
@@ -64,12 +64,14 @@ char	*round2(char *str, int fpart, long double number, t_parameter *li)
 char	*rounding(char *number, int fpart, int last_index)
 {
 	if (fpart > 5)
-	{
 		number[last_index] = number[last_index] + 1;
-		number = formatrounding(number, last_index);
-	}
 	else if (fpart == 5)
-		if ((number[last_index] + '0') % 2 == 1)
-			number[last_index] = number[last_index] + 1;
+		{
+			if ((number[last_index] + '0') % 2 == 1)
+				number[last_index] = number[last_index] + 1;
+			else if (ft_atoi(number) < 1 && number[last_index] == '0')
+				number[last_index] = number[last_index] + 1;	
+		}
+	number = formatrounding(number, last_index);
 	return (number);
 }
