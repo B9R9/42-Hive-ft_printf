@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:59:53 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:01:47 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_bool		checkparams(char c);
 
 /*PRINT_STR.C*/
 int			print_width(t_parameter *option, int length);
-int			print_str(const char *str, int length);
+int			print_str(const char *str, int length, t_parameter *option);
 int			print_char(char c);
 int			align_right(int start, int length);
 

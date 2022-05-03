@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:11:05 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:33:26 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:03:07 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	format_str(const char *str, t_parameter *option)
 
 	size = 0;
 	if (str == NULL)
-		return (print_str("(null)", (int)ft_strlen("(null)")));
+		return (print_str("(null)", (int)ft_strlen("(null)"), option));
 	if (is_bonus(str))
 	{
 		ft_putstr(str);
@@ -44,7 +44,7 @@ static int	format_str(const char *str, t_parameter *option)
 	if (option->dot && !(option->pre))
 		option->pre = 0;
 	size += print_width(option, option->pre);
-	size += print_str(str, option->pre);
+	size += print_str(str, option->pre, option);
 	if (option->flags & F_MINUS)
 		size += align_right(size, option->width);
 	return (size);

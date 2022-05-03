@@ -1,29 +1,36 @@
 #!/bin/bash
 
 if [ $1 = 'clean' ];then
-    rm -f *.o
-    rm -f test
-    rm -f leaksreport.txt
-    rm -f valgrindlog
+    rm -f ./test/*.o
+    rm -f test_ftprintf
+    rm -rf ./test/leaks
     exit 1
 fi
-if [ $1 = 'compil' ];then
-    gcc -o main.o  -c main.c -Iinclude -I./libft/includes -g
-    gcc -o test main.o -L. -lftprintf -g
+if [ $1 = 'test' ];then
+    make re
+    gcc -o ./test/main.o  -c ./test/main.c -Iinclude -I./libft/includes -g
+    gcc -o test_ftprintf ./test/main.o -L. -lftprintf -g
+    ./test_ftprintf
     exit 1
 fi
-if [ $1 = 'compilitoe' ];then
-    gcc -o main2.o  -c main2.c -Iinclude -I./libft/includes -g
-    gcc -o test main2.o -L. -lftprintf -g
+if [ $1 = 'Itoetest' ];then
+    gcc -o ./test/main2.o  -c ./test/main2.c -Iinclude -I./libft/includes -g
+    gcc -o test_ftprintf ./test/main2.o -L. -lftprintf -g
+    ./test_ftprintf
+    exit 1
+fi
+if [ $1 = 'Caruytest' ];then
+    ./test/caruytest/run.sh
     exit 1
 fi
 if [ $1 = 'valgrind' ];then
-    if [ -e "/Users/briffard/Desktop/B9R9-ft_printf/NewVersion/valgrindlog" ]; then
-        rm -f /Users/briffard/Desktop/B9R9-ft_printf/NewVersion/Valgrindlog
+    mkdir -p ./test/leaks
+    if [ -e "/Users/briffard/Desktop/B9R9-ft_printf/test/leaks/valgrindlog" ]; then
+        rm -f /Users/briffard/Desktop/B9R9-ft_printf/test/leaks/valgrindlog
     fi
-    gcc -o main.o  -c main.c -Iinclude -I./libft/includes -g
-    gcc -o test main.o -L. -lftprintf -g
-    valgrind  --leak-check=full --show-leak-kinds=all --log-file="valgrindlog" test
+    gcc -o ./test/main.o  -c ./test/main.c -Iinclude -I./libft/includes -g
+    gcc -o test_ftprintf ./test/main.o -L. -lftprintf -g
+    valgrind  --leak-check=full --show-leak-kinds=all --log-file="./test/leaks/valgrindlog" test_ftprintf
     exit 1
 fi
 if [ $1 = 'push' ];then
@@ -34,24 +41,5 @@ fi
 if [ $1 = 'pull' ];then
     git fetch
     git pull
-fi
-if [ $1 = 'Call' ];then
-    sed -i "17i\test_basic();\n" ./caruytest/run.sh
-    sed -i "18i\test_lengths();\n" ./caruytest/run.sh
-    sed -i "19i\test_flags();\n" ./caruytest/run.sh
-    sed -i "20i\test_precision();\n" ./caruytest/run.sh
-    sed -i "21i\test_widths();\n" ./caruytest/run.sh
-    sed -i "22i\test_wildcards();\n" ./caruytest/run.sh
-    sed -i "23i\test_more();\n" ./caruytest/run.sh
-    ./caruytest/run.sh
-
-    sed -l 17
-    sed -l 18
-    sed -l 19
-    sed -l 20
-    sed -l 21
-    sed -l 22
-    sed -l 23
-
 fi
 

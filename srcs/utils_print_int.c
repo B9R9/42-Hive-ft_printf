@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:58:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:05:50 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	align(char *str, t_parameter *option)
 	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
 		size += print_sign(option);
 	size += print_precision(0, option, str);
-	size += print_str(str, (int)ft_strlen(str));
+	size += print_str(str, (int)ft_strlen(str), option);
 	while (size < option->width)
 		size += print_char(' ');
 	return (size);

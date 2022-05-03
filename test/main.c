@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:03:56 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 15:48:32 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int main(void)
     printf("------\n");
     ft_printf("FT->Test %\n");
     // printf("PF->Test %\n");
+    printf("------\n");
+    ft_printf("FT->Test %#.f %#.0f %#.15Lf\n",0 , 0, 0.15545);
+    printf("PF->Test %#.f %#.0f %#.15Lf\n",0, 0, 0.15545);
     printf("------\n");
     ft_printf("FT->Test %-5.0o\n",0);
     printf("PF->Test %-5.0o\n",0);
@@ -1107,6 +1110,6 @@ ft_printf("FT->hey '% .1f'\n", 0.00);
     //     width++;
     //     pre++;
     // }
-    system("leaks test > leaksreport.txt");
+    system("leaks test_ftprintf > ./test/leaks/leaksreport.txt");
     return (0);
 }

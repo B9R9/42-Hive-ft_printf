@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:53:14 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:58:28 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:07:27 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	print_0x(t_parameter *option, char *str)
 	if (option->conv == 'x' || option->conv == 'p')
 	{
 		if (option->upper)
-			size += print_str("0X", ft_strlen("0X"));
+			size += print_str("0X", ft_strlen("0X"), option);
 		else
-			size += print_str("0x", ft_strlen("0x"));
+			size += print_str("0x", ft_strlen("0x"), option);
 		option->flags = option->flags ^ F_HASHTAG;
 	}
 	else if (option->conv == 'o' && \

@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 11:19:44 by cchen             #+#    #+#              #
-#    Updated: 2022/05/02 16:43:31 by briffard         ###   ########.fr        #
+#    Updated: 2022/05/03 15:27:45 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FT_PRINTF := libftprintf.a
 
 CC := gcc
 CFLAGS := -Wall -Werror -Wextra
-INCLUDES := -I$(PRINTF_DIR)/libft/includes -I$(PRINTF_DIR)/include -I./includes
+INCLUDES := -I$(PRINTF_DIR)/libft/includes -I$(PRINTF_DIR)/include -Iincludes
 LIB :=  -L$(PRINTF_DIR) -lftprintf
 
 SRC_DIR := ./src
