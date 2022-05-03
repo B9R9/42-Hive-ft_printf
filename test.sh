@@ -35,3 +35,23 @@ if [ $1 = 'pull' ];then
     git fetch
     git pull
 fi
+if [ $1 = 'Call' ];then
+    sed -i "17i\test_basic();\n" ./caruytest/run.sh
+    sed -i "18i\test_lengths();\n" ./caruytest/run.sh
+    sed -i "19i\test_flags();\n" ./caruytest/run.sh
+    sed -i "20i\test_precision();\n" ./caruytest/run.sh
+    sed -i "21i\test_widths();\n" ./caruytest/run.sh
+    sed -i "22i\test_wildcards();\n" ./caruytest/run.sh
+    sed -i "23i\test_more();\n" ./caruytest/run.sh
+    ./caruytest/run.sh
+
+    sed -l 17
+    sed -l 18
+    sed -l 19
+    sed -l 20
+    sed -l 21
+    sed -l 22
+    sed -l 23
+
+fi
+

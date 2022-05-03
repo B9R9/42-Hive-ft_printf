@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 12:42:07 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 11:33:19 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,12 @@ int			error(const char *message);
 
 /*CONV_INT.C*/
 int			format_char(t_parameter *option, char c);
+int			set_negatif(int number, t_parameter *option);
 
 /*PRINT_INT.C*/
 int			print_int(t_parameter *option, char *str);
 void		set_lenght(t_parameter *option, char *str);
-int			print_precision(int start, t_parameter *option, int lenght);
+int			print_precision(int start, t_parameter *option, char *str);
 int			print_sign(t_parameter *option);
 int			print_0x(t_parameter *option, char *str);
 
@@ -100,7 +101,7 @@ void		adjust_lenght(t_parameter *option, char *str, int to_remove);
 int			align(char *str, t_parameter *option);
 
 /*FT_STR_ROUDING*/
-char		*rounding(char *number, int fpart, int last_index);
+char		*rounding(char *number, int fpart, int last_index, t_parameter *option);
 char		*formatrounding(char *number, int last_index);
 char		*round2(char *str, int fpart, long double number, t_parameter *li);
 

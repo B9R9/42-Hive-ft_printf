@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 09:22:53 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:20:21 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static int	format_dbl(t_parameter *li, long double number)
 	test = set_fpart(test, li, fpart);
 	temp = ft_strjoin_replace(temp, test, 0);
 	ft_memdel((void *) &test);
-	if ((number >= 1) || (number < 1 && li->pre > 1))
-		temp = rounding(temp, getdigit(li->pre, fpart), (ft_strlen(temp) - 1));
+	if ((number >= 1) || (number < 1  && li->pre > 1))
+		temp = rounding(temp, getdigit(li->pre, fpart), (ft_strlen(temp) - 1), li);
 	else
 		temp = round2(temp, getdigit(li->pre, fpart), number, li);
 	size = print_int(li, temp);

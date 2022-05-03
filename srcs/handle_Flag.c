@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/29 09:31:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 10:56:41 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_parameter	*handle_precision(char *str, t_parameter *li, va_list ap)
 			if (!li->pre && checkparams(str[1]) && str[1] != '0')
 				li->error = true;
 			li->char_to_skip += skip(&str[1]) + 1;
-		}
+		}	
 	}
 	else if (checkparams(str[0]) && isnot_sizeprefix(str))
 		li->error = true;

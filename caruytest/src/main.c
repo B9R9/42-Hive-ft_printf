@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:17:11 by cchen             #+#    #+#             */
-/*   Updated: 2022/05/02 18:14:34 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:35:59 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	main(void)
 {
 	// test_basic(); // test ok 
-	// test_lengths(); //  test ok
-	// test_flags();
-	// test_precision();
-	// test_widths();
-	// test_wildcards();
-	// test_more();
+	test_lengths(); //  test ok
+	test_flags(); // test ok
+	test_precision(); //test ok
+	test_widths(); //test ok
+	test_wildcards(); // test ok
+	test_more(); // test ok
 	return (0);
 }

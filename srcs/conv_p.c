@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:06:06 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/27 12:24:21 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 10:35:35 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	format_ptr(t_parameter *option, unsigned long long int number)
 	int		size;
 
 	size = 0;
+	if (number == 0 && option->dot && option->pre == 0)
+		return (print_int(option, ""));
 	str = ft_uitoa_base(number, define_base(option));
 	if (!str)
 		exit(EXIT_FAILURE);

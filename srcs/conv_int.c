@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:24:48 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:13:02 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 static int	format_int(t_parameter *li, int number);
 int			format_char(t_parameter *option, char c);
 static int	format_bool(int number);
-static int	set_negatif(int number, t_parameter *option);
+int	set_negatif(int number, t_parameter *option);
 
-static int	set_negatif(int number, t_parameter *option)
+int	set_negatif(int number, t_parameter *option)
 {
 	number *= -1;
 	option->flags = option->flags | F_NEGATIF;
 	if (option->flags & F_PLUS)
 		option->flags = option->flags ^ F_PLUS;
+	// printf("\nNUM = %d\n", number);
 	return (number);
 }
 

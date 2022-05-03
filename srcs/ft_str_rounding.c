@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 10:00:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 17:36:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:39:56 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,29 @@ char	*round2(char *str, int fpart, long double number, t_parameter *li)
 	return (str);
 }
 
-char	*rounding(char *number, int fpart, int last_index)
+char	*rounding(char *number, int fpart, int last_index, t_parameter *option)
 {
-	if (fpart >= 5)
+	if (fpart >= 5 && option->pre > 0 /*&& !(option->flags & F_NEGATIF)*/)
 		number[last_index] = number[last_index] + 1;
-	else if (fpart == 5)
-		{
+	else if (option->pre == 0)
+	{
+		if (fpart > 5)
+			number[last_index] = number[last_index] + 1;
+		if (fpart == 5)
 			if ((number[last_index] + '0') % 2 == 1)
 				number[last_index] = number[last_index] + 1;
-			else if ((number[last_index] + '0') % 2 == 0 && number[last_index] == '0')
-				number[last_index] = number[last_index] + 1;
-			else if (ft_atoi(number) < 1 && number[last_index] == '0')
-				number[last_index] = number[last_index] + 1;	
-		}
+	}
+	// if (fpart < 5 && option->pre > 0 && option->flags & F_NEGATIF)
+	// 	number[last_index] = number[last_index] + 1;
+	// // else if (fpart == 5)
+	// 	{
+	// 		if ((number[last_index] + '0') % 2 == 1)
+	// 			number[last_index] = number[last_index] + 1;
+	// 		else if ((number[last_index] + '0') % 2 == 0 && number[last_index] == '0')
+	// 			number[last_index] = number[last_index] + 1;
+	// 		else if (ft_atoi(number) < 1 && number[last_index] == '0')
+	// 			number[last_index] = number[last_index] + 1;	
+	// 	}
 	number = formatrounding(number, last_index);
 	return (number);
 }

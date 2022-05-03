@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 18:05:49 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:31:26 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,97 @@ int main(void)
     // printf("%d\n", ret);
     printf("================SPECIFIC II ================\n");
     int nb = 42;
+    
+    printf("------\n");
+    ft_printf("FT->Test %-5.0o\n",0);
+    printf("PF->Test %-5.0o\n",0);
+    printf("------\n");
+    ft_printf("FT->Test %-5.o\n",0);
+    printf("PF->Test %-5.o\n",0);
+    printf("------\n");
+    ft_printf("FT->Testing %hhd\n",-128);
+    printf("PF->Testing %hhd\n",-128);
+    printf("------\n");
+    ft_printf("FT->Testing %hd\n",-128);
+    printf("PF->Testing %hd\n",-128);
+    printf("------\n");
+    ft_printf("FT->Testing %hd\n",-32768);
+    printf("PF->Testing %hd\n",-32768);
+    printf("------\n");
+    ft_printf("FT->Test %.2f\n",-1.500000);
+    printf("PF->Test %.2f\n",-1.500000);
+    printf("------\n");
+    ft_printf("FT->Test %.2f\n",-958.125000);
+    printf("PF->Test %.2f\n",-958.125000);
+    printf("------\n");
+    ft_printf("FT->Test %10.f:\n",0.011719);
+    printf("PF->Test %10.f:\n",0.011719);
+    printf("------\n");
+    ft_printf("FT->Test %010f\n",3.141593);
+    printf("PF->Test %010f\n", 3.141593);
+    printf("------\n");
+    ft_printf("FT->Test %010f\n", 0.011719);
+    printf("PF->Test %010f\n", 0.011719);
+    printf("------\n");
+    ft_printf("FT->Test %%.0f: {%.0f}\n", 3.141593);
+    printf("PF->Test %%.0f: {%.0f}\n", 3.141593);
+    printf("------\n");
+    ft_printf("FT->Test %%.0f: {%.0f}\n", -2.500000);
+    printf("PF->Test %%.0f: {%.0f}\n", -2.500000);
+    printf("------\n");
+    ft_printf("FT->Test %%#-1.0u: {%#-1.0u}\n", 0);
+    printf("PF->Test %%#-1.0u: {%#-1.0u}\n", 0);
+    printf("------\n");
+    ft_printf("FT->Test %%#-1.0o: {%#-1.0o}\n", 0);
+    printf("PF->Test %%#-1.0o: {%#-1.0o}\n", 0);
+    printf("------\n");
+    ft_printf("FT->Test 05.*d negative {%05.*d}\n", -15, 42);
+    printf("PF->Test 05.*d negative {%05.*d}\n", -15, 42);
+    printf("------\n");
+    ft_printf("FT->Test *3d positive {%*3d}\n", 5, 0);
+    printf("PF->Test *3d positive {%*3d}\n", 5, 0);
+    printf("------\n");
+    ft_printf("FT->%*.*d\n", 0, 3, 0);
+    printf("PF->%*.*d\n", 0, 3, 0);
+    printf("------\n");
+    ft_printf("FT->Test .*s negative {%.*s}\n", -5, "42");
+    printf("PF->Test .*s negative {%.*s}\n", -5, "42");
+    printf("------\n");
+    ft_printf("FT->Test 5p: {%5p}\n", 0);
+    printf("PF->Test 5p: {%5p}\n", 0);
+    printf("------\n");
+    ft_printf("FT->%10.0f\n", 42.42);
+    printf("PF->%10.0f\n", 42.42);
+    printf("------\n");
+    ft_printf("FT->%.0p, %.p\n", 0, 0);
+    printf("PF->%.0p, %.p\n", 0, 0);
+    printf("------\n");
+    ft_printf("FT->@moulitest: %.10hd\n", -42);
+    printf("PF->@moulitest: %.10hd\n", -42);
+    printf("------\n");
+    ft_printf("FT->@moulitest #hhd #.hhd: >%#hhd %#.hhd<\n", 0, 0);
+    printf("PF->@moulitest #hhd #.hhd: >%#hhd %#.hhd<\n", 0, 0);
+    printf("------\n");
+    ft_printf("FT->Test .hhd: %.hhd\n", 42);// NO LEAKS
+    printf("PF->Test .hhd: %.hhd\n", 42);
+    printf("------\n");
+    ft_printf("FT->Test .s: %.s\n", "Hello");// NO LEAKS
+    printf("PF->Test .s: %.s\n", "Hello");
+    printf("------\n");
+    ft_printf("FT->@moulitest: >%5.o %5.0o<\n", 0, 0);// NO LEAKS
+    printf("PF->@moulitest: >%5.o %5.0o<\n", 0, 0);
+    printf("------\n");
+    printf("PF->hey '% .1f'\n", 0.00);
+    ft_printf("FT->hey '% .1f'\n", 0.00);
+    printf("------\n");
+    printf("PF->testtt '% .5d'\n", nb);
+    ft_printf("FT->testtt '% .5d'\n", nb);
+    printf("------\n");
+    printf("PF->test '%0 f'\n", 3.14159265);   
+    ft_printf("FT->test '%0 f'\n", 3.14159265); 
+    printf("------\n");
+    printf("PF ->test: ->% d<-\n", -42);
+    ft_printf("FT ->test: ->% d<-\n", -42);
 
     printf("------\n");
     ft_printf("Test #08d: %#08d\n", 42);
@@ -234,116 +325,116 @@ ft_printf("FT->hey '% .1f'\n", 0.00);
     
 
     
-//     printf("================STR================\n");
-//     char    *name;
-//     char    *test_null;
+    printf("================STR================\n");
+    char    *name;
+    char    *test_null;
 
-//     test_null = NULL;
-//     name = "joe l' indien";
+    test_null = NULL;
+    name = "joe l' indien";
 
-//     ft_printf("FT ->%.2s is a string<-\n", ""); // NO LEAKS
-//     printf("PF ->%.2s is a string<-\n", "");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%5.2s is a string<-\n", ""); // NO LEAKS
-//     printf("PF ->%5.2s is a string<-\n", ""); // NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%-.2s is a string<-\n", "");// NO LEAKS
-//     printf("PF ->%-.2s is a string<-\n", "");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%-5.2s is a string<-\n", ""); // NO LEAKS
-//     printf("PF ->%-5.2s is a string<-\n", ""); // NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%s<-\n", name); // NO LEAKS
-//     printf("PF ->%s<-\n", name); // NO LEAKS
-//     printf("------\n");
-//     /*AT home 0 Turn to space*/
-//     ft_printf("FT ->%030s<-\n", name);// NO LEAKS
-//     printf("PF ->%030s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->% 30s<-\n", name);// NO LEAKS
-//     printf("PF ->% 30s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%- 30s<-\n", name);// NO LEAKS
-//     printf("PF ->%- 30s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%+ 30s<-\n", name);// NO LEAKS
-//     printf("PF ->%+ 30s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%# 30s<-\n", name);// NO LEAKS
-//     printf("PF ->%# 30s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%# 30.10s<-\n", name);// NO LEAKS
-//     printf("PF ->%# 30.10s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%.10s<-\n", name);// NO LEAKS
-//     printf("PF ->%.10s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%30.10s<-\n", name);// NO LEAKS
-//     printf("PF ->%30.10s<-\n", name);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%-30.10s<-\n", name);// NO LEAKS
-//     printf("PF ->%-30.10s<-\n", name); // NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%s<-\n", test_null);// NO LEAKS
-//     printf("PF ->%s<-\n", test_null);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%s<-\n", "\0");// NO LEAKS
-//     printf("PF ->%s<-\n", "\0");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%s<-\n", "");// NO LEAKS
-//     printf("PF ->%s<-\n", "");// NO LEAKS
-//     printf("================%%================\n");
-//     printf("------\n");
-//     ft_printf("FT ->%%<-\n");// NO LEAKS
-//     printf("PF ->%%<-\n");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%5%<-\n"); // return UBUNTU ->    %<- MAC OK // NO LEAKS
-//     printf("PF ->%5%<-\n");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%-5%<-\n"); // return UBUNTU ->%    <- MAC OK // NO LEAKS
-//     printf("PF ->%-5%<-\n");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%.0%<-\n");// NO LEAKS
-//     printf("PF ->%.0%<-\n");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%%<-\n", "test");// NO LEAKS
-//     printf("PF ->%%<-\n", "test");// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%%<-\n", "t");// NO LEAKS
-//     printf("PF ->%%<-\n", "t");// NO LEAKS
+    ft_printf("FT ->%.2s is a string<-\n", ""); // NO LEAKS
+    printf("PF ->%.2s is a string<-\n", "");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%5.2s is a string<-\n", ""); // NO LEAKS
+    printf("PF ->%5.2s is a string<-\n", ""); // NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%-.2s is a string<-\n", "");// NO LEAKS
+    printf("PF ->%-.2s is a string<-\n", "");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%-5.2s is a string<-\n", ""); // NO LEAKS
+    printf("PF ->%-5.2s is a string<-\n", ""); // NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%s<-\n", name); // NO LEAKS
+    printf("PF ->%s<-\n", name); // NO LEAKS
+    printf("------\n");
+    /*AT home 0 Turn to space*/
+    ft_printf("FT ->%030s<-\n", name);// NO LEAKS
+    printf("PF ->%030s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->% 30s<-\n", name);// NO LEAKS
+    printf("PF ->% 30s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%- 30s<-\n", name);// NO LEAKS
+    printf("PF ->%- 30s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%+ 30s<-\n", name);// NO LEAKS
+    printf("PF ->%+ 30s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%# 30s<-\n", name);// NO LEAKS
+    printf("PF ->%# 30s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%# 30.10s<-\n", name);// NO LEAKS
+    printf("PF ->%# 30.10s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%.10s<-\n", name);// NO LEAKS
+    printf("PF ->%.10s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%30.10s<-\n", name);// NO LEAKS
+    printf("PF ->%30.10s<-\n", name);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%-30.10s<-\n", name);// NO LEAKS
+    printf("PF ->%-30.10s<-\n", name); // NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%s<-\n", test_null);// NO LEAKS
+    printf("PF ->%s<-\n", test_null);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%s<-\n", "\0");// NO LEAKS
+    printf("PF ->%s<-\n", "\0");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%s<-\n", "");// NO LEAKS
+    printf("PF ->%s<-\n", "");// NO LEAKS
+    printf("================%%================\n");
+    printf("------\n");
+    ft_printf("FT ->%%<-\n");// NO LEAKS
+    printf("PF ->%%<-\n");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%5%<-\n"); // return UBUNTU ->    %<- MAC OK // NO LEAKS
+    printf("PF ->%5%<-\n");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%-5%<-\n"); // return UBUNTU ->%    <- MAC OK // NO LEAKS
+    printf("PF ->%-5%<-\n");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%.0%<-\n");// NO LEAKS
+    printf("PF ->%.0%<-\n");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%%<-\n", "test");// NO LEAKS
+    printf("PF ->%%<-\n", "test");// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%%<-\n", "t");// NO LEAKS
+    printf("PF ->%%<-\n", "t");// NO LEAKS
 
 
-//     printf("================CHAR================\n");
-//     char c = 'a';
-//     char n = NULL;
-//     printf("------\n");
-//     ft_printf("FT ->%c<-\n", n);// NO LEAKS
-//     printf("PF ->%c<-\n", n);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%c<-\n", c);// NO LEAKS
-//     printf("PF ->%c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%+c<-\n", c);// NO LEAKS
-//     printf("PF ->%+c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%#c<-\n", c);// NO LEAKS
-//     printf("PF ->%#c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%-c<-\n", c);// NO LEAKS
-//     printf("PF ->%-c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%.12c<-\n", c);// NO LEAKS
-//     printf("PF ->%.12c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%05c<-\n", c); // RET UN->0000a<- MAC OK// NO LEAKS
-//     printf("PF ->%05c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->% 5c<-\n", c);// NO LEAKS
-//     printf("PF ->% 5c<-\n", c);// NO LEAKS
-//     printf("------\n");
-//     ft_printf("FT ->%- 5c<-\n", c);// NO LEAKS
-//     printf("PF ->%- 5c<-\n", c);// NO LEAKS
-//     printf("------\n");
+    printf("================CHAR================\n");
+    char c = 'a';
+    char n = NULL;
+    printf("------\n");
+    ft_printf("FT ->%c<-\n", n);// NO LEAKS
+    printf("PF ->%c<-\n", n);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%c<-\n", c);// NO LEAKS
+    printf("PF ->%c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%+c<-\n", c);// NO LEAKS
+    printf("PF ->%+c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%#c<-\n", c);// NO LEAKS
+    printf("PF ->%#c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%-c<-\n", c);// NO LEAKS
+    printf("PF ->%-c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%.12c<-\n", c);// NO LEAKS
+    printf("PF ->%.12c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%05c<-\n", c); // RET UN->0000a<- MAC OK// NO LEAKS
+    printf("PF ->%05c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->% 5c<-\n", c);// NO LEAKS
+    printf("PF ->% 5c<-\n", c);// NO LEAKS
+    printf("------\n");
+    ft_printf("FT ->%- 5c<-\n", c);// NO LEAKS
+    printf("PF ->%- 5c<-\n", c);// NO LEAKS
+    printf("------\n");
 
 
 

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 17:49:22 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:55:31 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	add_character_f_hashtag(char conv)
 {
 	if (conv == 'o')
 		return (1);
-	else if (conv == 'x')
+	else if (conv == 'x' || conv == 'p')
 		return (2);
 	else 
 		return (0);
@@ -33,7 +33,6 @@ int	set_space(t_parameter *option, char *str)
 	int	size;
 
 	size = 0;
- 	// printf("\nLENGTH-->%d<--\n", option->lenght);
 	if (option->lenght == 1)
 		{
 			size += print_char(' ');
@@ -55,13 +54,13 @@ int	set_zero(t_parameter *option, char *str)
 	size = 0;
 	if (option->flags & F_HASHTAG)
 		size += print_0x(option, str);
-	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
-		size += print_sign(option);
 	if (option->flags & F_SPACE && option->lenght >= 1 && !(option->flags & F_NEGATIF))
 	{
 		size += print_char(' ');
 		option->lenght -= 1;
 	}
+	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
+		size += print_sign(option);
 	while (option->lenght > 0)
 	{
 		size += print_char('0');
@@ -103,7 +102,7 @@ int	align(char *str, t_parameter *option)
 		size += print_0x(option, str);
 	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
 		size += print_sign(option);
-	size += print_precision(0, option, (int)ft_strlen(str));
+	size += print_precision(0, option, str);
 	size += print_str(str, (int)ft_strlen(str));
 	while (size < option->width)
 		size += print_char(' ');

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:15:55 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 12:25:57 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:26:15 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@ int	char_to_arr(t_parameter *option, char number)
 	int		size;
 
 	size = 0;
-	if (number < 0 && number > -127)
+	if (number == 0 && option->dot && option->pre == 0)
 	{
-		number *= -1;
-		option->flags = option->flags | F_NEGATIF;
+		if (option->flags & F_HASHTAG)
+				option->flags = option->flags ^ F_HASHTAG;
+		return (print_int(option, ""));
 	}
-	temp = ft_itoa(number);
+	if (number < 0)
+		number = set_negatif(number, option);
+	// printf("\nNUM = %d\n", number);
+	temp = ft_itoa(ft_abs_int(number));
+	// printf("NUMBER->%s<-\n", temp);
 	size = print_int(option, temp);
 	ft_memdel((void *) &temp);
 	return (size);
@@ -35,7 +40,15 @@ int	short_int_to_arr(t_parameter *option, short int number)
 	int		size;
 
 	size = 0;
-	temp = ft_itoa(number);
+	if (number < 0)
+		number = set_negatif(number, option);
+	if (number == 0 && option->dot && option->pre == 0)
+	{
+		if (option->flags & F_HASHTAG)
+				option->flags = option->flags ^ F_HASHTAG;
+		return (print_int(option, ""));
+	}
+	temp = ft_itoa(ft_abs_int(number));
 	size = print_int(option, temp);
 	ft_memdel((void *) &temp);
 	return (size);
@@ -50,6 +63,12 @@ int	ll_int_to_arr(t_parameter *option, long long number)
 	{
 		number *= -1;
 		option->flags = option->flags | F_NEGATIF;
+	}
+	if (number == 0 && option->dot && option->pre == 0)
+	{
+		if (option->flags & F_HASHTAG)
+				option->flags = option->flags ^ F_HASHTAG;
+		return (print_int(option, ""));
 	}
 	size = 0;
 	temp = ft_uitoa_base(number, 10);
