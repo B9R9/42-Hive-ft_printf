@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 10:07:59 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:11:44 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,10 @@ t_parameter	*init(const char *format, t_parameter *option, va_list ap)
 	int			index;
 
 	index = 1;
-	while (checkparams(format[index]) && format)
+	while (checkparams(format[index]) && format[index] != '\0')
 		index++;
+	if (index == (int)ft_strlen(format))
+		return (NULL);
 	temp = ft_strsub(format, 1, index);
 	parameters = temp;
 	ft_memdel((void *)&temp);

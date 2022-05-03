@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 13:31:26 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:03:56 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int main(void)
     printf("================SPECIFIC II ================\n");
     int nb = 42;
     
+    printf("------\n");
+    ft_printf("FT->Test %\n");
+    // printf("PF->Test %\n");
     printf("------\n");
     ft_printf("FT->Test %-5.0o\n",0);
     printf("PF->Test %-5.0o\n",0);
