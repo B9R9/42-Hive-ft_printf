@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:16:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/02 12:19:38 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:57:22 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long double	set_dbl_negtif(long double number, t_parameter *option);
 
 long double	set_dbl_negtif(long double number, t_parameter *option)
 {
-	if (ft_isdoubleneg(number) /*&& number != 0.00*/)
+	if (ft_isdoubleneg(number))
 	{
 		number *= -1;
 		option->flags = option->flags | F_NEGATIF;

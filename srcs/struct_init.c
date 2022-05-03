@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:56:59 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,5 @@ t_parameter	*init(const char *format, t_parameter *option, va_list ap)
 			exit(EXIT_FAILURE);
 	}
 	setup(parameters, option, ap);
-	// if (option->error)
-	// {
-	// 	free(option);
-	// 	option = NULL;
-	// }
 	return (option);
 }

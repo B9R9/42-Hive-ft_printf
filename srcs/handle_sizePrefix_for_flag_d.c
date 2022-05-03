@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:15:55 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 13:26:15 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:50:43 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ int	char_to_arr(t_parameter *option, char number)
 	}
 	if (number < 0)
 		number = set_negatif(number, option);
-	// printf("\nNUM = %d\n", number);
 	temp = ft_itoa(ft_abs_int(number));
-	// printf("NUMBER->%s<-\n", temp);
 	size = print_int(option, temp);
 	ft_memdel((void *) &temp);
 	return (size);

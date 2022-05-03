@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:58:12 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	add_character_f_hashtag(char conv)
 		return (1);
 	else if (conv == 'x' || conv == 'p')
 		return (2);
-	else 
+	else
 		return (0);
 }
 
@@ -34,10 +34,10 @@ int	set_space(t_parameter *option, char *str)
 
 	size = 0;
 	if (option->length == 1)
-		{
-			size += print_char(' ');
-			option->length -= 1;
-		}
+	{
+		size += print_char(' ');
+		option->length -= 1;
+	}
 	while (size < option->length)
 		size += print_char(' ');
 	if (option->flags & F_HASHTAG)
@@ -54,7 +54,8 @@ int	set_zero(t_parameter *option, char *str)
 	size = 0;
 	if (option->flags & F_HASHTAG)
 		size += print_0x(option, str);
-	if (option->flags & F_SPACE && option->length >= 1 && !(option->flags & F_NEGATIF))
+	if (option->flags & F_SPACE && option->length >= 1 && \
+	!(option->flags & F_NEGATIF))
 	{
 		size += print_char(' ');
 		option->length -= 1;

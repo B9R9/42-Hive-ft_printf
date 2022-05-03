@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:05:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:46:52 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:48:39 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	u_ll_itoa(t_parameter *option, unsigned long long int number);
 
 int	if_zero(t_parameter *option, unsigned long long int number)
 {
-	if(!(option->flags & F_MINUS))
+	if (!(option->flags & F_MINUS))
 	{
 		if (option->flags & F_HASHTAG && option->conv != 'o')
 				option->flags = option->flags ^ F_HASHTAG;
@@ -25,7 +25,7 @@ int	if_zero(t_parameter *option, unsigned long long int number)
 			return (print_int(option, " "));
 		return (print_int(option, ""));
 	}
-	else if(option->flags & F_MINUS)
+	else if (option->flags & F_MINUS)
 	{
 		if (option->flags & F_HASHTAG && option->conv != 'o')
 				option->flags = option->flags ^ F_HASHTAG;
@@ -68,25 +68,8 @@ int	format_uint(t_parameter *option, unsigned int number)
 	int		size;
 
 	size = 0;
-	// if (number == 0)
-	// 	return (if_zero(option, number));
-	if (number == 0 && option->dot && option->pre == 0 /*&& !(option->flags & F_MINUS)*/)
-		return(if_zero(option, number));
-	// {
-	// 	if (option->flags & F_HASHTAG && option->conv != 'o')
-	// 			option->flags = option->flags ^ F_HASHTAG;
-	// 	if (option->conv == 'o' && option->width)
-	// 		return (print_int(option, " "));
-	// 	return (print_int(option, ""));
-	// }
-	// else if (number == 0 && option->dot && option->pre == 0 && (option->flags & F_MINUS))
-	// {
-	// 	if (option->flags & F_HASHTAG && option->conv != 'o')
-	// 			option->flags = option->flags ^ F_HASHTAG;
-	// 	if (option->conv == 'o' && option->width && option->pre)
-	// 		return (print_int(option, "0"));
-	// 	return (print_int(option, ""));
-	// }
+	if (number == 0 && option->dot && option->pre == 0)
+		return (if_zero(option, number));
 	if (number == 0 && option->flags & F_HASHTAG && option->conv == 'x')
 		option->flags = option->flags ^ F_HASHTAG;
 	str = ft_uitoa_base(number, define_base(option));

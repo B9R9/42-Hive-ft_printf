@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:59:53 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ int			set_space(t_parameter *option, char *str);
 int			set_zero(t_parameter *option, char *str);
 void		adjust_length(t_parameter *option, char *str, int to_remove);
 int			align(char *str, t_parameter *option);
+
+/*UTILS_PRINT_INT2.C*/
+int			print_sign(t_parameter *option);
+int			print_0x(t_parameter *option, char *str);
 
 /*FT_STR_ROUDING*/
 char		*rounding(char *number, int fpart, int last_index, \
