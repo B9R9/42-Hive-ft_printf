@@ -38,7 +38,7 @@ FILES	=ft_putchar.c	ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 	ft_strsplit.c		ft_cleanstr.c		ft_lstnew.c			ft_lstadd.c	\
 	ft_lstdelone.c		ft_lstdel.c			ft_color.c	\
 	ft_putstrcolor.c	ft_putcharcolor.c	ft_printbits.c\
-	ft_numlenght.c		ft_randomnbr.c 		ft_display_file.c	\
+	ft_numlength.c		ft_randomnbr.c 		ft_display_file.c	\
 	ft_get_next_line.c		ft_swap.c		ft_abs_float.c		ft_isupper.c\
 	ft_u_itoa.c 		ft_ll_itoa.c		ft_l_itoa.c		ft_u_short_itoa.c\
 	ft_abs_int.c 		ft_uitoa_base.c 	ft_reversestr.c \

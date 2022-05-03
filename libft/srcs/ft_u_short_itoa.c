@@ -6,13 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 10:46:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/29 11:13:05 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static short int	numlenght(short int n)
+static short int	numlength(short int n)
 {
 	int	count;
 
@@ -35,7 +35,7 @@ char	*ft_u_short_itoa(short int n)
 	int		i;
 	char	*str;
 
-	i = numlenght(n);
+	i = numlength(n);
 	if (n == 0)
 		return (ft_strdup("0"));
 	str = (char *)malloc(sizeof(char) * (i + 1));

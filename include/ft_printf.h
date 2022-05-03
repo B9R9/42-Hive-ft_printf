@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 11:33:19 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "libft.h"
-# include "dispacht.h"
-# include <stdio.h>
+# include "dispatch.h"
 
 /*DEFINE*/
 # define F_HASHTAG 0x80
@@ -47,10 +46,10 @@ t_parameter	*init(const char *format, t_parameter *li, va_list ap);
 t_bool		checkparams(char c);
 
 /*PRINT_STR.C*/
-int			print_width(t_parameter *option, int lenght);
-int			print_str(const char *str, int lenght);
+int			print_width(t_parameter *option, int length);
+int			print_str(const char *str, int length);
 int			print_char(char c);
-int			align_right(int start, int lenght);
+int			align_right(int start, int length);
 
 /*BONUS.C*/
 int			is_bonus(const char *s);
@@ -71,7 +70,7 @@ int			set_negatif(int number, t_parameter *option);
 
 /*PRINT_INT.C*/
 int			print_int(t_parameter *option, char *str);
-void		set_lenght(t_parameter *option, char *str);
+void		set_length(t_parameter *option, char *str);
 int			print_precision(int start, t_parameter *option, char *str);
 int			print_sign(t_parameter *option);
 int			print_0x(t_parameter *option, char *str);
@@ -97,11 +96,12 @@ long double	set_dbl_negtif(long double number, t_parameter *option);
 int			add_character_f_hashtag(char conv);
 int			set_space(t_parameter *option, char *str);
 int			set_zero(t_parameter *option, char *str);
-void		adjust_lenght(t_parameter *option, char *str, int to_remove);
+void		adjust_length(t_parameter *option, char *str, int to_remove);
 int			align(char *str, t_parameter *option);
 
 /*FT_STR_ROUDING*/
-char		*rounding(char *number, int fpart, int last_index, t_parameter *option);
+char		*rounding(char *number, int fpart, int last_index, \
+t_parameter *option);
 char		*formatrounding(char *number, int last_index);
 char		*round2(char *str, int fpart, long double number, t_parameter *li);
 

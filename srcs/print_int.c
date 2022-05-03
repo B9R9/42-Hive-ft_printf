@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 13:07:26 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		print_sign(t_parameter *option);
 int		print_0x(t_parameter *option, char *str);
 int		print_precision(int start, t_parameter *option, char *str);
-void	set_lenght(t_parameter *option, char *str);
+void	set_length(t_parameter *option, char *str);
 int		print_int(t_parameter *option, char *str);
 
 int	print_0x(t_parameter *option, char *str)
@@ -32,7 +32,7 @@ int	print_0x(t_parameter *option, char *str)
 		option->flags = option->flags ^ F_HASHTAG;
 	}
 	else if (option->conv == 'o' && \
-	option->pre <= (int)ft_numlenght(ft_atoi(str)))
+	option->pre <= (int)ft_numlength(ft_atoi(str)))
 	{
 		size += print_char('0');
 		option->flags = option->flags ^ F_HASHTAG;
@@ -73,7 +73,7 @@ int	print_precision(int start, t_parameter *option, char *str)
 	return (size);
 }
 /*
-void	set_lenght(t_parameter *option, char *str)
+void	set_length(t_parameter *option, char *str)
 {
 	int	to_remove;
 
@@ -81,7 +81,7 @@ void	set_lenght(t_parameter *option, char *str)
 	if (option->pre < (int)ft_strlen(str) && option->conv != 'f')
 		option->pre = (int)ft_strlen(str);
 	if ((option->flags & F_HASHTAG && option->conv != 'o') || \
-	(option->conv == 'o' && option->pre <= (int)ft_numlenght(ft_atoi(str))))
+	(option->conv == 'o' && option->pre <= (int)ft_numlength(ft_atoi(str))))
 		to_remove += add_character_f_hashtag(option->conv);
 	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
 	option->width >= option->pre)
@@ -89,7 +89,7 @@ void	set_lenght(t_parameter *option, char *str)
 	if (option->flags & F_ZERO && (option->conv != 'f') && \
 	option->pre >= (int)ft_strlen(str))
 		option->flags = option->flags ^ F_ZERO;
-	adjust_lenght(option, str, to_remove);
+	adjust_length(option, str, to_remove);
 }
 */
 
@@ -102,13 +102,13 @@ void	adjust_flags(t_parameter *option, char *str)
 	
 }
 
-void	set_lenght(t_parameter *option, char *str)
+void	set_length(t_parameter *option, char *str)
 {
 	int	to_remove;
 
 	to_remove = 0;
 	if ((option->flags & F_HASHTAG && option->conv != 'o') || \
-	(option->conv == 'o' && option->pre <= (int)ft_numlenght(ft_atoi(str))))
+	(option->conv == 'o' && option->pre <= (int)ft_numlength(ft_atoi(str))))
 		to_remove += add_character_f_hashtag(option->conv);
 	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
 	option->width >= option->pre)
@@ -116,9 +116,9 @@ void	set_lenght(t_parameter *option, char *str)
 	if (option->pre > option->width && option->conv != 'f')
 		option->width = 0;
 		
-	option->lenght = (option->width - to_remove) - option->pre;
-	if (option->lenght < 0)
-		option->lenght = 0;
+	option->length = (option->width - to_remove) - option->pre;
+	if (option->length < 0)
+		option->length = 0;
 }
 
 void	set_precision(t_parameter *option, char *str)
@@ -128,17 +128,17 @@ void	set_precision(t_parameter *option, char *str)
 		option->pre = (int)ft_strlen(str);
 	if (option->conv == 'f' && option->pre > 0)
 	{
-		if (ft_numlenght(ft_atoi(str)))
-			option->pre += (int)ft_numlenght(ft_atoi(str)) + 1;
+		if (ft_numlength(ft_atoi(str)))
+			option->pre += (int)ft_numlength(ft_atoi(str)) + 1;
 		else 
 			option->pre += 2;
 	}
 	if (option->conv == 'f' && option->pre == 0)
 	{
-		if (ft_numlenght(ft_atoi(str)) == 0)
+		if (ft_numlength(ft_atoi(str)) == 0)
 			option->pre += 1;
 		else
-			option->pre += (int)ft_numlenght(ft_atoi(str));
+			option->pre += (int)ft_numlength(ft_atoi(str));
 	}
 	// printf("\nPRE->%d<-\n", option->pre);
 	
@@ -152,8 +152,8 @@ int	print_int(t_parameter *option, char *str)
 	size = 0;
 	adjust_flags(option, str);
 	set_precision(option, str);
-	set_lenght(option, str);
-	// printf("\nLENGTH->%d<-\n", option->lenght);
+	set_length(option, str);
+	// printf("\nLENGTH->%d<-\n", option->length);
 	// printf("\nWIDTH->%d<-\n",option->width);
 	// printf("\nFLAS->%d<-\n",option->flags & F_ZERO);
 	if (option->flags & F_MINUS)
@@ -167,7 +167,7 @@ int	print_int(t_parameter *option, char *str)
 	if(option->flags & F_SPACE && option->width == 0 && !(option->flags & F_NEGATIF))
 	{
 		size += print_char(' ');
-		option->lenght -= 1;
+		option->length -= 1;
 	}
 	if (option->flags & F_ZERO)
 		size += set_zero(option, str);

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:11:05 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 10:50:23 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:33:26 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	set_precision(t_parameter *option, const char *str)
 	if ((!option->pre && str && !(option->dot)) || \
 	(option->pre > (int)ft_strlen(str) && str))
 		option->pre = ft_strlen(str);
-	if(option->pre < 0)
+	if (option->pre < 0)
 		option->pre = ft_strlen(str);
 }
 

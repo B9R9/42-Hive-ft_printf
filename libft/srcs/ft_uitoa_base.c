@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:59:59 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/27 15:50:12 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_uitoa_base(unsigned long long number, int base)
 	char	*str;
 
 	index = 0;
-	str = ft_strnew(ft_numlenght(number) + 1);
+	str = ft_strnew(ft_numlength(number) + 1);
 	if (!str)
 		return (NULL);
 	if (number == 0)

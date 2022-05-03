@@ -6,13 +6,13 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:47:44 by briffard          #+#    #+#             */
-/*   Updated: 2022/03/31 16:05:48 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long long int	ft_numlenght(unsigned long long int n)
+unsigned long long int	ft_numlength(unsigned long long int n)
 {
 	unsigned long long	count;
 

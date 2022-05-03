@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:11:44 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	resetoption(t_parameter *option, char *str)
 	ft_bzero(option->sizeprefix, 5);
 	option->size = ft_strlen(str);
 	option->negatif = false;
-	option->lenght = 0;
+	option->length = 0;
 	option->conv = ft_tolower(str[ft_strlen(str) - 1]);
 }
 

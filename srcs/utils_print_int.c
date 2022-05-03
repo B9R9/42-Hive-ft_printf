@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 12:55:31 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		add_character_f_hashatg(char conv);
 int		set_space(t_parameter *option, char *str);
 int		set_zero(t_parameter *option, char *str);
-void	adjust_lenght(t_parameter *option, char *str, int to_remove);
+void	adjust_length(t_parameter *option, char *str, int to_remove);
 int		align(char *str, t_parameter *option);
 
 int	add_character_f_hashtag(char conv)
@@ -33,12 +33,12 @@ int	set_space(t_parameter *option, char *str)
 	int	size;
 
 	size = 0;
-	if (option->lenght == 1)
+	if (option->length == 1)
 		{
 			size += print_char(' ');
-			option->lenght -= 1;
+			option->length -= 1;
 		}
-	while (size < option->lenght)
+	while (size < option->length)
 		size += print_char(' ');
 	if (option->flags & F_HASHTAG)
 		size += print_0x(option, str);
@@ -54,40 +54,40 @@ int	set_zero(t_parameter *option, char *str)
 	size = 0;
 	if (option->flags & F_HASHTAG)
 		size += print_0x(option, str);
-	if (option->flags & F_SPACE && option->lenght >= 1 && !(option->flags & F_NEGATIF))
+	if (option->flags & F_SPACE && option->length >= 1 && !(option->flags & F_NEGATIF))
 	{
 		size += print_char(' ');
-		option->lenght -= 1;
+		option->length -= 1;
 	}
 	if (option->flags & F_PLUS || option->flags & F_NEGATIF)
 		size += print_sign(option);
-	while (option->lenght > 0)
+	while (option->length > 0)
 	{
 		size += print_char('0');
-		option->lenght -= 1;
+		option->length -= 1;
 	}
 	return (size);
 }
 
-void	adjust_lenght(t_parameter *option, char *str, int to_remove)
+void	adjust_length(t_parameter *option, char *str, int to_remove)
 {
 	if (option->conv == 'f')
-		option->pre += (ft_numlenght(ft_atoi(str)) + 1);
+		option->pre += (ft_numlength(ft_atoi(str)) + 1);
 	if (option->pre > option->width && option->conv != 'f')
 		option->width = 0;
 	else
 	{
-		option->lenght = (option->width - to_remove) - option->pre;
-		if (option->lenght < 0)
-			option->lenght = 0;
+		option->length = (option->width - to_remove) - option->pre;
+		if (option->length < 0)
+			option->length = 0;
 	}
 	if (option->width == 0 && option->pre == (int)ft_strlen(str) && \
 	option->flags & F_SPACE && (!(option->flags & F_NEGATIF) && \
 	!(option->flags & F_PLUS)))
-		option->lenght += 1;
+		option->length += 1;
 	if (option->conv == 'u' && option->flags & F_HASHTAG && \
 	option->width > option->pre)
-		option->lenght += 2;
+		option->length += 2;
 }
 
 int	align(char *str, t_parameter *option)

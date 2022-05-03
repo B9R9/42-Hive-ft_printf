@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:29:29 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,5 +156,5 @@ void				ft_swap(char *a, char *b);
 /*MATH*/
 double				ft_abs_float(double value);
 long long			ft_abs_int(long long value);
-unsigned long long	ft_numlenght(unsigned long long int n);
+unsigned long long	ft_numlength(unsigned long long int n);
 #endif
