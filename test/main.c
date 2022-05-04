@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 15:48:32 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/04 11:04:36 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,16 @@ int main(void)
     int nb = 42;
     
     printf("------\n");
+    printf("PF-> Test %.2f\n", -0.00500);         
+    ft_printf("FT-> Test %.2f\n", -0.00500);
+    printf("------\n");
+    printf("PF-> Test %.3f\n", -0.000500);         
+    ft_printf("FT-> Test %.3f\n", -0.000500);
+    printf("------\n");
     ft_printf("FT->Test %\n");
+    printf("------\n");
+    printf("PT->test '%0 10f'\n", -3.14159265);
+    ft_printf("FT->test '%0 10f'\n", -3.14159265);
     // printf("PF->Test %\n");
     printf("------\n");
     ft_printf("FT->Test %#.f %#.0f %#.15Lf\n",0 , 0, 0.15545);
