@@ -19,12 +19,7 @@ if [ $1 = 'Itoetest' ];then
     ./test_ftprintf
     exit 1
 fi
-if [ $1 = 'Caruytest' ];then
-    ./test/caruytest/run.sh
-    exit 1
-fi
 if [ $1 = 'valgrind' ];then
-    mkdir -p ./test/leaks
     if [ -e "/Users/briffard/Desktop/B9R9-ft_printf/test/leaks/valgrindlog" ]; then
         rm -f /Users/briffard/Desktop/B9R9-ft_printf/test/leaks/valgrindlog
     fi

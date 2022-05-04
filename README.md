@@ -82,16 +82,17 @@ Test.sh
 =======
 * test.sh clean
   * remove *.o && valgrind.log && leaksreport.txt && executable
-* test.sh compil
+* test.sh test
   * compil the programm:
 ```
-    gcc -o main.o  -c main.c -Iinclude -I./libft/includes -g
-    gcc -o test main.o -L. -lftprintf -g
+    gcc -o ./test/main.o  -c ./test/main.c -Iinclude -I./libft/includes -g
+    gcc -o test_printf ./test/main.o -L. -lftprintf -g
+    ./test_printf
 ```
 * test.sh valgrind
   * compil your programm && generate a log
 ```
-  valgrind  --leak-check=full --show-leak-kinds=all --log-file="Valgrindlog" test
+  valgrind  --leak-check=full --show-leak-kinds=all --log-file="./test/leaks/valgrindlog" test_ftprintf
 ```
 * test.sh push "commitname"
 ```
