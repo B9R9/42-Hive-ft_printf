@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 09:06:19 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:01:21 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		align(char *str, t_parameter *option);
 
 int	add_character_f_hashtag(t_parameter *option)
 {
-	if (option->conv == 'o' || (option->conv == 'f' && option->dot == 3))
+	if (option->conv == 'o' || (option->conv == 'f' && option->adddot))
 		return (1);
 	else if (option->conv == 'x' || option->conv == 'p')
 		return (2);

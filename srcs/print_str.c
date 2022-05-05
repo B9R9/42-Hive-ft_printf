@@ -6,12 +6,11 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:29:25 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 16:30:42 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:02:05 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	print_width(t_parameter *option, int length);
 int	print_str(const char *str, int length, t_parameter *option);
@@ -55,7 +54,7 @@ int	print_str(const char *str, int length, t_parameter *option)
 		size += print_char(str[i]);
 		i++;
 	}
-	if (option->flags & F_HASHTAG && option->conv == 'f' && option->dot == 3)
+	if (option->flags & F_HASHTAG && option->conv == 'f' && option->adddot)
 		size += print_char('.');
 	return (size);
 }

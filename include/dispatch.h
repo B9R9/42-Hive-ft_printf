@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 10:12:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:28:13 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:58:33 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_parameter
 	int			char_to_skip;
 	char		sizeprefix[5];
 	int			size;
+	t_bool		adddot;
 }	t_parameter;
 
 /*DISPATCH TABLE*/

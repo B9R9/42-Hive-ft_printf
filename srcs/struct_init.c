@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:56:59 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:58:20 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	resetoption(t_parameter *option, char *str)
 	option->negatif = false;
 	option->length = 0;
 	option->conv = ft_tolower(str[ft_strlen(str) - 1]);
+	option->adddot = false;
 }
 
 /*PARSE PARAMETERS STR TO DEFINE THEM INTO THE STRUCT*/

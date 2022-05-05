@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 09:01:40 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:02:25 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include "libft.h"
 # include "dispatch.h"
-# include <stdio.h>
 
 /*DEFINE*/
 # define F_HASHTAG 0x80
@@ -30,13 +29,6 @@
 # define F_MOD 0x02
 
 # define ARRFLAGS "scdxXop%ifutb"
-
-/*STRUCT*/
-typedef struct s_containeur
-{
-	char					*box;
-	struct s_containeur		*next;
-}t_containeur;
 
 /*PROTOTYPE*/
 int			ft_printf(const char *format, ...);

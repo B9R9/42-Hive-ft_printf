@@ -6,12 +6,11 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:18:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 15:58:40 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:02:01 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	format_dbl(t_parameter *option, long double number);
 static int	getdigit(int pre, long double fpart);

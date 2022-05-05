@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 09:00:24 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:59:17 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	set_precision(t_parameter *option, char *str)
 			option->pre += 1;
 		else
 			option->pre += (int)ft_numlength(ft_atoi(str));
-		option->dot = 3;
+		option->adddot = true;
 	}
 }
 
