@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 16:01:47 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:01:40 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include "libft.h"
 # include "dispatch.h"
+# include <stdio.h>
 
 /*DEFINE*/
 # define F_HASHTAG 0x80
@@ -93,7 +94,7 @@ t_bool		isnot_precision(int c);
 long double	set_dbl_negtif(long double number, t_parameter *option);
 
 /*UTILS_PRINT_INT.C*/
-int			add_character_f_hashtag(char conv);
+int			add_character_f_hashtag(t_parameter *option);
 int			set_space(t_parameter *option, char *str);
 int			set_zero(t_parameter *option, char *str);
 void		adjust_length(t_parameter *option, char *str, int to_remove);

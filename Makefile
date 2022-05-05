@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 12:13:08 by briffard          #+#    #+#              #
-#    Updated: 2022/05/03 15:03:46 by briffard         ###   ########.fr        #
+#    Updated: 2022/05/05 08:15:30 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libftprintf.a
 
 #COMPILATION
 CC		=	gcc
-CCFLAGS	=	-Werror -Wextra -Wall -I./libft/includes -Iinclude
+CCFLAGS	=	-Werror -Wextra -Wall -I./libft/includes -Iinclude -g
 
 #CLEAN & FCLEAN
 RM_DIR	=	rm -rf
@@ -34,7 +34,7 @@ SRC		=	ft_printf.c												\
 			bonus.c 												\
 
 #OBJECT FILE
-OBJ_DIR	=	./objectFiles/
+OBJ_DIR		=	./objectFiles/
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 
 all:$(NAME)

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 16:05:21 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 08:52:03 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	format_int(t_parameter *option, int number)
 	int		size;
 
 	size = 0;
-	if (number < 0 && number > -2147483648)
+	if (number < 0 && number >= -2147483648)
 		number = set_negatif(number, option);
 	if (number == 0 && option->dot && option->pre == 0)
 	{
@@ -40,7 +40,7 @@ static int	format_int(t_parameter *option, int number)
 				option->flags = option->flags ^ F_HASHTAG;
 		return (print_int(option, ""));
 	}
-	dest = ft_itoa(number);
+	dest = ft_l_itoa(ft_abs_int(number));
 	size += print_int(option, dest);
 	ft_memdel((void *)&dest);
 	return (size);
@@ -54,8 +54,6 @@ int	format_char(t_parameter *option, char c)
 	int	size;
 
 	size = 0;
-	if (option->conv == '%')
-		c = '%';
 	size += print_width(option, 1);
 	size += print_char(c);
 	if (option->flags & F_MINUS)
@@ -76,7 +74,7 @@ static int	format_bool(int number, t_parameter *option)
 
 int	conv_to_int(t_parameter *option, va_list ap)
 {
-	if (option->conv == 'c' || option->conv == '%')
+	if (option->conv == 'c')
 		return (format_char(option, va_arg(ap, int)));
 	else if (option->conv == 't')
 		return (format_bool(va_arg(ap, int), option));

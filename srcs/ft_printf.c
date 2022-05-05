@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 08:24:41 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/26 09:33:46 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 08:30:21 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	dispacht(va_list ap, t_parameter *new);
 static int	dispacht(va_list ap, t_parameter *new)
 {
 	if (new->conv == '%')
-		return (conv_to_int(new, ap));
+		return (format_char(new, '%'));
 	else
 		return (g_funcflagsarray[new->conv - 'a'](new, ap));
 }

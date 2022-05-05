@@ -6,23 +6,23 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:38:24 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 16:05:50 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:06:19 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		add_character_f_hashatg(char conv);
+int		add_character_f_hashatg(t_parameter *option);
 int		set_space(t_parameter *option, char *str);
 int		set_zero(t_parameter *option, char *str);
 void	adjust_length(t_parameter *option, char *str, int to_remove);
 int		align(char *str, t_parameter *option);
 
-int	add_character_f_hashtag(char conv)
+int	add_character_f_hashtag(t_parameter *option)
 {
-	if (conv == 'o')
+	if (option->conv == 'o' || (option->conv == 'f' && option->dot == 3))
 		return (1);
-	else if (conv == 'x' || conv == 'p')
+	else if (option->conv == 'x' || option->conv == 'p')
 		return (2);
 	else
 		return (0);
