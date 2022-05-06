@@ -6,14 +6,14 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:27:52 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 15:58:20 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:05:25 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 t_parameter			*init(const char *format, t_parameter *option, va_list ap);
-t_bool				checkparams(char c);
+int					checkparams(char c);
 static void			resetoption(t_parameter *li, char *str);
 static t_parameter	*setup(char *str, t_parameter *li, va_list ap);
 
@@ -24,16 +24,16 @@ static void	resetoption(t_parameter *option, char *str)
 	if (ft_isupper(str[ft_strlen(str) - 1]))
 		option->upper = 1;
 	option->width = 0;
-	option->dot = false;
-	option->error = false;
+	option->dot = 0;
+	option->error = 0;
 	option->pre = 0;
 	option->char_to_skip = 0;
 	ft_bzero(option->sizeprefix, 5);
 	option->size = ft_strlen(str);
-	option->negatif = false;
+	option->negatif = 0;
 	option->length = 0;
 	option->conv = ft_tolower(str[ft_strlen(str) - 1]);
-	option->adddot = false;
+	option->adddot = 0;
 }
 
 /*PARSE PARAMETERS STR TO DEFINE THEM INTO THE STRUCT*/
@@ -49,7 +49,7 @@ static t_parameter	*setup(char *str, t_parameter *li, va_list ap)
 }
 
 /*LOOKING FOR THE FLAG*/
-t_bool	checkparams(char c)
+int	checkparams(char c)
 {
 	size_t	i;
 
@@ -57,10 +57,10 @@ t_bool	checkparams(char c)
 	while (ARRFLAGS[i] != '\0')
 	{
 		if (c == ARRFLAGS[i])
-			return (false);
+			return (0);
 		i++;
 	}
-	return (true);
+	return (1);
 }
 
 t_parameter	*init(const char *format, t_parameter *option, va_list ap)

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:38:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 08:16:13 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,6 @@ typedef struct s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-typedef enum e_bool
-{
-	false,
-	true
-}			t_bool;
 
 /*FT_STR FUNCTION*/
 /*RETURN INT*/
@@ -111,8 +105,8 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isalpha(int c);
 int					ft_isspace(char c);
-t_bool				ft_isdoubleneg(long double x);
-t_bool				ft_isintneg(long long int number);
+int					ft_isdoubleneg(long double x);
+int					ft_isintneg(long long int number);
 
 /*FT_PUT FUNCTION*/
 void				ft_putchar(char c);

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 10:12:21 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 15:58:33 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:01:25 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ typedef struct s_parameter
 	t_uchar		flags;
 	int			width;
 	char		conv;
-	t_bool		upper;
-	t_bool		negatif;
-	t_bool		dot;
-	t_bool		error;
+	int			upper;
+	int			negatif;
+	int			dot;
+	int			error;
 	int			length;
 	int			pre;
 	int			char_to_skip;
 	char		sizeprefix[5];
 	int			size;
-	t_bool		adddot;
-}	t_parameter;
+	int			adddot;
+}				t_parameter;
 
 /*DISPATCH TABLE*/
 /*FUNCTION IN DISPATCH FLAG ARRAY*/

@@ -6,15 +6,15 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:49:12 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/23 16:47:16 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 08:15:18 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_isdoubleneg(long double x)
+int	ft_isdoubleneg(long double x)
 {
 	if ((1 / x) > 0)
-		return (false);
-	return (true);
+		return (0);
+	return (1);
 }

@@ -11,8 +11,8 @@ fi
 if [ $1 = 'test' ];then
     make -C ../ re
 	mkdir -p leaks
-    gcc -o main.o  -c -x c main -I../include -I../libft/includes -g
-    gcc -o test_ftprintf main.o -L../ -lftprintf -g
+    gcc -Wextra -Wall -Wtautological-constant-out-of-range-compare -o main.o  -c -x c main -I../include -I../libft/includes -g
+    gcc -Wextra -Wall -Wtautological-constant-out-of-range-compare -o test_ftprintf main.o -L../ -lftprintf -g
     ./test_ftprintf
     exit 1
 fi
@@ -27,8 +27,8 @@ fi
 if [ $1 = 'test3' ];then
 	make -C ../ re
 	mkdir -p leaks
-    gcc -o main3.o  -c -x c main3 -I../include -I../libft/includes
-    gcc -o test_ftprintf main3.o -L../ -lftprintf
+    gcc  -Wextra -Wall -Wtautological-constant-out-of-range-compare -o main3.o  -c -x c main3 -I../include -I../libft/includes
+    gcc  -Wextra -Wall -Wtautological-constant-out-of-range-compare -o test_ftprintf main3.o -L../ -lftprintf
     ./test_ftprintf
     exit 1
 fi

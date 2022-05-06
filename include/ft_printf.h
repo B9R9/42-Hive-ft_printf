@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:05:56 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 16:02:25 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:02:09 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			ft_printf(const char *format, ...);
 /*FUNCTIONS*/
 /*STRUCT_INIT.C*/
 t_parameter	*init(const char *format, t_parameter *li, va_list ap);
-t_bool		checkparams(char c);
+int			checkparams(char c);
 
 /*PRINT_STR.C*/
 int			print_width(t_parameter *option, int length);
@@ -81,8 +81,8 @@ int			char_to_arr(t_parameter *option, char number);
 /*UTILS_FUNCT.C*/
 int			define_base(t_parameter *option);
 int			skip(char *str);
-t_bool		isnot_sizeprefix(char *str);
-t_bool		isnot_precision(int c);
+int			isnot_sizeprefix(char *str);
+int			isnot_precision(int c);
 long double	set_dbl_negtif(long double number, t_parameter *option);
 
 /*UTILS_PRINT_INT.C*/

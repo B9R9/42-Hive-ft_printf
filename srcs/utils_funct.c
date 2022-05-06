@@ -6,16 +6,16 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:16:48 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 14:57:22 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:14:47 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int			skip(char *str);
-t_bool		isnot_sizeprefix(char *str);
+int			isnot_sizeprefix(char *str);
 int			define_base(t_parameter *option);
-t_bool		isnot_precision(int c);
+int			isnot_precision(int c);
 long double	set_dbl_negtif(long double number, t_parameter *option);
 
 long double	set_dbl_negtif(long double number, t_parameter *option)
@@ -50,23 +50,23 @@ int	skip(char *str)
 	return (index);
 }
 
-t_bool	isnot_sizeprefix(char *str)
+int	isnot_sizeprefix(char *str)
 {
 	if ((str[0] == 'l' || str[0] == 'h' || str[0] == 'L' || str[0] == 'z') && \
 	!checkparams(str[1]))
-		return (false);
+		return (0);
 	if (str[0] == 'l' && str[1] == 'l' && !checkparams(str[2]))
-		return (false);
+		return (0);
 	if (str[0] == 'h' && str[1] == 'h' && !checkparams(str[2]))
-		return (false);
-	return (true);
+		return (0);
+	return (1);
 }
 
-t_bool	isnot_precision(int c)
+int	isnot_precision(int c)
 {
 	if (c == '.')
-		return (false);
+		return (0);
 	if (c == '*')
-		return (false);
-	return (true);
+		return (0);
+	return (1);
 }

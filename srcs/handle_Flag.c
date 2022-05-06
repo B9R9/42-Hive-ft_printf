@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:47:35 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/03 10:56:41 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 08:58:10 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_parameter	*handle_flag(char *str, t_parameter *li)
 
 t_parameter	*handle_width(char *str, t_parameter *li, va_list ap)
 {
-	if (str[0] == '*')
+	if (str[0] == '*' && !(ft_isdigit(str[1])))
 	{
 		li->width = va_arg(ap, int);
 		li->char_to_skip += 1;
@@ -58,11 +58,17 @@ t_parameter	*handle_width(char *str, t_parameter *li, va_list ap)
 	}
 	else
 	{
-		li->width = ft_atoi(str);
-		if (!li->width && isnot_precision(str[0]) && checkparams(str[0]) && \
-		isnot_sizeprefix(str))
-			li->error = true;
-		li->char_to_skip += skip(str);
+		if (str[0] == '*' && ft_isdigit(str[1]))
+		{
+			li->width = va_arg(ap, int);
+			li->width = ft_atoi(&str[1]);
+			li->char_to_skip += skip(&str[1]) + 1;
+		}
+		else
+		{
+			li->width = ft_atoi(str);
+			li->char_to_skip += skip(str);
+		}
 	}
 	return (li);
 }
@@ -71,7 +77,7 @@ t_parameter	*handle_precision(char *str, t_parameter *li, va_list ap)
 {
 	if (str[0] == '.')
 	{
-		li->dot = true;
+		li->dot = 1;
 		if (str[1] == '*')
 		{
 			li->pre = va_arg(ap, int);
@@ -81,12 +87,12 @@ t_parameter	*handle_precision(char *str, t_parameter *li, va_list ap)
 		{
 			li->pre = ft_atoi(&str[1]);
 			if (!li->pre && checkparams(str[1]) && str[1] != '0')
-				li->error = true;
+				li->error = 1;
 			li->char_to_skip += skip(&str[1]) + 1;
 		}	
 	}
 	else if (checkparams(str[0]) && isnot_sizeprefix(str))
-		li->error = true;
+		li->error = 1;
 	return (li);
 }
 

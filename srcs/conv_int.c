@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 08:52:03 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 08:15:18 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	format_int(t_parameter *li, int number);
 int			format_char(t_parameter *option, char c);
-static int	format_bool(int number, t_parameter *option);
+static int	formaint(int number, t_parameter *option);
 int			set_negatif(int number, t_parameter *option);
 
 int	set_negatif(int number, t_parameter *option)
@@ -63,13 +63,13 @@ int	format_char(t_parameter *option, char c)
 
 /*
 ** Receive va_arg as int
-** printf a char* true or false
+** printf a char* 1 or 0
 */
-static int	format_bool(int number, t_parameter *option)
+static int	formaint(int number, t_parameter *option)
 {
 	if (number > 0)
-		return (print_str("True", ft_strlen("True"), option));
-	return (print_str("False", ft_strlen("False"), option));
+		return (print_str("1", ft_strlen("1"), option));
+	return (print_str("0", ft_strlen("0"), option));
 }
 
 int	conv_to_int(t_parameter *option, va_list ap)
@@ -77,7 +77,7 @@ int	conv_to_int(t_parameter *option, va_list ap)
 	if (option->conv == 'c')
 		return (format_char(option, va_arg(ap, int)));
 	else if (option->conv == 't')
-		return (format_bool(va_arg(ap, int), option));
+		return (formaint(va_arg(ap, int), option));
 	else if (option->flags & F_MOD)
 		return (dispacht_to_intsizeprefix(option, ap));
 	else

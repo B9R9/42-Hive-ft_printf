@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:26:18 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 15:59:17 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 08:39:14 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	set_length(t_parameter *option, char *str)
 
 	to_remove = 0;
 	if ((option->flags & F_HASHTAG && option->conv != 'o') || \
-	(option->conv == 'o' && option->pre <= (int)ft_numlength(ft_atoi(str))))
+	(option->flags & F_HASHTAG && option->conv == 'o' && \
+	option->pre <= (int)ft_numlength(ft_atoi(str))))
 		to_remove += add_character_f_hashtag(option);
 	if ((option->flags & F_NEGATIF || option->flags & F_PLUS) && \
 	option->width >= option->pre)
@@ -74,7 +75,7 @@ void	set_precision(t_parameter *option, char *str)
 			option->pre += 1;
 		else
 			option->pre += (int)ft_numlength(ft_atoi(str));
-		option->adddot = true;
+		option->adddot = 1;
 	}
 }
 

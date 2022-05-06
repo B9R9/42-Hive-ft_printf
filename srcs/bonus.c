@@ -6,73 +6,73 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 11:04:06 by briffard          #+#    #+#             */
-/*   Updated: 2022/04/25 11:04:14 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:04:09 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				is_bonus(const char *s);
-static t_bool	is_color(const char *s);
-static t_bool	is_bold(const char *s);
-static t_bool	is_blink(const char *s);
-static t_bool	is_underline(const char *s);
+int			is_bonus(const char *s);
+static int	is_color(const char *s);
+static int	is_bold(const char *s);
+static int	is_blink(const char *s);
+static int	is_underline(const char *s);
 
-static t_bool	is_underline(const char *s)
+static int	is_underline(const char *s)
 {
 	if (!ft_strcmp(s, UNDERLINED) || !ft_strcmp(s, RESETUNDERLINED))
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
-static t_bool	is_bold(const char *s)
+static int	is_bold(const char *s)
 {
 	if (!ft_strcmp(s, BOLD) || !ft_strcmp(s, RESETBOLD))
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
-static t_bool	is_blink(const char *s)
+static int	is_blink(const char *s)
 {
 	if (!ft_strcmp(s, BLINK) || !ft_strcmp(s, RESETBLINK))
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
 /*
 ** Receive s and check if s == a color
-** Return True or False
+** Return 1 or 0
 */
-static t_bool	is_color(const char *s)
+static int	is_color(const char *s)
 {
 	if (!ft_strcmp(s, RED))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, DEFAULT))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, GREEN))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, YELLOW))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, BLUE))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, MAGENTA))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, CYAN))
-		return (true);
+		return (1);
 	if (!ft_strcmp(s, WHITE))
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
 int	is_bonus(const char *s)
 {
 	if (is_color(s))
-		return (true);
+		return (1);
 	if (is_underline(s))
-		return (true);
+		return (1);
 	if (is_bold(s))
-		return (true);
+		return (1);
 	if (is_blink(s))
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }

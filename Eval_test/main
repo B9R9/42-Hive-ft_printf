@@ -1,24 +1,70 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main                                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 13:30:51 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/05 10:12:12 by briffard         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include "ft_printf.h"
+#include <stdio.h>
 #include <limits.h>
 
 int main(void)
 {
-    // char *test_atoi = "abfbd";
-    // int ret = ft_atoi(test_atoi);
-    // printf("%d\n", ret);
+     printf("================SPECIFIC III ================\n");
+    printf("------\n");
+    ft_printf("FT->Test .*s neg {%.*s}\n", -5, "Hello World");
+    printf("PF->Test .*s neg {%.*s}\n", -5, "Hello World");
+    printf("------\n");
+    ft_printf("FT->Test *3d positive {%*3d}\n", 5, 0);
+    printf("PF->Test *3d positive {%*3d}\n", 5, 0);
+    printf("------\n");
+	printf("PF->%010o<-\n", 5);
+	ft_printf("FT->%010o<-\n", 5);
+    printf("------\n");
+	printf("PF->%10o<-\n", 1);
+	ft_printf("FT->%10o<-\n", 1);
+    printf("------\n");
+	printf("PF->%o<-\n", 0);
+	ft_printf("FT->%o<-\n", 0);
+    printf("------\n");
+	printf("PF->%o<-\n", 1);
+	ft_printf("FT->%o<-\n", 1);
+    printf("------\n");
+	printf("PF->%o\n<-", -1);
+	ft_printf("FT->%o<-\n", -1);
+    printf("------\n");
+	printf("PF->%o %o %o %o<-\n", 6, 7, 8, 9);
+	ft_printf("FT->%o %o %o %o<-\n", 6, 7, 8, 9);
+    printf("------\n");
+	printf("PF->%-10o<-\n", 2);
+	ft_printf("FT->%-10o<-\n", 2);
+    printf("------\n");
+	printf("PF->%10.2o<-\n", 3);
+	ft_printf("FT->%10.2o<-\n", 3);
+    printf("------\n");
+	printf("PF->%-10.2o<-\n", 4);
+	ft_printf("FT->%-10.2o<-\n", 4);
+    printf("------\n");
+	printf("PF->%010.2o<-\n", 6);
+	ft_printf("FT->%010.2o<-\n", 6);
+    printf("------\n");
+	printf("PF->%0.0o<-\n", 7);
+	ft_printf("FT->%0.0o<-\n", 7);
+    printf("------\n");
+	printf("PF->%#o<-\n", 8);
+	ft_printf("FT->%#o<-\n", 8);
+    printf("------\n");
+	ft_printf("FT->%hho<-\n", (unsigned char) 42);
+	printf("PF->%hho<-\n", (unsigned char) 42);
+    printf("------\n");
+	printf("PF->%ho<-\n", (unsigned short) 1000);
+	ft_printf("FT->%ho<-\n", (unsigned short) 1000);
+    printf("------\n");
+	printf("PF->%lo<-\n", ULONG_MAX);
+	ft_printf("FT->%lo<-\n", ULONG_MAX);
+    printf("------\n");
+	printf("PF->%lo<-\n", 0UL);
+	ft_printf("FT->%lo<-\n", 0UL);
+    printf("------\n");
+	printf("PF->%llo<-\n", ULLONG_MAX);
+	ft_printf("FT->%llo<-\n", ULLONG_MAX);
+    printf("------\n");
+	printf("PF->%llo<-\n", 0ULL);
+	ft_printf("FT->%llo<-\n", 0ULL);
     printf("================SPECIFIC II ================\n");
     int nb = 42;
     
@@ -783,8 +829,8 @@ ft_printf("FT->hey '% .1f'\n", 0.00);
     ft_printf("FT->%s%s%s%s%s%s<\n","\x1B[31m","\033[4m", "\033[1m", "\033[5m", "Whaaaaatttt","\033[0m");
     printf("PF->%s%s%s%s%s%s<\n","\x1B[31m","\033[4m", "\033[1m", "\033[5m", "Whaaaaatttt","\033[0m");
     printf("================BOOL================\n"); // NOLEAKS
-    t_bool test1 = true;
-    t_bool test2 = false;
+    int test1 = 1;
+    int test2 = 0;
     printf("------\n");
     ft_printf("FT->%t<\n", test1);
     ft_printf("FT->%t<\n", test2);

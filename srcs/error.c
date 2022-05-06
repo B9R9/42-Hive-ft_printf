@@ -6,14 +6,14 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:53:13 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/04 11:06:07 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:03:34 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			error(const char *message);
-t_parameter	*checkoptionerror(t_parameter *options);
+int				error(const char *message);
+t_parameter		*checkoptionerror(t_parameter *options);
 
 t_parameter	*checkoptionerror(t_parameter *options)
 {
