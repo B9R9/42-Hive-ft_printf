@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 08:21:48 by briffard          #+#    #+#              #
-#    Updated: 2022/05/12 08:22:57 by briffard         ###   ########.fr        #
+#    Updated: 2022/05/12 08:35:29 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,6 @@ fclean: clean
 	@$(RM) $(NAME)
 	@echo "libftprintf.a file has been deleted"
 
-re: fclean all clean
+re: fclean all
 
 .PHONY: all re clean fclean

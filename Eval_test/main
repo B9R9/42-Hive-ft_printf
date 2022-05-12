@@ -6,6 +6,9 @@ int main(void)
 {
      printf("================SPECIFIC III ================\n");
     printf("------\n");
+    ft_printf("FT->Test{%d}\n", -0);
+    printf("PF->Test{%d}\n", -0);
+    printf("------\n");
     ft_printf("FT->Test .*s neg {%.*s}\n", -5, "Hello World");
     printf("PF->Test .*s neg {%.*s}\n", -5, "Hello World");
     printf("------\n");
