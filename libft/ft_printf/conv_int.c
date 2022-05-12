@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:03:31 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/06 08:15:18 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/12 08:17:23 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,11 @@ int	format_char(t_parameter *option, char c)
 	return (size);
 }
 
-/*
-** Receive va_arg as int
-** printf a char* 1 or 0
-*/
 static int	formaint(int number, t_parameter *option)
 {
 	if (number > 0)
-		return (print_str("1", ft_strlen("1"), option));
-	return (print_str("0", ft_strlen("0"), option));
+		return (print_str("true", ft_strlen("true"), option));
+	return (print_str("false", ft_strlen("false"), option));
 }
 
 int	conv_to_int(t_parameter *option, va_list ap)

@@ -6,7 +6,7 @@
 /*   By: briffard <briffard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:45 by briffard          #+#    #+#             */
-/*   Updated: 2022/05/06 08:16:13 by briffard         ###   ########.fr       */
+/*   Updated: 2022/05/12 08:21:00 by briffard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include<string.h>
 # include<fcntl.h>
 # include<time.h>
+# include "ft_printf.h"
 
 /*DEFINE*/
 /*COLOR*/
