@@ -6,7 +6,7 @@
 #    By: briffard <briffard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 08:21:48 by briffard          #+#    #+#              #
-#    Updated: 2022/05/12 08:35:29 by briffard         ###   ########.fr        #
+#    Updated: 2022/05/12 09:10:15 by briffard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ CC		=	gcc
 CCFLAGS	=	-Werror -Wextra -Wall
 
 #INCLUDE
-INCL	= -I ./libft/includes
+INCL	= -I ./ft_printf/includes
 
 #CLEAN & FCLEAN
 RM_DIR	=	rm -rf
 RM		=	rm	-f
 
 #SOURCE FILES
-SRC_DIR	=	./libft/srcs/
+SRC_DIR	=	./ft_printf/libft/
 FILES	=ft_putchar.c	ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 	ft_putendl_fd.c		ft_putnbr.c			ft_putnbr_fd.c		ft_toupper.c\
 	ft_putstr.c			ft_putstr_fd.c		ft_strlen.c			ft_atoi.c	\
@@ -49,7 +49,7 @@ FILES	=ft_putchar.c	ft_putchar_fd.c		ft_putendl.c		ft_tolower.c\
 	ft_isdoubleneg.c	ft_isintneg.c 		ft_strjoin_replace.c\
 
 #FT_PRINTF FILES
-FTPRINTF_DIR 	=	./libft/ft_printf/
+FTPRINTF_DIR 	=	./ft_printf/ft_printf/
 FT_PRINTF_SRC 	=	ft_printf.c												\
 					struct_init.c											\
 					handle_Flag.c error.c									\
